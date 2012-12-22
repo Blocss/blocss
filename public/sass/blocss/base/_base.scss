@@ -1,0 +1,9 @@
+/*----------------------------------------------------------------------------*\
+    $BASE
+    High-level elements like 'html', 'body', etc.
+\*----------------------------------------------------------------------------*/
+
+    html{
+        font: ($base-font-size / 16 +em)/($base-line-height / $base-font-size) sans-serif;
+        overflow-y: scroll;
+    }

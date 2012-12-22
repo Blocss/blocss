@@ -1,0 +1,93 @@
+/*----------------------------------------------------------------------------*\
+        VARS.scss
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+        CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    TYPOGRAPHY
+    BRAND
+    MISC
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $TYPOGRAPHY
+\*----------------------------------------------------------------------------*/
+
+    /* Font */
+    $base-font-family:      "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+
+    /* Type */
+    $base-font-size:        16;
+    $base-line-height:      24; // e.g. base-font-size * 1.5
+
+
+    /**
+     * Assign our `$base-line-height` to a new spacing var for
+     * more transparency
+     */
+    $base-spacing-unit:     $base-line-height;
+    $half-spacing-unit:     $base-spacing-unit / 2;
+
+
+    /* Headings (in pixels) */
+    $giga-size:             96;
+    $mega-size:             72;
+    $kilo-size:             48;
+
+    $h1-size:               36; // .alpha
+    $h2-size:               30; // .beta
+    $h3-size:               24; // .gamma
+    $h4-size:               20; // .delta
+    $h5-size:               16; // .epsilon
+    $h6-size:               14; // .zeta
+
+    $milli-size:            12;
+    $micro-size:            10;
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $BRAND
+\*----------------------------------------------------------------------------*/
+
+    $brand-face:            $base-font-family;
+    $brand:                 #369;
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MISC
+\*----------------------------------------------------------------------------*/
+
+    /**
+     * Global border-box ALL the things, as per:
+     * paulirish.com/2012/box-sizing-border-box-ftw
+     */
+    $global-border-box:     true;
+
+
+    /**
+     * responsive? specify the breakpoints
+     */
+    $responsive:            true;
+    $lap-start:             481px;
+    $desk-start:            960px;
+
+
+    /**
+     * Enable debug mode to highlight possible markup/accessibility
+     * quirks in your code
+     */
+    $debug-mode:            false;

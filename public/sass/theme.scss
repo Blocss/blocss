@@ -1,0 +1,112 @@
+@charset "UTF-8";
+/*----------------------------------------------------------------------------*\
+        theme.scss
+        Theme stylesheet, extends Blocss F/E Framework
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+        CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    README
+    INCLUDES............Include various sass files
+    BASE................High-level elements like 'html', 'body', etc.
+    TYPOGRAPHY..........Headings, links, buttons, lists etc.
+    NAVIGATION..........Styling of navigation elements
+    LAYOUT..............Structural styling
+    MODULES.............Reusable, modular parts of the page
+    STATE...............Styling of modules in a particular state
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $README
+\*----------------------------------------------------------------------------*/
+
+    /*
+    Here we set up some variables, include Blocss F/E Framework & compass css3,
+    then add our theme-specific components afterwards.
+
+    Compass is not a prerequisite for Blocss to work, so you can uncomment
+    and it wont be used.
+
+    In your terminal, navigate to the root of your project & run one of 
+    the following commands to watch & compile the file:
+    Compass:    compass watch
+    Sass:       sass --watch public/sass/theme.scss:public/css/theme.css
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $INCLUDES
+    Include various sass files
+\*----------------------------------------------------------------------------*/
+
+    @import "vars";
+    @import "compass/css3";
+    @import "blocss/blocss";
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $BASE
+    High-level elements like 'html', 'body', etc.
+\*----------------------------------------------------------------------------*/
+
+    body{
+        font-family: $base-font-family;
+    }
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $TYPOGRAPHY
+    Headings, links, buttons, lists etc.
+\*----------------------------------------------------------------------------*/
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $NAVIGATION
+    Styling of navigation elements
+\*----------------------------------------------------------------------------*/
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $LAYOUT
+    Structural styling
+\*----------------------------------------------------------------------------*/
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULES
+    Reusable, modular parts of the page
+\*----------------------------------------------------------------------------*/
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+    Styling of modules in a particular state
+\*----------------------------------------------------------------------------*/

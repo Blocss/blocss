@@ -1,0 +1,32 @@
+/*----------------------------------------------------------------------------*\
+    $SHARED
+    Common margin-bottom for vertical rhythm.
+    As per csswizardry.com/2012/06/single-direction-margin-declarations
+\*----------------------------------------------------------------------------*/
+
+    /* base elements */
+    h1,h2,h3,h4,h5,h6,hgroup,
+    ul,ol,dl,
+    blockquote,p,address,
+    table,
+    fieldset,
+    pre,
+    hr,
+    .media,
+    .continent,
+    .island,
+    .islet,
+    .source,
+    .roadsign{
+        @include m-margin-bottom(1);
+    }
+        /* doubled up margin bottom */
+        .landmark{
+            @include m-margin-bottom(2);
+        }
+
+    /* Default indentation value for lists etc. usually the MN */
+    ul,ol,dd{
+        margin-left: $base-line-height + px;
+        margin-left: $base-line-height / $base-font-size + rem;
+    }

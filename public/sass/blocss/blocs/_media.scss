@@ -1,0 +1,49 @@
+/*----------------------------------------------------------------------------*\
+    $MEDIA
+    As per: stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+\*----------------------------------------------------------------------------*/
+
+    /*  Place any image- and text-like content side-by-side, eg.:
+        <div class="media">
+            <div class="img">
+                <img/>
+            </div>
+            <div class="body"></div>
+        </div>
+    */
+    .media{
+        display: block;
+        @extend .cf;
+    }
+        .img{
+            float: left;
+            margin-right: $base-spacing-unit + px;
+        }
+
+        /* Reversed image location (right instead of left). */
+        .img-rev{
+            float: right;
+            margin-left: $base-spacing-unit + px;
+        }
+            .img img{
+                display: block;
+            }
+
+        .body{
+            overflow: hidden;
+        }
+            .body > :last-child{
+                margin-bottom: 0;
+            }
+
+    /*
+    Islets have a slightly smaller padding value than normal.
+    With this in mind we make the `.img` spacing a little smaller for visual consistency.
+    */
+    .islet .img{
+        margin-right: $half-spacing-unit + px;
+    }
+
+    .islet .img-rev{
+        margin-left: $half-spacing-unit + px;
+    }

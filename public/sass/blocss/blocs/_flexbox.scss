@@ -1,0 +1,24 @@
+/*----------------------------------------------------------------------------*\
+    $FLEXBOX
+    Kinda emulate flexbox until we can use it natively
+\*----------------------------------------------------------------------------*/
+
+    /*  eg.:
+        <div class="flex">
+            <div class="flex-item">
+                <b>Welcome to</b>
+            </div>
+            <div class="flexbox-item">
+                <img src="" alt="">
+            </div>
+        </div>
+    */
+    
+    .flex{
+        display: table;
+        width: 100%;
+    }
+        .flex-item{
+            display: table-cell;
+            vertical-align: middle;
+        }

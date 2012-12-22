@@ -1,0 +1,25 @@
+/*----------------------------------------------------------------------------*\
+    $BUTTONS
+    Basic button structural styling. Extend in your theme stylesheet.
+\*----------------------------------------------------------------------------*/
+
+    .btn{
+        font: inherit;
+        cursor: pointer;
+        border: none;
+        display: inline-block;
+        margin: 0;
+    }
+        .btn,
+        .btn:hover{
+            text-decoration: none;
+        }
+
+    .btn-full{
+        display: block;
+        text-align: center;
+        /* The following is so that `.btn-full` works properly on inputs */
+        padding-right: 0;
+        padding-left: 0;
+        width: 100%;
+    }

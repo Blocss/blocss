@@ -1,0 +1,28 @@
+/*----------------------------------------------------------------------------*\
+    $BREADCRUMB
+    Breadcrumb styling applied to (ordered) lists, extends '.nav'
+\*----------------------------------------------------------------------------*/
+
+    /*  eg.:
+        <ol class="nav breadcrumb">
+            <li><a href="#">Home</a></li>
+        </ol>
+     */
+    .breadcrumb > li + li:before{
+        content: "» ";
+    }
+
+    /* breadcrumb path */
+    .breadcrumb-path > li + li:before{
+        content: "/ ";
+    }
+
+    /*  Assign a delimiter on the fly through a data attribute, e.g.:
+        <ol class="nav breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li data-breadcrumb="|"><a href="#">About</a></li>
+        </ol>
+     */
+    .breadcrumb > li + li[data-breadcrumb]:before{
+        content: attr(data-breadcrumb)" ";
+    }

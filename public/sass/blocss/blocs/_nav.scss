@@ -1,0 +1,50 @@
+/*----------------------------------------------------------------------------*\
+    $NAV
+\*----------------------------------------------------------------------------*/
+
+    /*  When used on an 'ol' or 'ul', this class throws the list
+        into horizontal mode eg.:
+        <ul class="nav">
+            <li><a>Home</a></li>
+        </ul>
+    */
+    .nav,
+    .navigation{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        @extend .cf;
+    }
+        .nav > li,
+        .nav > li > a,
+        .navigation > li,
+        .navigation > li > a{
+            display: inline-block;
+            *display: inline;
+            zoom: 1;
+        }
+
+
+    /*  Stacked nav
+        '.stacked' extends '.nav' and renders the list into vertical mode eg.:
+        <ul class="nav stacked">
+            <li><a>Home</a></li>
+        </ul>
+    */
+    .stacked > li{
+        display: list-item;
+    }
+        .stacked > li > a{
+            display: block;
+        }
+
+
+    /* Banner nav
+        '.banner-nav' extends '.nav' and centers the list eg.:
+        <ul class="nav banner-nav">
+            <li><a>Home</a></li>
+        </ul>
+    */
+    .banner-nav{
+        text-align: center;
+    }

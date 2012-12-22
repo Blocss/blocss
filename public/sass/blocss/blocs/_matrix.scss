@@ -1,0 +1,107 @@
+/*----------------------------------------------------------------------------*\
+    $MATRIX
+    Create a grid of items out of a single list
+\*----------------------------------------------------------------------------*/
+
+    /*  Create a grid of items out of a single list, eg.:
+        <ul class="matrix four-cols">
+            <li class="all-cols">Lorem</li>
+            <li>Ipsum</li>
+            <li>Dolor</li>
+            <li>Sit</li>
+            <li>Amet</li>
+            <li class="all-cols">Consectetuer</li>
+        </ul>
+    */
+    .matrix{
+        &,
+        > li{
+            border: 0 solid #ccc; /* Override in theme stylesheet */
+        }
+    }
+    .matrix{
+        list-style: none;
+        margin-left: 0;
+        border-top-width: 1px;
+        border-left-width: 1px;
+        @extend .cf;
+        
+        > li{
+            padding: ($half-spacing-unit) + px;
+            float: left;
+            border-right-width: 1px;
+            border-bottom-width: 1px;
+
+            /**
+             * Since we need border-box on matrix to work,
+             * apply when global setting is false
+             */
+            @if $global-border-box == false{
+                @include vendor(box-sizing, border-box);
+            }
+        }
+    }
+
+    /*  The `.multi-list` object is a lot like the `.matrix` object only
+        without the blocky borders and padding.
+        <ul class="multi-list four-cols">
+            <li>Lorem</li>
+            <li>Ipsum</li>
+            <li>Dolor</li>
+            <li>Sit</li>
+        </ul>
+    */
+    .multi-list{
+        list-style: none;
+        margin-left: 0;
+        @extend .cf;
+        
+        > li{
+            float: left;
+
+            /**
+             * Since we need border-box on multi-list to work,
+             * apply when global setting is false
+             */
+            @if $global-border-box == false{
+                @include vendor(box-sizing, border-box);
+            }
+        }
+    }
+    
+    
+    /**
+     * Make this stuff work in ie6/7
+     */
+    @if $global-border-box == false{
+        .lt-ie8 .matrix > li,
+        .lt-ie8 .multi-list > li{
+            behavior: url(/public/polyfills/boxsizing/boxsizing.htc);
+        }
+    }
+
+
+    /**
+     * Apply these classes alongside the `.matrix` or `.multi-list`
+     * classes on lists to determine how wide their columns are
+     */
+    .two-cols > li{
+        width: 50%;
+    }
+    .three-cols > li{
+        width: 33.333%;
+    }
+    .four-cols > li{
+        width: 25%;
+    }
+    .five-cols > li{
+        width: 20%;
+    }
+    .six-cols > li{
+        width: 16.666%;
+    }
+
+    /*  This only works on the `.matrix` object. */
+    .matrix > .all-cols{
+        width: 100%;
+    }

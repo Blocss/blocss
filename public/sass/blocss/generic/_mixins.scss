@@ -1,0 +1,154 @@
+/*----------------------------------------------------------------------------*\
+        MIXINS.scss
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+        CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    TYPOGRAPHY
+    CSS3
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $TYPOGRAPHY
+\*----------------------------------------------------------------------------*/
+
+    /**
+     * Adds Margin bottom based on magic number
+     */
+    @mixin m-margin-bottom($multiplier: 1){
+        margin-bottom: $multiplier * $base-spacing-unit +px;
+        margin-bottom: $multiplier * $base-spacing-unit / $base-font-size +rem; /* rem unit for modern browsers */
+    }
+
+
+    /**
+     * Calculates height based on magic number
+     */
+    @mixin m-height($multiplier: 1){
+        height: $multiplier * $base-line-height +px;
+        height: $multiplier * ($base-line-height / $base-font-size) +rem;
+    }
+
+
+    /**
+     * Calculates font rem font size & line height
+     */
+    @mixin font-size($fs){
+        font-size: $fs +px;
+        font-size: $fs / $base-font-size +rem;
+        line-height: ceil($fs / $base-line-height) * ($base-line-height / $fs) +em;
+    }
+
+
+    /**
+     * Trucate overly long strings
+     * sample value truncate(100%)
+     */
+    @mixin truncate($truncation-boundary){
+        max-width: $truncation-boundary;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $CSS3
+\*----------------------------------------------------------------------------*/
+
+    /* Generic
+    \*-------------------------------------------------------------------------*/
+
+        @mixin vendor($property, $value){
+            -webkit-#{$property}: $value;
+               -moz-#{$property}: $value;
+                -ms-#{$property}: $value;
+                 -o-#{$property}: $value;
+                    #{$property}: $value;
+        }
+
+
+
+    /* Media Queries
+    \*-------------------------------------------------------------------------*/
+
+        /**
+         * We define some broad breakpoints in our vars file that are picked up here
+         * for use in a simple media query mixin. Our options are:
+         *
+         * palm
+         * lap
+         * lap-and-up
+         * portable
+         * desk
+         *
+         * Not using a media query will, naturally, serve styles to all devices.
+         *
+         * Usage:
+         * '@include media-query(palm){ [styles here] }'
+         */
+        $palm-end:              $lap-start - 1px;
+        $lap-end:               $desk-start - 1px;
+
+        @mixin media-query($media-query){
+
+            /**
+             * Handheld
+             */
+            @if $media-query == palm{
+
+                @media only screen and (max-width:$palm-end) { @content; }
+
+            }
+
+
+            /**
+             * All between '$lap-start' & '$lap-end'
+             */
+            @if $media-query == lap{
+
+                @media only screen and (min-width:$lap-start) and (max-width:$lap-end) { @content; }
+
+            }
+
+
+            /**
+             * All higher than '$palm-end'
+             */
+            @if $media-query == lap-and-up{
+
+                @media only screen and (min-width:$lap-start) { @content; }
+
+            }
+
+
+            /**
+             * All lower than '$lap-end'
+             */
+            @if $media-query == portable{
+
+                @media only screen and (max-width:$lap-end) { @content; }
+
+            }
+
+
+            /**
+             * Desktop
+             */
+            @if $media-query == desk{
+
+                @media only screen and (min-width:$desk-start) { @content; }
+
+            }
+
+        }

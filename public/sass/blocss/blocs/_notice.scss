@@ -1,0 +1,28 @@
+/*----------------------------------------------------------------------------*\
+    $NOTICE
+    Default notice styling
+\*----------------------------------------------------------------------------*/
+
+    /* p,div */.notice{
+        display: block;
+        padding: $half-spacing-unit+px $base-spacing-unit+px;
+        padding: $half-spacing-unit/$base-font-size+rem $base-spacing-unit/$base-font-size+rem;
+        text-align: center;
+        /* overwrite background in theme stylesheet */
+        background: #BDE5F8;
+    }
+    .notice-success{
+        @extend .notice;
+        /* overwrite background in theme stylesheet */
+        background: #DFF2BF;
+    }
+    .notice-warning{
+        @extend .notice;
+        /* overwrite background in theme stylesheet */
+        background: #FEEFB3;
+    }
+    .notice-error{
+        @extend .notice;
+        /* overwrite background in theme stylesheet */
+        background: #FFBABA;
+    }

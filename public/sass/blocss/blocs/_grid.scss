@@ -1,0 +1,83 @@
+/*----------------------------------------------------------------------------*\
+    $GRID
+    Fluid and nestable grid system
+\*----------------------------------------------------------------------------*/
+
+    /*  Fluid and nestable grid system, eg.:
+        <div class="gw">
+
+            <div class="col one-third">
+                <p>One third col</p>
+            </div>
+
+            <div class="col two-thirds">
+                <p>Two thirds col</p>
+            </div>
+
+        </div>
+    */
+
+    /*  Grid Wrapper
+    \*-------------------------------------------------------------------------*/
+
+        .gw,
+        .grid-wrapper{
+            /* Negative margin to negate the padding on the first grid child. */
+            margin-left: -($base-spacing-unit) + px;
+            /**
+             * The following declarations allow us to use the '.gw' 
+             * class on lists
+             */
+            list-style: none;
+            margin-bottom: 0;
+            @extend .cf;
+        }
+            /* grid wrappers as children of grid wrappers */
+            .gw > .gw,
+            .grid-wrapper > .grid-wrapper{
+                margin-left: 0;
+            }
+            /* Col */
+            .col{
+                float: left;
+                padding-left: $base-spacing-unit + px;
+                
+                /**
+                 * Since we need border-box on our grids to work, 
+                 * apply when global setting is false
+                 */
+                @if $global-border-box == false{
+                    @include vendor(box-sizing, border-box);
+                }
+                
+                /**
+                 * When '$responsive' is set to 'true' we want to transition
+                 * the changes in layout.
+                 */
+                 @if $responsive == true{
+                     @include transition(width .3s);
+                 }
+            }
+            
+            
+            /**
+             * Make this stuff work in ie6/7
+             */
+            @if $global-border-box == false{
+                .lt-ie8 .col{
+                    behavior: url(/public/polyfills/boxsizing/boxsizing.htc);
+                }
+            }
+
+
+
+    /*  Gutterless
+        Extends grid, without gutters
+    \*-------------------------------------------------------------------------*/
+
+        .gutterless{
+            margin-left: 0;
+        }
+            .gutterless .col{
+                padding-left: 0;
+            }

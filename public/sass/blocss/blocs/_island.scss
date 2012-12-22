@@ -1,0 +1,35 @@
+/*----------------------------------------------------------------------------*\
+    $ISLAND
+    As per csswizardry.com/2011/10/the-island-object
+\*----------------------------------------------------------------------------*/
+
+    /*  Simple, boxed off content eg.:
+        <div class="island">
+            I am boxed off.
+        </div>
+    */
+    .continent,
+    .island,
+    .islet{
+        display: block;
+        @extend .cf;
+    }
+
+    .continent{
+        padding: $base-spacing-unit * 2 + px;
+    }
+
+    .island{
+        padding: $base-spacing-unit + px;
+    }
+
+    .continent > :last-child,
+    .island > :last-child,
+    .islet > :last-child{
+        margin-bottom: 0;
+    }
+
+    /* Just like `.island`, only smaller. */
+    .islet{
+        padding: $base-spacing-unit / 2 + px;
+    }
