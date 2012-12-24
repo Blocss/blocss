@@ -109,23 +109,23 @@
     @if $responsive == true{
 
         @include media-query(palm){
-            @include grid-setup("palm-");
+            @include width-setup("palm-");
         }
 
         @include media-query(lap){
-            @include grid-setup("lap-");
+            @include width-setup("lap-");
         }
 
         @include media-query(lapup){
-            @include grid-setup("lapup-");
+            @include width-setup("lapup-");
         }
 
         @include media-query(portable){
-            @include grid-setup("portable-");
+            @include width-setup("portable-");
         }
 
         @include media-query(desk){
-            @include grid-setup("desk-");
+            @include width-setup("desk-");
         }
 
     }
