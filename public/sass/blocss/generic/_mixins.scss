@@ -88,7 +88,7 @@
          *
          * palm
          * lap
-         * lap-and-up
+         * lapup
          * portable
          * desk
          *
@@ -125,7 +125,7 @@
             /**
              * All higher than '$palm-end'
              */
-            @if $media-query == lap-and-up{
+            @if $media-query == lapup{
 
                 @media only screen and (min-width:$lap-start) { @content; }
 
