@@ -1,7 +1,55 @@
 /*----------------------------------------------------------------------------*\
     $MISC
-    classes to assist page layout
+    A series of helper classes to use arbitrarily. Only use a helper class if an
+    element/component doesn’t already have a class to which you could apply this
+    styling, e.g. if you need to float `.main-nav` left then add `float:left;` 
+    to that ruleset as opposed to adding the `.fl` class to the markup.
 \*----------------------------------------------------------------------------*/
+
+    /*  Text & floats
+    \*------------------------------------------------------------------------*/
+
+        .fr{
+            float: right;
+        }
+        .fl{
+            float: left;
+        }
+
+        .text-left{
+            text-align: left;
+        }
+        .text-right{
+            text-align: right;
+        }
+        .text-center{
+            text-align: center;
+        }
+        .caps{
+            text-transform: uppercase;
+        }
+
+
+
+    /*  Bleed
+        Pull items full width of '.island' parents
+    \*------------------------------------------------------------------------*/
+
+        .full-bleed{
+            margin-right: -$base-spacing-unit+px;
+            margin-left: -$base-spacing-unit+px;
+
+            .islet &{
+                margin-right: -($half-spacing-unit)+px;
+                margin-left: -($half-spacing-unit)+px;
+            }
+            .continent &{
+                margin-right: -($base-spacing-unit*2)+px;
+                margin-left: -($base-spacing-unit*2)+px;
+            }
+        }
+
+
 
     /*  Image replacement
     \*-------------------------------------------------------------------------*/
@@ -23,6 +71,7 @@
         }
 
 
+
     /*  Hide from screanreaders & browsers
     \*-------------------------------------------------------------------------*/
 
@@ -30,6 +79,7 @@
             display: none !important;
             visibility: hidden;
         }
+
 
 
     /*  Hide only visually, but have it available for screenreaders
@@ -46,6 +96,26 @@
             position: absolute;
             width: 1px;
         }
+
+
+        /**
+         * Visuallyhidden based on breakpoint
+         */
+        @each $state in palm, lap, lapup, portable, desk{
+            @include media-query(#{$state}){
+                .visuallyhidden-#{$state}{
+                    border: 0;
+                    clip: rect(0 0 0 0);
+                    height: 1px;
+                    margin: -1px;
+                    overflow: hidden;
+                    padding: 0;
+                    position: absolute;
+                    width: 1px;
+                }
+            }
+        }
+
 
 
     /*  Hide visually and from screenreaders, but maintain layout
