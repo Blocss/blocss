@@ -1,0 +1,31 @@
+/*----------------------------------------------------------------------------*\
+    $PAGINATION
+    Basic pagination object, extends '.nav'
+\*----------------------------------------------------------------------------*/
+
+    /*
+     * Sample code:
+       <ol class="nav pagination">
+           <li class="pagination-first">First</li>
+           <li><a href="">1</a></li>
+           <li><a href="">2</a></li>
+           <li class="active"><a href="">3</a></li>
+           <li class="pagination-last"><a href="">Last</a></li>
+       </ol>
+     */
+    .pagination{
+        text-align: center;
+    }
+        .pagination > li{
+            padding: $half-spacing-unit+px;
+        }
+            .pagination > li > a{
+                padding: $half-spacing-unit+px;
+                margin: -$half-spacing-unit+px;
+            }
+                .pagination-first a:before{
+                    content: "« ";
+                }
+                .pagination-last a:after{
+                    content: " »";
+                }

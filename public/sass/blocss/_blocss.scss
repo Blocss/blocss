@@ -43,6 +43,7 @@
     FLEXBOX.............Kinda emulates flexbox
     NAV.................A simple abstraction to put a list in horizontal nav mode
     BREADCRUMB..........Simple breadcrumb trail
+    PAGINATION..........Basic pagination object
     MEDIA...............Media object
     ISLAND..............Boxed off content
     MATRIX..............Gridded lists
@@ -93,12 +94,13 @@
     @import "blocs/flexbox";
     @import "blocs/nav";
     @import "blocs/breadcrumb";
+    @import "blocs/pagination";
     @import "blocs/media";
     @import "blocs/island";
     @import "blocs/matrix";
     @import "blocs/sprite";
     @import "blocs/buttons";
-    @import "blocs/rules"; 
+    @import "blocs/rules";
     @import "blocs/greybox";
     @import "blocs/notice";
 
