@@ -23,8 +23,8 @@
      * Adds Margin bottom based on magic number
      */
     @mixin m-margin-bottom($multiplier: 1){
-        margin-bottom: $multiplier * $base-spacing-unit +px;
-        margin-bottom: $multiplier * $base-spacing-unit / $base-font-size +rem; /* rem unit for modern browsers */
+        margin-bottom: $multiplier * $base-spacing-unit;
+        margin-bottom: $multiplier * $base-spacing-unit / $base-font-size*1rem; /* rem unit for modern browsers */
     }
 
 
@@ -32,8 +32,8 @@
      * Calculates height based on magic number
      */
     @mixin m-height($multiplier: 1){
-        height: $multiplier * $base-line-height +px;
-        height: $multiplier * ($base-line-height / $base-font-size) +rem;
+        height: $multiplier * $base-line-height;
+        height: ($multiplier * ($base-line-height / $base-font-size))*1rem;
     }
 
 
@@ -41,9 +41,9 @@
      * Calculates font rem font size & line height
      */
     @mixin font-size($fs){
-        font-size: $fs +px;
-        font-size: $fs / $base-font-size +rem;
-        line-height: ceil($fs / $base-line-height) * ($base-line-height / $fs) +em;
+        font-size: $fs;
+        font-size: ($fs / $base-font-size)*1rem;
+        line-height: ceil($fs / $base-line-height) * ($base-line-height / $fs);
     }
 
 

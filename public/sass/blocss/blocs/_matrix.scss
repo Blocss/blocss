@@ -27,7 +27,7 @@
         @extend .cf;
         
         > li{
-            padding: ($half-spacing-unit) + px;
+            padding: $half-spacing-unit;
             float: left;
             border-right-width: 1px;
             border-bottom-width: 1px;

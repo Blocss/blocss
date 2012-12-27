@@ -16,11 +16,11 @@
     }
 
     .continent{
-        padding: $base-spacing-unit * 2 + px;
+        padding: $base-spacing-unit * 2;
     }
 
     .island{
-        padding: $base-spacing-unit + px;
+        padding: $base-spacing-unit;
     }
 
     .continent > :last-child,
@@ -31,5 +31,5 @@
 
     /* Just like `.island`, only smaller. */
     .islet{
-        padding: $base-spacing-unit / 2 + px;
+        padding: $base-spacing-unit / 2;
     }

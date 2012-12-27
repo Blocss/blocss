@@ -5,7 +5,7 @@
 \*----------------------------------------------------------------------------*/
 
     .greybox{
-        @include font-size(12);
+        @include font-size(12px);
         font-family: sans-serif;
         text-align: center;
         background-color: rgba(0,0,0,0.2);

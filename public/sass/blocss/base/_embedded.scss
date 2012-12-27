@@ -17,18 +17,18 @@
          */
         .img-right{
             float: right;
-            margin-bottom: $base-spacing-unit+px;
-            margin-left: $base-spacing-unit+px;
+            margin-bottom: $base-spacing-unit;
+            margin-left: $base-spacing-unit;
         }
         .img-left{
             float: left;
-            margin-right: $base-spacing-unit+px;
-            margin-bottom: $base-spacing-unit+px;
+            margin-right: $base-spacing-unit;
+            margin-bottom: $base-spacing-unit;
         }
         .img-center{
             display: block;
             margin-right: auto;
-            margin-bottom: $base-spacing-unit+px;
+            margin-bottom: $base-spacing-unit;
             margin-left: auto;
         }
 
