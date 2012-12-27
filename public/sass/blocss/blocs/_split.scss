@@ -1,0 +1,15 @@
+/*----------------------------------------------------------------------------*\
+    $SPLIT
+    A simple split-in-two object
+\*----------------------------------------------------------------------------*/
+
+    .split{
+        text-align: right;
+        list-style: none;
+        margin-left: 0;
+    }
+        .split-title{
+            text-align: left;
+            float: left;
+            clear: left;
+        }

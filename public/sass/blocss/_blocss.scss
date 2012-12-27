@@ -48,6 +48,7 @@
     ISLAND..............Boxed off content
     MATRIX..............Gridded lists
     LINK-COMPLEX........Hover behaviour to only selected items
+    SPLIT...............A simple split-in-two object
     SPRITE..............Generic spriting element
     BUTTONS.............Basic button structural styling
     RULES...............Horizontal rules
@@ -99,7 +100,11 @@
     @import "blocs/media";
     @import "blocs/island";
     @import "blocs/matrix";
+<<<<<<< HEAD
     @import "blocs/link-complex";
+=======
+    @import "blocs/split";
+>>>>>>> feature/split
     @import "blocs/sprite";
     @import "blocs/buttons";
     @import "blocs/rules";
