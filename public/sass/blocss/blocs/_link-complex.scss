@@ -1,0 +1,23 @@
+/*----------------------------------------------------------------------------*\
+    $LINK-COMPLEX
+    Add hover behaviour to only selected items within links
+\*----------------------------------------------------------------------------*/
+
+    /**
+     * As inspired by @necolas, eg.:
+       <a href="" class="link-complex">
+           User
+           <span class="link-complex-target">Log in</span>
+       </a>
+    */
+    .link-complex,
+    .link-complex:hover,
+    .link-complex:active,
+    .link-complex:focus{
+        text-decoration: none;
+    }
+        .link-complex:hover .link-complex-target,
+        .link-complex:active .link-complex-target,
+        .link-complex:focus .link-complex-target{
+            text-decoration: underline;
+        }
