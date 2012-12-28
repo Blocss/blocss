@@ -4,6 +4,7 @@
 \*----------------------------------------------------------------------------*/
 
     html{
-        font: ($base-font-size / 16 +em)/($base-line-height / $base-font-size) sans-serif;
+        font: #{($base-font-size/16px)*1em}/($base-line-height / $base-font-size) serif;
         overflow-y: scroll;
+        min-height: 100%;
     }
