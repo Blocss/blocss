@@ -2,11 +2,15 @@
     $CODE
 \*----------------------------------------------------------------------------*/
 
-    pre{
-        overflow: auto;
-    }
-        pre mark{
-            background: none;
-            border-bottom: 1px solid;
-            color: inherit;
+    @if $flag-base-code == true{
+
+        pre{
+            overflow: auto;
         }
+            pre mark{
+                background: none;
+                border-bottom: 1px solid;
+                color: inherit;
+            }
+
+    }

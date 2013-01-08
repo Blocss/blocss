@@ -9,6 +9,8 @@
     /*
     TYPOGRAPHY
     BRAND
+    RESPONSIVE
+    BLOCSS
     MISC
     */
 
@@ -49,6 +51,21 @@
 
 
 /*----------------------------------------------------------------------------*\
+    $SPACING
+\*----------------------------------------------------------------------------*/
+
+    /**
+     * Assign our `$base-line-height` to a new spacing var for
+     * more transparency
+     */
+    $base-spacing-unit:     $base-line-height!default;
+    $half-spacing-unit:     $base-spacing-unit / 2!default;
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
     $BRAND
 \*----------------------------------------------------------------------------*/
 
@@ -59,21 +76,21 @@
     /**
      * How big would you like round corners to be by default?
      */
-    $brand-round:           4px!default;
+    $brand-round:           $half-spacing-unit!default;
 
 
 
 
 
 /*----------------------------------------------------------------------------*\
-    $MISC
+    $RESPONSIVE
 \*----------------------------------------------------------------------------*/
 
     /**
      * responsive?
      */
     $responsive:            true!default;
-    
+
     /**
      * Responsive push and pull produce a LOT of code, only turn them on if you
      * definitely need them
@@ -88,13 +105,30 @@
     $desk-start:            960px!default;
 
 
-    /**
-     * Assign our `$base-line-height` to a new spacing var for
-     * more transparency
-     */
-    $base-spacing-unit:     $base-line-height!default;
-    $half-spacing-unit:     $base-spacing-unit / 2!default;
 
+
+
+/*----------------------------------------------------------------------------*\
+    $BLOCSS
+    Flags to enable/disable certain blocss if you don't need them
+\*----------------------------------------------------------------------------*/
+
+    /**
+     * Base
+     */
+    $flag-base-quotes:      true;
+    $flag-base-code:        true;
+    $flag-base-tables:      true;
+    $flag-base-forms:       true;
+
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MISC
+\*----------------------------------------------------------------------------*/
 
     /**
      * Global border-box ALL the things, as per:
