@@ -31,13 +31,11 @@
     Here we set up some variables, include Blocss F/E Framework & compass css3,
     then add our theme-specific components afterwards.
 
-    Compass is not a prerequisite for Blocss to work, so you can uncomment
-    and it wont be used.
+    Compass is a prerequisite for Blocss to work.
 
-    In your terminal, navigate to the root of your project & run one of 
-    the following commands to watch & compile the file:
-    Compass:    compass watch
-    Sass:       sass --watch public/sass/theme.scss:public/css/theme.css
+    In your terminal, navigate to the root of your project & run 
+    the following command to watch & compile the file:
+    compass watch
     */
 
 
@@ -110,3 +108,36 @@
     $STATE
     Styling of modules in a particular state
 \*----------------------------------------------------------------------------*/
+
+    /*  Media Queries
+        The default media queries shipped with Blocss
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk
+         */
+        @include media-query(desk){}
+
+
+        /**
+         * Portable
+         */
+        @include media-query(portable){}
+
+
+        /**
+         * Lap
+         */
+        @include media-query(lap){}
+
+
+        /**
+         * Lapup
+         */
+        @include media-query(lapup){}
+
+
+        /**
+         * Palm
+         */
+        @include media-query(palm){}
