@@ -3,6 +3,8 @@
     Add hover behaviour to only selected items within links
 \*----------------------------------------------------------------------------*/
 
+    @if $flag-blocs-link-complex == true{
+
     /**
      * As inspired by @necolas, eg.:
        <a href="" class="link-complex">
@@ -21,3 +23,5 @@
         .link-complex:focus .link-complex-target{
             text-decoration: underline;
         }
+
+    }

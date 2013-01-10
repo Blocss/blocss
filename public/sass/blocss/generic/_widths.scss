@@ -6,7 +6,7 @@
 
     There's a mixin fo' that
 \*----------------------------------------------------------------------------*/
-    
+
     @mixin width-setup($namespace: "") {
         /**
          * Whole
@@ -97,6 +97,8 @@
     }
 
 
+    @if $flag-generic-widths == true{
+
     /**
      * Default widths
      */
@@ -127,5 +129,7 @@
         @include media-query(desk){
             @include width-setup("desk-");
         }
+
+    }
 
     }

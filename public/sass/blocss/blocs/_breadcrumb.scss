@@ -3,6 +3,13 @@
     Breadcrumb styling applied to (ordered) lists, extends '.nav'
 \*----------------------------------------------------------------------------*/
 
+    /**
+     * Since breadcrumb needs '.nav' to work,
+     * check if '.nav' is enabled
+     */
+    @if $flag-blocs-nav == true {
+    @if$flag-blocs-breadcrumb == true{
+
     /*  eg.:
         <ol class="nav breadcrumb">
             <li><a href="#">Home</a></li>
@@ -25,4 +32,7 @@
      */
     .breadcrumb > li + li[data-breadcrumb]:before{
         content: attr(data-breadcrumb)" ";
+    }
+
+    }
     }

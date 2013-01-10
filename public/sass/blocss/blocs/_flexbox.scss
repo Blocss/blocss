@@ -3,6 +3,8 @@
     Kinda emulate flexbox until we can use it natively
 \*----------------------------------------------------------------------------*/
 
+    @if $flag-blocs-flexbox == true{
+
     /*  eg.:
         <div class="flex">
             <div class="flex-item">
@@ -13,7 +15,7 @@
             </div>
         </div>
     */
-    
+
     .flex{
         display: table;
         width: 100%;
@@ -22,3 +24,5 @@
             display: table-cell;
             vertical-align: middle;
         }
+
+    }

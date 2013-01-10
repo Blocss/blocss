@@ -1,18 +1,9 @@
 /*----------------------------------------------------------------------------*\
     $PULL
     Pull classes, to move grid items over to the left by certain amounts.
+
+    There's a mixin fo' that
 \*----------------------------------------------------------------------------*/
-
-    /**
-     * Not a particularly great selector, but the DRYest way to do things.
-     */
-    [class*="pull-"]{ 
-        position:relative;
-
-        @if $responsive-pull == true{
-            @include transition(right .3s);
-        }
-    }
 
     @mixin pull-setup($namespace: "") {
 
@@ -105,6 +96,20 @@
     }
 
 
+    @if $flag-generic-pull == true{
+
+    /**
+     * Not a particularly great selector, but the DRYest way to do things.
+     */
+    [class*="pull-"]{
+        position:relative;
+
+        @if $responsive-pull == true{
+            @include transition(right .3s);
+        }
+    }
+
+
     /**
      * Default pull
      */
@@ -135,5 +140,7 @@
         @include media-query(desk){
             @include pull-setup("desk-");
         }
+
+    }
 
     }

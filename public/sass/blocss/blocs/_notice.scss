@@ -3,26 +3,27 @@
     Default notice styling
 \*----------------------------------------------------------------------------*/
 
+    @if $flag-blocs-notice == true{
+
     /* p,div */.notice{
         display: block;
         padding: $half-spacing-unit $base-spacing-unit;
         padding: ($half-spacing-unit/$base-font-size)*1rem ($base-spacing-unit/$base-font-size)*1rem;
         text-align: center;
-        /* overwrite background in theme stylesheet */
-        background: #BDE5F8;
+        color: $notice-face-color;
+        background-color: $notice-base;
     }
     .notice-success{
         @extend .notice;
-        /* overwrite background in theme stylesheet */
-        background: #DFF2BF;
+        background-color: $notice-success;
     }
     .notice-warning{
         @extend .notice;
-        /* overwrite background in theme stylesheet */
-        background: #FEEFB3;
+        background-color: $notice-warning;
     }
     .notice-error{
         @extend .notice;
-        /* overwrite background in theme stylesheet */
-        background: #FFBABA;
+        background-color: $notice-error;
+    }
+
     }

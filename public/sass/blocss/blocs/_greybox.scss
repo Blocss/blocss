@@ -4,6 +4,8 @@
     blocs to create simple greybox prototypes, e.g.:
 \*----------------------------------------------------------------------------*/
 
+    @if $flag-blocs-greybox == true{
+
     .greybox{
         @include font-size(12px);
         font-family: sans-serif;
@@ -15,3 +17,5 @@
             color: #fff;
             text-decoration: underline;
         }
+
+    }

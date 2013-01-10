@@ -3,6 +3,8 @@
     As per csswizardry.com/2011/10/the-island-object
 \*----------------------------------------------------------------------------*/
 
+    @if $flag-blocs-island == true{
+
     /*  Simple, boxed off content eg.:
         <div class="island">
             I am boxed off.
@@ -32,4 +34,6 @@
     /* Just like `.island`, only smaller. */
     .islet{
         padding: $base-spacing-unit / 2;
+    }
+
     }

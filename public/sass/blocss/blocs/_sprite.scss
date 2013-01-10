@@ -2,6 +2,8 @@
     $SPRITE
 \*----------------------------------------------------------------------------*/
 
+    @if $flag-blocs-sprite == true{
+
     /* add background-image in theme to apply sprite */
     .sprite{
         position: relative;
@@ -18,4 +20,6 @@
         /* Image replacement, hides text out of element */
         text-indent: 100%;
         white-space: nowrap;
+    }
+
     }

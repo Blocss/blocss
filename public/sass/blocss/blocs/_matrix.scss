@@ -3,6 +3,8 @@
     Create a grid of items out of a single list
 \*----------------------------------------------------------------------------*/
 
+    @if $flag-blocs-matrix == true{
+
     /*  Create a grid of items out of a single list, eg.:
         <ul class="matrix four-cols">
             <li class="all-cols">Lorem</li>
@@ -25,7 +27,7 @@
         border-top-width: 1px;
         border-left-width: 1px;
         @extend .cf;
-        
+
         > li{
             padding: $half-spacing-unit;
             float: left;
@@ -55,7 +57,7 @@
         list-style: none;
         margin-left: 0;
         @extend .cf;
-        
+
         > li{
             float: left;
 
@@ -68,8 +70,8 @@
             }
         }
     }
-    
-    
+
+
     /**
      * Make this stuff work in ie6/7
      */
@@ -104,4 +106,6 @@
     /*  This only works on the `.matrix` object. */
     .matrix > .all-cols{
         width: 100%;
+    }
+
     }

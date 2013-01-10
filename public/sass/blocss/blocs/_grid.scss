@@ -3,6 +3,8 @@
     Fluid and nestable grid system
 \*----------------------------------------------------------------------------*/
 
+    @if $flag-blocs-grid == true{
+
     /*  Fluid and nestable grid system, eg.:
         <div class="gw">
 
@@ -25,7 +27,7 @@
             /* Negative margin to negate the padding on the first grid child. */
             margin-left: -$base-spacing-unit;
             /**
-             * The following declarations allow us to use the '.gw' 
+             * The following declarations allow us to use the '.gw'
              * class on lists
              */
             list-style: none;
@@ -41,25 +43,25 @@
             .col{
                 float: left;
                 padding-left: $base-spacing-unit;
-                
+
                 /**
-                 * Since we need border-box on our grids to work, 
+                 * Since we need border-box on our grids to work,
                  * apply when global setting is false
                  */
                 @if $global-border-box == false{
                     @include vendor(box-sizing, border-box);
                 }
-                
+
                 /**
                  * When '$responsive' is set to 'true' we want to transition
                  * the changes in layout.
                  */
-                 @if $responsive == true{
-                     @include transition(width .3s);
-                 }
+                @if $responsive == true{
+                    @include transition(width .3s);
+                }
             }
-            
-            
+
+
             /**
              * Make this stuff work in ie6/7
              */
@@ -68,6 +70,16 @@
                     behavior: url(/public/polyfills/boxsizing/boxsizing.htc);
                 }
             }
+
+
+
+    /*  Reversed
+        Columns float right instead of left
+    \*------------------------------------------------------------------------*/
+
+        .grid-reversed .col{
+            float: right;
+        }
 
 
 
@@ -81,3 +93,5 @@
             .gutterless .col{
                 padding-left: 0;
             }
+
+    }

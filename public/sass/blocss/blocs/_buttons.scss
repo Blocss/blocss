@@ -3,6 +3,8 @@
     Basic button structural styling. Extend in your theme stylesheet.
 \*----------------------------------------------------------------------------*/
 
+    @if $flag-blocs-buttons == true{
+
     .btn{
         font: inherit;
         cursor: pointer;
@@ -22,4 +24,6 @@
         padding-right: 0;
         padding-left: 0;
         width: 100%;
+    }
+
     }

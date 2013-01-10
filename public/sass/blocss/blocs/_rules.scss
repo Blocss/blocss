@@ -2,6 +2,8 @@
     $RULES
 \*----------------------------------------------------------------------------*/
 
+    @if $flag-blocs-rules{
+
     /* Horizontal rules, extend `hr`. */
     .rule{
         color: #ccc; /* Sets border color, extend in your theme stylesheet. */
@@ -43,4 +45,6 @@
         &[data-ornament]:after{
             content: attr(data-ornament);
         }
+    }
+
     }

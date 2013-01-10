@@ -74,6 +74,17 @@
 
 
     /**
+     * Colors of notices
+     */
+    $notice-face-color:     inherit!default;
+    $notice-base:           #BDE5F8!default;
+    $notice-success:        #DFF2BF!default;
+    $notice-warning:        #FEEFB3!default;
+    $notice-error:          #FFBABA!default;
+
+
+
+    /**
      * How big would you like round corners to be by default?
      */
     $brand-round:           $half-spacing-unit!default;
@@ -116,11 +127,38 @@
     /**
      * Base
      */
-    $flag-base-quotes:      true;
-    $flag-base-code:        true;
-    $flag-base-tables:      true;
-    $flag-base-forms:       true;
+    $flag-base-quotes:              true!default;
+    $flag-base-code:                true!default;
+    $flag-base-tables:              true!default;
+    $flag-base-forms:               true!default;
 
+
+    /**
+     * Blocs
+     */
+    $flag-blocs-grid:               true!default;
+    $flag-blocs-flexbox:            true!default;
+    $flag-blocs-nav:                true!default;
+        $flag-blocs-breadcrumb:     true!default;
+        $flag-blocs-pagination:     true!default;
+    $flag-blocs-media:              true!default;
+    $flag-blocs-island:             true!default;
+    $flag-blocs-matrix:             true!default;
+    $flag-blocs-link-complex:       true!default;
+    $flag-blocs-split:              true!default;
+    $flag-blocs-sprite:             true!default;
+    $flag-blocs-buttons:            true!default;
+    $flag-blocs-rules:              true!default;
+    $flag-blocs-greybox:            true!default;
+    $flag-blocs-notice:             true!default;
+
+
+    /**
+     * Generic
+     */
+    $flag-generic-widths:           true!default;
+    $flag-generic-push:             true!default;
+    $flag-generic-pull:             true!default;
 
 
 

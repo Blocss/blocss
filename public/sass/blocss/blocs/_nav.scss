@@ -2,6 +2,8 @@
     $NAV
 \*----------------------------------------------------------------------------*/
 
+    @if $flag-blocs-nav == true{
+
     /*  When used on an 'ol' or 'ul', this class throws the list
         into horizontal mode eg.:
         <ul class="nav">
@@ -47,4 +49,6 @@
     */
     .banner-nav{
         text-align: center;
+    }
+
     }

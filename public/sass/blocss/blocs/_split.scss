@@ -3,6 +3,8 @@
     A simple split-in-two object
 \*----------------------------------------------------------------------------*/
 
+    @if $flag-blocs-split{
+
     .split{
         text-align: right;
         list-style: none;
@@ -13,3 +15,5 @@
             float: left;
             clear: left;
         }
+
+    }

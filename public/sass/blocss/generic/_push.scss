@@ -1,18 +1,9 @@
 /*----------------------------------------------------------------------------*\
     $PUSH
     Pull classes, to move grid items over to the right by certain amounts.
+
+    There's a mixin fo' that
 \*----------------------------------------------------------------------------*/
-
-    /**
-     * Not a particularly great selector, but the DRYest way to do things.
-     */
-    [class*="push-"]{ 
-        position: relative;
-
-        @if $responsive-pull == true{
-            @include transition(left .3s);
-        }
-    }
 
     @mixin push-setup($namespace: "") {
 
@@ -105,6 +96,20 @@
     }
 
 
+    @if $flag-generic-push == true{
+
+    /**
+     * Not a particularly great selector, but the DRYest way to do things.
+     */
+    [class*="push-"]{
+        position: relative;
+
+        @if $responsive-push == true{
+            @include transition(left .3s);
+        }
+    }
+
+
     /**
      * Default push
      */
@@ -135,5 +140,7 @@
         @include media-query(desk){
             @include push-setup("desk-");
         }
+
+    }
 
     }
