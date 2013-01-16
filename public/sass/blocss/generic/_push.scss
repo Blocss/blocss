@@ -103,10 +103,6 @@
      */
     [class*="push-"]{
         position: relative;
-
-        @if $responsive-push == true{
-            @include transition(left .3s);
-        }
     }
 
 

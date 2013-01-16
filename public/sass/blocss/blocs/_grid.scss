@@ -51,14 +51,6 @@
                 @if $global-border-box == false{
                     @include prefixer(box-sizing, border-box, webkit moz ms o spec);
                 }
-
-                /**
-                 * When '$responsive' is set to 'true' we want to transition
-                 * the changes in layout.
-                 */
-                @if $responsive == true{
-                    //@include transition(width .3s);
-                }
             }
 
 

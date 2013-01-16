@@ -103,10 +103,6 @@
      */
     [class*="pull-"]{
         position:relative;
-
-        @if $responsive-pull == true{
-            @include transition(right .3s);
-        }
     }
 
 
