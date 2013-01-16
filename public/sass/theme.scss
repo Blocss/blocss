@@ -31,11 +31,13 @@
     Here we set up some variables, include Blocss F/E Framework & compass css3,
     then add our theme-specific components afterwards.
 
-    Compass is a prerequisite for Blocss to work.
+    Compass is not a prerequisite for Blocss to work, so you can easily
+    comment it out.
 
-    In your terminal, navigate to the root of your project & run
-    the following command to watch & compile the file:
-    compass watch
+    In your terminal, navigate to the root of your project & run one of
+    the following commands to watch & compile the file:
+    Compass:    compass watch
+    Sass:       sass --watch public/sass/theme.scss:public/css/theme.css
     */
 
 
@@ -48,7 +50,7 @@
 \*----------------------------------------------------------------------------*/
 
     @import "vars";
-    //@import "compass/css3";
+    @import "compass/css3";
     @import "blocss/blocss";
 
 
@@ -90,13 +92,6 @@
     $LAYOUT
     Structural styling
 \*----------------------------------------------------------------------------*/
-
-    .test-object{
-        width: 100px;
-        @include m-height(2);
-        background: red;
-        @include m-margin-bottom(3, true);
-    }
 
 
 
