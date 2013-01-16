@@ -95,6 +95,7 @@
         width: 100px;
         @include m-height(2);
         background: red;
+        @include m-margin-bottom(3, true);
     }
 
 

@@ -21,10 +21,16 @@
 
     /**
      * Adds Margin bottom based on magic number
+     * With an optional flag to enable '!important'
      */
-    @mixin m-margin-bottom($multiplier: 1){
-        margin-bottom: $multiplier * $base-spacing-unit;
-        margin-bottom: $multiplier * $base-spacing-unit / $base-font-size*1rem; /* rem unit for modern browsers */
+    @mixin m-margin-bottom($multiplier: 1, $important: false){
+        $append: null!default;
+        @if $important{
+            $append: !important;
+        }
+        margin-bottom: $multiplier * $base-spacing-unit $append;
+        /* rem unit for modern browsers */
+        margin-bottom: $multiplier * $base-spacing-unit / $base-font-size*1rem $append;
     }
 
 
