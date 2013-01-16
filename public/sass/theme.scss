@@ -53,6 +53,14 @@
     @import "compass/css3";
     @import "blocss/blocss";
 
+    /**
+     * Animation engine from Dan Eden: http://daneden.me/animate/
+     * Uncomment only if needed, since this produces A LOT of code
+     * Optional classes for use in an OOCSS manner
+     */
+    //@import "animate";
+    //@import "animate/classes"
+
 
 
 
