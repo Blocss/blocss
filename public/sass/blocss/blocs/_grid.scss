@@ -49,7 +49,7 @@
                  * apply when global setting is false
                  */
                 @if $global-border-box == false{
-                    @include vendor(box-sizing, border-box);
+                    @include prefixer(box-sizing, border-box, webkit moz ms o spec);
                 }
 
                 /**
@@ -57,7 +57,7 @@
                  * the changes in layout.
                  */
                 @if $responsive == true{
-                    @include transition(width .3s);
+                    //@include transition(width .3s);
                 }
             }
 

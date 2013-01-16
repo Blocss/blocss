@@ -30,10 +30,11 @@
 
     /**
      * Calculates height based on magic number
+     * If you want to use 'min-' or 'max-' height, use the prefix param
      */
-    @mixin m-height($multiplier: 1){
-        height: $multiplier * $base-line-height;
-        height: ($multiplier * ($base-line-height / $base-font-size))*1rem;
+    @mixin m-height($multiplier: 1, $prefix:""){
+        #{$prefix}height: $multiplier * $base-line-height;
+        #{$prefix}height: ($multiplier * ($base-line-height / $base-font-size))*1rem;
     }
 
 
@@ -66,15 +67,40 @@
     $CSS3
 \*----------------------------------------------------------------------------*/
 
-    /* Generic
+    /* Prefixer
+       Example: @include prefixer(border-radius, 5px 10px, webkit ms spec);
     \*-------------------------------------------------------------------------*/
 
-        @mixin vendor($property, $value...){
-            -webkit-#{$property}: $value;
-               -moz-#{$property}: $value;
-                -ms-#{$property}: $value;
-                 -o-#{$property}: $value;
+        @mixin prefixer ($property, $value, $prefixes) {
+
+            @each $prefix in $prefixes {
+                @if $prefix == webkit {
+                    -webkit-#{$property}: $value;
+                }
+                @else if $prefix == moz {
+                    -moz-#{$property}: $value;
+                }
+                @else if $prefix == ms {
+                    -ms-#{$property}: $value;
+                }
+                @else if $prefix == o {
+                    -o-#{$property}: $value;
+                }
+                @else if $prefix == spec {
                     #{$property}: $value;
+                }
+                @else  {
+                    @warn "Unrecognized prefix: #{$prefix}";
+                }
+            }
+
+        }
+
+        /**
+         * Deprecated prefixer
+         */
+        @mixin vendor($property, $value...){
+            @include prefixer($property, $value, webkit moz ms o spec);
         }
 
 

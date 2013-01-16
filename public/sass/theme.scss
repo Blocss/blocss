@@ -33,7 +33,7 @@
 
     Compass is a prerequisite for Blocss to work.
 
-    In your terminal, navigate to the root of your project & run 
+    In your terminal, navigate to the root of your project & run
     the following command to watch & compile the file:
     compass watch
     */
@@ -48,7 +48,7 @@
 \*----------------------------------------------------------------------------*/
 
     @import "vars";
-    @import "compass/css3";
+    //@import "compass/css3";
     @import "blocss/blocss";
 
 
@@ -90,6 +90,12 @@
     $LAYOUT
     Structural styling
 \*----------------------------------------------------------------------------*/
+
+    .test-object{
+        width: 100px;
+        @include m-height(2);
+        background: red;
+    }
 
 
 

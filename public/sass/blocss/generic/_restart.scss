@@ -11,10 +11,10 @@
             &,
             &:before,
             &:after{
-                @include vendor(box-sizing, border-box);
+                @include prefixer(box-sizing, border-box, webkit moz ms o spec);
             }
         }
-        
+
         /**
          * Make this stuff work in ie6/7
          */
