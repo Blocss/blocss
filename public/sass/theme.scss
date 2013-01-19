@@ -16,7 +16,7 @@
     NAVIGATION..........Styling of navigation elements
     LAYOUT..............Structural styling
     MODULES.............Reusable, modular parts of the page
-    STATE...............Styling of modules in a particular state
+    STATE...............Styling of overall parts in a particular state
     */
 
 
@@ -53,6 +53,7 @@
     @import "compass/css3";
     @import "blocss/blocss";
 
+
     /**
      * Animation engine from Dan Eden: http://daneden.me/animate/
      * Uncomment only if needed, since this produces A LOT of code
@@ -62,92 +63,12 @@
     //@import "animate/classes"
 
 
-
-
-
-/*----------------------------------------------------------------------------*\
-    $BASE
-    High-level elements like 'html', 'body', etc.
-\*----------------------------------------------------------------------------*/
-
-    body{
-        font-family: $base-font-family;
-    }
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $TYPOGRAPHY
-    Headings, links, buttons, lists etc.
-\*----------------------------------------------------------------------------*/
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $NAVIGATION
-    Styling of navigation elements
-\*----------------------------------------------------------------------------*/
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $LAYOUT
-    Structural styling
-\*----------------------------------------------------------------------------*/
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $MODULES
-    Reusable, modular parts of the page
-\*----------------------------------------------------------------------------*/
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $STATE
-    Styling of modules in a particular state
-\*----------------------------------------------------------------------------*/
-
-    /*  Media Queries
-        The default media queries shipped with Blocss
-    \*------------------------------------------------------------------------*/
-
-        /**
-         * Desk
-         */
-        @include media-query(desk){}
-
-
-        /**
-         * Portable
-         */
-        @include media-query(portable){}
-
-
-        /**
-         * Lap
-         */
-        @include media-query(lap){}
-
-
-        /**
-         * Lapup
-         */
-        @include media-query(lapup){}
-
-
-        /**
-         * Palm
-         */
-        @include media-query(palm){}
+    /**
+     * Theme includes
+     */
+    @import "theme/base";
+    @import "theme/typography";
+    @import "theme/navigation";
+    @import "theme/layout";
+    @import "theme/modules";
+    @import "theme/state";
