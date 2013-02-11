@@ -1,4 +1,3 @@
-blocss
-======
+#Blocss
 
-F/E Framework; including Sass css framework, usefull JS libs &amp; a HTML5 headstart
+Blocss: Sass based, "Object Oriented", Bower ready CSS framework
