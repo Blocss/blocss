@@ -54,16 +54,6 @@
             }
 
 
-            /**
-             * Make this stuff work in ie6/7
-             */
-            @if $global-border-box == false{
-                .lt-ie8 .col{
-                    behavior: url(/public/polyfills/boxsizing/boxsizing.htc);
-                }
-            }
-
-
 
     /*  Reversed
         Columns float right instead of left

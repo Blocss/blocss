@@ -32,14 +32,12 @@
                 src: font-url('#{$file-path}.eot');
                 src: font-url('#{$file-path}.eot?#iefix')          format('embedded-opentype'),
                      font-url('#{$file-path}.woff')                format('woff'),
-                     font-url('#{$file-path}.ttf')                 format('truetype'),
-                     font-url('#{$file-path}.svg##{$font-family}') format('svg');
+                     font-url('#{$file-path}.ttf')                 format('truetype');
             } @else {
                 src: url('#{$file-path}.eot');
                 src: url('#{$file-path}.eot?#iefix')               format('embedded-opentype'),
                      url('#{$file-path}.woff')                     format('woff'),
-                     url('#{$file-path}.ttf')                      format('truetype'),
-                     url('#{$file-path}.svg##{$font-family}')      format('svg');
+                     url('#{$file-path}.ttf')                      format('truetype');
             }
         }
     }

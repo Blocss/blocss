@@ -73,17 +73,6 @@
 
 
     /**
-     * Make this stuff work in ie6/7
-     */
-    @if $global-border-box == false{
-        .lt-ie8 .matrix > li,
-        .lt-ie8 .multi-list > li{
-            behavior: url(/public/polyfills/boxsizing/boxsizing.htc);
-        }
-    }
-
-
-    /**
      * Apply these classes alongside the `.matrix` or `.multi-list`
      * classes on lists to determine how wide their columns are
      */

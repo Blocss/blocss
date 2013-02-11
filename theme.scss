@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*----------------------------------------------------------------------------*\
         theme.scss
-        Theme stylesheet, extends Blocss F/E Framework
+        Theme stylesheet, extends Blocss CSS Framework
 \*----------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*\
@@ -12,11 +12,8 @@
     README
     INCLUDES............Include various sass files
     BASE................High-level elements like 'html', 'body', etc.
-    TYPOGRAPHY..........Headings, links, buttons, lists etc.
-    NAVIGATION..........Styling of navigation elements
     LAYOUT..............Structural styling
     MODULES.............Reusable, modular parts of the page
-    STATE...............Styling of overall parts in a particular state
     */
 
 
@@ -28,16 +25,12 @@
 \*----------------------------------------------------------------------------*/
 
     /*
-    Here we set up some variables, include Blocss F/E Framework & compass css3,
-    then add our theme-specific components afterwards.
+    Here we set up some variables, include Blocss CSS Framework then add our
+    theme-specific components afterwards.
 
-    Compass is not a prerequisite for Blocss to work, so you can easily
-    comment it out.
-
-    In your terminal, navigate to the root of your project & run one of
-    the following commands to watch & compile the file:
-    Compass:    compass watch
-    Sass:       sass --watch public/sass/theme.scss:public/css/theme.css
+    In your terminal, navigate to the root of your project & run the following
+    command to watch & compile the file:
+    Sass:       sass --watch theme.scss:theme.css
     */
 
 
@@ -50,25 +43,12 @@
 \*----------------------------------------------------------------------------*/
 
     @import "vars";
-    @import "compass/css3";
     @import "blocss/blocss";
-
-
-    /**
-     * Animation engine from Dan Eden: http://daneden.me/animate/
-     * Uncomment only if needed, since this produces A LOT of code
-     * Optional classes for use in an OOCSS manner
-     */
-    //@import "animate";
-    //@import "animate/classes"
 
 
     /**
      * Theme includes
      */
     @import "theme/base";
-    @import "theme/typography";
-    @import "theme/navigation";
     @import "theme/layout";
     @import "theme/modules";
-    @import "theme/state";

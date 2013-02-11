@@ -2,13 +2,11 @@
         BLOCSS.scss
         Blocss acts as a base stylesheet which you should extend with
         your own theme stylesheet.
-
-        The Blocss F/E Framework depends on compass.
 \*----------------------------------------------------------------------------*/
 
 /*!*
  *
- * Powered by Blocss v1.2.3
+ * Powered by Blocss v1.3
  * by @bramsmulders (Bram Smulders)
  *
  */
@@ -91,21 +89,21 @@
     @import "base/forms";
 
 
-    @import "blocs/grid";
-    @import "blocs/flexbox";
-    @import "blocs/nav";
-    @import "blocs/breadcrumb";
-    @import "blocs/pagination";
-    @import "blocs/media";
-    @import "blocs/island";
-    @import "blocs/matrix";
-    @import "blocs/link-complex";
-    @import "blocs/split";
-    @import "blocs/sprite";
-    @import "blocs/buttons";
-    @import "blocs/rules";
-    @import "blocs/greybox";
-    @import "blocs/notice";
+    @import "modules/grid";
+    @import "modules/flexbox";
+    @import "modules/nav";
+    @import "modules/breadcrumb";
+    @import "modules/pagination";
+    @import "modules/media";
+    @import "modules/island";
+    @import "modules/matrix";
+    @import "modules/link-complex";
+    @import "modules/split";
+    @import "modules/sprite";
+    @import "modules/buttons";
+    @import "modules/rules";
+    @import "modules/greybox";
+    @import "modules/notice";
 
 
     @import "generic/widths";

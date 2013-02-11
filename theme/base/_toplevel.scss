@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------*\
-    $MEDIAQUERIES
-    Since this is the media query module we only use state sections
+    $TOPLEVEL
+    html, body, .wrapper
 \*----------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*\
@@ -9,8 +9,41 @@
 
     /*
     CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
     STATE...................States the module can be in
+    THEME...................Theming of the module
     */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    /* commented backslash hack \*/
+    html, body { height: 100%; }
+    /* end hack */
+    * html .wrapper { height: 100%; }
+
+    body{
+        position: relative;
+        min-height: 100%;
+        font-family: $base-font-family;
+    }
+
+    /**
+     * Make wrapper 100% height
+     */
+    .wrapper {
+        position: relative;
+        min-height: 100%;
+        height: auto;
+        width: 100%;
+        margin: 0 auto;
+        z-index: 3;
+    }
 
 
 
@@ -53,3 +86,11 @@
          * Palm state
          */
         //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/
