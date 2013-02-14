@@ -4,7 +4,3 @@
 
 # Don't bundle any compiled css
 *.css
-
-# Don't bundle any sublime/codekit project files
-*.sublime-*
-codekit-*
