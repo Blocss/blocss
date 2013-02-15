@@ -96,7 +96,8 @@
     }
 
 
-    @if $flag-generic-pull == true{
+@if $flag-generic-pull == true{
+@if $flag-blocs-griddle == false{
 
     /**
      * Not a particularly great selector, but the DRYest way to do things.
@@ -137,6 +138,7 @@
             @include pull-setup("desk-");
         }
 
-    }
+}
+}
 
     }

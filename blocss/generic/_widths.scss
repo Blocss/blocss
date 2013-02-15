@@ -97,7 +97,8 @@
     }
 
 
-    @if $flag-generic-widths == true{
+@if $flag-generic-widths == true{
+@if $flag-blocs-griddle == false{
 
     /**
      * Default widths
@@ -132,4 +133,5 @@
 
     }
 
-    }
+}
+}

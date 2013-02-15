@@ -2,5 +2,6 @@
 .DS_Store
 .sass-cache/
 
-# Don't bundle any compiled css
+# Don't bundle any compiled css & test files
 *.css
+*.html

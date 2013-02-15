@@ -3,7 +3,8 @@
     Fluid and nestable grid system
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-blocs-grid == true{
+@if $flag-blocs-grid == true{
+@if $flag-blocs-griddle == false{
 
     /*  Fluid and nestable grid system, eg.:
         <div class="gw">
@@ -76,4 +77,5 @@
                 padding-left: 0;
             }
 
-    }
+}
+}

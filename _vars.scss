@@ -63,6 +63,15 @@
     $half-spacing-unit:     $base-spacing-unit / 2!default;
 
 
+    /**
+     * Griddle settings
+     * TODO: move to own cat
+     */
+    $grid-gutter-multiplier: 2 !default;
+    $griddle-direction: left !default; // switch to 'right' for rtl
+    $griddle-cols: 6 12 !default;
+
+
 
 
 
@@ -138,6 +147,11 @@
      * Blocs
      */
     $flag-blocs-grid:               true!default;
+        /**
+         * if you enable griddle, it automatically disables the
+         * standard blocss grid
+         */
+        $flag-blocs-griddle:        true!default;
     $flag-blocs-flexbox:            true!default;
     $flag-blocs-nav:                true!default;
         $flag-blocs-breadcrumb:     true!default;
@@ -156,6 +170,7 @@
 
     /**
      * Generic
+     * If griddle is enabled it automatically disables the following flags
      */
     $flag-generic-widths:           true!default;
     $flag-generic-push:             true!default;
