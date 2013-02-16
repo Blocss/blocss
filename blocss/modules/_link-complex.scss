@@ -3,7 +3,7 @@
     Add hover behaviour to only selected items within links
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-blocs-link-complex == true{
+    @if $flag-modules-link-complex == true{
 
     /**
      * As inspired by @necolas, eg.:

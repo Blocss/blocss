@@ -3,7 +3,7 @@
     As per: stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-blocs-media == true{
+    @if $flag-modules-media == true{
 
     /*  Place any image- and text-like content side-by-side, eg.:
         <div class="media">

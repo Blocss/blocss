@@ -3,7 +3,7 @@
     Kinda emulate flexbox until we can use it natively
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-blocs-flexbox == true{
+    @if $flag-modules-flexbox == true{
 
     /*  eg.:
         <div class="flex">

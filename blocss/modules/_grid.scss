@@ -3,8 +3,8 @@
     Fluid and nestable grid system
 \*----------------------------------------------------------------------------*/
 
-@if $flag-blocs-grid == true{
-@if $flag-blocs-griddle == false{
+@if $flag-modules-grid == true{
+@if $flag-modules-griddle == false{
 
     /*  Fluid and nestable grid system, eg.:
         <div class="gw">
@@ -26,7 +26,7 @@
         .gw,
         .grid-wrapper{
             /* Negative margin to negate the padding on the first grid child. */
-            margin-left: -$base-spacing-unit;
+            margin-left: -($base-spacing-unit*$grid-gutter-multiplier);
             /**
              * The following declarations allow us to use the '.gw'
              * class on lists
@@ -43,7 +43,7 @@
             /* Col */
             .col{
                 float: left;
-                padding-left: $base-spacing-unit;
+                padding-left: $base-spacing-unit*$grid-gutter-multiplier;
 
                 /**
                  * Since we need border-box on our grids to work,

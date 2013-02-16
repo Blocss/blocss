@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------*\
     $GRIDDLE
-    Fluid, nestable grid based on griddle
+    Fluid, nestable grid based on griddle: https://github.com/necolas/griddle
 \*----------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*\
@@ -100,8 +100,8 @@
 
 
 
-@if $flag-blocs-grid == true{
-@if $flag-blocs-griddle == true{
+@if $flag-modules-grid == true{
+@if $flag-modules-griddle == true{
 /*----------------------------------------------------------------------------*\
     $MODULE
 \*----------------------------------------------------------------------------*/
@@ -141,7 +141,7 @@
         margin: 0 -0.5 * ($base-spacing-unit*$grid-gutter-multiplier); /* 1 */
         text-align: $griddle-direction; /* 2 */
         letter-spacing: -0.31em; /* 3 */
-        /* word-spacing: -0.43em; */ /* 3 TODO: why do we need this? */
+        /* word-spacing: -0.43em; */ /* 3 TODO: Enable if supported */
         text-rendering: optimizespeed; /* 4 */
     }
 
