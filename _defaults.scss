@@ -14,7 +14,7 @@
     SPACING
     RESPONSIVE
     GRID
-    BLOCSS
+    MODULES
     MISC
     */
 
@@ -32,15 +32,19 @@
     $base-font-family:                  "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif!default;
 
 
-    /* Type */
+    /**
+     * Type
+     */
     $base-font-size:                    16px!default;
     $base-line-height:                  24px!default; // e.g. base-font-size * 1.5
 
 
-    /* Headings (in pixels) */
-    $giga-size:                         96px!default;
-    $mega-size:                         72px!default;
-    $kilo-size:                         48px!default;
+    /**
+     * Headings (in pixels)
+     */
+    $giga-size:                         96px!default; // .giga
+    $mega-size:                         72px!default; // .mega
+    $kilo-size:                         48px!default; // .kilo
 
     $h1-size:                           36px!default; // .alpha
     $h2-size:                           30px!default; // .beta
@@ -49,8 +53,8 @@
     $h5-size:                           16px!default; // .epsilon
     $h6-size:                           14px!default; // .zeta
 
-    $milli-size:                        12px!default;
-    $micro-size:                        10px!default;
+    $milli-size:                        12px!default; // .milli
+    $micro-size:                        10px!default; // .micro
 
 
 
@@ -65,7 +69,7 @@
      * more transparency
      */
     $base-spacing-unit:                 $base-line-height!default;
-    $half-spacing-unit:                 $base-spacing-unit / 2!default;
+    $half-spacing-unit:                 $base-spacing-unit/2!default;
 
 
 
@@ -121,7 +125,7 @@
      * Tell Blocss when breakpoints start
      */
     $lap-start:                         481px!default;
-    $desk-start:                        960px!default;
+    $desk-start:                        1024px!default;
 
 
 
@@ -130,14 +134,17 @@
     $GRID
 \*----------------------------------------------------------------------------*/
 
-    $grid-gutter-multiplier:            1 !default;
+    /**
+     * Defines the gutter between grid items, multiplies by $base-spacing-unit
+     */
+    $grid-gutter-multiplier:            1!default;
 
 
     /**
      * Griddle specific settings
      */
-    $griddle-direction:                 left !default; // switch to 'right' for rtl
-    $griddle-cols:                      6 12 !default;
+    $griddle-direction:                 left!default; // switch to 'right' for rtl
+    $griddle-cols:                      6 12!default;
 
 
 
@@ -158,7 +165,7 @@
 
 
     /**
-     * Blocs
+     * Modules
      */
     $use-modules-grid:                 true!default;
         /**
