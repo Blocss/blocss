@@ -131,6 +131,14 @@
             @include width-setup("desk-");
         }
 
+        @if $responsive-extra == true{
+
+            @include media-query(desk-wide){
+                @include grid-setup("desk-wide-");
+            }
+
+        }
+
     }
 
 }

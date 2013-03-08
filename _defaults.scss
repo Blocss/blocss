@@ -114,6 +114,12 @@
 
 
     /**
+     * Responsiveness for widescreen/high resolution and beyond?
+     */
+    $responsive-extra:                  false!default;
+
+
+    /**
      * Responsive push and pull produce a LOT of code, only turn them on if you
      * definitely need them
      */
@@ -126,6 +132,7 @@
      */
     $lap-start:                         481px!default;
     $desk-start:                        1024px!default;
+    $desk-wide-start:                   1200px!default;
 
 
 

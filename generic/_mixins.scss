@@ -241,6 +241,7 @@
          * lapup
          * portable
          * desk
+         * desk-wide
          *
          * Not using a media query will, naturally, serve styles to all devices.
          *
@@ -298,6 +299,16 @@
             @if $media-query == desk{
 
                 @media only screen and (min-width:$desk-start) { @content; }
+
+            }
+
+
+            /**
+             * Desktops, and beyond
+             */
+            @if $media-query == desk-wide{
+
+                @media only screen and (min-width: $desk-wide-start) { @content; }
 
             }
 
