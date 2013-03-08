@@ -2,7 +2,7 @@
     $CODE
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-base-code == true{
+    @if $use-base-code == true{
 
         pre{
             overflow: auto;

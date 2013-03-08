@@ -3,8 +3,8 @@
     Fluid and nestable grid system
 \*----------------------------------------------------------------------------*/
 
-@if $flag-modules-grid == true{
-@if $flag-modules-griddle == false{
+@if $use-modules-grid == true{
+@if $use-modules-griddle == false{
 
     /*  Fluid and nestable grid system, eg.:
         <div class="gw">

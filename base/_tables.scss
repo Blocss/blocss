@@ -3,7 +3,7 @@
     default table styling
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-base-tables == true{
+    @if $use-base-tables == true{
 
         /* Sample code:
             <table class="bordered-table striped-table">

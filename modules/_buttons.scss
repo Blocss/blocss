@@ -3,7 +3,7 @@
     Basic button structural styling. Extend in your theme stylesheet.
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-modules-buttons == true{
+    @if $use-modules-buttons == true{
 
     .btn{
         font: inherit;

@@ -2,7 +2,7 @@
     $SPRITE
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-modules-sprite == true{
+    @if $use-modules-sprite == true{
 
     /* add background-image in theme to apply sprite */
     .sprite{

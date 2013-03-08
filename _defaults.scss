@@ -1,9 +1,11 @@
 /*----------------------------------------------------------------------------*\
-        VARS.scss
+    DEFAULTS
+    Blocss’ default variables. Redefine and override them in your `_vars.scss`
+    file, found in blocsstrap.
 \*----------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*\
-        CONTENTS
+    $CONTENTS
 \*----------------------------------------------------------------------------*/
 
     /*
@@ -12,7 +14,7 @@
     SPACING
     RESPONSIVE
     GRID
-    BLOCSS
+    MODULES
     MISC
     */
 
@@ -24,19 +26,25 @@
     $TYPOGRAPHY
 \*----------------------------------------------------------------------------*/
 
-    /* Font */
+    /**
+     * Font
+     */
     $base-font-family:                  "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif!default;
 
 
-    /* Type */
+    /**
+     * Type
+     */
     $base-font-size:                    16px!default;
     $base-line-height:                  24px!default; // e.g. base-font-size * 1.5
 
 
-    /* Headings (in pixels) */
-    $giga-size:                         96px!default;
-    $mega-size:                         72px!default;
-    $kilo-size:                         48px!default;
+    /**
+     * Headings (in pixels)
+     */
+    $giga-size:                         96px!default; // .giga
+    $mega-size:                         72px!default; // .mega
+    $kilo-size:                         48px!default; // .kilo
 
     $h1-size:                           36px!default; // .alpha
     $h2-size:                           30px!default; // .beta
@@ -45,8 +53,8 @@
     $h5-size:                           16px!default; // .epsilon
     $h6-size:                           14px!default; // .zeta
 
-    $milli-size:                        12px!default;
-    $micro-size:                        10px!default;
+    $milli-size:                        12px!default; // .milli
+    $micro-size:                        10px!default; // .micro
 
 
 
@@ -61,7 +69,7 @@
      * more transparency
      */
     $base-spacing-unit:                 $base-line-height!default;
-    $half-spacing-unit:                 $base-spacing-unit / 2!default;
+    $half-spacing-unit:                 $base-spacing-unit/2!default;
 
 
 
@@ -71,6 +79,7 @@
     $BRAND
 \*----------------------------------------------------------------------------*/
 
+    $base-color:                        #222!default;
     $brand-face:                        $base-font-family!default;
     $brand:                             #369!default;
 
@@ -83,7 +92,6 @@
     $notice-success:                    #DFF2BF!default;
     $notice-warning:                    #FEEFB3!default;
     $notice-error:                      #FFBABA!default;
-
 
 
     /**
@@ -104,6 +112,7 @@
      */
     $responsive:                        true!default;
 
+
     /**
      * Responsive push and pull produce a LOT of code, only turn them on if you
      * definitely need them
@@ -111,11 +120,12 @@
     $responsive-push:                   false!default;
     $responsive-pull:                   false!default;
 
+
     /**
      * Tell Blocss when breakpoints start
      */
     $lap-start:                         481px!default;
-    $desk-start:                        960px!default;
+    $desk-start:                        1024px!default;
 
 
 
@@ -124,65 +134,68 @@
     $GRID
 \*----------------------------------------------------------------------------*/
 
-    $grid-gutter-multiplier:            1 !default;
+    /**
+     * Defines the gutter between grid items, multiplies by $base-spacing-unit
+     */
+    $grid-gutter-multiplier:            1!default;
 
 
     /**
      * Griddle specific settings
      */
-    $griddle-direction:                 left !default; // switch to 'right' for rtl
-    $griddle-cols:                      6 12 !default;
+    $griddle-direction:                 left!default; // switch to 'right' for rtl
+    $griddle-cols:                      6 12!default;
 
 
 
 
 
 /*----------------------------------------------------------------------------*\
-    $BLOCSS
-    Flags to enable/disable certain blocss if you don't need them
+    $MODULES
+    Wich baked-in modules you'd like to use?
 \*----------------------------------------------------------------------------*/
 
     /**
      * Base
      */
-    $flag-base-quotes:                  true!default;
-    $flag-base-code:                    true!default;
-    $flag-base-tables:                  true!default;
-    $flag-base-forms:                   true!default;
+    $use-base-quotes:                  true!default;
+    $use-base-code:                    true!default;
+    $use-base-tables:                  true!default;
+    $use-base-forms:                   true!default;
 
 
     /**
-     * Blocs
+     * Modules
      */
-    $flag-modules-grid:                 true!default;
+    $use-modules-grid:                 true!default;
         /**
          * if you enable griddle, it automatically disables the
          * standard blocss grid
          */
-        $flag-modules-griddle:          true!default;
-    $flag-modules-flexbox:              true!default;
-    $flag-modules-nav:                  true!default;
-        $flag-modules-breadcrumb:       true!default;
-        $flag-modules-pagination:       true!default;
-    $flag-modules-media:                true!default;
-    $flag-modules-island:               true!default;
-    $flag-modules-matrix:               true!default;
-    $flag-modules-link-complex:         true!default;
-    $flag-modules-split:                true!default;
-    $flag-modules-sprite:               true!default;
-    $flag-modules-buttons:              true!default;
-    $flag-modules-rules:                true!default;
-    $flag-modules-greybox:              true!default;
-    $flag-modules-notice:               true!default;
+        $use-modules-griddle:          false!default;
+    $use-modules-flexbox:              true!default;
+    $use-modules-nav:                  true!default;
+        $use-modules-breadcrumb:       true!default;
+        $use-modules-pagination:       true!default;
+    $use-modules-media:                true!default;
+    $use-modules-island:               true!default;
+    $use-modules-matrix:               true!default;
+    $use-modules-link-complex:         true!default;
+    $use-modules-split:                true!default;
+    $use-modules-sprite:               true!default;
+    $use-modules-buttons:              true!default;
+    $use-modules-rules:                true!default;
+    $use-modules-greybox:              true!default;
+    $use-modules-notice:               true!default;
 
 
     /**
      * Generic
-     * If griddle is enabled it automatically disables the following flags
+     * If griddle is enabled it automatically disables the following modules
      */
-    $flag-generic-widths:               true!default;
-    $flag-generic-push:                 true!default;
-    $flag-generic-pull:                 true!default;
+    $use-generic-widths:               true!default;
+    $use-generic-push:                 true!default;
+    $use-generic-pull:                 true!default;
 
 
 

@@ -3,7 +3,7 @@
     Basic form styling
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-base-forms == true{
+    @if $use-base-forms == true{
 
         /* input styling */
         .text-input{

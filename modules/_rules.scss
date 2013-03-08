@@ -2,7 +2,7 @@
     $RULES
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-modules-rules{
+    @if $use-modules-rules{
 
     /* Horizontal rules, extend `hr`. */
     .rule{

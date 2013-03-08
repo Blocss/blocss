@@ -4,7 +4,7 @@
     blocs to create simple greybox prototypes, e.g.:
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-modules-greybox == true{
+    @if $use-modules-greybox == true{
 
     .greybox{
         @include font-size(12px);

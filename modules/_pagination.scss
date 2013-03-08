@@ -7,8 +7,8 @@
      * Since breadcrumb needs '.nav' to work,
      * check if '.nav' is enabled
      */
-    @if $flag-modules-nav == true {
-    @if$flag-modules-pagination == true{
+    @if $use-modules-nav == true {
+    @if $use-modules-pagination == true{
 
     /*
      * Sample code:

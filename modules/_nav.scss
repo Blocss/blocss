@@ -2,7 +2,7 @@
     $NAV
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-modules-nav == true{
+    @if $use-modules-nav == true{
 
     /*  When used on an 'ol' or 'ul', this class throws the list
         into horizontal mode eg.:

@@ -101,8 +101,8 @@
 
 
 
-@if $flag-modules-grid == true{
-@if $flag-modules-griddle == true{
+@if $use-modules-grid == true{
+@if $use-modules-griddle == true{
 /*----------------------------------------------------------------------------*\
     $MODULE
 \*----------------------------------------------------------------------------*/

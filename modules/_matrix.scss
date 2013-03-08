@@ -3,7 +3,7 @@
     Create a grid of items out of a single list
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-modules-matrix == true{
+    @if $use-modules-matrix == true{
 
     /*  Create a grid of items out of a single list, eg.:
         <ul class="matrix four-cols">
