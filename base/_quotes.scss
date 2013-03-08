@@ -3,7 +3,7 @@
     As per: html5doctor.com/blockquote-q-cite
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-base-quotes == true{
+    @if $use-base-quotes == true{
 
         q{
             quotes: "‘" "’" "“" "”";

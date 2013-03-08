@@ -97,8 +97,8 @@
     }
 
 
-@if $flag-generic-widths == true{
-@if $flag-modules-griddle == false{
+@if $use-generic-widths == true{
+@if $use-modules-griddle == false{
 
     /**
      * Default widths

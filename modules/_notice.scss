@@ -3,7 +3,7 @@
     Default notice styling
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-modules-notice == true{
+    @if $use-modules-notice == true{
 
     /* p,div */.notice{
         display: block;

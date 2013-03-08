@@ -3,7 +3,7 @@
     A simple split-in-two object
 \*----------------------------------------------------------------------------*/
 
-    @if $flag-modules-split{
+    @if $use-modules-split{
 
     .split{
         text-align: right;
