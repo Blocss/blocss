@@ -1,5 +1,5 @@
 {
     "name": "blocss",
-    "version": "2.0.2",
-    "main": ["theme.scss"]
+    "version": "2.0.3",
+    "main": ["_blocss.scss"]
 }
