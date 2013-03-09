@@ -84,6 +84,29 @@
 
 
         /**
+         * Style any number of headings in one sweep, e.g.:
+         *
+           .foo{
+               @include headings(1, 3){
+                   color:#BADA55;
+               }
+           }
+         *
+         */
+        @mixin headings($from: 1, $to: 6){
+            @if $from >= 1 and $to <= 6{
+                $heading-selector: (unquote(""));
+                @for $i from $from through $to {
+                    $heading-selector: $heading-selector, unquote("h#{$i}")
+                }
+                #{$heading-selector}{
+                    @content
+                }
+            }
+        }
+
+
+        /**
          * Trucate overly long strings
          * sample value truncate(100%)
          */
