@@ -30,21 +30,28 @@
             height: auto;
         }
 
+        /**
+         * Rounded images.
+         */
+        .img--round {
+            border-radius: $brand-round;
+        }
+
 
         /**
          * Placement variations
          */
-        .img-right{
+        .img--right{
             float: right;
             margin-bottom: $base-spacing-unit;
             margin-left: $base-spacing-unit;
         }
-        .img-left{
+        .img--left{
             float: left;
             margin-right: $base-spacing-unit;
             margin-bottom: $base-spacing-unit;
         }
-        .img-center{
+        .img--center{
             display: block;
             margin-right: auto;
             margin-bottom: $base-spacing-unit;
@@ -58,13 +65,13 @@
          * Please note, these will not work too nicely with fluid images and will
          * distort when resized below a certain width. Use with caution.
          */
-        .img-short{
+        .img--short{
             @include m-height(5);
         }
-        .img-medium{
+        .img--medium{
             @include m-height(10);
         }
-        .img-tall{
+        .img--tall{
             @include m-height(15);
         }
 
