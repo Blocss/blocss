@@ -1,0 +1,226 @@
+/*----------------------------------------------------------------------------*\
+    $WIDTHS
+    Sizes in human readable format. These are used in conjunction with other
+    objects and abstractions found in blocss, most commonly the grid system
+    and faux flexbox.
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MIXIN...................There's a mixin fo that
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MIXIN
+\*----------------------------------------------------------------------------*/
+
+    @mixin width-setup($namespace: "") {
+        /**
+         * Whole
+         */
+        .#{$namespace}one-whole{ width: 100%; }
+
+
+        /**
+         * Halves
+         */
+        .#{$namespace}one-half{ width: 50%; }
+
+
+        /**
+         * Thirds
+         */
+        .#{$namespace}one-third{ width: 33.333%; }
+        .#{$namespace}two-thirds{ width: 66.666%; }
+
+
+        /**
+         * Quarters
+         */
+        .#{$namespace}one-quarter{ width: 25%; }
+        .#{$namespace}two-quarters{ @extend .#{$namespace}one-half; }
+        .#{$namespace}three-quarters{ width: 75%; }
+
+
+        /**
+         * Fifths
+         */
+        .#{$namespace}one-fifth{ width: 20%; }
+        .#{$namespace}two-fifths{ width: 40%; }
+        .#{$namespace}three-fifths{ width: 60%; }
+        .#{$namespace}four-fifths{ width: 80%; }
+
+
+        /**
+         * Sixths
+         */
+        .#{$namespace}one-sixth{ width: 16.666%; }
+        .#{$namespace}two-sixths{ @extend .#{$namespace}one-third; }
+        .#{$namespace}three-sixths{ @extend .#{$namespace}one-half; }
+        .#{$namespace}four-sixths{ @extend .#{$namespace}two-thirds; }
+        .#{$namespace}five-sixths{ width: 83.333%; }
+
+
+        /**
+         * Eighths
+         */
+        .#{$namespace}one-eighth{ width: 12.5%; }
+        .#{$namespace}two-eighths{ @extend .#{$namespace}one-quarter; }
+        .#{$namespace}three-eighths{ width: 37.5%; }
+        .#{$namespace}four-eighths{ @extend .#{$namespace}one-half; }
+        .#{$namespace}five-eighths{ width: 62.5%; }
+        .#{$namespace}six-eighths{ @extend .#{$namespace}three-quarters; }
+        .#{$namespace}seven-eighths{ width: 87.5%; }
+
+
+        /**
+         * Tenths
+         */
+        .#{$namespace}one-tenth{ width: 10%; }
+        .#{$namespace}two-tenths{ @extend .#{$namespace}one-fifth; }
+        .#{$namespace}three-tenths{ width: 30%; }
+        .#{$namespace}four-tenths{ @extend .#{$namespace}two-fifths; }
+        .#{$namespace}five-tenths{ @extend .#{$namespace}one-half; }
+        .#{$namespace}six-tenths{ @extend .#{$namespace}three-fifths; }
+        .#{$namespace}seven-tenths{ width: 70%; }
+        .#{$namespace}eight-tenths{ @extend .#{$namespace}four-fifths; }
+        .#{$namespace}nine-tenths{ width: 90%; }
+
+
+        /**
+         * Twelfths
+         */
+        .#{$namespace}one-twelfth{ width: 8.333%; }
+        .#{$namespace}two-twelfths{ @extend .#{$namespace}one-sixth; }
+        .#{$namespace}three-twelfths{ @extend .#{$namespace}one-quarter; }
+        .#{$namespace}four-twelfths{ @extend .#{$namespace}one-third; }
+        .#{$namespace}five-twelfths{ width: 41.666% }
+        .#{$namespace}six-twelfths{ @extend .#{$namespace}one-half; }
+        .#{$namespace}seven-twelfths{ width: 58.333%; }
+        .#{$namespace}eight-twelfths{ @extend .#{$namespace}two-thirds; }
+        .#{$namespace}nine-twelfths{ @extend .#{$namespace}three-quarters; }
+        .#{$namespace}ten-twelfths{ @extend .#{$namespace}five-sixths; }
+        .#{$namespace}eleven-twelfths{ width: 91.666%; }
+    }
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    @if $use-generic-widths == true{
+    @if $use-modules-griddle == false{
+
+        /**
+         * Default widths
+         */
+        @include width-setup();
+
+
+        /**
+         * Responsive widths
+         */
+        @if $responsive == true{
+
+            @include media-query(palm){
+                @include width-setup("palm-");
+            }
+
+            @include media-query(lap){
+                @include width-setup("lap-");
+            }
+
+            @include media-query(lapup){
+                @include width-setup("lapup-");
+            }
+
+            @include media-query(portable){
+                @include width-setup("portable-");
+            }
+
+            @include media-query(desk){
+                @include width-setup("desk-");
+            }
+
+            @if $responsive-extra == true{
+
+                @include media-query(desk-wide){
+                    @include grid-setup("desk-wide-");
+                }
+
+            } // responsive-extra
+
+        } // responsive
+
+    } // use-modules-griddle
+    } // use-generic-widths
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

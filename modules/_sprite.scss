@@ -1,0 +1,100 @@
+/*----------------------------------------------------------------------------*\
+    $SPRITE
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    @if $use-modules-sprite == true{
+
+        /* add background-image in theme to apply sprite */
+        .sprite{
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            /* The typical size of most icons. Override in your theme stylesheet */
+            width: 16px;
+            height: 16px;
+            zoom: 1;
+            font-style: normal;
+            text-align: center;
+            vertical-align: middle;
+            top: -1px;
+            /* Image replacement, hides text out of element */
+            text-indent: 100%;
+            white-space: nowrap;
+        }
+
+    } // use-modules-sprite
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

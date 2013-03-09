@@ -1,0 +1,112 @@
+/*----------------------------------------------------------------------------*\
+    $SHARED
+    Common margin-bottom for vertical rhythm.
+    As per csswizardry.com/2012/06/single-direction-margin-declarations
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    /* base elements */
+    h1,h2,h3,h4,h5,h6,hgroup,
+    ul,ol,dl,
+    blockquote,p,address,
+    table,
+    fieldset,
+    pre,
+    hr,
+    .media,
+    .continent,
+    .island,
+    .islet,
+    .source,
+    .roadsign{
+        @include m-margin-bottom(1);
+    }
+        /* doubled up margin-bottom */
+        .landmark{
+            @include m-margin-bottom(2);
+        }
+        /* half margin-bottom */
+        .streetsign{
+            @include m-margin-bottom(.5);
+        }
+
+
+    /* Default indentation value for lists etc. usually the MN */
+    ul,ol,dd{
+        margin-left: $base-line-height;
+        margin-left: ($base-line-height / $base-font-size)*1rem;
+    }
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

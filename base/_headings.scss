@@ -1,0 +1,143 @@
+/*----------------------------------------------------------------------------*\
+    $HEADINGS
+    Double-stranded heading hierarchy
+    As per csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    /*  Default headings
+    \*-------------------------------------------------------------------------*/
+
+        h1,
+        .alpha{
+            @include font-size($h1-size);
+        }
+
+        h2,
+        .beta{
+            @include font-size($h2-size);
+        }
+
+        h3,
+        .gamma{
+            @include font-size($h3-size);
+        }
+
+        h4,
+        .delta{
+            @include font-size($h4-size);
+        }
+
+        h5,
+        .epsilon{
+            @include font-size($h5-size);
+        }
+
+        h6,
+        .zeta{
+            @include font-size($h6-size);
+        }
+
+        /* Heading groups and generic any-heading class.
+            To target any heading of any level simply apply a class of `.hN`
+            Sample markup
+            <hgroup>
+                <h1 class="hN"></h1>
+                <h2 class="hN"></h2>
+            </hgroup>
+        */
+        .hN{}
+        hgroup .hN{
+            margin-bottom: 0;
+        }
+
+
+    /*  Large
+        Classes for larger text than headings
+    \*-------------------------------------------------------------------------*/
+
+        .giga{
+            @include font-size($giga-size);
+        }
+
+        .mega{
+            @include font-size($mega-size);
+        }
+
+        .kilo{
+            @include font-size($kilo-size);
+        }
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

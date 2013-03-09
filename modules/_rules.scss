@@ -1,0 +1,125 @@
+/*----------------------------------------------------------------------------*\
+    $RULES
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    @if $use-modules-rules{
+
+        /* Horizontal rules, extend `hr`. */
+        .rule{
+            color: #ccc; /* Sets border color, extend in your theme stylesheet. */
+            border: none;
+            border-bottom-width: 1px;
+            border-bottom-style: solid;
+            margin-bottom: ($base-spacing-unit - 1);
+            margin-bottom: ($base-spacing-unit - 1) / $base-font-size*1rem;
+        }
+
+        /* Dotted rules */
+        .rule--dotted{
+            border-bottom-style: dotted;
+        }
+
+        /* Dashed rules */
+        .rule--dashed{
+            border-bottom-style: dashed;
+        }
+
+        /* Ornamental rules. Places a § over the rule. */
+        .rule--ornament{
+            position: relative;
+
+            &:after{
+                content: "§";
+                position: absolute;
+                top:     0;
+                right: 0;
+                left:    0;
+                line-height: 0;
+                text-align: center;
+            }
+
+            /**
+             * Pass in an arbitrary ornament though a data attribute, e.g.:
+             * <hr class="rule  rule-ornament" data-ornament="!">
+             */
+            &[data-ornament]:after{
+                content: attr(data-ornament);
+            }
+        }
+
+    } // use-modules-rules
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

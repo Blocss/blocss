@@ -1,0 +1,247 @@
+/*----------------------------------------------------------------------------*\
+    $HELPERS
+    A series of helper classes to use arbitrarily. Only use a helper class if an
+    element/component doesn’t already have a class to which you could apply this
+    styling, e.g. if you need to float `.main-nav` left then add `float:left;`
+    to that ruleset as opposed to adding the `.fl` class to the markup.
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    /**
+     * Add/remove floats
+     */
+    .float--right,
+    // legacy float right, wille be removed in v3.0.0
+    .fr{
+        float: right !important;
+    }
+    .float--left,
+    // legacy float left, wille be removed in v3.0.0
+    .fl{
+        float: left !important;
+    }
+    .float--none{
+        float: none !important;
+    }
+
+
+    /**
+     * Text alignment
+     */
+    .text--left{
+        text-align: left !important;
+    }
+    .text--center{
+        text-align: center !important;
+    }
+    .text--right{
+        text-align: right !important;
+    }
+
+
+    /**
+     * Font weight/transforms
+     */
+    .weight--light{
+        font-weight: 300 !important;
+    }
+    .weight--normal{
+        font-weight: 400 !important;
+    }
+    .weight--semibold{
+        font-weight: 600 !important;
+    }
+    .caps{
+        text-transform: uppercase !important;
+    }
+
+
+    /**
+     * Add a help cursor to any element that gives the user extra information on
+     * `:hover`.
+     */
+    .informative{
+        cursor: help !important;
+    }
+
+
+    /**
+     * Align items to the right where they imply progression/movement forward.
+     */
+    .proceed{
+        text-align:right!important;
+    }
+
+
+    /**
+     * Add a right-angled quote to links that imply movement, e.g.:
+     */
+    .go:after{
+        content:"\00A0»"!important;
+    }
+
+
+
+    /**
+     * Full bleed
+     */
+    .full-bleed{
+        margin-right: -$base-spacing-unit;
+        margin-left: -$base-spacing-unit;
+
+        .islet &{
+            margin-right: -($half-spacing-unit);
+            margin-left: -($half-spacing-unit);
+        }
+        .continent &{
+            margin-right: -($base-spacing-unit*2);
+            margin-left: -($base-spacing-unit*2);
+        }
+    }
+
+
+    /**
+     * Remove margin bottom
+     */
+    .flatten{
+        margin-bottom: 0 !important;
+    }
+
+
+    /**
+     * Image replacement
+     */
+    .ir{
+        display: block;
+        border: 0;
+        text-indent: -999em;
+        overflow: hidden;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        text-align: left;
+        direction: ltr;
+        *line-height: 0;
+    }
+        .ir br{
+            display: none;
+        }
+
+
+    /**
+     * Hide from screanreaders & browsers
+     */
+    .hidden{
+        display: none !important;
+        visibility: hidden;
+    }
+
+
+    /**
+     * Hide only visually, but have it available for screenreaders
+     * as per: h5bp.com/v
+     */
+    @mixin visuallyhidden{
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    .visuallyhidden{
+        @include visuallyhidden;
+    }
+
+    /* Visuallyhidden based on breakpoint */
+    @each $state in palm, lap, lapup, portable, desk, desk-wide{
+        @include media-query(#{$state}){
+            .visuallyhidden-#{$state}{
+                @include visuallyhidden;
+            }
+        }
+    }
+
+
+    /**
+     * Hide visually and from screenreaders, but maintain layout
+     */
+    .invisible{
+        visibility: hidden;
+    }
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

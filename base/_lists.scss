@@ -1,0 +1,107 @@
+/*----------------------------------------------------------------------------*\
+    $LISTS
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    /**
+     * undo margin bottom on nested lists
+     */
+    li{
+        > ul,
+        > ol{
+            margin-bottom:0;
+        }
+    }
+
+
+    /**
+     * Just a blocky-list
+     */
+    /* ul,ol */.list--clean{
+        list-style: none;
+        list-style-image: none;
+        margin-left: 0;
+        padding: 0;
+    }
+
+
+    /**
+     * Have a numbered 'ul' without the semantics implied by using an 'ol'.
+     */
+    /* ul,ol */.list--numbered{
+        list-style-type: decimal;
+    }
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

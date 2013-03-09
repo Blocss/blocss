@@ -1,0 +1,158 @@
+/*----------------------------------------------------------------------------*\
+    $RESTART
+    More considered reset, a restart
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    /**
+     * Border box ALL the things
+     */
+    @if $global-border-box == true{
+        *{
+            &,
+            &:before,
+            &:after{
+                @include prefixer(box-sizing, border-box, webkit moz spec);
+            }
+        }
+    }
+
+
+    /**
+     * The usual
+     */
+    h1,h2,h3,h4,h5,h6,
+    p,blockquote,pre,
+    dl,dd,ol,ul,
+    form,fieldset,legend,
+    table,th,td,caption,
+    hr{
+        margin: 0;
+        padding: 0;
+    }
+
+
+    /**
+     * Give a help cursor to elements that give extra info on ':hover'
+     */
+    abbr[title],dfn[title]{
+        cursor: help;
+    }
+
+
+    /**
+     * Remove underlines from potentially troublesome elements
+     */
+    a,u,ins{
+        text-decoration: none;
+    }
+
+
+    /**
+     * Apply faux underline via 'border-bottom'
+     */
+    ins{
+        border-bottom: 1px solid;
+    }
+
+
+    /**
+     * So that `alt` text is visually offset if images don’t load
+     */
+    img{
+        font-style: italic;
+    }
+
+
+    /**
+     * Give form elements some cursor interactions
+     */
+    label,
+    input,
+    textarea,
+    button,
+    select,
+    option{
+        cursor: pointer;
+    }
+        .text-input:active,
+        .text-input:focus,
+        textarea:active,
+        textarea:focus{
+            cursor: text;
+            outline: none;
+        }
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

@@ -1,0 +1,134 @@
+/*----------------------------------------------------------------------------*\
+    $NAV
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    @if $use-modules-nav == true{
+
+        /*  When used on an 'ol' or 'ul', this class throws the list
+            into horizontal mode eg.:
+            <ul class="nav">
+                <li><a>Home</a></li>
+            </ul>
+        */
+        .nav,
+        .navigation{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            @extend .cf;
+
+            > li{
+
+                &,
+                > a{
+                    display:inline-block;
+                   *display:inline;
+                    zoom:1;
+                }
+            }
+        }
+
+
+        /*  Stacked nav
+            '.nav--stacked' extends '.nav' and renders the list into vertical mode eg.:
+            <ul class="nav nav--stacked">
+                <li><a>Home</a></li>
+            </ul>
+        */
+        .nav--stacked{
+            > li{
+                display: list-item;
+
+                > a{
+                    display: block;
+                }
+            }
+        }
+
+
+        /* Banner nav
+            '.nav--banner' extends '.nav' and centers the list eg.:
+            <ul class="nav nav--banner">
+                <li><a>Home</a></li>
+            </ul>
+        */
+        .nav--banner{
+            text-align: center;
+        }
+
+    } // use-modules-nav
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

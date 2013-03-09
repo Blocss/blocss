@@ -1,0 +1,175 @@
+/*----------------------------------------------------------------------------*\
+    $MATRIX
+    Create a grid of items out of a single list
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    @if $use-modules-matrix == true{
+
+        /*  Create a grid of items out of a single list, eg.:
+            <ul class="matrix four-cols">
+                <li class="all-cols">Lorem</li>
+                <li>Ipsum</li>
+                <li>Dolor</li>
+                <li>Sit</li>
+                <li>Amet</li>
+                <li class="all-cols">Consectetuer</li>
+            </ul>
+        */
+        .matrix{
+            &,
+            > li{
+                border: 0 solid #ccc; /* Override in theme stylesheet */
+            }
+        }
+        .matrix{
+            list-style: none;
+            margin-left: 0;
+            border-top-width: 1px;
+            border-left-width: 1px;
+            @extend .cf;
+
+            > li{
+                padding: $half-spacing-unit;
+                float: left;
+                border-right-width: 1px;
+                border-bottom-width: 1px;
+
+                /**
+                 * Since we need border-box on matrix to work,
+                 * apply when global setting is false
+                 */
+                @if $global-border-box == false{
+                    @include prefixer(box-sizing, border-box, webkit moz spec);
+                }
+            }
+        }
+
+        /*  The `.multi-list` object is a lot like the `.matrix` object only
+            without the blocky borders and padding.
+            <ul class="multi-list four-cols">
+                <li>Lorem</li>
+                <li>Ipsum</li>
+                <li>Dolor</li>
+                <li>Sit</li>
+            </ul>
+        */
+        .multi-list{
+            list-style: none;
+            margin-left: 0;
+            @extend .cf;
+
+            > li{
+                float: left;
+
+                /**
+                 * Since we need border-box on multi-list to work,
+                 * apply when global setting is false
+                 */
+                @if $global-border-box == false{
+                    @include prefixer(box-sizing, border-box, webkit moz spec);
+                }
+            }
+        }
+
+
+        /**
+         * Apply these classes alongside the `.matrix` or `.multi-list`
+         * classes on lists to determine how wide their columns are
+         */
+        .two-cols > li{
+            width: 50%;
+        }
+        .three-cols > li{
+            width: 33.333%;
+        }
+        .four-cols > li{
+            width: 25%;
+        }
+        .five-cols > li{
+            width: 20%;
+        }
+        .six-cols > li{
+            width: 16.666%;
+        }
+
+        /*  This only works on the `.matrix` object. */
+        .matrix > .all-cols{
+            width: 100%;
+        }
+
+    } // use-modules-matrix
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

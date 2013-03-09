@@ -1,0 +1,104 @@
+/*----------------------------------------------------------------------------*\
+    $NOTICE
+    Default notice styling
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    @if $use-modules-notice == true{
+
+        /* p,div */.notice{
+            display: block;
+            padding: $half-spacing-unit $base-spacing-unit;
+            padding: ($half-spacing-unit/$base-font-size)*1rem ($base-spacing-unit/$base-font-size)*1rem;
+            text-align: center;
+            color: $notice-face-color;
+            background-color: $notice-base;
+        }
+        .notice--success{
+            @extend .notice;
+            background-color: $notice-success;
+        }
+        .notice--warning{
+            @extend .notice;
+            background-color: $notice-warning;
+        }
+        .notice--error{
+            @extend .notice;
+            background-color: $notice-error;
+        }
+
+    } // use-modules-notice
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

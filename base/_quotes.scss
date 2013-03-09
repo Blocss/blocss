@@ -1,0 +1,148 @@
+/*----------------------------------------------------------------------------*\
+    $QUOTES
+    As per: html5doctor.com/blockquote-q-cite
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    @if $use-base-quotes == true{
+
+        q{
+            quotes: "‘" "’" "“" "”";
+        }
+
+        q:before{
+            content: "‘";
+            content: open-quote;
+        }
+        q:after{
+            content: "’";
+            content: close-quote;
+        }
+
+        q q:before{
+            content: "“";
+            content: open-quote;
+        }
+        q q:after{
+            content: "”";
+            content: close-quote;
+        }
+
+        blockquote{
+            quotes: "“" "”";
+        }
+        blockquote p:before{
+            content: "“";
+            content: open-quote;
+        }
+        blockquote p:after{
+            content: "";
+            content: no-close-quote;
+        }
+        blockquote p:last-of-type:after{
+            content: "”";
+            content: close-quote;
+        }
+
+        /*
+            <blockquote>
+                <p>Insanity: doing the same thing over and over again and expecting
+                different results.</p>
+                <b class="source">Albert Einstein</b>
+            </blockquote>
+        */
+        blockquote{
+            /**
+             * .4em is roughly equal to the width of the opening “ that we wish to hang.
+             */
+            text-indent: -0.4em;
+
+            p:last-of-type{
+                margin-bottom: 0;
+            }
+        }
+
+        .source{
+            display: block;
+            text-indent: 0;
+
+            &:before{
+                content: "—";
+            }
+        }
+
+    }
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/
