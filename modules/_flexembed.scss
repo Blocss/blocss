@@ -1,0 +1,128 @@
+/*----------------------------------------------------------------------------*\
+    $FLEXEMBED
+    For use with multi-media embeds, such as videos or slideshows, that need to
+    retain a specific aspect ratio but adapt to elements of variable widths.
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    @if $use-modules-flexembed == true{
+
+        /**
+         * Example HTML:
+         *
+           <div class="container">
+               <div class="flexembed flexembed--16by9">
+                   [iframe|object|embed]
+               </div>
+           </div>
+         *
+         */
+
+        .flexembed{
+            position: relative;
+            overflow: hidden;
+            height: 0;
+            padding: 0;
+        }
+
+        .flexembed iframe,
+        .flexembed embed,
+        .flexembed object{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /**
+         * Modifier: 16:9 aspect ratio
+         */
+        .flexembed--16by9{
+            padding-bottom: 56.25%;
+        }
+
+
+        /**
+         * Modifier: 4:3 aspect ratio
+         */
+        .flexembed--4by3{
+            padding-bottom: 75%;
+        }
+
+    } // use-modules-flexembed
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

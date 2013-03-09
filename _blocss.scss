@@ -6,7 +6,7 @@
 
 /*!*
  *
- * Powered by Blocss v2.0.1
+ * Powered by Blocss v2.0.2
  * by @bramsmulders (Bram Smulders)
  *
  */
@@ -43,6 +43,7 @@
     BREADCRUMB..........Simple breadcrumb trail
     PAGINATION..........Basic pagination object
     MEDIA...............Media object
+    FLEXEMBED...........Intrinsic ratio embed
     ISLAND..............Boxed off content
     MATRIX..............Gridded lists
     LINK-COMPLEX........Hover behaviour to only selected items
@@ -98,6 +99,7 @@
     @import "modules/breadcrumb";
     @import "modules/pagination";
     @import "modules/media";
+    @import "modules/flexembed";
     @import "modules/island";
     @import "modules/matrix";
     @import "modules/link-complex";
