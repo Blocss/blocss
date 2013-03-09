@@ -1,9 +1,28 @@
 /*----------------------------------------------------------------------------*\
-    $MISC
+    $HELPERS
     A series of helper classes to use arbitrarily. Only use a helper class if an
     element/component doesn’t already have a class to which you could apply this
     styling, e.g. if you need to float `.main-nav` left then add `float:left;`
     to that ruleset as opposed to adding the `.fl` class to the markup.
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
 \*----------------------------------------------------------------------------*/
 
     /*  Text & floats
@@ -133,3 +152,59 @@
             margin-left: 0;
             padding: 0;
         }
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

@@ -1,8 +1,26 @@
 /*----------------------------------------------------------------------------*\
     $PULL
     Pull classes, to move grid items over to the left by certain amounts.
+\*----------------------------------------------------------------------------*/
 
-    There's a mixin fo' that
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MIXIN...................There`s a mixin fo that
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MIXIN
 \*----------------------------------------------------------------------------*/
 
     @mixin pull-setup($namespace: "") {
@@ -96,49 +114,120 @@
     }
 
 
-@if $use-generic-pull == true{
-@if $use-modules-griddle == false{
-
-    /**
-     * Not a particularly great selector, but the DRYest way to do things.
-     */
-    [class*="pull-"]{
-        position:relative;
-    }
 
 
-    /**
-     * Default pull
-     */
-    @include pull-setup();
 
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
 
-    /**
-     * Responsive pull
-     */
-    @if $responsive-pull == true{
+    @if $use-generic-pull == true{
+    @if $use-modules-griddle == false{
 
-        @include media-query(palm){
-            @include pull-setup("palm-");
+        /**
+         * Not a particularly great selector, but the DRYest way to do things.
+         */
+        [class*="pull-"]{
+            position:relative;
         }
 
-        @include media-query(lap){
-            @include pull-setup("lap-");
-        }
 
-        @include media-query(lapup){
-            @include pull-setup("lapup-");
-        }
+        /**
+         * Default pull
+         */
+        @include pull-setup();
 
-        @include media-query(portable){
-            @include pull-setup("portable-");
-        }
 
-        @include media-query(desk){
-            @include pull-setup("desk-");
-        }
+        /**
+         * Responsive pull
+         */
+        @if $responsive-pull == true{
 
-}
-}
+            @include media-query(palm){
+                @include pull-setup("palm-");
+            }
 
-    }
+            @include media-query(lap){
+                @include pull-setup("lap-");
+            }
+
+            @include media-query(lapup){
+                @include pull-setup("lapup-");
+            }
+
+            @include media-query(portable){
+                @include pull-setup("portable-");
+            }
+
+            @include media-query(desk){
+                @include pull-setup("desk-");
+            }
+
+            @if $responsive-extra == true{
+
+                @include media-query(desk-wide){
+                    @include pull-setup("desk-wide-");
+                }
+
+            } // responsive-extra
+
+        } // responsive-pull
+
+    } // use-modules-griddle
+    } // use-generic-pull
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/
