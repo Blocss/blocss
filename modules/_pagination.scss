@@ -1,6 +1,25 @@
 /*----------------------------------------------------------------------------*\
     $PAGINATION
-    Basic pagination object, extends '.nav'
+    Basic pagination object, extends `.nav`
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
 \*----------------------------------------------------------------------------*/
 
     /**
@@ -10,31 +29,87 @@
     @if $use-modules-nav == true {
     @if $use-modules-pagination == true{
 
-    /*
-     * Sample code:
-       <ol class="nav pagination">
-           <li class="pagination-first">First</li>
-           <li><a href="">1</a></li>
-           <li><a href="">2</a></li>
-           <li class="active"><a href="">3</a></li>
-           <li class="pagination-last"><a href="">Last</a></li>
-       </ol>
-     */
-    .pagination{
-        text-align: center;
-    }
-        .pagination > li{
-            padding: $half-spacing-unit;
+        /*
+         * Sample code:
+           <ol class="nav pagination">
+               <li class="pagination-first">First</li>
+               <li><a href="">1</a></li>
+               <li><a href="">2</a></li>
+               <li class="active"><a href="">3</a></li>
+               <li class="pagination-last"><a href="">Last</a></li>
+           </ol>
+         */
+        .pagination{
+            text-align: center;
         }
-            .pagination > li > a{
+            .pagination > li{
                 padding: $half-spacing-unit;
-                margin: -$half-spacing-unit;
             }
-                .pagination-first a:before{
-                    content: "« ";
+                .pagination > li > a{
+                    padding: $half-spacing-unit;
+                    margin: -$half-spacing-unit;
                 }
-                .pagination-last a:after{
-                    content: " »";
-                }
-    }
-    }
+                    .pagination-first a:before{
+                        content: "« ";
+                    }
+                    .pagination-last a:after{
+                        content: " »";
+                    }
+    } // use-modules-pagination
+    } // use-modules-nav
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

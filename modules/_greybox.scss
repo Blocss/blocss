@@ -1,21 +1,96 @@
 /*----------------------------------------------------------------------------*\
     $GREYBOX
     Quickly throw together greybox wireframes. Use in conjunction with other
-    blocs to create simple greybox prototypes, e.g.:
+    blocs to create simple greybox prototypes.
+\*----------------------------------------------------------------------------*/
+
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
 \*----------------------------------------------------------------------------*/
 
     @if $use-modules-greybox == true{
 
-    .greybox{
-        @include font-size(12px);
-        font-family: sans-serif;
-        text-align: center;
-        background-color: rgba(0,0,0,0.2);
-        color: #fff;
-    }
-        .greybox a{
+        .greybox{
+            @include font-size(12px);
+            font-family: sans-serif;
+            text-align: center;
+            background-color: rgba(0,0,0,0.2);
             color: #fff;
-            text-decoration: underline;
         }
+            .greybox a{
+                color: #fff;
+                text-decoration: underline;
+            }
 
-    }
+    } // use-modules-greybox
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

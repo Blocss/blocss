@@ -3,8 +3,26 @@
     Sizes in human readable format. These are used in conjunction with other
     objects and abstractions found in blocss, most commonly the grid system
     and faux flexbox.
+\*----------------------------------------------------------------------------*/
 
-    There's a mixin fo' that
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MIXIN...................There's a mixin fo that
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MIXIN
 \*----------------------------------------------------------------------------*/
 
     @mixin width-setup($namespace: "") {
@@ -97,49 +115,112 @@
     }
 
 
-@if $use-generic-widths == true{
-@if $use-modules-griddle == false{
-
-    /**
-     * Default widths
-     */
-    @include width-setup();
 
 
-    /**
-     * Responsive widths
-     */
-    @if $responsive == true{
 
-        @include media-query(palm){
-            @include width-setup("palm-");
-        }
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
 
-        @include media-query(lap){
-            @include width-setup("lap-");
-        }
+    @if $use-generic-widths == true{
+    @if $use-modules-griddle == false{
 
-        @include media-query(lapup){
-            @include width-setup("lapup-");
-        }
+        /**
+         * Default widths
+         */
+        @include width-setup();
 
-        @include media-query(portable){
-            @include width-setup("portable-");
-        }
 
-        @include media-query(desk){
-            @include width-setup("desk-");
-        }
+        /**
+         * Responsive widths
+         */
+        @if $responsive == true{
 
-        @if $responsive-extra == true{
-
-            @include media-query(desk-wide){
-                @include grid-setup("desk-wide-");
+            @include media-query(palm){
+                @include width-setup("palm-");
             }
 
-        }
+            @include media-query(lap){
+                @include width-setup("lap-");
+            }
 
-    }
+            @include media-query(lapup){
+                @include width-setup("lapup-");
+            }
 
-}
-}
+            @include media-query(portable){
+                @include width-setup("portable-");
+            }
+
+            @include media-query(desk){
+                @include width-setup("desk-");
+            }
+
+            @if $responsive-extra == true{
+
+                @include media-query(desk-wide){
+                    @include grid-setup("desk-wide-");
+                }
+
+            } // responsive-extra
+
+        } // responsive
+
+    } // use-modules-griddle
+    } // use-generic-widths
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

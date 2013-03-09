@@ -1,14 +1,16 @@
 /*----------------------------------------------------------------------------*\
-        MIXINS.scss
+    $MIXINS
 \*----------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*\
-        CONTENTS
+    $CONTENTS
 \*----------------------------------------------------------------------------*/
 
     /*
-    TYPOGRAPHY
-    CSS3
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
     */
 
 
@@ -16,104 +18,104 @@
 
 
 /*----------------------------------------------------------------------------*\
-    $TYPOGRAPHY
+    $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /**
-     * Font face shorthand
-     */
-    @mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ){
-        @font-face {
-            font-family: $font-family;
-            font-weight: $weight;
-            font-style: $style;
-
-            @if $asset-pipeline == true {
-                src: font-url('#{$file-path}.eot');
-                src: font-url('#{$file-path}.eot?#iefix')          format('embedded-opentype'),
-                     font-url('#{$file-path}.woff')                format('woff'),
-                     font-url('#{$file-path}.ttf')                 format('truetype');
-            } @else {
-                src: url('#{$file-path}.eot');
-                src: url('#{$file-path}.eot?#iefix')               format('embedded-opentype'),
-                     url('#{$file-path}.woff')                     format('woff'),
-                     url('#{$file-path}.ttf')                      format('truetype');
-            }
-        }
-    }
-
-
-    /**
-     * Adds Margin bottom based on magic number
-     * With an optional flag to enable '!important'
-     */
-    @mixin m-margin-bottom($multiplier: 1, $important: false){
-        $append: null!default;
-        @if $important{
-            $append: !important;
-        }
-        margin-bottom: $multiplier * $base-spacing-unit $append;
-        /* rem unit for modern browsers */
-        margin-bottom: $multiplier * $base-spacing-unit / $base-font-size*1rem $append;
-    }
-
-
-    /**
-     * Calculates height based on magic number
-     * If you want to use 'min-' or 'max-' height, use the prefix param
-     */
-    @mixin m-height($multiplier: 1, $prefix:""){
-        #{$prefix}height: $multiplier * $base-line-height;
-        #{$prefix}height: ($multiplier * ($base-line-height / $base-font-size))*1rem;
-    }
-
-
-    /**
-     * Calculates font rem font size & line height
-     */
-    @mixin font-size($fs){
-        font-size: $fs;
-        font-size: ($fs / $base-font-size)*1rem;
-        line-height: ceil($fs / $base-line-height) * ($base-line-height / $fs);
-    }
-
-
-    /**
-     * Trucate overly long strings
-     * sample value truncate(100%)
-     */
-    @mixin truncate($truncation-boundary){
-        max-width: $truncation-boundary;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-
-    /**
-     * Display inline block
-     */
-    @mixin inline-block{
-        display: inline-block;
-        vertical-align: baseline;
-        zoom: 1;
-        *display: inline;
-        *vertical-align: auto;
-    }
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $CSS3
-\*----------------------------------------------------------------------------*/
-
-    /*  Timing functions
-        Timing functions are the same as demo'ed here:
-        http://jqueryui.com/demos/effect/easing.html
+    /* Typography & vertical rhythm
     \*------------------------------------------------------------------------*/
 
+        /**
+         * Font face shorthand
+         */
+        @mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ){
+            @font-face {
+                font-family: $font-family;
+                font-weight: $weight;
+                font-style: $style;
+
+                @if $asset-pipeline == true {
+                    src: font-url('#{$file-path}.eot');
+                    src: font-url('#{$file-path}.eot?#iefix')          format('embedded-opentype'),
+                         font-url('#{$file-path}.woff')                format('woff'),
+                         font-url('#{$file-path}.ttf')                 format('truetype');
+                } @else {
+                    src: url('#{$file-path}.eot');
+                    src: url('#{$file-path}.eot?#iefix')               format('embedded-opentype'),
+                         url('#{$file-path}.woff')                     format('woff'),
+                         url('#{$file-path}.ttf')                      format('truetype');
+                }
+            }
+        }
+
+
+        /**
+         * Adds Margin bottom based on magic number
+         * With an optional flag to enable '!important'
+         */
+        @mixin m-margin-bottom($multiplier: 1, $important: false){
+            $append: null!default;
+            @if $important{
+                $append: !important;
+            }
+            margin-bottom: $multiplier * $base-spacing-unit $append;
+            /* rem unit for modern browsers */
+            margin-bottom: $multiplier * $base-spacing-unit / $base-font-size*1rem $append;
+        }
+
+
+        /**
+         * Calculates height based on magic number
+         * If you want to use 'min-' or 'max-' height, use the prefix param
+         */
+        @mixin m-height($multiplier: 1, $prefix:""){
+            #{$prefix}height: $multiplier * $base-line-height;
+            #{$prefix}height: ($multiplier * ($base-line-height / $base-font-size))*1rem;
+        }
+
+
+        /**
+         * Calculates font rem font size & line height
+         */
+        @mixin font-size($fs){
+            font-size: $fs;
+            font-size: ($fs / $base-font-size)*1rem;
+            line-height: ceil($fs / $base-line-height) * ($base-line-height / $fs);
+        }
+
+
+        /**
+         * Trucate overly long strings
+         * sample value truncate(100%)
+         */
+        @mixin truncate($truncation-boundary){
+            max-width: $truncation-boundary;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+
+        /**
+         * Display inline block
+         */
+        @mixin inline-block{
+            display: inline-block;
+            vertical-align: baseline;
+            zoom: 1;
+            *display: inline;
+            *vertical-align: auto;
+        }
+
+
+
+    /* CSS3
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Timing functions
+         * the same as demo`ed here:
+         * http://jqueryui.com/demos/effect/easing.html
+         */
         /* EASE IN */
         $ease-in-quad:      cubic-bezier(0.550,  0.085, 0.680, 0.530);
         $ease-in-cubic:     cubic-bezier(0.550,  0.055, 0.675, 0.190);
@@ -145,11 +147,10 @@
         $ease-in-out-back:  cubic-bezier(0.680, -0.550, 0.265, 1.550);
 
 
-
-    /* Prefixer
-       Example: @include prefixer(border-radius, 5px 10px, webkit ms spec);
-    \*-------------------------------------------------------------------------*/
-
+        /**
+         * Prefixer
+         * Example: @include prefixer(border-radius, 5px 10px, webkit ms spec);
+         */
         @mixin prefixer ($property, $value, $prefixes) {
 
             @each $prefix in $prefixes {
@@ -175,58 +176,128 @@
 
         }
 
+
         /**
-         * Deprecated vendor prefixer
+         * Position shorthand mixin
          */
-        @mixin vendor($property, $value...){
-            @include prefixer($property, $value, webkit moz ms o spec);
+        @mixin position ($position: relative, $coordinates: 0 0 0 0){
+            @if type-of($position) == list{
+                $coordinates: $position;
+                $position: relative;
+            }
+
+            $top: nth($coordinates, 1);
+            $right: nth($coordinates, 2);
+            $bottom: nth($coordinates, 3);
+            $left: nth($coordinates, 4);
+
+            position: $position;
+
+            @if $top == auto{
+                top: $top;
+            }
+            @else if not(unitless($top)){
+                top: $top;
+            }
+
+            @if $right == auto {
+                right: $right;
+            }
+            @else if not(unitless($right)){
+                right: $right;
+            }
+
+            @if $bottom == auto {
+                bottom: $bottom;
+            }
+            @else if not(unitless($bottom)){
+                bottom: $bottom;
+            }
+
+            @if $left == auto{
+                left: $left;
+            }
+            @else if not(unitless($left)){
+                left: $left;
+            }
         }
 
 
-    /**
-     * Position shorthand mixin
-     */
-    @mixin position ($position: relative, $coordinates: 0 0 0 0){
-        @if type-of($position) == list{
-            $coordinates: $position;
-            $position: relative;
+        /**
+         * Keyframes mixin
+         */
+        @mixin keyframes($name) {
+            @-webkit-keyframes #{$name} {
+                @content;
+            }
+            @-moz-keyframes #{$name} {
+                @content;
+            }
+            @-ms-keyframes #{$name} {
+                @content;
+            }
+            @keyframes #{$name} {
+                @content;
+            }
         }
 
-        $top: nth($coordinates, 1);
-        $right: nth($coordinates, 2);
-        $bottom: nth($coordinates, 3);
-        $left: nth($coordinates, 4);
 
-        position: $position;
+        /**
+         * Animations
+         * Each of these mixins support comma separated lists of values,
+         * which allows different transitions for individual properties to be
+         * described in a single style rule. Each value in the list corresponds
+         * to the value at that same position in the other properties.
+         */
 
-        @if $top == auto{
-            top: $top;
-        }
-        @else if not(unitless($top)){
-            top: $top;
-        }
-
-        @if $right == auto {
-            right: $right;
-        }
-        @else if not(unitless($right)){
-            right: $right;
+        /**
+         * Official animation shorthand property.
+         * e.g.: @include animation(name duration timing-function delay iteration-count direction);
+         */
+        @mixin animation ($animations...) {
+            @include prefixer(animation, $animations, webkit moz spec);
         }
 
-        @if $bottom == auto {
-            bottom: $bottom;
-        }
-        @else if not(unitless($bottom)){
-            bottom: $bottom;
+        /**
+         * Individual Animation Properties
+         */
+        @mixin animation-name ($names...) {
+            @include prefixer(animation-name, $names, webkit moz spec);
         }
 
-        @if $left == auto{
-            left: $left;
+        @mixin animation-duration ($times...) {
+            @include prefixer(animation-duration, $times, webkit moz spec);
         }
-        @else if not(unitless($left)){
-            left: $left;
+
+        @mixin animation-timing-function ($motions...) {
+            /* ease | linear | ease-in | ease-out | ease-in-out */
+            @include prefixer(animation-timing-function, $motions, webkit moz spec);
         }
-    }
+
+        @mixin animation-iteration-count ($values...) {
+            /* infinite | <number> */
+            @include prefixer(animation-iteration-count, $values, webkit moz spec);
+        }
+
+        @mixin animation-direction ($directions...) {
+            /* normal | alternate */
+            @include prefixer(animation-direction, $directions, webkit moz spec);
+        }
+
+        @mixin animation-play-state ($states...) {
+            /* running | paused */
+            @include prefixer(animation-play-state, $states, webkit moz spec);
+        }
+
+        @mixin animation-delay ($times...) {
+            @include prefixer(animation-delay, $times, webkit moz spec);
+        }
+
+        @mixin animation-fill-mode ($modes...) {
+            /* none | forwards | backwards | both */
+            @include prefixer(animation-fill-mode, $modes, webkit moz spec);
+        }
+
 
 
     /* Media Queries
@@ -316,80 +387,56 @@
 
 
 
-    /* Keyframes
-    \*-------------------------------------------------------------------------*/
-
-        /**
-         * Keyframes mixin
-         */
-        @mixin keyframes($name) {
-            @-webkit-keyframes #{$name} {
-                @content;
-            }
-            @-moz-keyframes #{$name} {
-                @content;
-            }
-            @-ms-keyframes #{$name} {
-                @content;
-            }
-            @keyframes #{$name} {
-                @content;
-            }
-        }
 
 
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
 
-    /*  Animations
-        Each of these mixins support comma separated lists of values,
-        which allows different transitions for individual properties to be
-        described in a single style rule. Each value in the list corresponds
-        to the value at that same position in the other properties.
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
     \*------------------------------------------------------------------------*/
 
         /**
-         * Official animation shorthand property.
-         * e.g.: @include animation(name duration timing-function delay iteration-count direction);
+         * Desk-wide state
          */
-        @mixin animation ($animations...) {
-            @include prefixer(animation, $animations, webkit moz spec);
-        }
+        //@include media-query(desk-wide){}
+
 
         /**
-         * Individual Animation Properties
+         * Desk state
          */
-        @mixin animation-name ($names...) {
-            @include prefixer(animation-name, $names, webkit moz spec);
-        }
+        //@include media-query(desk){}
 
-        @mixin animation-duration ($times...) {
-            @include prefixer(animation-duration, $times, webkit moz spec);
-        }
 
-        @mixin animation-timing-function ($motions...) {
-            /* ease | linear | ease-in | ease-out | ease-in-out */
-            @include prefixer(animation-timing-function, $motions, webkit moz spec);
-        }
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
 
-        @mixin animation-iteration-count ($values...) {
-            /* infinite | <number> */
-            @include prefixer(animation-iteration-count, $values, webkit moz spec);
-        }
 
-        @mixin animation-direction ($directions...) {
-            /* normal | alternate */
-            @include prefixer(animation-direction, $directions, webkit moz spec);
-        }
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
 
-        @mixin animation-play-state ($states...) {
-            /* running | paused */
-            @include prefixer(animation-play-state, $states, webkit moz spec);
-        }
 
-        @mixin animation-delay ($times...) {
-            @include prefixer(animation-delay, $times, webkit moz spec);
-        }
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
 
-        @mixin animation-fill-mode ($modes...) {
-            /* none | forwards | backwards | both */
-            @include prefixer(animation-fill-mode, $modes, webkit moz spec);
-        }
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

@@ -3,51 +3,126 @@
     As per: stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
 \*----------------------------------------------------------------------------*/
 
-    @if $use-modules-media == true{
-
-    /*  Place any image- and text-like content side-by-side, eg.:
-        <div class="media">
-            <div class="img">
-                <img/>
-            </div>
-            <div class="body"></div>
-        </div>
-    */
-    .media{
-        display: block;
-        @extend .cf;
-    }
-        .img{
-            float: left;
-            margin-right: $base-spacing-unit;
-        }
-
-        /* Reversed image location (right instead of left). */
-        .img-rev{
-            float: right;
-            margin-left: $base-spacing-unit
-        }
-            .img img{
-                display: block;
-            }
-
-        .body{
-            overflow: hidden;
-        }
-            .body > :last-child{
-                margin-bottom: 0;
-            }
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
 
     /*
-    Islets have a slightly smaller padding value than normal.
-    With this in mind we make the `.img` spacing a little smaller for visual consistency.
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
     */
-    .islet .img{
-        margin-right: $half-spacing-unit;
-    }
 
-    .islet .img-rev{
-        margin-left: $half-spacing-unit;
-    }
 
-    }
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    @if $use-modules-media == true{
+
+        /*  Place any image- and text-like content side-by-side, eg.:
+            <div class="media">
+                <div class="img">
+                    <img/>
+                </div>
+                <div class="body"></div>
+            </div>
+        */
+        .media{
+            display: block;
+            @extend .cf;
+        }
+            .img{
+                float: left;
+                margin-right: $base-spacing-unit;
+            }
+
+            /* Reversed image location (right instead of left). */
+            .img-rev{
+                float: right;
+                margin-left: $base-spacing-unit
+            }
+                .img img{
+                    display: block;
+                }
+
+            .body{
+                overflow: hidden;
+            }
+                .body > :last-child{
+                    margin-bottom: 0;
+                }
+
+        /*
+        Islets have a slightly smaller padding value than normal.
+        With this in mind we make the `.img` spacing a little smaller for visual consistency.
+        */
+        .islet .img{
+            margin-right: $half-spacing-unit;
+        }
+
+        .islet .img-rev{
+            margin-left: $half-spacing-unit;
+        }
+
+    } // use-modules-media
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/
