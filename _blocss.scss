@@ -57,7 +57,7 @@
     PUSH................Push classes for manipulating grids
     PULL................Pull classes for manipulating grids
     BRAND...............Helper class to apply brand treatment to elements
-    MISC................Helper classes
+    HELPERS.............Helper classes
     DEBUG...............Set of debug styles
     */
 
@@ -70,6 +70,7 @@
     Include all framework modules
 \*----------------------------------------------------------------------------*/
 
+    @import "defaults";
     @import "generic/mixins";
     @import "generic/normalize";
     @import "generic/restart";
@@ -112,5 +113,5 @@
     @import "generic/push";
     @import "generic/pull";
     @import "generic/brand";
-    @import "generic/misc";
+    @import "generic/helpers";
     @import "generic/debug";
