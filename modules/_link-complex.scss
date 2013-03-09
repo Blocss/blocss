@@ -37,9 +37,9 @@
         .link-complex:focus{
             text-decoration: none;
         }
-            .link-complex:hover .link-complex-target,
-            .link-complex:active .link-complex-target,
-            .link-complex:focus .link-complex-target{
+            .link-complex:hover .link-complex__target,
+            .link-complex:active .link-complex__target,
+            .link-complex:focus .link-complex__target{
                 text-decoration: underline;
             }
 

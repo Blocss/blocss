@@ -169,8 +169,6 @@
      * 5. Reset text defaults.
      */
     .grid__cell {
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
         width: 100%;
         display: inline-block; /* 1 */
         margin: 0;
@@ -180,6 +178,14 @@
         letter-spacing: normal; /* 5 */
         word-spacing: normal; /* 5 */
         text-rendering: auto; /* 5 */
+
+        /**
+         * Since we need border-box on our grids to work,
+         * apply when global setting is false
+         */
+        @if $global-border-box == false{
+            @include prefixer(box-sizing, border-box, webkit moz spec);
+        } // blobal-border-box
     }
 
 
@@ -198,7 +204,7 @@
      * Set a specific unit to be horizontally centered. Doesn't affect
      * any other units. Can still contain a child `grid` object.
      */
-    .grid__cell--center {
+    .grid--center__cell {
         display: block;
         margin: 0 auto;
     }

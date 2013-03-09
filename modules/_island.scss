@@ -44,15 +44,15 @@
             padding: $base-spacing-unit;
         }
 
+        /* Just like `.island`, only smaller. */
+        .islet{
+            padding: $base-spacing-unit / 2;
+        }
+
         .continent > :last-child,
         .island > :last-child,
         .islet > :last-child{
             margin-bottom: 0;
-        }
-
-        /* Just like `.island`, only smaller. */
-        .islet{
-            padding: $base-spacing-unit / 2;
         }
 
     } // use-modules-island

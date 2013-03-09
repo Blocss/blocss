@@ -36,24 +36,26 @@
             display: block;
             @extend .cf;
         }
-            .img{
+            .media__img{
                 float: left;
                 margin-right: $base-spacing-unit;
             }
 
             /* Reversed image location (right instead of left). */
-            .img-rev{
+            .media__img--rev{
                 float: right;
                 margin-left: $base-spacing-unit
             }
-                .img img{
-                    display: block;
+                .media__img img,
+                .media__img--rev img{
+                    display:block;
                 }
 
-            .body{
+            .media__body{
                 overflow: hidden;
             }
-                .body > :last-child{
+                .media__body,
+                .media__body > :last-child{
                     margin-bottom: 0;
                 }
 
@@ -61,11 +63,11 @@
         Islets have a slightly smaller padding value than normal.
         With this in mind we make the `.img` spacing a little smaller for visual consistency.
         */
-        .islet .img{
+        .islet .media__img{
             margin-right: $half-spacing-unit;
         }
 
-        .islet .img-rev{
+        .islet .media__img--rev{
             margin-left: $half-spacing-unit;
         }
 

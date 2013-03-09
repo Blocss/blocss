@@ -33,9 +33,20 @@
 
 
     /**
+     * Just a blocky-list
+     */
+    /* ul,ol */.list--clean{
+        list-style: none;
+        list-style-image: none;
+        margin-left: 0;
+        padding: 0;
+    }
+
+
+    /**
      * Have a numbered 'ul' without the semantics implied by using an 'ol'.
      */
-    /*ul*/.list--numbered{
+    /* ul,ol */.list--numbered{
         list-style-type: decimal;
     }
 

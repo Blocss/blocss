@@ -58,7 +58,7 @@
                  * apply when global setting is false
                  */
                 @if $global-border-box == false{
-                    @include prefixer(box-sizing, border-box, webkit moz ms o spec);
+                    @include prefixer(box-sizing, border-box, webkit moz spec);
                 }
             }
         }
@@ -85,7 +85,7 @@
                  * apply when global setting is false
                  */
                 @if $global-border-box == false{
-                    @include prefixer(box-sizing, border-box, webkit moz ms o spec);
+                    @include prefixer(box-sizing, border-box, webkit moz spec);
                 }
             }
         }

@@ -26,24 +26,27 @@
     @if $use-modules-griddle == false{
 
         /*  Fluid and nestable grid system, eg.:
-            <div class="gw">
+            <div class="grid">
 
-                <div class="col one-third">
-                    <p>One third col</p>
+                <div class="grid__cell one-third">
+                    <p>One third grid__cell</p>
                 </div>
 
-                <div class="col two-thirds">
-                    <p>Two thirds col</p>
+                <div class="grid__cell two-thirds">
+                    <p>Two thirds grid__cell</p>
                 </div>
 
             </div>
         */
 
-        /*  Grid Wrapper
+        /*  Grid
         \*--------------------------------------------------------------------*/
 
+            .grid,
+            // deprecated gw classes, will be removed in v3.0.0
             .gw,
-            .grid-wrapper{
+            .grid-wrapper
+            {
                 /**
                  * Negative margin to negate the padding on the
                  * first grid child.
@@ -57,24 +60,32 @@
                 margin-bottom: 0;
                 @extend .cf;
             }
-                /* grid wrappers as children of grid wrappers */
+                /**
+                 * grid wrappers as children of grid wrappers
+                 */
+                .grid > .grid,
+                // deprecated gw classes, will be removed in v3.0.0
                 .gw > .gw,
                 .grid-wrapper > .grid-wrapper{
                     margin-left: 0;
                 }
-                /* Col */
-                .col{
-                    float: left;
-                    padding-left: $base-spacing-unit*$grid-gutter-multiplier;
-
                     /**
-                     * Since we need border-box on our grids to work,
-                     * apply when global setting is false
+                     * Grid cell
                      */
-                    @if $global-border-box == false{
-                        @include prefixer(box-sizing, border-box, webkit moz spec);
-                    } // blobal-border-box
-                }
+                    .grid__cell,
+                    // deprecated col class, will be removed in v3.0.0
+                    .col{
+                        float: left;
+                        padding-left: $base-spacing-unit*$grid-gutter-multiplier;
+
+                        /**
+                         * Since we need border-box on our grids to work,
+                         * apply when global setting is false
+                         */
+                        @if $global-border-box == false{
+                            @include prefixer(box-sizing, border-box, webkit moz spec);
+                        } // blobal-border-box
+                    }
 
 
 
@@ -82,7 +93,9 @@
             Columns float right instead of left
         \*--------------------------------------------------------------------*/
 
-            .grid-reversed .col{
+            .grid--reversed .grid__cell,
+            // deprecated col class, will be removed in v3.0.0
+            .grid--reversed .col{
                 float: right;
             }
 
@@ -92,10 +105,11 @@
             Extends grid, without gutters
         \*--------------------------------------------------------------------*/
 
-            .gutterless{
+            .grid--gutterless{
                 margin-left: 0;
             }
-                .gutterless .col{
+                .grid--gutterless .grid__cell,
+                .grid--gutterless .col{
                     padding-left: 0;
                 }
 

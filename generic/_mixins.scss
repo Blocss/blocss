@@ -328,9 +328,7 @@
              * Handheld
              */
             @if $media-query == palm{
-
                 @media only screen and (max-width:$palm-end) { @content; }
-
             }
 
 
@@ -338,9 +336,7 @@
              * All between '$lap-start' & '$lap-end'
              */
             @if $media-query == lap{
-
                 @media only screen and (min-width:$lap-start) and (max-width:$lap-end) { @content; }
-
             }
 
 
@@ -348,9 +344,7 @@
              * All higher than '$palm-end'
              */
             @if $media-query == lapup{
-
                 @media only screen and (min-width:$lap-start) { @content; }
-
             }
 
 
@@ -358,9 +352,7 @@
              * All lower than '$lap-end'
              */
             @if $media-query == portable{
-
                 @media only screen and (max-width:$lap-end) { @content; }
-
             }
 
 
@@ -368,9 +360,7 @@
              * Desktop
              */
             @if $media-query == desk{
-
                 @media only screen and (min-width:$desk-start) { @content; }
-
             }
 
 
@@ -378,9 +368,7 @@
              * Desktops, and beyond
              */
             @if $media-query == desk-wide{
-
                 @media only screen and (min-width: $desk-wide-start) { @content; }
-
             }
 
         }
