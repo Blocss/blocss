@@ -34,17 +34,17 @@
         }
 
         /* Dotted rules */
-        .rule-dotted{
+        .rule--dotted{
             border-bottom-style: dotted;
         }
 
         /* Dashed rules */
-        .rule-dashed{
+        .rule--dashed{
             border-bottom-style: dashed;
         }
 
         /* Ornamental rules. Places a § over the rule. */
-        .rule-ornament{
+        .rule--ornament{
             position: relative;
 
             &:after{

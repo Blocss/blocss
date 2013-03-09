@@ -25,133 +25,170 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /*  Text & floats
-    \*------------------------------------------------------------------------*/
+    /**
+     * Add/remove floats
+     */
+    .float--right,
+    // legacy float right, wille be removed in v3.0.0
+    .fr{
+        float: right !important;
+    }
+    .float--left,
+    // legacy float left, wille be removed in v3.0.0
+    .fl{
+        float: left !important;
+    }
+    .float--none{
+        float: none !important;
+    }
 
-        .fr{
-            float: right;
+
+    /**
+     * Text alignment
+     */
+    .text--left{
+        text-align: left !important;
+    }
+    .text--center{
+        text-align: center !important;
+    }
+    .text--right{
+        text-align: right !important;
+    }
+
+
+    /**
+     * Font weight/transforms
+     */
+    .weight--light{
+        font-weight: 300 !important;
+    }
+    .weight--normal{
+        font-weight: 400 !important;
+    }
+    .weight--semibold{
+        font-weight: 600 !important;
+    }
+    .caps{
+        text-transform: uppercase !important;
+    }
+
+
+    /**
+     * Add a help cursor to any element that gives the user extra information on
+     * `:hover`.
+     */
+    .informative{
+        cursor: help !important;
+    }
+
+
+    /**
+     * Align items to the right where they imply progression/movement forward.
+     */
+    .proceed{
+        text-align:right!important;
+    }
+
+
+    /**
+     * Add a right-angled quote to links that imply movement, e.g.:
+     */
+    .go:after{
+        content:"\00A0»"!important;
+    }
+
+
+
+    /**
+     * Full bleed
+     */
+    .full-bleed{
+        margin-right: -$base-spacing-unit;
+        margin-left: -$base-spacing-unit;
+
+        .islet &{
+            margin-right: -($half-spacing-unit);
+            margin-left: -($half-spacing-unit);
         }
-        .fl{
-            float: left;
+        .continent &{
+            margin-right: -($base-spacing-unit*2);
+            margin-left: -($base-spacing-unit*2);
         }
-
-        .text-left{
-            text-align: left;
-        }
-        .text-right{
-            text-align: right;
-        }
-        .text-center{
-            text-align: center;
-        }
-        .caps{
-            text-transform: uppercase;
-        }
+    }
 
 
-
-    /*  Bleed
-        Pull items full width of '.island' parents
-    \*------------------------------------------------------------------------*/
-
-        .full-bleed{
-            margin-right: -$base-spacing-unit;
-            margin-left: -$base-spacing-unit;
-
-            .islet &{
-                margin-right: -($half-spacing-unit);
-                margin-left: -($half-spacing-unit);
-            }
-            .continent &{
-                margin-right: -($base-spacing-unit*2);
-                margin-left: -($base-spacing-unit*2);
-            }
-        }
+    /**
+     * Remove margin bottom
+     */
+    .flatten{
+        margin-bottom: 0 !important;
+    }
 
 
-
-    /*  Image replacement
-    \*-------------------------------------------------------------------------*/
-
-        .ir{
-            display: block;
-            border: 0;
-            text-indent: -999em;
-            overflow: hidden;
-            background-color: transparent;
-            background-repeat: no-repeat;
-            text-align: left;
-            direction: ltr;
-            *line-height: 0;
-        }
-
+    /**
+     * Image replacement
+     */
+    .ir{
+        display: block;
+        border: 0;
+        text-indent: -999em;
+        overflow: hidden;
+        background-color: transparent;
+        background-repeat: no-repeat;
+        text-align: left;
+        direction: ltr;
+        *line-height: 0;
+    }
         .ir br{
             display: none;
         }
 
 
-
-    /*  Hide from screanreaders & browsers
-    \*-------------------------------------------------------------------------*/
-
-        .hidden{
-            display: none !important;
-            visibility: hidden;
-        }
-
+    /**
+     * Hide from screanreaders & browsers
+     */
+    .hidden{
+        display: none !important;
+        visibility: hidden;
+    }
 
 
-    /*  Hide only visually, but have it available for screenreaders
-        as per: h5bp.com/v
-    \*-------------------------------------------------------------------------*/
+    /**
+     * Hide only visually, but have it available for screenreaders
+     * as per: h5bp.com/v
+     */
+    @mixin visuallyhidden{
+        border: 0;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
 
-        @mixin visuallyhidden{
-            border: 0;
-            clip: rect(0 0 0 0);
-            height: 1px;
-            margin: -1px;
-            overflow: hidden;
-            padding: 0;
-            position: absolute;
-            width: 1px;
-        }
+    .visuallyhidden{
+        @include visuallyhidden;
+    }
 
-        .visuallyhidden{
-            @include visuallyhidden;
-        }
-
-
-        /**
-         * Visuallyhidden based on breakpoint
-         */
-        @each $state in palm, lap, lapup, portable, desk, desk-wide{
-            @include media-query(#{$state}){
-                .visuallyhidden-#{$state}{
-                    @include visuallyhidden;
-                }
+    /* Visuallyhidden based on breakpoint */
+    @each $state in palm, lap, lapup, portable, desk, desk-wide{
+        @include media-query(#{$state}){
+            .visuallyhidden-#{$state}{
+                @include visuallyhidden;
             }
         }
+    }
 
 
-
-    /*  Hide visually and from screenreaders, but maintain layout
-    \*-------------------------------------------------------------------------*/
-
-        .invisible{
-            visibility: hidden;
-        }
-
-
-
-    /*  Puts a list in non-bullet mode
-    \*-------------------------------------------------------------------------*/
-
-        .list-clean{
-            list-style: none;
-            list-style-image: none;
-            margin-left: 0;
-            padding: 0;
-        }
+    /**
+     * Hide visually and from screenreaders, but maintain layout
+     */
+    .invisible{
+        visibility: hidden;
+    }
 
 
 

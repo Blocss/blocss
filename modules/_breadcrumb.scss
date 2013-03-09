@@ -39,7 +39,7 @@
         }
 
         /* breadcrumb path */
-        .breadcrumb-path > li + li:before{
+        .breadcrumb--path > li + li:before{
             content: "/ ";
         }
 

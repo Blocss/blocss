@@ -49,10 +49,10 @@
                     padding: $half-spacing-unit;
                     margin: -$half-spacing-unit;
                 }
-                    .pagination-first a:before{
+                    .pagination__first a:before{
                         content: "« ";
                     }
-                    .pagination-last a:after{
+                    .pagination__last a:after{
                         content: " »";
                     }
     } // use-modules-pagination

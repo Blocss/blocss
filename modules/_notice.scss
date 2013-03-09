@@ -32,15 +32,15 @@
             color: $notice-face-color;
             background-color: $notice-base;
         }
-        .notice-success{
+        .notice--success{
             @extend .notice;
             background-color: $notice-success;
         }
-        .notice-warning{
+        .notice--warning{
             @extend .notice;
             background-color: $notice-warning;
         }
-        .notice-error{
+        .notice--error{
             @extend .notice;
             background-color: $notice-error;
         }

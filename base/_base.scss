@@ -23,9 +23,12 @@
 \*----------------------------------------------------------------------------*/
 
     html{
-        font: #{($base-font-size/16px)*1em}/($base-line-height / $base-font-size) serif;
         overflow-y: scroll;
         min-height: 100%;
+        font-family: $base-font-family;
+        font-size: #{($base-font-size/16px)*1em};
+        line-height: ($base-line-height / $base-font-size);
+        color: $base-color;
     }
 
 
