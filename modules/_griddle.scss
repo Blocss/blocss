@@ -142,8 +142,15 @@
         margin: 0 -0.5 * ($base-spacing-unit*$grid-gutter-multiplier); /* 1 */
         text-align: $griddle-direction; /* 2 */
         letter-spacing: -0.31em; /* 3 */
-        /* word-spacing: -0.43em; */ /* 3 TODO: Enable if supported */
         text-rendering: optimizespeed; /* 4 */
+    }
+
+    /**
+     * Opera hack
+     */
+    .opera:-o-prefocus,
+    .grid {
+        word-spacing: -0.43em;
     }
 
 
