@@ -3,79 +3,157 @@
     Fluid and nestable grid system
 \*----------------------------------------------------------------------------*/
 
-@if $use-modules-grid == true{
-@if $use-modules-griddle == false{
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
 
-    /*  Fluid and nestable grid system, eg.:
-        <div class="gw">
-
-            <div class="col one-third">
-                <p>One third col</p>
-            </div>
-
-            <div class="col two-thirds">
-                <p>Two thirds col</p>
-            </div>
-
-        </div>
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
     */
 
-    /*  Grid Wrapper
-    \*-------------------------------------------------------------------------*/
 
-        .gw,
-        .grid-wrapper{
-            /* Negative margin to negate the padding on the first grid child. */
-            margin-left: -($base-spacing-unit*$grid-gutter-multiplier);
-            /**
-             * The following declarations allow us to use the '.gw'
-             * class on lists
-             */
-            list-style: none;
-            margin-bottom: 0;
-            @extend .cf;
-        }
-            /* grid wrappers as children of grid wrappers */
-            .gw > .gw,
-            .grid-wrapper > .grid-wrapper{
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
+    @if $use-modules-grid == true{
+    @if $use-modules-griddle == false{
+
+        /*  Fluid and nestable grid system, eg.:
+            <div class="gw">
+
+                <div class="col one-third">
+                    <p>One third col</p>
+                </div>
+
+                <div class="col two-thirds">
+                    <p>Two thirds col</p>
+                </div>
+
+            </div>
+        */
+
+        /*  Grid Wrapper
+        \*--------------------------------------------------------------------*/
+
+            .gw,
+            .grid-wrapper{
+                /**
+                 * Negative margin to negate the padding on the
+                 * first grid child.
+                 */
+                margin-left: -($base-spacing-unit*$grid-gutter-multiplier);
+                /**
+                 * The following declarations allow us to use the '.gw'
+                 * class on lists
+                 */
+                list-style: none;
+                margin-bottom: 0;
+                @extend .cf;
+            }
+                /* grid wrappers as children of grid wrappers */
+                .gw > .gw,
+                .grid-wrapper > .grid-wrapper{
+                    margin-left: 0;
+                }
+                /* Col */
+                .col{
+                    float: left;
+                    padding-left: $base-spacing-unit*$grid-gutter-multiplier;
+
+                    /**
+                     * Since we need border-box on our grids to work,
+                     * apply when global setting is false
+                     */
+                    @if $global-border-box == false{
+                        @include prefixer(box-sizing, border-box, webkit moz spec);
+                    } // blobal-border-box
+                }
+
+
+
+        /*  Reversed
+            Columns float right instead of left
+        \*--------------------------------------------------------------------*/
+
+            .grid-reversed .col{
+                float: right;
+            }
+
+
+
+        /*  Gutterless
+            Extends grid, without gutters
+        \*--------------------------------------------------------------------*/
+
+            .gutterless{
                 margin-left: 0;
             }
-            /* Col */
-            .col{
-                float: left;
-                padding-left: $base-spacing-unit*$grid-gutter-multiplier;
-
-                /**
-                 * Since we need border-box on our grids to work,
-                 * apply when global setting is false
-                 */
-                @if $global-border-box == false{
-                    @include prefixer(box-sizing, border-box, webkit moz ms o spec);
+                .gutterless .col{
+                    padding-left: 0;
                 }
-            }
+
+    } // use-modules-griddle
+    } // use-modules-grid
 
 
 
-    /*  Reversed
-        Columns float right instead of left
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
     \*------------------------------------------------------------------------*/
 
-        .grid-reversed .col{
-            float: right;
-        }
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
 
 
 
-    /*  Gutterless
-        Extends grid, without gutters
-    \*-------------------------------------------------------------------------*/
 
-        .gutterless{
-            margin-left: 0;
-        }
-            .gutterless .col{
-                padding-left: 0;
-            }
 
-}
-}
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

@@ -3,37 +3,112 @@
     As per csswizardry.com/2011/10/the-island-object
 \*----------------------------------------------------------------------------*/
 
+/*----------------------------------------------------------------------------*\
+    $CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    CONTENTS................You're reading it, LOL
+    MODULE..................Includes base module & submodules
+    STATE...................States the module can be in
+    THEME...................Theming of the module
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MODULE
+\*----------------------------------------------------------------------------*/
+
     @if $use-modules-island == true{
 
-    /*  Simple, boxed off content eg.:
-        <div class="island">
-            I am boxed off.
-        </div>
-    */
-    .continent,
-    .island,
-    .islet{
-        display: block;
-        @extend .cf;
-    }
+        /*  Simple, boxed off content eg.:
+            <div class="island">
+                I am boxed off.
+            </div>
+        */
+        .continent,
+        .island,
+        .islet{
+            display: block;
+            @extend .cf;
+        }
 
-    .continent{
-        padding: $base-spacing-unit * 2;
-    }
+        .continent{
+            padding: $base-spacing-unit * 2;
+        }
 
-    .island{
-        padding: $base-spacing-unit;
-    }
+        .island{
+            padding: $base-spacing-unit;
+        }
 
-    .continent > :last-child,
-    .island > :last-child,
-    .islet > :last-child{
-        margin-bottom: 0;
-    }
+        .continent > :last-child,
+        .island > :last-child,
+        .islet > :last-child{
+            margin-bottom: 0;
+        }
 
-    /* Just like `.island`, only smaller. */
-    .islet{
-        padding: $base-spacing-unit / 2;
-    }
+        /* Just like `.island`, only smaller. */
+        .islet{
+            padding: $base-spacing-unit / 2;
+        }
 
-    }
+    } // use-modules-island
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $STATE
+\*----------------------------------------------------------------------------*/
+
+    /* Media Queries
+       The default media queries shipped with Blocss:
+       Uncomment the ones you need
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Desk-wide state
+         */
+        //@include media-query(desk-wide){}
+
+
+        /**
+         * Desk state
+         */
+        //@include media-query(desk){}
+
+
+        /**
+         * Portable state
+         */
+        //@include media-query(portable){}
+
+
+        /**
+         * Lap state
+         */
+        //@include media-query(lap){}
+
+
+        /**
+         * Lapup state
+         */
+        //@include media-query(lapup){}
+
+
+        /**
+         * Palm state
+         */
+        //@include media-query(palm){}
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $THEME
+\*----------------------------------------------------------------------------*/

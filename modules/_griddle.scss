@@ -9,7 +9,7 @@
 
     /*
     CONTENTS................You're reading it, LOL
-    MIXINS..................Mixins used by this module and this module only
+    MIXIN...................There`s a mixin fo that
     MODULE..................Includes base module & submodules
     STATE...................States the module can be in
     THEME...................Theming of the module
@@ -20,7 +20,7 @@
 
 
 /*----------------------------------------------------------------------------*\
-    $MIXINS
+    $MIXIN
 \*----------------------------------------------------------------------------*/
 
     /**
@@ -225,12 +225,22 @@
     \*------------------------------------------------------------------------*/
 
         /**
+         * Desk-wide state
+         */
+        @if $responsive-extra == true{
+
+            @include media-query(desk-wide){
+                @include griddle-build($griddle-cols, '--desk-wide');
+            }
+
+        } // responsive-extra
+
+
+        /**
          * Desk state
          */
         @include media-query(desk){
-
             @include griddle-build($griddle-cols, '--desk');
-
         }
 
 
@@ -238,9 +248,7 @@
          * Portable state
          */
         @include media-query(portable){
-
             @include griddle-build($griddle-cols, '--portable');
-
         }
 
 
@@ -248,9 +256,7 @@
          * Lap state
          */
         @include media-query(lap){
-
             @include griddle-build($griddle-cols, '--lap');
-
         }
 
 
@@ -258,9 +264,7 @@
          * Lapup state
          */
         @include media-query(lapup){
-
             @include griddle-build($griddle-cols, '--lapup');
-
         }
 
 
@@ -268,12 +272,10 @@
          * Palm state
          */
         @include media-query(palm){
-
             @include griddle-build($griddle-cols, '--palm');
-
         }
 
-}
+} // reponsive
 
 
 
@@ -282,5 +284,5 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
-}
-}
+} // use-modules-griddle
+} // use-modules-grid
