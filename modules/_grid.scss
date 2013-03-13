@@ -18,74 +18,181 @@
 
 
 
+@if $use-modules-grid == true{
 /*----------------------------------------------------------------------------*\
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    @if $use-modules-grid == true{
-    @if $use-modules-griddle == false{
+    /*
+     * Example usage:
+     *
+     * <div class="grid">
+     *     <div class="grid__cell unit-1-2"></div>
+     *     <div class="grid__cell unit-1-2"></div>
+     *     <div class="grid__cell unit-1-3"></div>
+     *     <div class="grid__cell unit-1-3 push-1-3"></div>
+     * </div>
+     *
+     * <div class="grid grid--center">
+     *     <div class="grid__cell unit-1-3"></div>
+     *     <div class="grid__cell unit-1-3"></div>
+     * </div>
+     */
 
-        /*  Fluid and nestable grid system, eg.:
-            <div class="grid">
 
-                <div class="grid__cell one-third">
-                    <p>One third grid__cell</p>
-                </div>
+    /**
+     * Inline block style grid
+     */
+    @if $grid-style-floating == false{
 
-                <div class="grid__cell two-thirds">
-                    <p>Two thirds grid__cell</p>
-                </div>
+        /**
+         * Grid container
+         * Must only contain `.grid` or `.grid__cell` components as children.
+         *
+         * 1. Adjustment for child element margins.
+         * 2. Ensure consistent default alignment/
+         * 3. Remove inter-unit whitespace that appears between `inline-block` child
+         *    elements. Work for all non-monospace font-families.  If you're using a
+         *    monospace base font, you will need to set the `grid` font-family to
+         *   `sans-serif` and then redeclare the monospace font on the `grid__cell`
+         *    objects.
+         * 4. Protect against WebKit bug with optimizelegibility.
+         */
+        .grid {
+            display: block;
+            padding: 0;
+            margin: 0 -0.5 * ($base-spacing-unit*$grid-gutter-multiplier); /* 1 */
+            text-align: $grid-direction; /* 2 */
+            letter-spacing: -0.31em; /* 3 */
+            text-rendering: optimizespeed; /* 4 */
+        }
 
-            </div>
-        */
+        /**
+         * Opera hack
+         */
+        .opera:-o-prefocus,
+        .grid {
+            word-spacing: -0.43em;
+        }
 
-        /*  Grid
-        \*--------------------------------------------------------------------*/
 
-            .grid,
+        /**
+         * Child `grid` object adjustments
+         * Used for more complex fixed-fluid hybrid grids.
+         */
+        .grid > .grid {
+            overflow: hidden;
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+
+        /**
+         * Grid units
+         * No explicit width by default. Apply `.unit-x-y` classes.
+         *
+         * 1. Fundamentals of the non-float grid layout mechanism.
+         * 2. Apply grid gutter.
+         * 3. Controls vertical positioning of units.
+         * 4. Keeps content correctly aligned with the grid direction.
+         * 5. Reset text defaults.
+         */
+        .grid__cell {
+            width: 100%;
+            display: inline-block; /* 1 */
+            margin: 0;
+            padding: 0 0.5 * ($base-spacing-unit*$grid-gutter-multiplier); /* 2 */
+            vertical-align: top; /* 3 */
+            text-align: $grid-direction; /* 4 */
+            letter-spacing: normal; /* 5 */
+            word-spacing: normal; /* 5 */
+            text-rendering: auto; /* 5 */
+
+            /**
+             * Since we need border-box on our grids to work,
+             * apply when global setting is false
+             */
+            @if $global-border-box == false{
+                @include prefixer(box-sizing, border-box, webkit moz spec);
+            } // blobal-border-box
+        }
+
+
+        /**
+         * Modifier: horizontally center all grid units
+         * Allows for automatic unit centering irrespective of the number of
+         * units in the grid.
+         */
+        .grid--center {
+            text-align: center;
+        }
+
+
+        /**
+         * Modifier: horizontally center one unit
+         * Set a specific unit to be horizontally centered. Doesn't affect
+         * any other units. Can still contain a child `grid` object.
+         */
+        .grid--center__cell {
+            display: block;
+            margin: 0 auto;
+        }
+
+
+    /**
+     * Float style grid
+     */
+    } @else {
+
+        /**
+         * Grid
+         */
+        .grid,
+        // deprecated gw classes, will be removed in v3.0.0
+        .gw,
+        .grid-wrapper
+        {
+            /**
+             * Negative margin to negate the padding on the
+             * first grid child.
+             */
+            margin-left: -($base-spacing-unit*$grid-gutter-multiplier);
+            /**
+             * The following declarations allow us to use the '.gw'
+             * class on lists
+             */
+            list-style: none;
+            margin-bottom: 0;
+            @extend .cf;
+        }
+            /**
+             * grid wrappers as children of grid wrappers
+             */
+            .grid > .grid,
             // deprecated gw classes, will be removed in v3.0.0
-            .gw,
-            .grid-wrapper
-            {
-                /**
-                 * Negative margin to negate the padding on the
-                 * first grid child.
-                 */
-                margin-left: -($base-spacing-unit*$grid-gutter-multiplier);
-                /**
-                 * The following declarations allow us to use the '.gw'
-                 * class on lists
-                 */
-                list-style: none;
-                margin-bottom: 0;
-                @extend .cf;
+            .gw > .gw,
+            .grid-wrapper > .grid-wrapper{
+                margin-left: 0;
             }
-                /**
-                 * grid wrappers as children of grid wrappers
-                 */
-                .grid > .grid,
-                // deprecated gw classes, will be removed in v3.0.0
-                .gw > .gw,
-                .grid-wrapper > .grid-wrapper{
-                    margin-left: 0;
-                }
-                    /**
-                     * Grid cell
-                     */
-                    .grid__cell,
-                    // deprecated col class, will be removed in v3.0.0
-                    .col{
-                        float: left;
-                        padding-left: $base-spacing-unit*$grid-gutter-multiplier;
 
-                        /**
-                         * Since we need border-box on our grids to work,
-                         * apply when global setting is false
-                         */
-                        @if $global-border-box == false{
-                            @include prefixer(box-sizing, border-box, webkit moz spec);
-                        } // blobal-border-box
-                    }
+
+        /**
+         * Grid cell
+         */
+        .grid__cell,
+        // deprecated col class, will be removed in v3.0.0
+        .col{
+            float: left;
+            padding-left: $base-spacing-unit*$grid-gutter-multiplier;
+
+            /**
+             * Since we need border-box on our grids to work,
+             * apply when global setting is false
+             */
+            @if $global-border-box == false{
+                @include prefixer(box-sizing, border-box, webkit moz spec);
+            } // blobal-border-box
+        }
 
 
 
@@ -101,20 +208,25 @@
 
 
 
-        /*  Gutterless
-            Extends grid, without gutters
-        \*--------------------------------------------------------------------*/
+    } // grid-style-floating
 
-            .grid--gutterless{
-                margin-left: 0;
+
+
+    /*  Gutterless
+        Extends grid, without gutters
+    \*--------------------------------------------------------------------*/
+
+        .grid--gutterless{
+            margin: 0;
+        }
+            .grid--gutterless .grid__cell,
+            .grid--gutterless .col{
+                padding: 0;
             }
-                .grid--gutterless .grid__cell,
-                .grid--gutterless .col{
-                    padding-left: 0;
-                }
 
-    } // use-modules-griddle
-    } // use-modules-grid
+
+
+} // use-modules-grid
 
 
 
