@@ -6,7 +6,7 @@
 
 /*!*
  *
- * Powered by Blocss v2.0.3
+ * Powered by Blocss v2.1.0
  * by @bramsmulders (Bram Smulders)
  *
  */
@@ -54,9 +54,7 @@
     GREYBOX.............Wireframing styles
     NOTICES.............Default notice styling
 
-    WIDTHS..............Width classes for use alongside the grid system etc.
-    PUSH................Push classes for manipulating grids
-    PULL................Pull classes for manipulating grids
+    WIDTHS..............Width & push classes for use alongside the grid system etc.
     BRAND...............Helper class to apply brand treatment to elements
     HELPERS.............Helper classes
     DEBUG...............Set of debug styles
@@ -93,7 +91,6 @@
 
 
     @import "modules/grid";
-    @import "modules/griddle";
     @import "modules/flexbox";
     @import "modules/nav";
     @import "modules/breadcrumb";
@@ -112,8 +109,6 @@
 
 
     @import "generic/widths";
-    @import "generic/push";
-    @import "generic/pull";
     @import "generic/brand";
     @import "generic/helpers";
     @import "generic/debug";

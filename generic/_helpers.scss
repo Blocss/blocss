@@ -58,7 +58,7 @@
 
 
     /**
-     * Font weight/transforms
+     * Font weight
      */
     .weight--light{
         font-weight: 300 !important;
@@ -69,8 +69,19 @@
     .weight--semibold{
         font-weight: 600 !important;
     }
+
+
+    /**
+     * Capitals/lowercase
+     */
     .caps{
         text-transform: uppercase !important;
+    }
+    .lowercase{
+        text-transform: lowercase !important;
+    }
+    .firstcap{
+        text-transform: capitalize !important;
     }
 
 
