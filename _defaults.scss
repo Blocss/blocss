@@ -136,7 +136,7 @@
     /**
      * Grid style, inline-block or floating?
      */
-    $grid-style-floating:               false;
+    $grid-style-floating:               false!default;
 
 
     /**
@@ -218,11 +218,11 @@
      * Global border-box ALL the things, as per:
      * paulirish.com/2012/box-sizing-border-box-ftw
      */
-    $global-border-box:                 true;
+    $global-border-box:                 true!default;
 
 
     /**
      * Enable debug mode to highlight possible markup/accessibility
      * quirks in your code
      */
-    $debug-mode:                        false;
+    $debug-mode:                        false!default;
