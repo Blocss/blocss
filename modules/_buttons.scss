@@ -18,34 +18,104 @@
 
 
 
+@if $use-modules-buttons == true{
 /*----------------------------------------------------------------------------*\
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    @if $use-modules-buttons == true{
+    /**
+     * The button classes are best applied to links, buttons, and submit inputs.
+     * These components can be used in forms, as calls to action, or as part of the
+     * general UI of the site/app.
+     *
+     * Recommended use:
+     *
+     * <a class="button [button--modifier]" role="button" href="[url]">button text</a>
+     * <button class="button [button--modifier]" type="submit">button text</button>
+     * <input class="button [button--modifier]" type="submit" value="button text">
+     */
 
-        .btn{
-            font: inherit;
-            cursor: pointer;
-            border: none;
-            display: inline-block;
-            margin: 0;
+    /**
+     * Button template
+     *
+     * Build on this component using rulesets in your application-level CSS.
+     *
+     * 1. Normalize `box-sizing` across all elements that this component could be
+     *    applied to.
+     * 2. Inherit text color from ancestor.
+     * 3. Inherit font styles from ancestor.
+     * 4. Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+.
+     * 5. Prevent wrapping across multiple lines.
+     * 6. Corrects inability to style clickable `input` types in iOS
+     */
+    .button,
+    // Deprecated `.btn` class, will be removed in v3.0.0
+    .btn{
+        position: relative;
+        @if $global-border-box == false{
+            @include prefixer(box-sizing, border-box, moz spec); /* 1 */
         }
-            .btn,
-            .btn:hover{
-                text-decoration: none;
-            }
+        display: inline-block;
+        padding: 0.4em 0.75em;
+        border: 1px solid;
+        margin: 0;
+        background: transparent;
+        color: inherit; /* 2 */
+        cursor: pointer;
+        font: inherit; /* 3 */
+        line-height: normal; /* 4 */
+        text-align: center;
+        text-decoration: none;
+        vertical-align: middle;
+        white-space: nowrap; /* 5 */
+        -webkit-appearance: none; /* 6 */
 
-        .btn--full{
+        &:hover,
+        &:focus,
+        &:active{
+            text-decoration: none;
+        }
+
+
+        /**
+         * Remove excess padding and border in Firefox 4+
+         */
+        &::-moz-focus-inner{
+            border: 0;
+            padding: 0;
+        }
+    }
+
+
+
+
+
+    /* Modifiers
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Modifier: smaller buttons
+         */
+        .button--small{
+            @include font-size($base-font-size * .75);
+        }
+
+
+        /**
+         * Modifier: larger buttons
+         */
+        .button--large{
+            @include font-size($base-font-size * 1.25);
+        }
+
+
+        /**
+         * Modifier: full-width buttons
+         */
+        .button--full{
             display: block;
-            text-align: center;
-            /* The following is so that `.btn-full` works properly on inputs */
-            padding-right: 0;
-            padding-left: 0;
             width: 100%;
         }
-
-    } // use-modules-buttons
 
 
 
@@ -102,3 +172,4 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+} // use-modules-buttons
