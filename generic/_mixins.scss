@@ -174,28 +174,16 @@
 
         /**
          * Prefixer
-         * Example: @include prefixer(border-radius, 5px 10px, webkit ms spec);
+         * Example: @include prefixer(border-radius, 5px 10px, webkit moz o ms spec);
          */
-        @mixin prefixer ($property, $value, $prefixes) {
+        @mixin prefixer ($property, $value, $prefixes){
 
-            @each $prefix in $prefixes {
-                @if $prefix == webkit {
-                    -webkit-#{$property}: $value;
+            @each $prefix in $prefixes{
+                @if $prefix != spec{
+                    -#{$prefix}-#{$property}: $value;
                 }
-                @else if $prefix == moz {
-                    -moz-#{$property}: $value;
-                }
-                @else if $prefix == ms {
-                    -ms-#{$property}: $value;
-                }
-                @else if $prefix == o {
-                    -o-#{$property}: $value;
-                }
-                @else if $prefix == spec {
+                @else if $prefix == spec{
                     #{$property}: $value;
-                }
-                @else  {
-                    @warn "Unrecognized prefix: #{$prefix}";
                 }
             }
 
