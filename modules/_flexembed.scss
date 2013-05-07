@@ -1,3 +1,4 @@
+@if $use-modules-flexembed == true{
 /*----------------------------------------------------------------------------*\
     $FLEXEMBED
     For use with multi-media embeds, such as videos or slideshows, that need to
@@ -23,53 +24,49 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    @if $use-modules-flexembed == true{
-
-        /**
-         * Example HTML:
-         *
-           <div class="container">
-               <div class="flexembed flexembed--16by9">
-                   [iframe|object|embed]
-               </div>
+    /**
+     * Example HTML:
+     *
+       <div class="container">
+           <div class="flexembed flexembed--16by9">
+               [iframe|object|embed]
            </div>
-         *
-         */
+       </div>
+     *
+     */
 
-        .flexembed{
-            position: relative;
-            overflow: hidden;
-            height: 0;
-            padding: 0;
-        }
+    .flexembed{
+        position: relative;
+        overflow: hidden;
+        height: 0;
+        padding: 0;
+    }
 
-        .flexembed iframe,
-        .flexembed embed,
-        .flexembed object{
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-
-        /**
-         * Modifier: 16:9 aspect ratio
-         */
-        .flexembed--16by9{
-            padding-bottom: 56.25%;
-        }
+    .flexembed iframe,
+    .flexembed embed,
+    .flexembed object{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
 
 
-        /**
-         * Modifier: 4:3 aspect ratio
-         */
-        .flexembed--4by3{
-            padding-bottom: 75%;
-        }
+    /**
+     * Modifier: 16:9 aspect ratio
+     */
+    .flexembed--16by9{
+        padding-bottom: 56.25%;
+    }
 
-    } // use-modules-flexembed
+
+    /**
+     * Modifier: 4:3 aspect ratio
+     */
+    .flexembed--4by3{
+        padding-bottom: 75%;
+    }
 
 
 
@@ -126,3 +123,4 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+} // use-modules-flexembed

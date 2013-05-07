@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------*\
-    $EMBEDDED
-    images, canvas, svg
+    $IMAGES
+    images
 \*----------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*\
@@ -22,66 +22,66 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /*  Images
-    \*------------------------------------------------------------------------*/
+    img{
+        max-width: 100%;
+        height: auto;
+    }
 
-        img{
-            max-width: 100%;
-            height: auto;
-        }
-
-        /**
-         * Rounded images.
-         */
-        .img--round {
-            border-radius: $brand-round;
-        }
-
-
-        /**
-         * Placement variations
-         */
-        .img--right{
-            float: right;
-            margin-bottom: $base-spacing-unit;
-            margin-left: $base-spacing-unit;
-        }
-        .img--left{
-            float: left;
-            margin-right: $base-spacing-unit;
-            margin-bottom: $base-spacing-unit;
-        }
-        .img--center{
-            display: block;
-            margin-right: auto;
-            margin-bottom: $base-spacing-unit;
-            margin-left: auto;
-        }
+    /**
+     * Rounded images
+     *
+     * We don't need a pixel fallback since browsers wich support border-radius
+     * also support rem units
+     */
+    .img--round{
+        @include rem(border-radius, $brand-round, false);
+    }
 
 
-        /**
-         * Keep your images on your baseline.
-         *
-         * Please note, these will not work too nicely with fluid images and will
-         * distort when resized below a certain width. Use with caution.
-         */
-        .img--short{
-            @include m-height(5);
-        }
-        .img--medium{
-            @include m-height(10);
-        }
-        .img--tall{
-            @include m-height(15);
-        }
+    /**
+     * Placement variations
+     */
+    .img--right{
+        float: right;
+        @include rem(margin-left, $base-spacing-unit);
+        @include rem(margin-bottom, $base-spacing-unit);
+    }
+    .img--left{
+        float: left;
+        @include rem(margin-right, $base-spacing-unit);
+        @include rem(margin-bottom, $base-spacing-unit);
+    }
+    .img--center{
+        display: block;
+        margin-right: auto;
+        @include rem(margin-bottom, $base-spacing-unit);
+        margin-left: auto;
+    }
 
 
-        /**
-         * Images in `figure` elements.
-         */
-        figure > img{
-            display: block;
-        }
+    /**
+     * Keep your images on your baseline.
+     *
+     * Please note, these will not work too nicely with fluid images and will
+     * distort when resized below a certain width. Use with caution.
+     */
+    .img--short{
+        @include m-height(5);
+    }
+    .img--medium{
+        @include m-height(10);
+    }
+    .img--tall{
+        @include m-height(15);
+    }
+
+
+    /**
+     * Images in `figure` elements.
+     */
+    figure > img{
+        display: block;
+    }
 
 
 

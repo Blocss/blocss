@@ -237,9 +237,25 @@
 
 
         /**
+         * Rem converter
+         *
+         * Sample usage:
+           .foo{
+               @include rem(width, 300px);
+           }
+         */
+        @mixin rem($property, $value, $include-fallback: true){
+            @if $include-fallback == true{
+                #{$property}: $value;
+            }
+            #{$property}: $value/$base-font-size*1rem;
+        }
+
+
+        /**
          * Keyframes mixin
          */
-        @mixin keyframes($name) {
+        @mixin keyframes($name){
             @-webkit-keyframes #{$name} {
                 @content;
             }

@@ -32,7 +32,7 @@
     CODE................
     LINKS...............
     LISTS...............
-    EMBEDDED............Images, canvas, svg
+    IMAGES..............Image styling & helpers
     TABLES..............Default table styling
     FORMS...............Form styling
 
@@ -45,7 +45,6 @@
     MEDIA...............Media object
     FLEXEMBED...........Intrinsic ratio embed
     ISLAND..............Boxed off content
-    MATRIX..............Gridded lists
     LINK-COMPLEX........Hover behaviour to only selected items
     SPLIT...............A simple split-in-two object
     SPRITE..............Generic spriting element
@@ -85,7 +84,7 @@
     @import "base/code";
     @import "base/links";
     @import "base/lists";
-    @import "base/embedded";
+    @import "base/images";
     @import "base/tables";
     @import "base/forms";
 
@@ -98,7 +97,6 @@
     @import "modules/media";
     @import "modules/flexembed";
     @import "modules/island";
-    @import "modules/matrix";
     @import "modules/link-complex";
     @import "modules/split";
     @import "modules/sprite";

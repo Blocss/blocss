@@ -1,3 +1,5 @@
+@if $use-modules-nav == true {
+@if $use-modules-pagination == true{
 /*----------------------------------------------------------------------------*\
     $PAGINATION
     Basic pagination object, extends `.nav`
@@ -22,41 +24,34 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /**
-     * Since breadcrumb needs '.nav' to work,
-     * check if '.nav' is enabled
+    /*
+     * Sample code:
+       <ol class="nav nav--pagination">
+           <li class="nav--pagination_first">First</li>
+           <li><a href="">1</a></li>
+           <li><a href="">2</a></li>
+           <li class="active"><a href="">3</a></li>
+           <li class="nav--pagination_last"><a href="">Last</a></li>
+       </ol>
      */
-    @if $use-modules-nav == true {
-    @if $use-modules-pagination == true{
+    .nav--pagination{
+        text-align: center;
 
-        /*
-         * Sample code:
-           <ol class="nav pagination">
-               <li class="pagination-first">First</li>
-               <li><a href="">1</a></li>
-               <li><a href="">2</a></li>
-               <li class="active"><a href="">3</a></li>
-               <li class="pagination-last"><a href="">Last</a></li>
-           </ol>
-         */
-        .pagination{
-            text-align: center;
-        }
-            .pagination > li{
-                padding: $half-spacing-unit;
+        > li{
+            @include rem(padding, $half-spacing-unit);
+
+            > a{
+                @include rem(padding, $half-spacing-unit);
+                @include rem(margin, -$half-spacing-unit);
             }
-                .pagination > li > a{
-                    padding: $half-spacing-unit;
-                    margin: -$half-spacing-unit;
-                }
-                    .pagination__first a:before{
-                        content: "« ";
-                    }
-                    .pagination__last a:after{
-                        content: " »";
-                    }
-    } // use-modules-pagination
-    } // use-modules-nav
+        }
+    }
+        .nav--pagination__first a:before{
+            content: "« ";
+        }
+        .nav--pagination__last a:after{
+            content: " »";
+        }
 
 
 
@@ -113,3 +108,5 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+} // use-modules-pagination
+} // use-modules-nav
