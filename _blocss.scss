@@ -45,7 +45,6 @@
     MEDIA...............Media object
     FLEXEMBED...........Intrinsic ratio embed
     ISLAND..............Boxed off content
-    MATRIX..............Gridded lists
     LINK-COMPLEX........Hover behaviour to only selected items
     SPLIT...............A simple split-in-two object
     SPRITE..............Generic spriting element
@@ -98,7 +97,6 @@
     @import "modules/media";
     @import "modules/flexembed";
     @import "modules/island";
-    @import "modules/matrix";
     @import "modules/link-complex";
     @import "modules/split";
     @import "modules/sprite";
