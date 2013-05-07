@@ -33,8 +33,8 @@
      * We don't need a pixel fallback since browsers wich support border-radius
      * also support rem units
      */
-    .img--round {
-        border-radius: $brand-round/$base-font-size*1rem;
+    .img--round{
+        @include rem(border-radius, $brand-round, false);
     }
 
 
@@ -43,23 +43,18 @@
      */
     .img--right{
         float: right;
-        margin-bottom: $base-spacing-unit;
-        margin-left: $base-spacing-unit;
-        margin-bottom: $base-spacing-unit/$base-font-size*1rem;
-        margin-left: $base-spacing-unit/$base-font-size*1rem;
+        @include rem(margin-left, $base-spacing-unit);
+        @include rem(margin-bottom, $base-spacing-unit);
     }
     .img--left{
         float: left;
-        margin-right: $base-spacing-unit;
-        margin-bottom: $base-spacing-unit;
-        margin-right: $base-spacing-unit/$base-font-size*1rem;
-        margin-bottom: $base-spacing-unit/$base-font-size*1rem;
+        @include rem(margin-right, $base-spacing-unit);
+        @include rem(margin-bottom, $base-spacing-unit);
     }
     .img--center{
         display: block;
         margin-right: auto;
-        margin-bottom: $base-spacing-unit;
-        margin-bottom: $base-spacing-unit/$base-font-size*1rem;
+        @include rem(margin-bottom, $base-spacing-unit);
         margin-left: auto;
     }
 

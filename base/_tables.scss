@@ -79,7 +79,7 @@
     }
     th,
     td{
-        padding: $base-spacing-unit / 4;
+        @include rem(padding, $base-spacing-unit/4);
         text-align: left;
     }
 

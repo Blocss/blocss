@@ -115,16 +115,17 @@
      * Full bleed
      */
     .full-bleed{
-        margin-right: -$base-spacing-unit;
-        margin-left: -$base-spacing-unit;
+        @include rem(margin-left, -$base-spacing-unit);
+        @include rem(margin-right, -$base-spacing-unit);
 
         .islet &{
-            margin-right: -($half-spacing-unit);
-            margin-left: -($half-spacing-unit);
+            @include rem(margin-left, -$half-spacing-unit);
+            @include rem(margin-right, -$half-spacing-unit);
         }
+
         .continent &{
-            margin-right: -($base-spacing-unit*2);
-            margin-left: -($base-spacing-unit*2);
+            @include rem(margin-left, -$base-spacing-unit*2);
+            @include rem(margin-right, -$base-spacing-unit*2);
         }
     }
 
@@ -150,10 +151,11 @@
         text-align: left;
         direction: ltr;
         *line-height: 0;
-    }
-        .ir br{
+
+        br{
             display: none;
         }
+    }
 
 
     /**
@@ -187,7 +189,7 @@
     /* Visuallyhidden based on breakpoint */
     @each $state in palm, lap, lapup, portable, desk, desk-wide{
         @include media-query(#{$state}){
-            .visuallyhidden-#{$state}{
+            .visuallyhidden--#{$state}{
                 @include visuallyhidden;
             }
         }

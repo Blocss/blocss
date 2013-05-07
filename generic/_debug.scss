@@ -1,3 +1,4 @@
+@if $debug-mode == true{
 /*----------------------------------------------------------------------------*\
     $DEBUG
     couple of debug styles, switch $debug-mode in _vars.scss
@@ -22,7 +23,6 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    @if $debug-mode == true{
         /*
         Red border      ==  something is wrong
         Yellow border   ==  something may be wrong, you should double check.
@@ -154,7 +154,6 @@
         .grid-wrapper > :not(.col){
             outline: 5px solid red;
         }
-    }
 
 
 
@@ -211,3 +210,4 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+}

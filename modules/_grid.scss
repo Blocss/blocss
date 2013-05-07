@@ -1,3 +1,4 @@
+@if $use-modules-grid == true{
 /*----------------------------------------------------------------------------*\
     $GRID
     Fluid and nestable grid system
@@ -18,7 +19,6 @@
 
 
 
-@if $use-modules-grid == true{
 /*----------------------------------------------------------------------------*\
     $MODULE
 \*----------------------------------------------------------------------------*/
@@ -61,7 +61,8 @@
         .grid {
             display: block;
             padding: 0;
-            margin: 0 -0.5 * ($base-spacing-unit*$grid-gutter-multiplier); /* 1 */
+            @include rem(margin-left, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
+            @include rem(margin-right, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
             text-align: $grid-direction; /* 2 */
             letter-spacing: -0.31em; /* 3 */
             text-rendering: optimizespeed; /* 4 */
@@ -101,7 +102,8 @@
             width: 100%;
             display: inline-block; /* 1 */
             margin: 0;
-            padding: 0 0.5 * ($base-spacing-unit*$grid-gutter-multiplier); /* 2 */
+            @include rem(padding-left, .5 *($base-spacing-unit*$grid-gutter-multiplier));
+            @include rem(padding-right, .5 *($base-spacing-unit*$grid-gutter-multiplier));
             vertical-align: top; /* 3 */
             text-align: $grid-direction; /* 4 */
             letter-spacing: normal; /* 5 */
@@ -152,17 +154,8 @@
         .gw,
         .grid-wrapper
         {
-            /**
-             * Negative margin to negate the padding on the
-             * first grid child.
-             */
-            margin-left: -($base-spacing-unit*$grid-gutter-multiplier);
-            /**
-             * The following declarations allow us to use the '.gw'
-             * class on lists
-             */
-            list-style: none;
-            margin-bottom: 0;
+            @include rem(margin-left, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
+            @include rem(margin-right, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
             @extend .cf;
         }
             /**
@@ -173,6 +166,7 @@
             .gw > .gw,
             .grid-wrapper > .grid-wrapper{
                 margin-left: 0;
+                margin-right: 0;
             }
 
 
@@ -183,7 +177,8 @@
         // deprecated col class, will be removed in v3.0.0
         .col{
             float: left;
-            padding-left: $base-spacing-unit*$grid-gutter-multiplier;
+            @include rem(padding-left, .5 *($base-spacing-unit*$grid-gutter-multiplier));
+            @include rem(padding-right, .5 *($base-spacing-unit*$grid-gutter-multiplier));
 
             /**
              * Since we need border-box on our grids to work,
@@ -220,13 +215,10 @@
             margin: 0;
         }
             .grid--gutterless .grid__cell,
+            // Deprecatet `.col` will be removed in v3
             .grid--gutterless .col{
                 padding: 0;
             }
-
-
-
-} // use-modules-grid
 
 
 
@@ -283,3 +275,4 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+} // use-modules-grid
