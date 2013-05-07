@@ -76,10 +76,10 @@
         /**
          * Calculates font rem font size & line height
          */
-        @mixin font-size($fs){
+        @mixin font-size($fs, $multiplier: 1){
             font-size: $fs;
             font-size: ($fs / $base-font-size)*1rem;
-            line-height: ceil($fs / $base-line-height) * ($base-line-height / $fs);
+            line-height: (ceil($fs / $base-line-height) * ($base-line-height / $fs)) * $multiplier;
         }
 
 
