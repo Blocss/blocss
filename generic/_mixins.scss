@@ -338,8 +338,8 @@
          *
          * palm
          * lap
-         * lapup
-         * portable
+         * gt-palm
+         * lt-desk
          * desk
          * desk-wide
          *
@@ -372,6 +372,14 @@
             /**
              * All higher than '$palm-end'
              */
+            @if $media-query == gt-palm{
+                @media only screen and (min-width:$lap-start) { @content; }
+            }
+
+
+            /**
+             * Deprecated `lapup` media query, will be removed in v4
+             */
             @if $media-query == lapup{
                 @media only screen and (min-width:$lap-start) { @content; }
             }
@@ -379,6 +387,14 @@
 
             /**
              * All lower than '$lap-end'
+             */
+            @if $media-query == lt-desk{
+                @media only screen and (max-width:$lap-end) { @content; }
+            }
+
+
+            /**
+             * Deprecated `portable` media query, will be removed in v4
              */
             @if $media-query == portable{
                 @media only screen and (max-width:$lap-end) { @content; }
@@ -401,59 +417,3 @@
             }
 
         }
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $STATE
-\*----------------------------------------------------------------------------*/
-
-    /* Media Queries
-       The default media queries shipped with Blocss:
-       Uncomment the ones you need
-    \*------------------------------------------------------------------------*/
-
-        /**
-         * Desk-wide state
-         */
-        //@include media-query(desk-wide){}
-
-
-        /**
-         * Desk state
-         */
-        //@include media-query(desk){}
-
-
-        /**
-         * Portable state
-         */
-        //@include media-query(portable){}
-
-
-        /**
-         * Lap state
-         */
-        //@include media-query(lap){}
-
-
-        /**
-         * Lapup state
-         */
-        //@include media-query(lapup){}
-
-
-        /**
-         * Palm state
-         */
-        //@include media-query(palm){}
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $THEME
-\*----------------------------------------------------------------------------*/
