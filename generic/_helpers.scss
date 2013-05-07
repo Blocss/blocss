@@ -28,14 +28,10 @@
     /**
      * Add/remove floats
      */
-    .float--right,
-    // legacy float right, wille be removed in v3.0.0
-    .fr{
+    .float--right{
         float: right !important;
     }
-    .float--left,
-    // legacy float left, wille be removed in v3.0.0
-    .fl{
+    .float--left{
         float: left !important;
     }
     .float--none{

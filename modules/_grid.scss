@@ -149,11 +149,7 @@
         /**
          * Grid
          */
-        .grid,
-        // deprecated gw classes, will be removed in v3.0.0
-        .gw,
-        .grid-wrapper
-        {
+        .grid{
             @include rem(margin-left, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
             @include rem(margin-right, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
             @extend .cf;
@@ -161,10 +157,7 @@
             /**
              * grid wrappers as children of grid wrappers
              */
-            .grid > .grid,
-            // deprecated gw classes, will be removed in v3.0.0
-            .gw > .gw,
-            .grid-wrapper > .grid-wrapper{
+            .grid > .grid{
                 margin-left: 0;
                 margin-right: 0;
             }
@@ -173,9 +166,7 @@
         /**
          * Grid cell
          */
-        .grid__cell,
-        // deprecated col class, will be removed in v3.0.0
-        .col{
+        .grid__cell{
             float: left;
             @include rem(padding-left, .5 *($base-spacing-unit*$grid-gutter-multiplier));
             @include rem(padding-right, .5 *($base-spacing-unit*$grid-gutter-multiplier));
@@ -195,9 +186,7 @@
             Columns float right instead of left
         \*--------------------------------------------------------------------*/
 
-            .grid--reversed .grid__cell,
-            // deprecated col class, will be removed in v3.0.0
-            .grid--reversed .col{
+            .grid--reversed .grid__cell{
                 float: right;
             }
 
@@ -214,9 +203,7 @@
         .grid--gutterless{
             margin: 0;
         }
-            .grid--gutterless .grid__cell,
-            // Deprecatet `.col` will be removed in v3
-            .grid--gutterless .col{
+            .grid--gutterless .grid__cell{
                 padding: 0;
             }
 

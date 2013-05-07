@@ -48,9 +48,7 @@
      * 5. Prevent wrapping across multiple lines.
      * 6. Corrects inability to style clickable `input` types in iOS
      */
-    .button,
-    // Deprecated `.btn` class, will be removed in v3.0.0
-    .btn{
+    .button{
         position: relative;
         @if $global-border-box == false{
             @include prefixer(box-sizing, border-box, moz spec); /* 1 */
