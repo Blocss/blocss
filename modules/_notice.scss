@@ -1,3 +1,4 @@
+@if $use-modules-notice == true{
 /*----------------------------------------------------------------------------*\
     $NOTICE
     Default notice styling
@@ -22,30 +23,26 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    @if $use-modules-notice == true{
-
-        /* p,div */.notice{
-            display: block;
-            padding: $half-spacing-unit $base-spacing-unit;
-            padding: ($half-spacing-unit/$base-font-size)*1rem ($base-spacing-unit/$base-font-size)*1rem;
-            text-align: center;
-            color: $notice-face-color;
-            background-color: $notice-base;
-        }
-        .notice--success{
-            @extend .notice;
-            background-color: $notice-success;
-        }
-        .notice--warning{
-            @extend .notice;
-            background-color: $notice-warning;
-        }
-        .notice--error{
-            @extend .notice;
-            background-color: $notice-error;
-        }
-
-    } // use-modules-notice
+    /* p,div */.notice{
+        display: block;
+        padding: $half-spacing-unit $base-spacing-unit;
+        padding: ($half-spacing-unit/$base-font-size)*1rem ($base-spacing-unit/$base-font-size)*1rem;
+        text-align: center;
+        color: $notice-face-color;
+        background-color: $notice-base;
+    }
+    .notice--success{
+        @extend .notice;
+        background-color: $notice-success;
+    }
+    .notice--warning{
+        @extend .notice;
+        background-color: $notice-warning;
+    }
+    .notice--error{
+        @extend .notice;
+        background-color: $notice-error;
+    }
 
 
 
@@ -73,9 +70,9 @@
 
 
         /**
-         * Portable state
+         * lt-desk state
          */
-        //@include media-query(portable){}
+        //@include media-query(lt-desk){}
 
 
         /**
@@ -85,9 +82,9 @@
 
 
         /**
-         * Lapup state
+         * gt-palm state
          */
-        //@include media-query(lapup){}
+        //@include media-query(gt-palm){}
 
 
         /**
@@ -102,3 +99,4 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+} // use-modules-notice

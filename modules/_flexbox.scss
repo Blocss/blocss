@@ -1,3 +1,4 @@
+@if $use-modules-flexbox == true{
 /*----------------------------------------------------------------------------*\
     $FLEXBOX
     Kinda emulate flexbox until we can use it natively
@@ -22,29 +23,25 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    @if $use-modules-flexbox == true{
-
-        /*  eg.:
-            <div class="flex">
-                <div class="flex-item">
-                    <b>Welcome to</b>
-                </div>
-                <div class="flexbox-item">
-                    <img src="" alt="">
-                </div>
+    /*  eg.:
+        <div class="flex">
+            <div class="flex__item">
+                <b>Welcome to</b>
             </div>
-        */
+            <div class="flex__item">
+                <img src="" alt="">
+            </div>
+        </div>
+    */
 
-        .flex{
-            display: table;
-            width: 100%;
+    .flex{
+        display: table;
+        width: 100%;
+    }
+        .flex__item{
+            display: table-cell;
+            vertical-align: middle;
         }
-            .flex__item{
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-    } // use-modules-flexbox
 
 
 
@@ -72,9 +69,9 @@
 
 
         /**
-         * Portable state
+         * lt-desk state
          */
-        //@include media-query(portable){}
+        //@include media-query(lt-desk){}
 
 
         /**
@@ -84,9 +81,9 @@
 
 
         /**
-         * Lapup state
+         * gt-palm state
          */
-        //@include media-query(lapup){}
+        //@include media-query(gt-palm){}
 
 
         /**
@@ -101,3 +98,4 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+} // use-modules-flexbox

@@ -1,3 +1,4 @@
+@if $use-modules-split{
 /*----------------------------------------------------------------------------*\
     $SPLIT
     A simple split-in-two object
@@ -22,20 +23,16 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    @if $use-modules-split{
-
-        .split{
-            text-align: right;
-            list-style: none;
-            margin-left: 0;
+    .split{
+        text-align: right;
+        list-style: none;
+        margin-left: 0;
+    }
+        .split__title{
+            text-align: left;
+            float: left;
+            clear: left;
         }
-            .split__title{
-                text-align: left;
-                float: left;
-                clear: left;
-            }
-
-    } // use-modules-split
 
 
 
@@ -63,9 +60,9 @@
 
 
         /**
-         * Portable state
+         * lt-desk state
          */
-        //@include media-query(portable){}
+        //@include media-query(lt-desk){}
 
 
         /**
@@ -75,9 +72,9 @@
 
 
         /**
-         * Lapup state
+         * gt-palm state
          */
-        //@include media-query(lapup){}
+        //@include media-query(gt-palm){}
 
 
         /**
@@ -92,3 +89,4 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+} // use-modules-split

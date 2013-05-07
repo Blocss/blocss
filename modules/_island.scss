@@ -1,3 +1,4 @@
+@if $use-modules-island == true{
 /*----------------------------------------------------------------------------*\
     $ISLAND
     As per csswizardry.com/2011/10/the-island-object
@@ -22,40 +23,36 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    @if $use-modules-island == true{
+    /*  Simple, boxed off content eg.:
+        <div class="island">
+            I am boxed off.
+        </div>
+    */
+    .continent,
+    .island,
+    .islet{
+        display: block;
+        @extend .cf;
+    }
 
-        /*  Simple, boxed off content eg.:
-            <div class="island">
-                I am boxed off.
-            </div>
-        */
-        .continent,
-        .island,
-        .islet{
-            display: block;
-            @extend .cf;
-        }
+    .continent{
+        @include rem(padding, $base-spacing-unit*2);
+    }
 
-        .continent{
-            padding: $base-spacing-unit * 2;
-        }
+    .island{
+        @include rem(padding, $base-spacing-unit);
+    }
 
-        .island{
-            padding: $base-spacing-unit;
-        }
+    /* Just like `.island`, only smaller. */
+    .islet{
+        @include rem(padding, $base-spacing-unit/2);
+    }
 
-        /* Just like `.island`, only smaller. */
-        .islet{
-            padding: $base-spacing-unit / 2;
-        }
-
-        .continent > :last-child,
-        .island > :last-child,
-        .islet > :last-child{
-            margin-bottom: 0;
-        }
-
-    } // use-modules-island
+    .continent > :last-child,
+    .island > :last-child,
+    .islet > :last-child{
+        margin-bottom: 0;
+    }
 
 
 
@@ -83,9 +80,9 @@
 
 
         /**
-         * Portable state
+         * lt-desk state
          */
-        //@include media-query(portable){}
+        //@include media-query(lt-desk){}
 
 
         /**
@@ -95,9 +92,9 @@
 
 
         /**
-         * Lapup state
+         * gt-palm state
          */
-        //@include media-query(lapup){}
+        //@include media-query(gt-palm){}
 
 
         /**
@@ -112,3 +109,4 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+} // use-modules-island

@@ -184,10 +184,10 @@
 
 
         /**
-         * Portable state
+         * lt-desk state
          */
-        @include media-query(portable){
-            @include griddle-build($width-divisions, '--portable');
+        @include media-query(lt-desk){
+            @include griddle-build($width-divisions, '--lt-desk');
         }
 
 
@@ -200,10 +200,10 @@
 
 
         /**
-         * Lapup state
+         * gt-palm state
          */
-        @include media-query(lapup){
-            @include griddle-build($width-divisions, '--lapup');
+        @include media-query(gt-palm){
+            @include griddle-build($width-divisions, '--gt-palm');
         }
 
 

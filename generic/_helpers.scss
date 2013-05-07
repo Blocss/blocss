@@ -28,14 +28,10 @@
     /**
      * Add/remove floats
      */
-    .float--right,
-    // legacy float right, wille be removed in v3.0.0
-    .fr{
+    .float--right{
         float: right !important;
     }
-    .float--left,
-    // legacy float left, wille be removed in v3.0.0
-    .fl{
+    .float--left{
         float: left !important;
     }
     .float--none{
@@ -115,16 +111,17 @@
      * Full bleed
      */
     .full-bleed{
-        margin-right: -$base-spacing-unit;
-        margin-left: -$base-spacing-unit;
+        @include rem(margin-left, -$base-spacing-unit);
+        @include rem(margin-right, -$base-spacing-unit);
 
         .islet &{
-            margin-right: -($half-spacing-unit);
-            margin-left: -($half-spacing-unit);
+            @include rem(margin-left, -$half-spacing-unit);
+            @include rem(margin-right, -$half-spacing-unit);
         }
+
         .continent &{
-            margin-right: -($base-spacing-unit*2);
-            margin-left: -($base-spacing-unit*2);
+            @include rem(margin-left, -$base-spacing-unit*2);
+            @include rem(margin-right, -$base-spacing-unit*2);
         }
     }
 
@@ -150,10 +147,11 @@
         text-align: left;
         direction: ltr;
         *line-height: 0;
-    }
-        .ir br{
+
+        br{
             display: none;
         }
+    }
 
 
     /**
@@ -185,9 +183,9 @@
     }
 
     /* Visuallyhidden based on breakpoint */
-    @each $state in palm, lap, lapup, portable, desk, desk-wide{
+    @each $state in palm, lap, gt-palm, lt-desk, desk, desk-wide{
         @include media-query(#{$state}){
-            .visuallyhidden-#{$state}{
+            .visuallyhidden--#{$state}{
                 @include visuallyhidden;
             }
         }
@@ -227,9 +225,9 @@
 
 
         /**
-         * Portable state
+         * lt-desk state
          */
-        //@include media-query(portable){}
+        //@include media-query(lt-desk){}
 
 
         /**
@@ -239,9 +237,9 @@
 
 
         /**
-         * Lapup state
+         * gt-palm state
          */
-        //@include media-query(lapup){}
+        //@include media-query(gt-palm){}
 
 
         /**

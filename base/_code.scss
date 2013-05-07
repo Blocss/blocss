@@ -1,3 +1,4 @@
+@if $use-base-code == true{
 /*----------------------------------------------------------------------------*\
     $CODE
 \*----------------------------------------------------------------------------*/
@@ -21,18 +22,14 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    @if $use-base-code == true{
-
-        pre{
-            overflow: auto;
-        }
-            pre mark{
-                background: none;
-                border-bottom: 1px solid;
-                color: inherit;
-            }
-
+    pre{
+        overflow: auto;
     }
+        pre mark{
+            background: none;
+            border-bottom: 1px solid;
+            color: inherit;
+        }
 
 
 
@@ -60,9 +57,9 @@
 
 
         /**
-         * Portable state
+         * lt-desk state
          */
-        //@include media-query(portable){}
+        //@include media-query(lt-desk){}
 
 
         /**
@@ -72,9 +69,9 @@
 
 
         /**
-         * Lapup state
+         * gt-palm state
          */
-        //@include media-query(lapup){}
+        //@include media-query(gt-palm){}
 
 
         /**
@@ -89,3 +86,4 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+}

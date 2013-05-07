@@ -76,10 +76,10 @@
         /**
          * Calculates font rem font size & line height
          */
-        @mixin font-size($fs){
+        @mixin font-size($fs, $multiplier: 1){
             font-size: $fs;
             font-size: ($fs / $base-font-size)*1rem;
-            line-height: ceil($fs / $base-line-height) * ($base-line-height / $fs);
+            line-height: (ceil($fs / $base-line-height) * ($base-line-height / $fs)) * $multiplier;
         }
 
 
@@ -237,9 +237,25 @@
 
 
         /**
+         * Rem converter
+         *
+         * Sample usage:
+           .foo{
+               @include rem(width, 300px);
+           }
+         */
+        @mixin rem($property, $value, $include-fallback: true){
+            @if $include-fallback == true{
+                #{$property}: $value;
+            }
+            #{$property}: $value/$base-font-size*1rem;
+        }
+
+
+        /**
          * Keyframes mixin
          */
-        @mixin keyframes($name) {
+        @mixin keyframes($name){
             @-webkit-keyframes #{$name} {
                 @content;
             }
@@ -322,8 +338,8 @@
          *
          * palm
          * lap
-         * lapup
-         * portable
+         * gt-palm
+         * lt-desk
          * desk
          * desk-wide
          *
@@ -356,6 +372,14 @@
             /**
              * All higher than '$palm-end'
              */
+            @if $media-query == gt-palm{
+                @media only screen and (min-width:$lap-start) { @content; }
+            }
+
+
+            /**
+             * Deprecated `lapup` media query, will be removed in v4
+             */
             @if $media-query == lapup{
                 @media only screen and (min-width:$lap-start) { @content; }
             }
@@ -363,6 +387,14 @@
 
             /**
              * All lower than '$lap-end'
+             */
+            @if $media-query == lt-desk{
+                @media only screen and (max-width:$lap-end) { @content; }
+            }
+
+
+            /**
+             * Deprecated `portable` media query, will be removed in v4
              */
             @if $media-query == portable{
                 @media only screen and (max-width:$lap-end) { @content; }
@@ -385,59 +417,3 @@
             }
 
         }
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $STATE
-\*----------------------------------------------------------------------------*/
-
-    /* Media Queries
-       The default media queries shipped with Blocss:
-       Uncomment the ones you need
-    \*------------------------------------------------------------------------*/
-
-        /**
-         * Desk-wide state
-         */
-        //@include media-query(desk-wide){}
-
-
-        /**
-         * Desk state
-         */
-        //@include media-query(desk){}
-
-
-        /**
-         * Portable state
-         */
-        //@include media-query(portable){}
-
-
-        /**
-         * Lap state
-         */
-        //@include media-query(lap){}
-
-
-        /**
-         * Lapup state
-         */
-        //@include media-query(lapup){}
-
-
-        /**
-         * Palm state
-         */
-        //@include media-query(palm){}
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $THEME
-\*----------------------------------------------------------------------------*/

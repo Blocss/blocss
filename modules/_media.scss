@@ -1,3 +1,4 @@
+@if $use-modules-media == true{
 /*----------------------------------------------------------------------------*\
     $MEDIA
     As per: stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
@@ -22,56 +23,65 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    @if $use-modules-media == true{
-
-        /*  Place any image- and text-like content side-by-side, eg.:
-            <div class="media">
-                <div class="img">
-                    <img/>
-                </div>
-                <div class="body"></div>
+    /*  Place any image- and text-like content side-by-side, eg.:
+        <div class="media">
+            <div class="media__img">
+                <img/>
             </div>
-        */
-        .media{
-            display: block;
-            @extend .cf;
-        }
-            .media__img{
-                float: left;
-                margin-right: $base-spacing-unit;
-            }
-
-            /* Reversed image location (right instead of left). */
-            .media__img--rev{
-                float: right;
-                margin-left: $base-spacing-unit
-            }
-                .media__img img,
-                .media__img--rev img{
-                    display:block;
-                }
-
-            .media__body{
-                overflow: hidden;
-            }
-                .media__body,
-                .media__body > :last-child{
-                    margin-bottom: 0;
-                }
-
-        /*
-        Islets have a slightly smaller padding value than normal.
-        With this in mind we make the `.img` spacing a little smaller for visual consistency.
-        */
-        .islet .media__img{
-            margin-right: $half-spacing-unit;
+            <div class="media__body"></div>
+        </div>
+    */
+    .media{
+        display: block;
+        @extend .cf;
+    }
+        .media__img{
+            float: left;
+            @include rem(margin-right, $base-spacing-unit);
         }
 
-        .islet .media__img--rev{
-            margin-left: $half-spacing-unit;
+        /* Reversed image location (right instead of left). */
+        .media__img--rev{
+            float: right;
+            @include rem(margin-left, $base-spacing-unit);
         }
+            .media__img img,
+            .media__img--rev img{
+                display:block;
+            }
 
-    } // use-modules-media
+        .media__body{
+            overflow: hidden;
+        }
+            .media__body,
+            .media__body > :last-child{
+                margin-bottom: 0;
+            }
+
+    /*
+    Islets have a slightly smaller padding value than normal.
+    With this in mind we make the `.img` spacing a little smaller for visual consistency.
+    */
+    .islet .media__img{
+        @include rem(margin-right, $half-spacing-unit);
+    }
+
+    .islet .media__img--rev{
+        @include rem(margin-left, $half-spacing-unit);
+    }
+
+
+    /*
+    Continent have a slightly bigger padding value than normal.
+    With this in mind we make the `.img` spacing a little bigger for visual consistency.
+    */
+    .continent .media__img{
+        @include rem(margin-right, $base-spacing-unit*2);
+    }
+
+    .continent .media__img--rev{
+        @include rem(margin-left, $base-spacing-unit*2);
+    }
 
 
 
@@ -99,9 +109,9 @@
 
 
         /**
-         * Portable state
+         * lt-desk state
          */
-        //@include media-query(portable){}
+        //@include media-query(lt-desk){}
 
 
         /**
@@ -111,9 +121,9 @@
 
 
         /**
-         * Lapup state
+         * gt-palm state
          */
-        //@include media-query(lapup){}
+        //@include media-query(gt-palm){}
 
 
         /**
@@ -128,3 +138,4 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+} // use-modules-media

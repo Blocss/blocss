@@ -1,3 +1,4 @@
+@if $use-modules-grid == true{
 /*----------------------------------------------------------------------------*\
     $GRID
     Fluid and nestable grid system
@@ -18,7 +19,6 @@
 
 
 
-@if $use-modules-grid == true{
 /*----------------------------------------------------------------------------*\
     $MODULE
 \*----------------------------------------------------------------------------*/
@@ -61,7 +61,8 @@
         .grid {
             display: block;
             padding: 0;
-            margin: 0 -0.5 * ($base-spacing-unit*$grid-gutter-multiplier); /* 1 */
+            @include rem(margin-left, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
+            @include rem(margin-right, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
             text-align: $grid-direction; /* 2 */
             letter-spacing: -0.31em; /* 3 */
             text-rendering: optimizespeed; /* 4 */
@@ -101,7 +102,8 @@
             width: 100%;
             display: inline-block; /* 1 */
             margin: 0;
-            padding: 0 0.5 * ($base-spacing-unit*$grid-gutter-multiplier); /* 2 */
+            @include rem(padding-left, .5 *($base-spacing-unit*$grid-gutter-multiplier));
+            @include rem(padding-right, .5 *($base-spacing-unit*$grid-gutter-multiplier));
             vertical-align: top; /* 3 */
             text-align: $grid-direction; /* 4 */
             letter-spacing: normal; /* 5 */
@@ -147,43 +149,27 @@
         /**
          * Grid
          */
-        .grid,
-        // deprecated gw classes, will be removed in v3.0.0
-        .gw,
-        .grid-wrapper
-        {
-            /**
-             * Negative margin to negate the padding on the
-             * first grid child.
-             */
-            margin-left: -($base-spacing-unit*$grid-gutter-multiplier);
-            /**
-             * The following declarations allow us to use the '.gw'
-             * class on lists
-             */
-            list-style: none;
-            margin-bottom: 0;
+        .grid{
+            @include rem(margin-left, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
+            @include rem(margin-right, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
             @extend .cf;
         }
             /**
              * grid wrappers as children of grid wrappers
              */
-            .grid > .grid,
-            // deprecated gw classes, will be removed in v3.0.0
-            .gw > .gw,
-            .grid-wrapper > .grid-wrapper{
+            .grid > .grid{
                 margin-left: 0;
+                margin-right: 0;
             }
 
 
         /**
          * Grid cell
          */
-        .grid__cell,
-        // deprecated col class, will be removed in v3.0.0
-        .col{
+        .grid__cell{
             float: left;
-            padding-left: $base-spacing-unit*$grid-gutter-multiplier;
+            @include rem(padding-left, .5 *($base-spacing-unit*$grid-gutter-multiplier));
+            @include rem(padding-right, .5 *($base-spacing-unit*$grid-gutter-multiplier));
 
             /**
              * Since we need border-box on our grids to work,
@@ -200,9 +186,7 @@
             Columns float right instead of left
         \*--------------------------------------------------------------------*/
 
-            .grid--reversed .grid__cell,
-            // deprecated col class, will be removed in v3.0.0
-            .grid--reversed .col{
+            .grid--reversed .grid__cell{
                 float: right;
             }
 
@@ -219,14 +203,9 @@
         .grid--gutterless{
             margin: 0;
         }
-            .grid--gutterless .grid__cell,
-            .grid--gutterless .col{
+            .grid--gutterless .grid__cell{
                 padding: 0;
             }
-
-
-
-} // use-modules-grid
 
 
 
@@ -254,9 +233,9 @@
 
 
         /**
-         * Portable state
+         * lt-desk state
          */
-        //@include media-query(portable){}
+        //@include media-query(lt-desk){}
 
 
         /**
@@ -266,9 +245,9 @@
 
 
         /**
-         * Lapup state
+         * gt-palm state
          */
-        //@include media-query(lapup){}
+        //@include media-query(gt-palm){}
 
 
         /**
@@ -283,3 +262,4 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+} // use-modules-grid

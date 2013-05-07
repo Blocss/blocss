@@ -51,8 +51,7 @@
 
     /* Default indentation value for lists etc. usually the MN */
     ul,ol,dd{
-        margin-left: $base-line-height;
-        margin-left: ($base-line-height / $base-font-size)*1rem;
+        @include rem(margin-left, $base-line-height);
     }
 
 
@@ -81,9 +80,9 @@
 
 
         /**
-         * Portable state
+         * lt-desk state
          */
-        //@include media-query(portable){}
+        //@include media-query(lt-desk){}
 
 
         /**
@@ -93,9 +92,9 @@
 
 
         /**
-         * Lapup state
+         * gt-palm state
          */
-        //@include media-query(lapup){}
+        //@include media-query(gt-palm){}
 
 
         /**

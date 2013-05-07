@@ -1,3 +1,5 @@
+@if $use-modules-nav == true {
+@if $use-modules-breadcrumb == true{
 /*----------------------------------------------------------------------------*\
     $BREADCRUMB
     Breadcrumb styling applied to (ordered) lists, extends `.nav`
@@ -22,39 +24,29 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /**
-     * Since breadcrumb needs '.nav' to work,
-     * check if '.nav' is enabled
+    /*  eg.:
+        <ol class="nav nav--breadcrumb">
+            <li><a href="#">Home</a></li>
+        </ol>
      */
-    @if $use-modules-nav == true {
-    @if $use-modules-breadcrumb == true{
+    .nav--breadcrumb > li + li:before{
+        content: "» ";
+    }
 
-        /*  eg.:
-            <ol class="nav breadcrumb">
-                <li><a href="#">Home</a></li>
-            </ol>
-         */
-        .breadcrumb > li + li:before{
-            content: "» ";
-        }
+    /* breadcrumb path */
+    .nav--breadcrumb--path > li + li:before{
+        content: "/ ";
+    }
 
-        /* breadcrumb path */
-        .breadcrumb--path > li + li:before{
-            content: "/ ";
-        }
-
-        /*  Assign a delimiter on the fly through a data attribute, e.g.:
-            <ol class="nav breadcrumb">
-                <li><a href="#">Home</a></li>
-                <li data-breadcrumb="|"><a href="#">About</a></li>
-            </ol>
-         */
-        .breadcrumb > li + li[data-breadcrumb]:before{
-            content: attr(data-breadcrumb)" ";
-        }
-
-    } // use-modules-breadcrumb
-    } // use-modules-nav
+    /*  Assign a delimiter on the fly through a data attribute, e.g.:
+        <ol class="nav nav--breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li data-breadcrumb="|"><a href="#">About</a></li>
+        </ol>
+     */
+    .nav--breadcrumb > li + li[data-breadcrumb]:before{
+        content: attr(data-breadcrumb)" ";
+    }
 
 
 
@@ -82,9 +74,9 @@
 
 
         /**
-         * Portable state
+         * lt-desk state
          */
-        //@include media-query(portable){}
+        //@include media-query(lt-desk){}
 
 
         /**
@@ -94,9 +86,9 @@
 
 
         /**
-         * Lapup state
+         * gt-palm state
          */
-        //@include media-query(lapup){}
+        //@include media-query(gt-palm){}
 
 
         /**
@@ -111,3 +103,5 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
+} // use-modules-breadcrumb
+} // use-modules-nav
