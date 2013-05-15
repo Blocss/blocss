@@ -120,11 +120,19 @@
 
 
     /**
-     * Tell Blocss when breakpoints start
+     * Define your breakpoints. The first value is the prefix that shall be used for
+     * your classes (e.g. `.unit-6-12--palm`), the second value is the media query
+     * that the breakpoint fires at.
      */
-    $lap-start:                         481px!default;
-    $desk-start:                        1024px!default;
-    $desk-wide-start:                   1200px!default;
+    $breakpoints: (
+        'palm' '(max-width: 480px)',
+        'gt-palm' '(min-width: 481px)',
+        'lap' '(min-width: 481px) and (max-width: 1023px)',
+        'lt-desk' '(max-width: 1023px)',
+        'desk' '(min-width: 1024px)',
+        'gt-desk' '(min-width: 1200px)'
+    )!default;
+
 
 
 
