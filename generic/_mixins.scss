@@ -333,9 +333,6 @@
     \*-------------------------------------------------------------------------*/
 
         /**
-         * These mixins are for the library to use only, you should not need to modify
-         * them at all.
-         *
          * Enclose a block of code with a media query as named in `$breakpoints`.
          */
         @mixin media-query($media-query){
