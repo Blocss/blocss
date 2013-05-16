@@ -153,6 +153,18 @@
 
 
     /**
+     * Using `inline-block` means that the grid items need their whitespace
+     * removing in order for them to work correctly. Set the following to true
+     * if you are going to achieve this by manually removing/commenting out any
+     * whitespace in your HTML yourself.
+     *
+     * Setting this to false invokes a hack which cannot always be guaranteed
+     * Please read the following: https://github.com/necolas/griddle/issues/16
+     */
+    $use-markup-fix:                    true!default;
+
+
+    /**
      * Defines the gutter between grid items, multiplies by $base-spacing-unit
      */
     $grid-gutter-multiplier:            1!default;
@@ -172,7 +184,7 @@
      * unit-3-6, and unit-6-12 classes to specify that an element should
      * take up 50% of its container.
      */
-    $width-divisions:                   6 12!default;
+    $width-divisions:                   12!default;
 
 
 
