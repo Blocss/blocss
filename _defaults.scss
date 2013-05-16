@@ -114,15 +114,9 @@
 
 
     /**
-     * Responsiveness for widescreen/high resolution and beyond?
-     */
-    $responsive-extra:                  false!default;
-
-
-    /**
-     * Define your breakpoints. The first value is the prefix that shall be used for
-     * your classes (e.g. `.unit-6-12--palm`), the second value is the media query
-     * that the breakpoint fires at.
+     * Define your breakpoints. The first value is the prefix that shall be used
+     * for your classes (e.g. `.unit-6-12--palm`), the second value is the media
+     * query that the breakpoint fires at.
      */
     $breakpoints: (
         'palm' '(max-width: 480px)',
@@ -132,6 +126,21 @@
         'desk' '(min-width: 1024px)',
         'gt-desk' '(min-width: 1200px)'
     )!default;
+
+
+    /**
+     * Define which namespaced breakpoints you would like to generate for each
+     * of widths, push and pull. This is handy if you only need pull on, say,
+     * desk, or you only need a new width breakpoint at mobile sizes. It allows
+     * you to only compile as much CSS as you need. All are turned on by
+     * default, but you can add and remove breakpoints at will.
+     *
+     * Push and pull shall only be used if `$push` and/or `$pull` and `$responsive`
+     * have been set to ‘true’.
+     */
+    $breakpoint-has-widths: ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-push:   ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-pull:   ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
 
 
 
@@ -167,7 +176,7 @@
      * unit-3-6, and unit-6-12 classes to specify that an element should
      * take up 50% of its container.
      */
-    $width-divisions:                   4 12!default;
+    $width-divisions:                   6 12!default;
 
 
 
