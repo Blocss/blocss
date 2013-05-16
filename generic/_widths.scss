@@ -176,14 +176,12 @@
             } // for $i loop
         } // each unit loop
 
-
     } // mixin: push-build;
 
 
 
 
 
-@if $use-generic-widths == true{
 /*----------------------------------------------------------------------------*\
     $MODULE
 \*----------------------------------------------------------------------------*/
@@ -191,7 +189,17 @@
     /**
      * Setup generic widths
      */
-    @include width-build($width-divisions);
+    @if $use-generic-widths == true{
+        @include width-build($width-divisions);
+    } // use-generic-widths
+
+
+    /**
+      * Setup generic push widths
+      */
+    @if $use-generic-push == true{
+        @include push-build($width-divisions);
+    }
 
 
 
@@ -201,27 +209,27 @@
     $STATE
 \*----------------------------------------------------------------------------*/
 
-@if $responsive == true{
-
-    /* Media Queries
-       The default media queries shipped with Blocss:
-       Uncomment the ones you need
+    @if $responsive == true{
+    /* Responsive widths & pushers
     \*------------------------------------------------------------------------*/
 
-        @each $name in $breakpoint-has-widths {
-            @include media-query($name) {
-               @include width-build($width-divisions, '--#{$name}');
+        @if $use-generic-widths == true{
+            @each $name in $breakpoint-has-widths {
+                @include media-query($name) {
+                   @include width-build($width-divisions, '--#{$name}');
+                }
             }
         }
 
-        @each $name in $breakpoint-has-push {
-            @include media-query($name) {
-               @include push-build($width-divisions, '--#{$name}');
+        @if $use-generic-push == true{
+            @each $name in $breakpoint-has-push {
+                @include media-query($name) {
+                   @include push-build($width-divisions, '--#{$name}');
+                }
             }
         }
 
-
-} // reponsive
+    } // reponsive
 
 
 
@@ -230,4 +238,3 @@
 /*----------------------------------------------------------------------------*\
     $THEME
 \*----------------------------------------------------------------------------*/
-} // use-generic-widths
