@@ -114,17 +114,31 @@
 
 
     /**
-     * Responsiveness for widescreen/high resolution and beyond?
+     * Define your breakpoints. The first value is the prefix that shall be used
+     * for your classes (e.g. `.unit-6-12--palm`), the second value is the media
+     * query that the breakpoint fires at.
      */
-    $responsive-extra:                  false!default;
+    $breakpoints: (
+        'palm' '(max-width: 480px)',
+        'gt-palm' '(min-width: 481px)',
+        'lap' '(min-width: 481px) and (max-width: 1023px)',
+        'lt-desk' '(max-width: 1023px)',
+        'desk' '(min-width: 1024px)',
+        'gt-desk' '(min-width: 1200px)'
+    )!default;
 
 
     /**
-     * Tell Blocss when breakpoints start
+     * Define which namespaced breakpoints you would like to generate for each
+     * of widths & push. This is handy if you only need push on, say,
+     * desk, or you only need a new width breakpoint at mobile sizes. It allows
+     * you to only compile as much CSS as you need. All are turned on by
+     * default, but you can add and remove breakpoints at will.
      */
-    $lap-start:                         481px!default;
-    $desk-start:                        1024px!default;
-    $desk-wide-start:                   1200px!default;
+    $breakpoint-has-widths: ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-push:   ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-visuallyhidden:   ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+
 
 
 
@@ -137,6 +151,18 @@
      * Grid style, inline-block or floating?
      */
     $grid-style-floating:               false!default;
+
+
+    /**
+     * Using `inline-block` means that the grid items need their whitespace
+     * removing in order for them to work correctly. Set the following to true
+     * if you are going to achieve this by manually removing/commenting out any
+     * whitespace in your HTML yourself.
+     *
+     * Setting this to false invokes a hack which cannot always be guaranteed
+     * Please read the following: https://github.com/necolas/griddle/issues/16
+     */
+    $use-markup-fix:                    true!default;
 
 
     /**
@@ -159,7 +185,7 @@
      * unit-3-6, and unit-6-12 classes to specify that an element should
      * take up 50% of its container.
      */
-    $width-divisions:                   4 12!default;
+    $width-divisions:                   12!default;
 
 
 

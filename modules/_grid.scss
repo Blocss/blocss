@@ -40,34 +40,41 @@
      */
 
 
+
     /**
-     * Inline block style grid
+     * Grid container
+     * Must only contain `.grid` or `.grid__cell` components as children.
+     *
+     * 1. Adjustment for child element margins.
+     * 2. Ensure consistent default alignment/
+     * 3. Remove inter-unit whitespace that appears between `inline-block` child
+     *    elements. Work for all non-monospace font-families.  If you're using a
+     *    monospace base font, you will need to set the `grid` font-family to
+     *   `sans-serif` and then redeclare the monospace font on the `grid__cell`
+     *    objects.
+     * 4. Protect against WebKit bug with optimizelegibility.
+     * 5. Use lists as grid
+     * 6. Clearfix if u use floating grids
      */
-    @if $grid-style-floating == false{
+    $gutter: ($base-spacing-unit*$grid-gutter-multiplier);
 
-        /**
-         * Grid container
-         * Must only contain `.grid` or `.grid__cell` components as children.
-         *
-         * 1. Adjustment for child element margins.
-         * 2. Ensure consistent default alignment/
-         * 3. Remove inter-unit whitespace that appears between `inline-block` child
-         *    elements. Work for all non-monospace font-families.  If you're using a
-         *    monospace base font, you will need to set the `grid` font-family to
-         *   `sans-serif` and then redeclare the monospace font on the `grid__cell`
-         *    objects.
-         * 4. Protect against WebKit bug with optimizelegibility.
-         */
-        .grid {
-            display: block;
-            padding: 0;
-            @include rem(margin-left, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
-            @include rem(margin-right, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
-            text-align: $grid-direction; /* 2 */
-            letter-spacing: -0.31em; /* 3 */
-            text-rendering: optimizespeed; /* 4 */
+    .grid {
+        @if $grid-style-floating == true{
+            @extend .cf; /* 6 */
         }
+        display: block;
+        list-style: none; /* 5 */
+        padding: 0;
+        @include rem(margin-left, -.5 * $gutter); /* 1 */
+        @include rem(margin-right, -.5 * $gutter); /* 1 */
+        text-align: $grid-direction; /* 2 */
+        @if $use-markup-fix == false {
+            letter-spacing: -0.31em; /* 3 */
+        }
+        text-rendering: optimizespeed; /* 4 */
+    }
 
+    @if $use-markup-fix == false {
         /**
          * Opera hack
          */
@@ -75,21 +82,22 @@
         .grid {
             word-spacing: -0.43em;
         }
+    }
+
+
+    /**
+     * Child `grid` object adjustments
+     * Used for more complex fixed-fluid hybrid grids.
+     */
+    .grid > .grid {
+        overflow: hidden;
+        margin-right: 0;
+        margin-left: 0;
+    }
 
 
         /**
-         * Child `grid` object adjustments
-         * Used for more complex fixed-fluid hybrid grids.
-         */
-        .grid > .grid {
-            overflow: hidden;
-            margin-right: 0;
-            margin-left: 0;
-        }
-
-
-        /**
-         * Grid units
+         * Grid cells
          * No explicit width by default. Apply `.unit-x-y` classes.
          *
          * 1. Fundamentals of the non-float grid layout mechanism.
@@ -97,18 +105,24 @@
          * 3. Controls vertical positioning of units.
          * 4. Keeps content correctly aligned with the grid direction.
          * 5. Reset text defaults.
+         * 6. Float left if you choose for floating-grids
          */
         .grid__cell {
             width: 100%;
             display: inline-block; /* 1 */
+            @if $grid-style-floating == true{
+                float: $grid-direction; /* 6 */
+            }
             margin: 0;
-            @include rem(padding-left, .5 *($base-spacing-unit*$grid-gutter-multiplier));
-            @include rem(padding-right, .5 *($base-spacing-unit*$grid-gutter-multiplier));
+            @include rem(padding-left, .5 * $gutter);
+            @include rem(padding-right, .5 * $gutter);
             vertical-align: top; /* 3 */
             text-align: $grid-direction; /* 4 */
-            letter-spacing: normal; /* 5 */
-            word-spacing: normal; /* 5 */
-            text-rendering: auto; /* 5 */
+            @if $use-markup-fix == false {
+                letter-spacing: normal; /* 5 */
+                word-spacing: normal; /* 5 */
+                text-rendering: auto; /* 5 */
+            }
 
             /**
              * Since we need border-box on our grids to work,
@@ -117,96 +131,123 @@
             @if $global-border-box == false{
                 @include prefixer(box-sizing, border-box, webkit moz spec);
             } // blobal-border-box
-        }
-
-
-        /**
-         * Modifier: horizontally center all grid units
-         * Allows for automatic unit centering irrespective of the number of
-         * units in the grid.
-         */
-        .grid--center {
-            text-align: center;
-        }
-
-
-        /**
-         * Modifier: horizontally center one unit
-         * Set a specific unit to be horizontally centered. Doesn't affect
-         * any other units. Can still contain a child `grid` object.
-         */
-        .grid--center__cell {
-            display: block;
-            margin: 0 auto;
         }
 
 
     /**
-     * Float style grid
+     * Modifier: Reverse grid direction
+     * Columns float right instead of left
+     * Applies only on floated grids
      */
-    } @else {
-
-        /**
-         * Grid
-         */
-        .grid{
-            @include rem(margin-left, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
-            @include rem(margin-right, -.5 *($base-spacing-unit*$grid-gutter-multiplier));
-            @extend .cf;
-        }
-            /**
-             * grid wrappers as children of grid wrappers
-             */
-            .grid > .grid{
-                margin-left: 0;
-                margin-right: 0;
+    .grid--reversed, // Deprecated in v4+
+    .grid--rev{
+        @if $grid-style-floating == false{
+            @if $grid-direction == left{
+                direction: rtl;
+                text-align: left;
+            } @else {
+                direction: ltr;
+                text-align: left;
             }
-
-
-        /**
-         * Grid cell
-         */
-        .grid__cell{
-            float: left;
-            @include rem(padding-left, .5 *($base-spacing-unit*$grid-gutter-multiplier));
-            @include rem(padding-right, .5 *($base-spacing-unit*$grid-gutter-multiplier));
-
-            /**
-             * Since we need border-box on our grids to work,
-             * apply when global setting is false
-             */
-            @if $global-border-box == false{
-                @include prefixer(box-sizing, border-box, webkit moz spec);
-            } // blobal-border-box
         }
 
-
-
-        /*  Reversed
-            Columns float right instead of left
-        \*--------------------------------------------------------------------*/
-
-            .grid--reversed .grid__cell{
-                float: right;
+        > .grid__cell{
+            @if $grid-style-floating == false{
+                direction: ltr;
+                @if $grid-direction == left{
+                    text-align: left;
+                } @else {
+                    text-align: left;
+                }
+            } @else {
+                @if $grid-direction == left{
+                    float: right;
+                } @else {
+                    float: left;
+                }
             }
-
-
-
-    } // grid-style-floating
-
-
-
-    /*  Gutterless
-        Extends grid, without gutters
-    \*--------------------------------------------------------------------*/
-
-        .grid--gutterless{
-            margin: 0;
         }
-            .grid--gutterless .grid__cell{
-                padding: 0;
-            }
+    }
 
+
+    /**
+     * Modifier: horizontally center all grid units
+     * Allows for automatic unit centering irrespective of the number of
+     * units in the grid.
+     */
+    .grid--center{
+        text-align: center;
+
+        > .grid__cell{
+            text-align: left;
+        }
+    }
+
+
+    /**
+     * Modifier: align grid cells vertically
+     */
+    .grid--middle{
+        > .grid__cell{
+            vertical-align: middle;
+        }
+    }
+    .grid--bottom{
+        > .grid__cell{
+            vertical-align: bottom;
+        }
+    }
+
+
+    /**
+     * Modifier: horizontally center one unit
+     * Set a specific unit to be horizontally centered. Doesn't affect
+     * any other units. Can still contain a child `grid` object.
+     */
+    .grid__cell--center{
+        display: block;
+        margin: 0 auto;
+    }
+
+
+    /**
+     * Create grids with narrower gutters. Extends `.grid`.
+     */
+    .grid--narrow{
+        @include rem(margin-left, -.5 * ($gutter / 2));
+        @include rem(margin-right, -.5 * ($gutter / 2));
+
+        > .grid__cell{
+            @include rem(padding-left, .5 * ($gutter / 2));
+            @include rem(padding-right, .5 * ($gutter / 2));
+        }
+    }
+
+
+    /**
+     * Create grids with wider gutters. Extends `.grid`.
+     */
+    .grid--wide{
+        @include rem(margin-left, -.5 * ($gutter * 2));
+        @include rem(margin-right, -.5 * ($gutter * 2));
+
+        > .grid__cell{
+            @include rem(padding-left, .5 * ($gutter * 2));
+            @include rem(padding-right, .5 * ($gutter * 2));
+        }
+    }
+
+
+    /**
+     * Modifier: Remove gutters between columns
+     */
+    .grid--gutterless{
+        margin: 0;
+
+        > .grid__cell{
+            padding: 0;
+        }
+    }
 
 
 

@@ -333,87 +333,25 @@
     \*-------------------------------------------------------------------------*/
 
         /**
-         * We define some broad breakpoints in our vars file that are picked up here
-         * for use in a simple media query mixin. Our options are:
-         *
-         * palm
-         * lap
-         * gt-palm
-         * lt-desk
-         * desk
-         * desk-wide
-         *
-         * Not using a media query will, naturally, serve styles to all devices.
-         *
-         * Usage:
-         * '@include media-query(palm){ [styles here] }'
+         * Enclose a block of code with a media query as named in `$breakpoints`.
          */
-        $palm-end:              $lap-start - 1px;
-        $lap-end:               $desk-start - 1px;
-
         @mixin media-query($media-query){
+            $breakpoint-found: false;
 
-            /**
-             * Handheld
-             */
-            @if $media-query == palm{
-                @media only screen and (max-width:$palm-end) { @content; }
+            @each $breakpoint in $breakpoints{
+                $name: nth($breakpoint, 1);
+                $declaration: nth($breakpoint, 2);
+
+                @if $media-query == $name and $declaration{
+                    $breakpoint-found: true;
+
+                    @media only screen and #{$declaration}{
+                        @content;
+                    }
+                }
             }
 
-
-            /**
-             * All between '$lap-start' & '$lap-end'
-             */
-            @if $media-query == lap{
-                @media only screen and (min-width:$lap-start) and (max-width:$lap-end) { @content; }
+            @if $breakpoint-found == false{
+                @warn "Breakpoint ‘#{$media-query}’ does not exist"
             }
-
-
-            /**
-             * All higher than '$palm-end'
-             */
-            @if $media-query == gt-palm{
-                @media only screen and (min-width:$lap-start) { @content; }
-            }
-
-
-            /**
-             * Deprecated `lapup` media query, will be removed in v4
-             */
-            @if $media-query == lapup{
-                @media only screen and (min-width:$lap-start) { @content; }
-            }
-
-
-            /**
-             * All lower than '$lap-end'
-             */
-            @if $media-query == lt-desk{
-                @media only screen and (max-width:$lap-end) { @content; }
-            }
-
-
-            /**
-             * Deprecated `portable` media query, will be removed in v4
-             */
-            @if $media-query == portable{
-                @media only screen and (max-width:$lap-end) { @content; }
-            }
-
-
-            /**
-             * Desktop
-             */
-            @if $media-query == desk{
-                @media only screen and (min-width:$desk-start) { @content; }
-            }
-
-
-            /**
-             * Desktops, and beyond
-             */
-            @if $media-query == desk-wide{
-                @media only screen and (min-width: $desk-wide-start) { @content; }
-            }
-
         }

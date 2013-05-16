@@ -183,7 +183,7 @@
     }
 
     /* Visuallyhidden based on breakpoint */
-    @each $state in palm, lap, gt-palm, lt-desk, desk, desk-wide{
+    @each $state in $breakpoint-has-visuallyhidden{
         @include media-query(#{$state}){
             .visuallyhidden--#{$state}{
                 @include visuallyhidden;
