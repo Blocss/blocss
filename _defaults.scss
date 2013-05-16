@@ -130,17 +130,13 @@
 
     /**
      * Define which namespaced breakpoints you would like to generate for each
-     * of widths, push and pull. This is handy if you only need pull on, say,
+     * of widths & push. This is handy if you only need push on, say,
      * desk, or you only need a new width breakpoint at mobile sizes. It allows
      * you to only compile as much CSS as you need. All are turned on by
      * default, but you can add and remove breakpoints at will.
-     *
-     * Push and pull shall only be used if `$push` and/or `$pull` and `$responsive`
-     * have been set to ‘true’.
      */
     $breakpoint-has-widths: ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
     $breakpoint-has-push:   ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
-    $breakpoint-has-pull:   ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
 
 
 
