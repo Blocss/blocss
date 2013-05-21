@@ -37,7 +37,7 @@ What happens here is cloning an instance of Blocsstrap and its submodules(`--rec
 ### Install via bower
 
 You can install Blocss via twitter’s bower by including the framework in your `component.json`.
-Or alternatively you can simply run `$ bower install blocss`.
+Or alternatively you can simply run `$ bower install blocss-framework`.
 
 ## Getting started
 
@@ -67,7 +67,7 @@ Your CSS directory holds everything you need to get building:
 
 ## How Blocss works
 
-Blocss is a ‘layered’ framework, derrived from the [SMACSS](http://smacss.com/) style guide. The base principle of Blocss’ is levels of extension; each ‘layer’ of code extends the layer below.
+Blocss is a ‘layered’ framework, derived from the [SMACSS](http://smacss.com/) style guide. The base principle of Blocss’ is levels of extension; each ‘layer’ of code extends the layer below.
 
 In `blocss/generic/` we find our most generic, low-level styling, things like a clearfix, [normalize.css](http://necolas.github.com/normalize.css/), restart, mixins and any shared styling like margins.
 

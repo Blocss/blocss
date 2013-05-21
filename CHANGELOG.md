@@ -1,5 +1,9 @@
 == HEAD
 
+== 3.1.1 (May 21, 2013)
+
+* Maintenance, removed media query sections from files, typo’s & updated the readme
+
 == 3.1.0 (May 16, 2013)
 
 * Updated media query setup, so you can add, rename, modify you media queries
