@@ -109,7 +109,7 @@
 
 
         /**
-         * Trucate overly long strings
+         * Truncate overly long strings
          * sample value truncate(100%)
          */
         @mixin truncate($truncation-boundary){
