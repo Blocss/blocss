@@ -125,8 +125,9 @@ the final layer: UI.
 
 ## Credits
 
-Blocss, maintained by 2 developers, but is derrived by the ideas of many other developers:
+Blocss, maintained by 2 developers, but is derived by the ideas of many other developers:
 
+* [Harry Roberts](https://twitter.com/csswizardry) for his awesome ideas & inuit.css framework wich is derived off the same philosophy as Blocss
 * [Nicole Sullivan](https://twitter.com/stubbornella) for her work on OOCSS
 * [Jonathan Snook](https://twitter.com/snookca) for his work on SMACSS
 * [Nicolas Gallagher](https://twitter.com/necolas) for his work on numerous CSS things
