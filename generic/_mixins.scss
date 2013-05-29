@@ -193,46 +193,107 @@
         /**
          * Position shorthand mixin
          */
-        @mixin position ($position: relative, $coordinates: 0 0 0 0){
+        @mixin position ($position: relative, $coordinates: 0 0 0 0, $use-rem: true){
             @if type-of($position) == list{
                 $coordinates: $position;
                 $position: relative;
             }
 
-            $top: nth($coordinates, 1);
-            $right: nth($coordinates, 2);
-            $bottom: nth($coordinates, 3);
-            $left: nth($coordinates, 4);
+            $top: false!default;
+            $right: false!default;
+            $bottom: false!default;
+            $left: false!default;
+
+            @for $i from 1 through length($coordinates){
+                @if $i == 1{
+                    $top: nth($coordinates, $i);
+                }
+                @else if $i == 2{
+                    $right: nth($coordinates, $i);
+                }
+                @else if $i == 3{
+                    $bottom: nth($coordinates, $i);
+                }
+                @else if $i == 4{
+                    $left: nth($coordinates, $i);
+                }
+            }
 
             position: $position;
 
-            @if $top == auto{
-                top: $top;
-            }
-            @else if not(unitless($top)){
-                top: $top;
+            @if $top{
+                @if not(unitless($top)){
+                    @if $use-rem == true{
+                        @include rem(top, $top);
+                    }@else{
+                        top: $top;
+                    }
+                }@else{
+                    top: $top;
+                }
+
+                @if $bottom == false{
+                    @if not(unitless($top)){
+                        @if $use-rem == true{
+                            @include rem(bottom, $top);
+                        }@else{
+                            bottom: $top;
+                        }
+                    }@else{
+                        bottom: $top;
+                    }
+                }
+
             }
 
-            @if $right == auto {
-                right: $right;
-            }
-            @else if not(unitless($right)){
-                right: $right;
+            @if $right{
+                @if not(unitless($right)){
+                    @if $use-rem == true{
+                        @include rem(right, $right);
+                    }@else{
+                        right: $right;
+                    }
+                }@else{
+                    right: $right;
+                }
+
+                @if $left == false{
+                    @if not(unitless($right)){
+                        @if $use-rem == true{
+                            @include rem(left, $right);
+                        }@else{
+                            left: $right;
+                        }
+                    }@else{
+                        left: $right;
+                    }
+                }
             }
 
-            @if $bottom == auto {
-                bottom: $bottom;
-            }
-            @else if not(unitless($bottom)){
-                bottom: $bottom;
+            @if $bottom{
+                @if not(unitless($bottom)){
+                    @if $use-rem == true{
+                        @include rem(bottom, $bottom);
+                    }@else{
+                        bottom: $bottom;
+                    }
+                }@else{
+                    bottom: $bottom;
+                }
             }
 
-            @if $left == auto{
-                left: $left;
+            @if $left{
+                @if not(unitless($left)){
+                    @if $use-rem == true{
+                        @include rem(left, $left);
+                    }@else{
+                        left: $left;
+                    }
+                }@else{
+                    left: $left;
+                }
             }
-            @else if not(unitless($left)){
-                left: $left;
-            }
+
         }
 
 
@@ -244,11 +305,20 @@
                @include rem(width, 300px);
            }
          */
-        @mixin rem($property, $value, $include-fallback: true){
+        @mixin rem($property, $values, $include-fallback: true){
             @if $include-fallback == true{
-                #{$property}: $value;
+                #{$property}: $values;
             }
-            #{$property}: $value/$base-font-size*1rem;
+            @if type-of($values) == list{
+                $all: ();
+                @for $i from 1 through length($values){
+                    $all: append($all, nth($values, $i)/$base-font-size*1rem);
+                }
+                #{$property}: $all;
+            }
+            @else{
+                #{$property}: $values/$base-font-size*1rem;
+            }
         }
 
 
