@@ -1,5 +1,10 @@
 == HEAD
 
+== 3.1.2 (May 29, 2013)
+
+* Modified rem mixin - multivalue
+* Enhanced position mixin - remmed, accepts 0, mimics `padding` & `margin` behaviour
+
 == 3.1.1 (May 21, 2013)
 
 * Maintenance, removed media query sections from files, typo’s & updated the readme
