@@ -193,6 +193,23 @@
         /**
          * Position shorthand mixin
          */
+
+        @mixin returnPositionValue($property,$value, $use-rem){
+            @if type-of($value) != string{
+                @if unitless($value) == false{
+                    @if $use-rem == true{
+                        @include rem($property, $value);
+                    } @else {
+                        #{$property}: $value;
+                    }
+                }@else{
+                    #{$property}: $value;
+                }
+            }@else{
+                #{$property}: $value;
+            }
+        }
+
         @mixin position ($position: relative, $coordinates: 0 0 0 0, $use-rem: true){
             @if type-of($position) == list{
                 $coordinates: $position;
@@ -221,77 +238,36 @@
 
             position: $position;
 
-            @if $top{
-                @if not(unitless($top)){
-                    @if $use-rem == true{
-                        @include rem(top, $top);
-                    }@else{
-                        top: $top;
-                    }
-                }@else{
-                    top: $top;
-                }
+            @if $top {
+                @include returnPositionValue(top, $top, $use-rem);
 
+                @if $right == false{
+                    @include returnPositionValue(right, $top, $use-rem);
+                }
                 @if $bottom == false{
-                    @if not(unitless($top)){
-                        @if $use-rem == true{
-                            @include rem(bottom, $top);
-                        }@else{
-                            bottom: $top;
-                        }
-                    }@else{
-                        bottom: $top;
+                    @include returnPositionValue(bottom, $top, $use-rem);
+                }
+                @if $right == false{
+                    @if $left == false{
+                        @include returnPositionValue(left, $top, $use-rem);
                     }
                 }
-
             }
 
-            @if $right{
-                @if not(unitless($right)){
-                    @if $use-rem == true{
-                        @include rem(right, $right);
-                    }@else{
-                        right: $right;
-                    }
-                }@else{
-                    right: $right;
-                }
+            @if $right {
+                @include returnPositionValue(right, $right, $use-rem);
 
                 @if $left == false{
-                    @if not(unitless($right)){
-                        @if $use-rem == true{
-                            @include rem(left, $right);
-                        }@else{
-                            left: $right;
-                        }
-                    }@else{
-                        left: $right;
-                    }
+                    @include returnPositionValue(left, $right, $use-rem);
                 }
             }
 
-            @if $bottom{
-                @if not(unitless($bottom)){
-                    @if $use-rem == true{
-                        @include rem(bottom, $bottom);
-                    }@else{
-                        bottom: $bottom;
-                    }
-                }@else{
-                    bottom: $bottom;
-                }
+            @if $bottom {
+                @include returnPositionValue(bottom, $bottom, $use-rem);
             }
 
-            @if $left{
-                @if not(unitless($left)){
-                    @if $use-rem == true{
-                        @include rem(left, $left);
-                    }@else{
-                        left: $left;
-                    }
-                }@else{
-                    left: $left;
-                }
+            @if $left {
+                @include returnPositionValue(left, $left, $use-rem);
             }
 
         }
