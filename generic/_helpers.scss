@@ -111,17 +111,17 @@
      * Full bleed
      */
     .full-bleed{
-        @include rem(margin-left, -$base-spacing-unit);
-        @include rem(margin-right, -$base-spacing-unit);
+        @include rem(margin-left, -$bsu);
+        @include rem(margin-right, -$bsu);
 
         .islet &{
-            @include rem(margin-left, -$half-spacing-unit);
-            @include rem(margin-right, -$half-spacing-unit);
+            @include rem(margin-left, -$hsu);
+            @include rem(margin-right, -$hsu);
         }
 
         .continent &{
-            @include rem(margin-left, -$base-spacing-unit*2);
-            @include rem(margin-right, -$base-spacing-unit*2);
+            @include rem(margin-left, -$bsu*2);
+            @include rem(margin-right, -$bsu*2);
         }
     }
 

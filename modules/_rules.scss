@@ -28,7 +28,7 @@
         border: none;
         border-bottom-width: 1px;
         border-bottom-style: solid;
-        @include rem(margin-bottom, $base-spacing-unit - 1);
+        @include rem(margin-bottom, $bsu - 1);
     }
 
     /* Dotted rules */

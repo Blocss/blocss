@@ -56,7 +56,7 @@
      * 5. Use lists as grid
      * 6. Clearfix if u use floating grids
      */
-    $gutter: ($base-spacing-unit*$grid-gutter-multiplier);
+    $gutter: ($bsu*$grid-gutter-multiplier);
 
     .grid {
         @if $grid-style-floating == true{

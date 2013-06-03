@@ -79,7 +79,7 @@
     }
     th,
     td{
-        @include rem(padding, $base-spacing-unit/4);
+        @include rem(padding, $bsu/4);
         text-align: left;
     }
 
