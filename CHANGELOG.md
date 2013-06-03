@@ -1,5 +1,13 @@
 == HEAD
 
+== 3.2.0 (Jun 03, 2013)
+
+* Added possibility of unitless & sting values to rem & position mixin
+* Fixed @font-face mixin to be compliant with font-face compass mixin
+* Added normalis font class
+* Renamed commonly used variables to shorter ones
+* Replaced flexbox with arrange module
+
 == 3.1.2 (May 29, 2013)
 
 * Modified rem mixin - multivalue
