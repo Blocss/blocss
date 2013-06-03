@@ -56,6 +56,15 @@
             @include font-size($h6-size);
         }
 
+
+        /**
+          * Normal font size
+          */
+        .normalis{
+            @include font-size($base-font-size);
+        }
+
+
         /* Heading groups and generic any-heading class.
             To target any heading of any level simply apply a class of `.hN`
             Sample markup
@@ -68,6 +77,7 @@
         hgroup .hN{
             margin-bottom: 0;
         }
+
 
 
     /*  Large
