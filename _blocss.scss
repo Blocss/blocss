@@ -37,8 +37,7 @@
     FORMS...............Form styling
 
     GRID................Fluid, nestable grid
-    GRIDDLE.............Fluid, nestable grid based on griddle
-    FLEXBOX.............Kinda emulates flexbox
+    ARRANGE.............Arrange cells
     NAV.................A simple abstraction to put a list in horizontal nav mode
     BREADCRUMB..........Simple breadcrumb trail
     PAGINATION..........Basic pagination object
@@ -90,7 +89,7 @@
 
 
     @import "modules/grid";
-    @import "modules/flexbox";
+    @import "modules/arrange";
     @import "modules/nav";
     @import "modules/breadcrumb";
     @import "modules/pagination";
