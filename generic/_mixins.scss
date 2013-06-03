@@ -27,7 +27,7 @@
         /**
          * Font face shorthand
          */
-        @mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ){
+        @mixin fontface($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ){
             @font-face {
                 font-family: $font-family;
                 font-weight: $weight;
