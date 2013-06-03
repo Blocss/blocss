@@ -37,13 +37,13 @@
     }
         .media__img{
             float: left;
-            @include rem(margin-right, $base-spacing-unit);
+            @include rem(margin-right, $bsu);
         }
 
         /* Reversed image location (right instead of left). */
         .media__img--rev{
             float: right;
-            @include rem(margin-left, $base-spacing-unit);
+            @include rem(margin-left, $bsu);
         }
             .media__img img,
             .media__img--rev img{
@@ -63,11 +63,11 @@
     With this in mind we make the `.img` spacing a little smaller for visual consistency.
     */
     .islet .media__img{
-        @include rem(margin-right, $half-spacing-unit);
+        @include rem(margin-right, $hsu);
     }
 
     .islet .media__img--rev{
-        @include rem(margin-left, $half-spacing-unit);
+        @include rem(margin-left, $hsu);
     }
 
 
@@ -76,11 +76,11 @@
     With this in mind we make the `.img` spacing a little bigger for visual consistency.
     */
     .continent .media__img{
-        @include rem(margin-right, $base-spacing-unit*2);
+        @include rem(margin-right, $bsu*2);
     }
 
     .continent .media__img--rev{
-        @include rem(margin-left, $base-spacing-unit*2);
+        @include rem(margin-left, $bsu*2);
     }
 
 

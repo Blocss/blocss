@@ -38,11 +38,11 @@
         text-align: center;
 
         > li{
-            @include rem(padding, $half-spacing-unit);
+            @include rem(padding, $hsu);
 
             > a{
-                @include rem(padding, $half-spacing-unit);
-                @include rem(margin, -$half-spacing-unit);
+                @include rem(padding, $hsu);
+                @include rem(margin, -$hsu);
             }
         }
     }

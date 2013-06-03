@@ -41,19 +41,19 @@
      * to alter their heights we apply incrementally larger line-heights:
      */
     .greybox--small{
-        line-height: 2 * $base-line-height;
+        line-height: 2 * $blh;
     }
     .greybox--medium{
-        line-height: 4 * $base-line-height;
+        line-height: 4 * $blh;
     }
     .greybox--large{
-        line-height: 8 * $base-line-height;
+        line-height: 8 * $blh;
     }
     .greybox--huge{
-        line-height: 16 * $base-line-height;
+        line-height: 16 * $blh;
     }
     .greybox--gigantic{
-        line-height: 32 * $base-line-height;
+        line-height: 32 * $blh;
     }
 
 
