@@ -69,6 +69,7 @@
         @include rem(margin-right, -.5 * $gutter); /* 1 */
         text-align: $grid-direction; /* 2 */
         @if $use-markup-fix == false {
+            font-family: sans-serif;
             letter-spacing: -0.31em; /* 3 */
         }
         text-rendering: optimizespeed; /* 4 */
@@ -119,6 +120,7 @@
             vertical-align: top; /* 3 */
             text-align: $grid-direction; /* 4 */
             @if $use-markup-fix == false {
+                font-family: $base-font-family;
                 letter-spacing: normal; /* 5 */
                 word-spacing: normal; /* 5 */
                 text-rendering: auto; /* 5 */

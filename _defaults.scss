@@ -173,14 +173,14 @@
 
     /**
      * Using `inline-block` means that the grid items need their whitespace
-     * removing in order for them to work correctly. Set the following to true
-     * if you are going to achieve this by manually removing/commenting out any
-     * whitespace in your HTML yourself.
+     * removing in order for them to work correctly.
      *
-     * Setting this to false invokes a hack which cannot always be guaranteed
-     * Please read the following: https://github.com/necolas/griddle/issues/16
+     * Setting this to false invokes a hack which works in all current browsers.
+     *
+     * Set the following to true if you are going to achieve this by manually
+     * removing/commenting out any whitespace in your HTML yourself.
      */
-    $use-markup-fix:                    true!default;
+    $use-markup-fix:                    false!default;
 
 
     /**
