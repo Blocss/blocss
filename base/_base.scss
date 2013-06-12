@@ -26,8 +26,8 @@
         overflow-y: scroll;
         min-height: 100%;
         font-family: $base-font-family;
-        font-size: #{($bfs/16px)*1em};
-        line-height: ($blh / $bfs);
+        font-size: #{($base-font-size/16px)*1em};
+        line-height: ($base-line-height / $base-font-size);
         color: $base-color;
     }
 

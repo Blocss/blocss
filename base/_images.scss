@@ -43,18 +43,18 @@
      */
     .img--right{
         float: right;
-        @include rem(margin-left, $bsu);
-        @include rem(margin-bottom, $bsu);
+        @include rem(margin-left, $space);
+        @include rem(margin-bottom, $space);
     }
     .img--left{
         float: left;
-        @include rem(margin-right, $bsu);
-        @include rem(margin-bottom, $bsu);
+        @include rem(margin-right, $space);
+        @include rem(margin-bottom, $space);
     }
     .img--center{
         display: block;
         margin-right: auto;
-        @include rem(margin-bottom, $bsu);
+        @include rem(margin-bottom, $space);
         margin-left: auto;
     }
 

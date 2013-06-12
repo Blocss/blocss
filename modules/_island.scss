@@ -36,16 +36,16 @@
     }
 
     .continent{
-        @include rem(padding, $bsu*2);
+        @include rem(padding, $space*2);
     }
 
     .island{
-        @include rem(padding, $bsu);
+        @include rem(padding, $space);
     }
 
     /* Just like `.island`, only smaller. */
     .islet{
-        @include rem(padding, $bsu/2);
+        @include rem(padding, $space/2);
     }
 
     .continent > :last-child,

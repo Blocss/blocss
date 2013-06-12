@@ -23,27 +23,28 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /*  Place any image- and text-like content side-by-side, eg.:
-        <div class="media">
+    /**
+     * Place any image- and text-like content side-by-side, eg.:
+       <div class="media">
             <div class="media__img">
                 <img/>
             </div>
             <div class="media__body"></div>
         </div>
-    */
+     */
     .media{
         display: block;
         @extend .cf;
     }
         .media__img{
             float: left;
-            @include rem(margin-right, $bsu);
+            @include rem(margin-right, $space);
         }
 
         /* Reversed image location (right instead of left). */
         .media__img--rev{
             float: right;
-            @include rem(margin-left, $bsu);
+            @include rem(margin-left, $space);
         }
             .media__img img,
             .media__img--rev img{
@@ -58,29 +59,34 @@
                 margin-bottom: 0;
             }
 
-    /*
-    Islets have a slightly smaller padding value than normal.
-    With this in mind we make the `.img` spacing a little smaller for visual consistency.
-    */
-    .islet .media__img{
-        @include rem(margin-right, $hsu);
+
+    /**
+     * Islets have a slightly smaller padding value than normal.
+     * With this in mind we make the `.img` spacing a little smaller for
+     * visual consistency.
+     */
+    .islet{
+        .media__img{
+            @include rem(margin-right, $space-half);
+        }
+        .media__img--rev{
+            @include rem(margin-left, $space-half);
+        }
     }
 
-    .islet .media__img--rev{
-        @include rem(margin-left, $hsu);
-    }
 
-
-    /*
-    Continent have a slightly bigger padding value than normal.
-    With this in mind we make the `.img` spacing a little bigger for visual consistency.
-    */
-    .continent .media__img{
-        @include rem(margin-right, $bsu*2);
-    }
-
-    .continent .media__img--rev{
-        @include rem(margin-left, $bsu*2);
+    /**
+     * Continent have a slightly bigger padding value than normal.
+     * With this in mind we make the `.img` spacing a little bigger for
+     * visual consistency.
+     */
+    .continent{
+        .media__img{
+            @include rem(margin-right, $space*2);
+        }
+        .media__img--rev{
+            @include rem(margin-left, $space*2);
+        }
     }
 
 

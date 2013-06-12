@@ -33,7 +33,7 @@
      */
     .lede,
     .lead{
-        @include font-size($bfs * 1.125);
+        @include font-size($base-font-size * 1.125);
     }
 
 

@@ -35,17 +35,8 @@
     /**
      * Type
      */
-    $bfs:                               16px!default;
-    $blh:                               24px!default; // e.g. base-font-size * 1.5
-
-
-    /**
-     * Deprecated Type
-     *
-     * Will be removed per v4.0.0
-     */
-    $base-font-size:                    $bfs!default;
-    $base-line-height:                  $blh!default;
+    $base-font-size:                    16px!default;
+    $base-line-height:                  $base-font-size*1.5!default;
 
 
     /**
@@ -74,20 +65,19 @@
 \*----------------------------------------------------------------------------*/
 
     /**
-     * Assign our `$blh` to a new spacing var for
+     * Assign our `$base-line-height` to a new spacing var for
      * more transparency
      */
-    $bsu:                               $blh!default;
-    $hsu:                               $bsu/2!default;
+    $space:                             $base-line-height!default;
+    $space-half:                        $space/2!default;
 
 
     /**
      * Deprecated spacing unit classes
-     *
-     * Will be removed per v4.0.0
+     * Will be removed from v4
      */
-    $base-spacing-unit:                 $bsu!default;
-    $half-spacing-unit:                 $hsu!default;
+    $base-spacing-unit:                 $space!default;
+    $half-spacing-unit:                 $space-half!default;
 
 
 
@@ -115,7 +105,7 @@
     /**
      * How big would you like round corners to be by default?
      */
-    $brand-round:                       $hsu!default;
+    $brand-round:                       $space-half!default;
 
 
 
@@ -173,18 +163,18 @@
 
     /**
      * Using `inline-block` means that the grid items need their whitespace
-     * removing in order for them to work correctly. Set the following to true
-     * if you are going to achieve this by manually removing/commenting out any
-     * whitespace in your HTML yourself.
+     * removing in order for them to work correctly.
      *
-     * Setting this to false invokes a hack which cannot always be guaranteed
-     * Please read the following: https://github.com/necolas/griddle/issues/16
+     * Setting this to false invokes a hack which works in all current browsers.
+     *
+     * Set the following to true if you are going to achieve this by manually
+     * removing/commenting out any whitespace in your HTML yourself.
      */
-    $use-markup-fix:                    true!default;
+    $use-markup-fix:                    false!default;
 
 
     /**
-     * Defines the gutter between grid items, multiplies by $bsu
+     * Defines the gutter between grid items, multiplies by $space
      */
     $grid-gutter-multiplier:            1!default;
 

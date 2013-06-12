@@ -1,5 +1,11 @@
 == HEAD
 
+== 3.3.0 (Jun 12, 2013)
+
+* Fixed inline-block grid
+* Added new button modifyer setup
+* Renamed commonly used variables to shorter ones
+
 == 3.2.0 (Jun 03, 2013)
 
 * Added possibility of unitless & sting values to rem & position mixin
