@@ -1,4 +1,4 @@
-@if $use-modules-buttons == true{
+@if $use-modules-buttons == true {
 /*----------------------------------------------------------------------------*\
     $BUTTONS
     Basic button structural styling. Extend in your theme stylesheet.
@@ -25,14 +25,13 @@
 
     /**
      * The button classes are best applied to links, buttons, and submit inputs.
-     * These components can be used in forms, as calls to action, or as part of the
-     * general UI of the site/app.
+     * These components can be used in forms, as calls to action, or as part of
+     * the general UI of the site/app.
      *
      * Recommended use:
-     *
-     * <a class="button [button--modifier]" role="button" href="[url]">button text</a>
-     * <button class="button [button--modifier]" type="submit">button text</button>
-     * <input class="button [button--modifier]" type="submit" value="button text">
+       <a class="button [button--modifier]" role="button" href="[url]">button text</a>
+       <button class="button [button--modifier]" type="submit">button text</button>
+       <input class="button [button--modifier]" type="submit" value="button text">
      */
 
     /**
@@ -44,24 +43,30 @@
      *    applied to.
      * 2. Inherit text color from ancestor.
      * 3. Inherit font styles from ancestor.
-     * 4. Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+.
+     * 4. If the button’s text is 1em, and the button is (2 * font-size) tall,
+     *    then there is .5em of space above and below that text. We therefore
+     *    apply 1em of space to the left and right, as padding, to keep
+     *    consistent spacing.
      * 5. Prevent wrapping across multiple lines.
      * 6. Corrects inability to style clickable `input` types in iOS
      */
-    .button{
+    .button {
         position: relative;
-        @if $global-border-box == false{
+        @if $global-border-box == false {
             @include prefixer(box-sizing, border-box, moz spec); /* 1 */
         }
         display: inline-block;
-        padding: 0.4em 0.75em;
+        padding-top: 0;
+        padding-bottom: 0;
         border: 1px solid;
         margin: 0;
         background: transparent;
         color: inherit; /* 2 */
         cursor: pointer;
         font: inherit; /* 3 */
-        line-height: normal; /* 4 */
+        line-height: 2; /* 4 */
+        padding-left: 1em; /* 4 */
+        padding-right: 1em; /* 4 */
         text-align: center;
         text-decoration: none;
         vertical-align: middle;
@@ -70,7 +75,7 @@
 
         &:hover,
         &:focus,
-        &:active{
+        &:active {
             text-decoration: none;
         }
 
@@ -78,7 +83,7 @@
         /**
          * Remove excess padding and border in Firefox 4+
          */
-        &::-moz-focus-inner{
+        &::-moz-focus-inner {
             border: 0;
             padding: 0;
         }
@@ -86,34 +91,83 @@
 
 
 
-
-
-    /* Modifiers
+    /* Sizes
     \*------------------------------------------------------------------------*/
 
         /**
-         * Modifier: smaller buttons
+         * Button size modifiers
          */
-        .button--small{
-            @include font-size($base-font-size * .75);
+        .button--small {
+            padding-right: 0.5em;
+            padding-left: 0.5em;
+            line-height: 1.5;
+        }
+        .button--large {
+            padding-right: 1.5em;
+            padding-left: 1.5em;
+            line-height: 3;
+        }
+        .button--huge {
+            padding-right: 2em;
+            padding-left: 2em;
+            line-height: 4;
         }
 
 
         /**
-         * Modifier: larger buttons
+         * full-width modifier
          */
-        .button--large{
-            @include font-size($base-font-size * 1.25);
-        }
-
-
-        /**
-         * Modifier: full-width buttons
-         */
-        .button--full{
+        .button--full {
             display: block;
             width: 100%;
         }
+
+
+
+    /* Font sizes
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Button font-size modifiers
+         */
+        .button--alpha {
+            @include font-size($h1-size, false);
+        }
+        .button--beta {
+            @include font-size($h2-size, false);
+        }
+        .button--gamma {
+            @include font-size($h3-size, false);
+        }
+        .button--delta {
+            @include font-size($h4-size, false);
+        }
+        .button--epsilon {
+            @include font-size($h5-size, false);
+        }
+        .button--zeta {
+            @include font-size($h6-size, false);
+        }
+        .button--milli {
+            @include font-size($milli-size, false);
+        }
+        .button--micro {
+            @include font-size($micro-size, false);
+        }
+
+
+        /**
+         * Make the button inherit sizing from its parent.
+         */
+        .button--normalis {
+            vertical-align: baseline;
+            font-size: inherit;
+            line-height: inherit;
+            padding-right: 0.5em;
+            padding-left: 0.5em;
+        }
+
+
 
 
 
