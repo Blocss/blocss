@@ -61,7 +61,7 @@
           * Normal font size
           */
         .normalis{
-            @include font-size($bfs);
+            @include font-size($base-font-size);
         }
 
 

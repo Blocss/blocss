@@ -95,7 +95,7 @@
          * Modifier: smaller buttons
          */
         .button--small{
-            @include font-size($bfs * .75);
+            @include font-size($base-font-size * .75);
         }
 
 
@@ -103,7 +103,7 @@
          * Modifier: larger buttons
          */
         .button--large{
-            @include font-size($bfs * 1.25);
+            @include font-size($base-font-size * 1.25);
         }
 
 

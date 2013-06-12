@@ -57,9 +57,9 @@
             @if $important{
                 $append: !important;
             }
-            margin-bottom: $multiplier * $bsu $append;
+            margin-bottom: $multiplier * $space $append;
             /* rem unit for modern browsers */
-            margin-bottom: $multiplier * $bsu / $bfs*1rem $append;
+            margin-bottom: $multiplier * $space / $base-font-size*1rem $append;
         }
 
 
@@ -68,8 +68,8 @@
          * If you want to use 'min-' or 'max-' height, use the prefix param
          */
         @mixin m-height($multiplier: 1, $prefix:""){
-            #{$prefix}height: $multiplier * $blh;
-            #{$prefix}height: ($multiplier * ($blh / $bfs))*1rem;
+            #{$prefix}height: $multiplier * $base-line-height;
+            #{$prefix}height: ($multiplier * ($base-line-height / $base-font-size))*1rem;
         }
 
 
@@ -78,8 +78,8 @@
          */
         @mixin font-size($fs, $multiplier: 1){
             font-size: $fs;
-            font-size: ($fs / $bfs)*1rem;
-            line-height: (ceil($fs / $blh) * ($blh / $fs)) * $multiplier;
+            font-size: ($fs / $base-font-size)*1rem;
+            line-height: (ceil($fs / $base-line-height) * ($base-line-height / $fs)) * $multiplier;
         }
 
 
@@ -293,13 +293,13 @@
                     }@else if unitless(nth($value, $i)) == true{
                         $all: append($all, nth($value, $i));
                     }@else{
-                        $all: append($all, nth($value, $i)/$bfs*1rem);
+                        $all: append($all, nth($value, $i)/$base-font-size*1rem);
                     }
                 }
                 #{$property}: $all;
             }
             @else{
-                #{$property}: $value/$bfs*1rem;
+                #{$property}: $value/$base-font-size*1rem;
             }
         }
 

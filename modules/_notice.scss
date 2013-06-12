@@ -25,8 +25,8 @@
 
     /* p,div */.notice{
         display: block;
-        padding: $hsu $bsu;
-        padding: ($hsu/$bfs)*1rem ($bsu/$bfs)*1rem;
+        padding: $space-half $space;
+        padding: ($space-half/$base-font-size)*1rem ($space/$base-font-size)*1rem;
         text-align: center;
         color: $notice-face-color;
         background-color: $notice-base;

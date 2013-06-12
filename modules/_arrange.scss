@@ -161,7 +161,7 @@
 
             > .arrange__size-fill,
             > .arrange__size-fit{
-                @include rem(padding-left, $bsu);
+                @include rem(padding-left, $space);
 
                 &:first-child{
                     padding-left: 0;
