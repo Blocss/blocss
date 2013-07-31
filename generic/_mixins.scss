@@ -57,9 +57,16 @@
             @if $important{
                 $append: !important;
             }
-            margin-bottom: $multiplier * $space $append;
-            /* rem unit for modern browsers */
-            margin-bottom: $multiplier * $space / $base-font-size*1rem $append;
+
+            @if $use-vertical-rhythm == true {
+                margin-bottom: $multiplier * $space $append;
+                margin-bottom: $multiplier * $space / $base-font-size*1rem $append;
+            } @else {
+                /**
+                 * 1em is the browsers default margin on headings & paragraphs
+                 */
+                margin-bottom: $multiplier *1em $append;
+            }
         }
 
 
@@ -68,8 +75,12 @@
          * If you want to use 'min-' or 'max-' height, use the prefix param
          */
         @mixin m-height($multiplier: 1, $prefix:""){
-            #{$prefix}height: $multiplier * $base-line-height;
-            #{$prefix}height: ($multiplier * ($base-line-height / $base-font-size))*1rem;
+            @if $use-vertical-rhythm == true {
+                #{$prefix}height: $multiplier * $base-line-height;
+                #{$prefix}height: ($multiplier * ($base-line-height / $base-font-size))*1rem;
+            } @else {
+                #{$prefix}height: ($multiplier * $line-height-ratio)*1em;
+            }
         }
 
 
@@ -97,7 +108,11 @@
             }
 
             @if $use-line-height == true{
-                line-height: (ceil($fs / $base-line-height) * ($base-line-height / $fs)) * $multiplier;
+                @if $use-vertical-rhythm == true {
+                    line-height: (ceil($fs / $base-line-height) * ($base-line-height / $fs)) * $multiplier;
+                } @else {
+                    line-height: $line-height-ratio;
+                }
             }
         }
 
@@ -213,7 +228,7 @@
          * Position shorthand mixin
          */
 
-        @mixin returnPositionValue($property,$value, $use-rem){
+        @mixin returnPositionValue($property, $value, $use-rem){
             @if type-of($value) != string{
                 @if unitless($value) == false{
                     @if $use-rem == true{

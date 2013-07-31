@@ -36,7 +36,7 @@
      * Type
      */
     $base-font-size:                    16px!default;
-    $base-line-height:                  $base-font-size*1.5!default;
+    $base-line-height:                  24px!default;
 
 
     /**
@@ -65,19 +65,24 @@
 \*----------------------------------------------------------------------------*/
 
     /**
+     * Enable vertical rhythm?
+     *
+     * Enabling this will ensure all margins, paddings, lineheights etc. will
+     * follow the default line height.
+     *
+     * Disabling this will render all line-heights according
+     * to the `$line-height-ratio` variable
+     */
+    $use-vertical-rhythm:               true!default;
+    $line-height-ratio:                 $base-line-height / $base-font-size!default;
+
+
+    /**
      * Assign our `$base-line-height` to a new spacing var for
      * more transparency
      */
     $space:                             $base-line-height!default;
     $space-half:                        $space/2!default;
-
-
-    /**
-     * Deprecated spacing unit classes
-     * Will be removed from v4
-     */
-    $base-spacing-unit:                 $space!default;
-    $half-spacing-unit:                 $space-half!default;
 
 
 
