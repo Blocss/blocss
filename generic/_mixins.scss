@@ -154,18 +154,6 @@
         }
 
 
-        /**
-         * Display inline block
-         */
-        @mixin inline-block{
-            display: inline-block;
-            vertical-align: baseline;
-            zoom: 1;
-            *display: inline;
-            *vertical-align: auto;
-        }
-
-
 
     /* CSS3
     \*------------------------------------------------------------------------*/
