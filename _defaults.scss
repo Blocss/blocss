@@ -253,6 +253,12 @@
 \*----------------------------------------------------------------------------*/
 
     /**
+     * Legacy support
+     */
+    $legacy-support-for-ie8:            true!default;
+
+
+    /**
      * Global border-box ALL the things, as per:
      * paulirish.com/2012/box-sizing-border-box-ftw
      */
