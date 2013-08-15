@@ -33,32 +33,61 @@
          *
          * Sample: @include rem(margin, 0 auto 300px);
          */
-        @mixin rem($property, $value, $important: false){
+        @mixin rem($property, $value, $important: false) {
             /* 1 */
             $append: null!default;
-            @if $important{
+            @if $important {
                 $append: !important;
             }
 
             /* 2 */
-            @if $legacy-support-for-ie8 == true{
+            @if $legacy-support-for-ie8 == true {
                 #{$property}: $value $append;
             }
 
             /* 3 */
-            @if type-of($value) == list{
+            @if type-of($value) == list {
                 $all: ();
-                @for $i from 1 through length($value){
-                    @if type-of(nth($value, $i)) == string or unitless(nth($value, $i)) == true or unit(nth($value, $i)) == "em" or unit(nth($value, $i)) == "%"{
+                @for $i from 1 through length($value) {
+                    @if type-of(nth($value, $i)) == string or unitless(nth($value, $i)) == true or unit(nth($value, $i)) == "em" or unit(nth($value, $i)) == "%" {
                         $all: append($all, nth($value, $i));
-                    }@else{
+                    } @else {
                         $all: append($all, nth($value, $i)/$base-font-size*1rem);
                     }
                 }
                 #{$property}: $all $append;
-            }
-            @else{
+            } @else {
                 #{$property}: $value/$base-font-size*1rem $append;
+            }
+        }
+
+
+        /**
+         * Multi rem converter
+         * Remmify multiple properties in one swoop
+         *
+         * Beware: if only one set is provided, the mixin will fail.
+         * In that case use the normal rem mixin instead
+         *
+         * Sample:
+           @include multi-rem(
+               (padding, $space 1em)
+               (margin, $space auto, true)
+               (border-radius, 50%)
+           );
+         */
+        @mixin multi-rem($set) {
+            @if type-of($set) == list {
+                @for $i from 1 through length($set) {
+                    $property: nth(nth($set, $i), 1);
+                    $value: nth(nth($set, $i), 2);
+
+                    $important: false;
+                    @if length(nth($set, $i)) == 3 {
+                        $important: nth(nth($set, $i), 3);
+                    }
+                    @include rem($property, $value, $important);
+                }
             }
         }
 
@@ -88,7 +117,7 @@
         /**
          * Font face shorthand
          */
-        @mixin fontface($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ){
+        @mixin fontface($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ) {
             @font-face {
                 font-family: $font-family;
                 font-weight: $weight;
@@ -113,9 +142,9 @@
          * Adds Margin bottom based on magic number
          * With an optional flag to enable '!important'
          */
-        @mixin m-margin-bottom($multiplier: 1, $important: false){
+        @mixin m-margin-bottom($multiplier: 1, $important: false) {
             $append: null!default;
-            @if $important{
+            @if $important {
                 $append: !important;
             }
 
@@ -135,7 +164,7 @@
          * Calculates height based on magic number
          * If you want to use 'min-' or 'max-' height, use the prefix param
          */
-        @mixin m-height($multiplier: 1, $prefix:""){
+        @mixin m-height($multiplier: 1, $prefix:"") {
             @if $use-vertical-rhythm == true {
                 #{$prefix}height: $multiplier * $base-line-height;
                 #{$prefix}height: ($multiplier * ($base-line-height / $base-font-size))*1rem;
@@ -153,13 +182,12 @@
          *
          * Sample usage @include font-size(18px, 2);
          */
-        @mixin font-size($fs, $line-height: true, $multiplier: 1){
-            font-size: $fs;
-            font-size: ($fs / $base-font-size)*1rem;
+        @mixin font-size($fs, $line-height: true, $multiplier: 1) {
+            @include rem(font-size, $fs);
 
             $use-line-height: false;
 
-            @if type-of($line-height) == bool{
+            @if type-of($line-height) == bool {
                 @if $line-height == true{
                     $use-line-height: true;
                 }
