@@ -36,17 +36,25 @@
     .island,
     .islet,
     .source,
-    .roadsign{
-        @include rem(margin-bottom, $space);
-    }
-        /* doubled up margin-bottom */
-        .landmark{
-            @include rem(margin-bottom, $space*2);
-        }
-        /* half margin-bottom */
-        .streetsign{
-            @include rem(margin-bottom, $space*.5);
-        }
+.sign{
+    @include rem(margin-bottom, $space);
+}
+/* doubled up margin-bottom */
+.sign--double{
+    @include rem(margin-bottom, $space*2);
+}
+/* tripled margin-bottom */
+.sign--triple{
+    @include rem(margin-bottom, $space*3);
+}
+/* quadrupled margin-bottom */
+.sign--quadruple{
+    @include rem(margin-bottom, $space*4);
+}
+/* half margin-bottom */
+.sign--half{
+    @include rem(margin-bottom, $space*.5);
+}
 
 
     /* Default indentation value for lists etc. usually the MN */
