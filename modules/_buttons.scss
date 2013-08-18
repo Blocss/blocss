@@ -169,6 +169,26 @@
 
 
 
+    /* Dirty firefox hack, to circumvent line-height bug
+    \*------------------------------------------------------------------------*/
+
+        input[type="submit"]{
+            &.button {
+                height: 2em;
+            }
+            .button--small {
+                height: 1.5em;
+            }
+            .button--large {
+                height: 3em;
+            }
+            .button--huge {
+                height: 4em;
+            }
+        }
+
+
+
 
 
 
