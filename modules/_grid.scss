@@ -141,32 +141,20 @@
      * Columns float right instead of left
      * Applies only on floated grids
      */
-    .grid--reversed, // Deprecated in v4+
     .grid--rev{
-        @if $grid-style-floating == false{
-            @if $grid-direction == left{
-                direction: rtl;
-                text-align: left;
-            } @else {
-                direction: ltr;
-                text-align: left;
-            }
-        }
+        @if $grid-direction == left{
+            direction: rtl;
+            text-align: left;
 
-        > .grid__cell{
-            @if $grid-style-floating == false{
+            > .grid__cell{
                 direction: ltr;
-                @if $grid-direction == left{
-                    text-align: left;
-                } @else {
-                    text-align: left;
-                }
-            } @else {
-                @if $grid-direction == left{
-                    float: right;
-                } @else {
-                    float: left;
-                }
+            }
+        } @else {
+            direction: ltr;
+            text-align: left;
+
+            > .grid__cell{
+                direction: rtl;
             }
         }
     }

@@ -58,9 +58,7 @@
      * 3. Reset the table-layout algorithm in case a component is nested.
      * 4. Make sure the component fills the full width of its parent.
      */
-    .arrange,
-    // Deprecated `.flex` class, will be removed in v4.0.0
-    .flex{
+    .arrange{
         display: table; /* 1 */
         margin: 0; /* 2 */
         padding: 0; /* 2 */
@@ -79,9 +77,7 @@
      * 2. All cells are top-aligned by default
      */
     .arrange__size-fill,
-    .arrange__size-fit,
-    // Deprecated `.flex__item` class, will be removed in v4.0.0
-    .flex__item{
+    .arrange__size-fit{
         display: table-cell;
         padding: 0; /* 1 */
         vertical-align: top; /* 2 */
@@ -101,9 +97,7 @@
      * 'arrange__size-fit' cannot be fluid, otherwise they lose their ability to
      * provide size to a cell.
      */
-    .arrange__size-fit img,
-    // Deprecated `.flex__item` class, will be removed in v4.0.0
-    .flex__item img{
+    .arrange__size-fit img{
         max-width: none !important;
         width: auto !important;
     }
