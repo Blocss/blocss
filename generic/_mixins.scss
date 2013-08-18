@@ -155,7 +155,7 @@
                 @if $line-height == true{
                     $use-line-height: true;
                 }
-            } @else if type-of($line-height) == number{
+            } @else if type-of($line-height) == number {
                 $use-line-height: true;
                 $multiplier: $line-height;
             }
@@ -186,8 +186,8 @@
             }
 
             @if $from >= 1 and $to <= 6{
-                @for $i from $from through $to{
-                    h#{$i}{
+                @for $i from $from through $to {
+                    h#{$i} {
                         @extend %base-heading#{$from - $to};
                     }
                 }
@@ -199,7 +199,7 @@
          * Truncate overly long strings
          * sample value truncate(100%)
          */
-        @mixin truncate($truncation-boundary){
+        @mixin truncate($truncation-boundary) {
             max-width: $truncation-boundary;
             white-space: nowrap;
             overflow: hidden;
@@ -214,23 +214,23 @@
         /**
          * Enclose a block of code with a media query as named in `$breakpoints`.
          */
-        @mixin media-query($media-query){
+        @mixin media-query($media-query) {
             $breakpoint-found: false;
 
-            @each $breakpoint in $breakpoints{
+            @each $breakpoint in $breakpoints {
                 $name: nth($breakpoint, 1);
                 $declaration: nth($breakpoint, 2);
 
-                @if $media-query == $name and $declaration{
+                @if $media-query == $name and $declaration {
                     $breakpoint-found: true;
 
-                    @media only screen and #{$declaration}{
+                    @media only screen and #{$declaration} {
                         @content;
                     }
                 }
             }
 
-            @if $breakpoint-found == false{
+            @if $breakpoint-found == false {
                 @warn "Breakpoint ‘#{$media-query}’ does not exist"
             }
         }
