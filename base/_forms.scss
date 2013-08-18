@@ -28,7 +28,7 @@
         display: block;
         padding: 0px;
         max-width: 100%;
-        @include m-height();
+        @include rem(height, $space);
         border: 1px solid #ccc; // override color in you theme stylesheet
         background: #fff; // override color in you theme stylesheet
 

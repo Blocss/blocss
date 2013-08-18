@@ -54,8 +54,8 @@
     .img--center{
         display: block;
         margin-right: auto;
-        @include rem(margin-bottom, $space);
         margin-left: auto;
+        @include rem(margin-bottom, $space);
     }
 
 
@@ -66,13 +66,13 @@
      * distort when resized below a certain width. Use with caution.
      */
     .img--short{
-        @include m-height(5);
+        @include rem(height, $space*5);
     }
     .img--medium{
-        @include m-height(10);
+        @include rem(height, $space*10);
     }
     .img--tall{
-        @include m-height(15);
+        @include rem(height, $space*15);
     }
 
 

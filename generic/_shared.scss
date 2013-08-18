@@ -37,15 +37,15 @@
     .islet,
     .source,
     .roadsign{
-        @include m-margin-bottom(1);
+        @include rem(margin-bottom, $space);
     }
         /* doubled up margin-bottom */
         .landmark{
-            @include m-margin-bottom(2);
+            @include rem(margin-bottom, $space*2);
         }
         /* half margin-bottom */
         .streetsign{
-            @include m-margin-bottom(.5);
+            @include rem(margin-bottom, $space*.5);
         }
 
 
