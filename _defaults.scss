@@ -148,9 +148,10 @@
      * you to only compile as much CSS as you need. All are turned on by
      * default, but you can add and remove breakpoints at will.
      */
-    $breakpoint-has-widths: ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
-    $breakpoint-has-push:   ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
-    $breakpoint-has-visuallyhidden:   ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-widths:             ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-push:               ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-visuallyhidden:     ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-collapsed-arrange:  ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
 
 
 
