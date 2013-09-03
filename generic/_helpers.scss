@@ -198,12 +198,32 @@
     $STATE
 \*----------------------------------------------------------------------------*/
 
-    /* Visuallyhidden based on breakpoint */
     @if $responsive == true {
+        /**
+         * Visuallyhidden based on breakpoint
+         */
         @each $state in $breakpoint-has-visuallyhidden{
             @include media-query(#{$state}){
                 .visuallyhidden--#{$state}{
                     @include visuallyhidden;
+                }
+            }
+        }
+
+
+        /**
+         * Text modifyers based on breakpoint
+         */
+        @each $state in $breakpoint-has-text-mods {
+            @include media-query(#{$state}){
+                .text--left--#{$state}{
+                    text-align: left !important;
+                }
+                .text--center--#{$state}{
+                    text-align: center !important;
+                }
+                .text--right--#{$state}{
+                    text-align: right !important;
                 }
             }
         }
