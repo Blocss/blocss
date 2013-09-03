@@ -164,6 +164,14 @@
 
 
     /**
+     * Hide visually and from screenreaders, but maintain layout
+     */
+    .invisible{
+        visibility: hidden;
+    }
+
+
+    /**
      * Hide only visually, but have it available for screenreaders
      * as per: h5bp.com/v
      */
@@ -182,23 +190,6 @@
         @include visuallyhidden;
     }
 
-    /* Visuallyhidden based on breakpoint */
-    @each $state in $breakpoint-has-visuallyhidden{
-        @include media-query(#{$state}){
-            .visuallyhidden--#{$state}{
-                @include visuallyhidden;
-            }
-        }
-    }
-
-
-    /**
-     * Hide visually and from screenreaders, but maintain layout
-     */
-    .invisible{
-        visibility: hidden;
-    }
-
 
 
 
@@ -206,6 +197,17 @@
 /*----------------------------------------------------------------------------*\
     $STATE
 \*----------------------------------------------------------------------------*/
+
+    /* Visuallyhidden based on breakpoint */
+    @if $responsive == true {
+        @each $state in $breakpoint-has-visuallyhidden{
+            @include media-query(#{$state}){
+                .visuallyhidden--#{$state}{
+                    @include visuallyhidden;
+                }
+            }
+        }
+    }
 
 
 
