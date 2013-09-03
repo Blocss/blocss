@@ -1,4 +1,3 @@
-@if $use-modules-media == true{
 /*----------------------------------------------------------------------------*\
     $MEDIA
     As per: stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
@@ -10,6 +9,7 @@
 
     /*
     CONTENTS................You're reading it, LOL
+    MIXINS..................Module specific mixins
     MODULE..................Includes base module & submodules
     STATE...................States the module can be in
     THEME...................Theming of the module
@@ -19,6 +19,33 @@
 
 
 
+/*----------------------------------------------------------------------------*\
+    $MIXINS
+\*----------------------------------------------------------------------------*/
+
+    /**
+     * Collapsed media
+     */
+    @mixin media-collapse (){
+        .media__img,
+        .media__img--rev {
+            display: block;
+            float: none;
+            max-width: 100%;
+            @include rem(margin, 0 auto $space);
+
+            img{
+                display: inline-block;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+
+
+
+
+@if $use-modules-media == true{
 /*----------------------------------------------------------------------------*\
     $MODULE
 \*----------------------------------------------------------------------------*/
@@ -90,12 +117,33 @@
     }
 
 
+    /**
+     * Modifyer: Collapsed media
+     */
+    .media--collapse {
+        @include media-collapse;
+    }
+
+
 
 
 
 /*----------------------------------------------------------------------------*\
     $STATE
 \*----------------------------------------------------------------------------*/
+
+    @if $responsive == true {
+        /**
+         * Collapse media based on breakpoint
+         */
+        @each $state in $breakpoint-has-collapsed-media {
+            @include media-query(#{$state}) {
+                .media--collapse--#{$state} {
+                    @include media-collapse;
+                }
+            }
+        }
+    }
 
 
 
