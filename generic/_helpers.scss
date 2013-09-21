@@ -25,170 +25,180 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /**
-     * Add/remove floats
-     */
-    .float--right{
-        float: right !important;
-    }
-    .float--left{
-        float: left !important;
-    }
-    .float--none{
-        float: none !important;
-    }
+    /* Structural
+    \*------------------------------------------------------------------------*/
 
-
-    /**
-     * Text alignment
-     */
-    .text--left{
-        text-align: left !important;
-    }
-    .text--center{
-        text-align: center !important;
-    }
-    .text--right{
-        text-align: right !important;
-    }
-
-
-    /**
-     * Font weight
-     */
-    .weight--light{
-        font-weight: 300 !important;
-    }
-    .weight--normal{
-        font-weight: 400 !important;
-    }
-    .weight--semibold{
-        font-weight: 600 !important;
-    }
-
-
-    /**
-     * Capitals/lowercase
-     */
-    .caps{
-        text-transform: uppercase !important;
-    }
-    .lowercase{
-        text-transform: lowercase !important;
-    }
-    .firstcap{
-        text-transform: capitalize !important;
-    }
-
-
-    /**
-     * Add a help cursor to any element that gives the user extra information on
-     * `:hover`.
-     */
-    .informative{
-        cursor: help !important;
-    }
-
-
-    /**
-     * Align items to the right where they imply progression/movement forward.
-     */
-    .proceed{
-        text-align:right!important;
-    }
-
-
-    /**
-     * Add a right-angled quote to links that imply movement, e.g.:
-     */
-    .go:after{
-        content:"\00A0»"!important;
-    }
-
-
-
-    /**
-     * Full bleed
-     */
-    .full-bleed{
-        @include rem(margin-left, -$space);
-        @include rem(margin-right, -$space);
-
-        .islet &{
-            @include rem(margin-left, -$space-half);
-            @include rem(margin-right, -$space-half);
+        /**
+         * Add/remove floats
+         */
+        .float--right{
+            float: right !important;
+        }
+        .float--left{
+            float: left !important;
+        }
+        .float--none{
+            float: none !important;
         }
 
-        .continent &{
-            @include rem(margin-left, -$space*2);
-            @include rem(margin-right, -$space*2);
+
+        /**
+         * Full bleed
+         */
+        .full-bleed{
+            @include rem(margin-left, -$space);
+            @include rem(margin-right, -$space);
+
+            .islet &{
+                @include rem(margin-left, -$space-half);
+                @include rem(margin-right, -$space-half);
+            }
+
+            .continent &{
+                @include rem(margin-left, -$space*2);
+                @include rem(margin-right, -$space*2);
+            }
         }
-    }
 
 
-    /**
-     * Remove margin bottom
-     */
-    .flatten{
-        margin-bottom: 0 !important;
-    }
-
-
-    /**
-     * Image replacement
-     */
-    .ir{
-        display: block;
-        border: 0;
-        text-indent: -999em;
-        overflow: hidden;
-        background-color: transparent;
-        background-repeat: no-repeat;
-        text-align: left;
-        direction: ltr;
-        *line-height: 0;
-
-        br{
-            display: none;
+        /**
+         * Remove margin bottom
+         */
+        .flatten{
+            margin-bottom: 0 !important;
         }
-    }
 
 
-    /**
-     * Hide from screanreaders & browsers
-     */
-    .hidden{
-        display: none !important;
-        visibility: hidden;
-    }
+
+    /* Textual
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Text alignment
+         */
+        .text--left{
+            text-align: left !important;
+        }
+        .text--center{
+            text-align: center !important;
+        }
+        .text--right{
+            text-align: right !important;
+        }
 
 
-    /**
-     * Hide visually and from screenreaders, but maintain layout
-     */
-    .invisible{
-        visibility: hidden;
-    }
+        /**
+         * Font weight
+         */
+        .weight--light{
+            font-weight: 300 !important;
+        }
+        .weight--normal{
+            font-weight: 400 !important;
+        }
+        .weight--semibold{
+            font-weight: 600 !important;
+        }
 
 
-    /**
-     * Hide only visually, but have it available for screenreaders
-     * as per: h5bp.com/v
-     */
-    @mixin visuallyhidden{
-        border: 0;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-    }
+        /**
+         * Capitals/lowercase
+         */
+        .caps{
+            text-transform: uppercase !important;
+        }
+        .lowercase{
+            text-transform: lowercase !important;
+        }
+        .firstcap{
+            text-transform: capitalize !important;
+        }
 
-    .visuallyhidden{
-        @include visuallyhidden;
-    }
+
+
+    /* Misc
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Add a help cursor to any element that gives the user extra information on
+         * `:hover`.
+         */
+        .informative{
+            cursor: help !important;
+        }
+
+
+        /**
+         * Align items to the right where they imply progression/movement forward.
+         */
+        .proceed{
+            text-align:right!important;
+        }
+
+
+        /**
+         * Add a right-angled quote to links that imply movement, e.g.:
+         */
+        .go:after{
+            content:"\00A0»"!important;
+        }
+
+
+        /**
+         * Image replacement
+         */
+        .ir{
+            display: block;
+            border: 0;
+            text-indent: -999em;
+            overflow: hidden;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            text-align: left;
+            direction: ltr;
+            *line-height: 0;
+
+            br{
+                display: none;
+            }
+        }
+
+
+        /**
+         * Hide from screanreaders & browsers
+         */
+        .hidden{
+            display: none !important;
+            visibility: hidden;
+        }
+
+
+        /**
+         * Hide visually and from screenreaders, but maintain layout
+         */
+        .invisible{
+            visibility: hidden;
+        }
+
+
+        /**
+         * Hide only visually, but have it available for screenreaders
+         * as per: h5bp.com/v
+         */
+        @mixin visuallyhidden{
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+
+        .visuallyhidden{
+            @include visuallyhidden;
+        }
 
 
 
