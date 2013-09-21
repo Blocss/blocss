@@ -25,27 +25,45 @@
     \*------------------------------------------------------------------------*/
 
         /**
+         * Prefixer
+         * Example: @include prefixer(border-radius, 5px 10px, webkit moz o ms spec);
+         */
+        @mixin prefixer ($property, $value, $prefixes){
+
+            @each $prefix in $prefixes{
+                @if $prefix != spec{
+                    -#{$prefix}-#{$property}: $value;
+                }
+                @else if $prefix == spec{
+                    #{$property}: $value;
+                }
+            }
+
+        }
+
+
+        /**
          * Rem converter
          *
-         * 1. Append `!important` when needed
-         * 2. Provide pixel fallback for ie8
-         * 3. Loop over values
+         * 1. Provide pixel fallback for ie8
+         * 2. Loop over values
+         * 3. Run trough prefixer
          *
-         * Sample: @include rem(margin, 0 auto 300px);
+         * Sample: @include rem(margin, 0 auto 300px, webkit moz spec, !important);
          */
-        @mixin rem($property, $value, $important: false) {
+        @mixin rem($property, $value, $prefixer: false, $append: "") {
+
             /* 1 */
-            $append: null!default;
-            @if $important {
-                $append: !important;
+            @if $legacy-support-for-ie8 == true {
+                /* 3 */
+                @if $prefixer {
+                    @include prefixer(#{$property}, $value #{$append}, $prefixer);
+                } @else {
+                    #{$property}: $value #{$append};
+                }
             }
 
             /* 2 */
-            @if $legacy-support-for-ie8 == true {
-                #{$property}: $value $append;
-            }
-
-            /* 3 */
             @if type-of($value) == list {
                 $all: ();
                 @for $i from 1 through length($value) {
@@ -55,9 +73,19 @@
                         $all: append($all, nth($value, $i)/$base-font-size*1rem);
                     }
                 }
-                #{$property}: $all $append;
+                /* 3 */
+                @if $prefixer {
+                    @include prefixer(#{$property}, $all #{$append}, $prefixer);
+                } @else {
+                    #{$property}: $all #{$append};
+                }
             } @else {
-                #{$property}: $value/$base-font-size*1rem $append;
+                /* 3 */
+                @if $prefixer {
+                    @include prefixer(#{$property}, $value/$base-font-size*1rem #{$append}, $prefixer);
+                } @else {
+                    #{$property}: $value/$base-font-size*1rem #{$append};
+                }
             }
         }
 
@@ -82,31 +110,19 @@
                     $property: nth(nth($set, $i), 1);
                     $value: nth(nth($set, $i), 2);
 
-                    $important: false;
-                    @if length(nth($set, $i)) == 3 {
-                        $important: nth(nth($set, $i), 3);
+                    $prefixer: false;
+                    @if length(nth($set, $i)) > 2 {
+                        $prefixer: nth(nth($set, $i), 3);
                     }
-                    @include rem($property, $value, $important);
+
+                    $append: "";
+                    @if length(nth($set, $i)) == 4 {
+                        $append: nth(nth($set, $i), 4);
+                    }
+
+                    @include rem($property, $value, $prefixer, $append);
                 }
             }
-        }
-
-
-        /**
-         * Prefixer
-         * Example: @include prefixer(border-radius, 5px 10px, webkit moz o ms spec);
-         */
-        @mixin prefixer ($property, $value, $prefixes){
-
-            @each $prefix in $prefixes{
-                @if $prefix != spec{
-                    -#{$prefix}-#{$property}: $value;
-                }
-                @else if $prefix == spec{
-                    #{$property}: $value;
-                }
-            }
-
         }
 
 
