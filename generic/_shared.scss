@@ -23,7 +23,9 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /* base elements */
+    /**
+     * Enable vertical rhythm on default elements
+     */
     h1,h2,h3,h4,h5,h6,hgroup,
     ul,ol,dl,
     blockquote,p,address,
@@ -31,42 +33,52 @@
     fieldset,
     pre,
     hr,
-    .media,
-    .continent,
-    .island,
-    .islet,
-    .source,
     .sign {
         @include rem(margin-bottom, $space);
     }
         /* half margin-bottom */
-        .sign--half{
+        .sign--half {
             @include rem(margin-bottom, $space*.5);
         }
         /* doubled up margin-bottom */
-        .sign--double{
+        .sign--double {
             @include rem(margin-bottom, $space*2);
         }
         /* tripled margin-bottom */
-        .sign--triple{
+        .sign--triple {
             @include rem(margin-bottom, $space*3);
         }
         /* quadrupled margin-bottom */
-        .sign--quadruple{
+        .sign--quadruple {
             @include rem(margin-bottom, $space*4);
         }
         /* quintupled margin-bottom */
-        .sign--quintuple{
+        .sign--quintuple {
             @include rem(margin-bottom, $space*5);
         }
         /* sextupled margin-bottom */
-        .sign--sextuple{
+        .sign--sextuple {
             @include rem(margin-bottom, $space*6);
         }
 
 
+    /**
+     * Spacing The Bottom of Modules
+     * As per: http://css-tricks.com/spacing-the-bottom-of-modules/
+     */
+    .module,
+    %module {
+        > *:last-child,
+        > *:last-child > *:last-child,
+        > *:last-child > *:last-child > *:last-child,
+        > *:last-child > *:last-child > *:last-child > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+
     /* Default indentation value for lists etc. usually the MN */
-    ul,ol,dd{
+    ul,ol,dd {
         @include rem(margin-left, $base-line-height);
     }
 

@@ -1,4 +1,4 @@
-@if $use-base-quotes == true{
+@if $use-base-quotes == true {
 /*----------------------------------------------------------------------------*\
     $QUOTES
     As per: html5doctor.com/blockquote-q-cite
@@ -23,68 +23,88 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-
-    q{
+    /**
+     * Base quotes setup
+     */
+    q {
         quotes: "‘" "’" "“" "”";
+
+        &:before {
+            content: "‘";
+            content: open-quote;
+        }
+        &:after {
+            content: "’";
+            content: close-quote;
+        }
+
+        q {
+            quotes: "‘" "’" "“" "”";
+
+            &:before {
+                content: "“";
+                content: open-quote;
+            }
+            &:after {
+                content: "”";
+                content: close-quote;
+            }
+        }
     }
 
-    q:before{
-        content: "‘";
-        content: open-quote;
-    }
-    q:after{
-        content: "’";
-        content: close-quote;
-    }
 
-    q q:before{
-        content: "“";
-        content: open-quote;
-    }
-    q q:after{
-        content: "”";
-        content: close-quote;
-    }
-
-    blockquote{
+    blockquote {
         quotes: "“" "”";
-    }
-    blockquote p:before{
-        content: "“";
-        content: open-quote;
-    }
-    blockquote p:after{
-        content: "";
-        content: no-close-quote;
-    }
-    blockquote p:last-of-type:after{
-        content: "”";
-        content: close-quote;
+
+        p {
+            &:before {
+                content: "“";
+                content: open-quote;
+            }
+            &:after {
+                content: "";
+                content: no-close-quote;
+            }
+            &:last-of-type:after {
+                content: "”";
+                content: close-quote;
+            }
+        }
     }
 
-    /*
-        <blockquote>
-            <p>Insanity: doing the same thing over and over again and expecting
-            different results.</p>
-            <b class="source">Albert Einstein</b>
-        </blockquote>
-    */
-    blockquote{
-        /**
-         * .4em is roughly equal to the width of the opening “ that we wish to hang.
-         */
-        text-indent: -0.4em;
 
-        p:last-of-type{
+    /**
+     * Blockquote
+     *
+     * 1. 0.4em is roughly equal to the width of the opening “ that we wish to hang.
+     *
+     * Sample usage:
+       <blockquote>
+           <p>Insanity: doing the same thing over and over again and expecting
+           different results.</p>
+           <b class="source">Albert Einstein</b>
+       </blockquote>
+     */
+    blockquote {
+        text-indent: -0.4em; /* 1 */
+
+        p:last-of-type {
             margin-bottom: 0;
         }
     }
 
-    .source{
+
+    /**
+     * Source
+     *
+     * Extends `.sign` in `generic/_shared.scss`
+     */
+    .source {
+        @extend .sign;
         display: block;
         text-indent: 0;
 
-        &:before{
+        &:before {
             content: "—";
         }
     }

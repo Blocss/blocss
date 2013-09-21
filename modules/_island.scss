@@ -23,16 +23,26 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /*  Simple, boxed off content eg.:
-        <div class="island">
-            I am boxed off.
-        </div>
-    */
+    /**
+     * Simple, boxed off content
+     *
+     * Extends `.sign` in `generic/_shared.scss`
+     * Extends `%module` in `generic/_shared.scss`
+     * Extends `.cf` in `generic/_clearfix.scss`
+     *
+     * Sample usage:
+       <div class="island">
+           I am boxed off.
+       </div>
+     *
+     */
     .continent,
     .island,
     .islet{
-        display: block;
+        @extend .sign;
+        @extend %module;
         @extend .cf;
+        display: block;
     }
 
     .continent{
@@ -46,12 +56,6 @@
     /* Just like `.island`, only smaller. */
     .islet{
         @include rem(padding, $space/2);
-    }
-
-    .continent > :last-child,
-    .island > :last-child,
-    .islet > :last-child{
-        margin-bottom: 0;
     }
 
 
