@@ -1,0 +1,35 @@
+/*----------------------------------------------------------------------------*\
+    CORE.scss
+    This is the most simple version of the blocss core, this will include the
+    defaults & mixins only. Use this file only when you have another stylesheet
+    with the full blocss library in it.
+\*----------------------------------------------------------------------------*/
+
+/*!*
+ *
+ * Powered by Blocss core v3.3.0
+ * by @bramsmulders (Bram Smulders)
+ *
+ */
+
+/*----------------------------------------------------------------------------*\
+        CONTENTS
+\*----------------------------------------------------------------------------*/
+
+    /*
+    IMPORTS.............Begin importing the sections below
+    DEFAULTS............Include settings
+    MIXINS..............Reusable functions
+    */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $IMPORTS
+    Include all framework modules
+\*----------------------------------------------------------------------------*/
+
+    @import "defaults";
+    @import "generic/mixins";
