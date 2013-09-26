@@ -25,13 +25,11 @@
     /**
      * Border box ALL the things
      */
-    @if $global-border-box == true{
-        *{
-            &,
-            &:before,
-            &:after{
-                @include prefixer(box-sizing, border-box, webkit moz spec);
-            }
+    * {
+        &,
+        &:before,
+        &:after{
+            @include prefixer(box-sizing, border-box, webkit moz spec);
         }
     }
 
@@ -44,7 +42,7 @@
     dl,dd,ol,ul,
     form,fieldset,legend,
     table,th,td,caption,
-    hr{
+    hr {
         margin: 0;
         padding: 0;
     }
@@ -53,7 +51,8 @@
     /**
      * Give a help cursor to elements that give extra info on ':hover'
      */
-    abbr[title],dfn[title]{
+    abbr[title],
+    dfn[title] {
         cursor: help;
     }
 
@@ -61,7 +60,9 @@
     /**
      * Remove underlines from potentially troublesome elements
      */
-    a,u,ins{
+    a,
+    u,
+    ins {
         text-decoration: none;
     }
 
@@ -69,7 +70,7 @@
     /**
      * Apply faux underline via 'border-bottom'
      */
-    ins{
+    ins {
         border-bottom: 1px solid;
     }
 
@@ -77,7 +78,7 @@
     /**
      * So that `alt` text is visually offset if images don’t load
      */
-    img{
+    img {
         font-style: italic;
     }
 
@@ -90,13 +91,13 @@
     textarea,
     button,
     select,
-    option{
+    option {
         cursor: pointer;
     }
         .text-input:active,
         .text-input:focus,
         textarea:active,
-        textarea:focus{
+        textarea:focus {
             cursor: text;
             outline: none;
         }

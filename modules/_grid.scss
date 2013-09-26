@@ -124,14 +124,6 @@
                 word-spacing: normal; /* 5 */
                 text-rendering: auto; /* 5 */
             }
-
-            /**
-             * Since we need border-box on our grids to work,
-             * apply when global setting is false
-             */
-            @if $global-border-box == false{
-                @include prefixer(box-sizing, border-box, webkit moz spec);
-            } // blobal-border-box
         }
 
 

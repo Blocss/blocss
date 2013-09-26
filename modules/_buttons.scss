@@ -39,39 +39,34 @@
      *
      * Build on this component using rulesets in your application-level CSS.
      *
-     * 1. Normalize `box-sizing` across all elements that this component could be
-     *    applied to.
-     * 2. Inherit text color from ancestor.
-     * 3. Inherit font styles from ancestor.
-     * 4. If the button’s text is 1em, and the button is (2 * font-size) tall,
+     * 1. Inherit text color from ancestor.
+     * 2. Inherit font styles from ancestor.
+     * 3. If the button’s text is 1em, and the button is (2 * font-size) tall,
      *    then there is .5em of space above and below that text. We therefore
      *    apply 1em of space to the left and right, as padding, to keep
      *    consistent spacing.
-     * 5. Prevent wrapping across multiple lines.
-     * 6. Corrects inability to style clickable `input` types in iOS
+     * 4. Prevent wrapping across multiple lines.
+     * 5. Corrects inability to style clickable `input` types in iOS
      */
     .button {
         position: relative;
-        @if $global-border-box == false {
-            @include prefixer(box-sizing, border-box, moz spec); /* 1 */
-        }
         display: inline-block;
         padding-top: 0;
         padding-bottom: 0;
         border: 1px solid;
         margin: 0;
         background: transparent;
-        color: inherit; /* 2 */
+        color: inherit; /* 1 */
         cursor: pointer;
-        font: inherit; /* 3 */
-        line-height: 2; /* 4 */
-        padding-left: 1em; /* 4 */
-        padding-right: 1em; /* 4 */
+        font: inherit; /* 2 */
+        line-height: 2; /* 3 */
+        padding-left: 1em; /* 3 */
+        padding-right: 1em; /* 3 */
         text-align: center;
         text-decoration: none;
         vertical-align: middle;
-        white-space: nowrap; /* 5 */
-        -webkit-appearance: none; /* 6 */
+        white-space: nowrap; /* 4 */
+        -webkit-appearance: none; /* 5 */
 
         &:hover,
         &:focus,
