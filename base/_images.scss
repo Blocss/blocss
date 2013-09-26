@@ -22,7 +22,7 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    img{
+    img {
         max-width: 100%;
         height: auto;
     }
@@ -33,29 +33,29 @@
      * We don't need a pixel fallback since browsers wich support border-radius
      * also support rem units
      */
-    .img--round{
-        @include rem(border-radius, $brand-round, false);
+    .img--round {
+        @include rem(border-radius, $brand-round);
     }
 
 
     /**
      * Placement variations
      */
-    .img--right{
-        float: right;
+    .img--right {
         @include rem(margin-left, $space);
         @include rem(margin-bottom, $space);
+        float: right;
     }
-    .img--left{
-        float: left;
+    .img--left {
         @include rem(margin-right, $space);
         @include rem(margin-bottom, $space);
+        float: left;
     }
-    .img--center{
+    .img--center {
+        @include rem(margin-bottom, $space);
         display: block;
         margin-right: auto;
         margin-left: auto;
-        @include rem(margin-bottom, $space);
     }
 
 
@@ -65,13 +65,13 @@
      * Please note, these will not work too nicely with fluid images and will
      * distort when resized below a certain width. Use with caution.
      */
-    .img--short{
+    .img--short {
         @include rem(height, $space*5);
     }
-    .img--medium{
+    .img--medium {
         @include rem(height, $space*10);
     }
-    .img--tall{
+    .img--tall {
         @include rem(height, $space*15);
     }
 
@@ -79,7 +79,7 @@
     /**
      * Images in `figure` elements.
      */
-    figure > img{
+    figure > img {
         display: block;
     }
 

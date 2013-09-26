@@ -27,7 +27,7 @@
     /**
      * Collapsed media
      */
-    @mixin media-collapse (){
+    @mixin media-collapse () {
         .media__img,
         .media__img--rev,
         .media__image,
@@ -90,11 +90,13 @@
             float: right;
             margin-right: 0;
         }
-            .media__img img,
-            .media__img--rev img,
-            .media__image img,
-            .media__image--rev img {
-                display:block;
+            .media__img,
+            .media__img--rev,
+            .media__image,
+            .media__image--rev {
+                img {
+                    display:block;
+                }
             }
 
 

@@ -107,7 +107,7 @@
         /**
          * Full width class
          */
-        .unit-1-1#{$modifier}{
+        .unit-1-1#{$modifier} {
             width: 100%;
         }
 
@@ -131,7 +131,7 @@
          * Intentional redundancy build into each set of unit classes.
          */
         @each $n in $units {
-            /* Avoid creating rules like '.unit-12-12 {}'' */
+            /* Avoid creating rules like '.push-12-12 {}'' */
             $x: $n - 1;
 
             @for $i from 1 through $x {
@@ -176,6 +176,10 @@
             } // for $i loop
         } // each unit loop
 
+        .push--0-0#{$modifier} {
+            margin-#{$grid-direction}: 0;
+        }
+
     } // mixin: push-build;
 
 
@@ -189,7 +193,7 @@
     /**
      * Setup generic widths
      */
-    @if $use-generic-widths == true{
+    @if $use-generic-widths == true {
         @include width-build($width-divisions);
     } // use-generic-widths
 
@@ -197,7 +201,7 @@
     /**
       * Setup generic push widths
       */
-    @if $use-generic-push == true{
+    @if $use-generic-push == true {
         @include push-build($width-divisions);
     }
 
@@ -209,11 +213,11 @@
     $STATE
 \*----------------------------------------------------------------------------*/
 
-    @if $responsive == true{
+    @if $responsive == true {
     /* Responsive widths & pushers
     \*------------------------------------------------------------------------*/
 
-        @if $use-generic-widths == true{
+        @if $use-generic-widths == true {
             @each $name in $breakpoint-has-widths {
                 @include media-query($name) {
                    @include width-build($width-divisions, '--#{$name}');
@@ -221,7 +225,7 @@
             }
         }
 
-        @if $use-generic-push == true{
+        @if $use-generic-push == true {
             @each $name in $breakpoint-has-push {
                 @include media-query($name) {
                    @include push-build($width-divisions, '--#{$name}');

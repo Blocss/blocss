@@ -78,7 +78,9 @@
 
 
     /* Default indentation value for lists etc. usually the MN */
-    ul,ol,dd {
+    ul,
+    ol,
+    dd {
         @include rem(margin-left, $base-line-height);
     }
 

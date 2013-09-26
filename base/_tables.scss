@@ -1,4 +1,4 @@
-@if $use-base-tables == true{
+@if $use-base-tables == true {
 /*----------------------------------------------------------------------------*\
     $TABLES
     default table styling
@@ -23,80 +23,35 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /* Sample code:
-        <table class="table--bordered table--striped">
-            <colgroup>
-                <col class="t10">
-                <col class="t10">
-                <col class="t10">
-                <col>
-            </colgroup>
-            <thead>
-                <tr>
-                    <th colspan="3">Foo</th>
-                    <th>Bar</th>
-                </tr>
-                <tr>
-                    <th>Lorem</th>
-                    <th>Ipsum</th>
-                    <th class="numerical">Dolor</th>
-                    <th>Sit</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th rowspan="3">Sit</th>
-                    <td>Dolor</td>
-                    <td class="numerical">03.788</td>
-                    <td>Lorem</td>
-                </tr>
-                <tr>
-                    <td>Dolor</td>
-                    <td class="numerical">32.210</td>
-                    <td>Lorem</td>
-                </tr>
-                <tr>
-                    <td>Dolor</td>
-                    <td class="numerical">47.797</td>
-                    <td>Lorem</td>
-                </tr>
-                <tr>
-                    <th rowspan="2">Sit</th>
-                    <td>Dolor</td>
-                    <td class="numerical">09.640</td>
-                    <td>Lorem</td>
-                </tr>
-                <tr>
-                    <td>Dolor</td>
-                    <td class="numerical">12.117</td>
-                    <td>Lorem</td>
-                </tr>
-            </tbody>
-        </table>
-    */
-    table{
+    /**
+     * Base table component
+     */
+    table {
         width: 100%;
     }
     th,
-    td{
+    td {
         @include rem(padding, $space/4);
         text-align: left;
     }
 
-    /* Cell alignments */
-    [colspan]{
+
+    /**
+     * Cell alignments
+     */
+    [colspan] {
         text-align: center;
     }
-    [colspan="1"]{
+    [colspan="1"] {
         text-align: left;
     }
-    [rowspan]{
+    [rowspan] {
         vertical-align: middle;
     }
-    [rowspan="1"]{
+    [rowspan="1"] {
         vertical-align: top;
     }
-    .numerical{
+    .numerical {
         text-align: right;
     }
 
@@ -131,25 +86,42 @@
     .t90    { width: 90% }
     .t95    { width: 95% }
 
-    /* Bordered tables */
-    .table--bordered th,
-    .table--bordered td{
-        border: 1px solid #ccc; /* Override this color in your theme stylesheet */
-    }
-    .table--bordered thead tr:last-child th{
-        border-bottom-width: 2px;
-    }
-    .table--bordered tbody tr th:last-of-type{
-        border-right-width: 2px;
-    }
-    .table--bordered th:empty,
-    .table--bordered td:empty{
-        border: none;
+
+    /**
+     * Modifyer: Bordered table
+     *
+     * 1. Override color in application level css
+     */
+    .table--bordered {
+        th,
+        td {
+            border: 1px solid #ccc; /* 1 */
+        }
+
+        thead tr:last-child th {
+            border-bottom-width: 2px;
+        }
+
+        tbody tr th:last-of-type {
+            border-right-width: 2px;
+        }
+
+        th:empty,
+        td:empty {
+            border: none;
+        }
     }
 
-    /* Striped tables */
-    .table--striped tbody tr:nth-of-type(odd){
-        background-color: #ffc; /* Override this color in your theme stylesheet */
+
+    /**
+     * Modifyer: Striped table
+     *
+     * 1. Override color in application level css
+     */
+    .table--striped {
+        tbody tr:nth-of-type(odd) {
+            background-color: #ffc; /* 1 */
+        }
     }
 
 

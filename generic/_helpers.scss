@@ -31,13 +31,13 @@
         /**
          * Add/remove floats
          */
-        .float--right{
+        .float--right {
             float: right !important;
         }
-        .float--left{
+        .float--left {
             float: left !important;
         }
-        .float--none{
+        .float--none {
             float: none !important;
         }
 
@@ -45,16 +45,16 @@
         /**
          * Full bleed
          */
-        .full-bleed{
+        .full-bleed {
             @include rem(margin-left, -$space);
             @include rem(margin-right, -$space);
 
-            .islet &{
+            .islet & {
                 @include rem(margin-left, -$space-half);
                 @include rem(margin-right, -$space-half);
             }
 
-            .continent &{
+            .continent & {
                 @include rem(margin-left, -$space*2);
                 @include rem(margin-right, -$space*2);
             }
@@ -64,7 +64,7 @@
         /**
          * Remove margin bottom
          */
-        .flatten{
+        .flatten {
             margin-bottom: 0 !important;
         }
 
@@ -76,13 +76,13 @@
         /**
          * Text alignment
          */
-        .text--left{
+        .text--left {
             text-align: left !important;
         }
-        .text--center{
+        .text--center {
             text-align: center !important;
         }
-        .text--right{
+        .text--right {
             text-align: right !important;
         }
 
@@ -90,13 +90,13 @@
         /**
          * Font weight
          */
-        .weight--light{
+        .weight--light {
             font-weight: 300 !important;
         }
-        .weight--normal{
+        .weight--normal {
             font-weight: 400 !important;
         }
-        .weight--semibold{
+        .weight--semibold {
             font-weight: 600 !important;
         }
 
@@ -104,13 +104,13 @@
         /**
          * Capitals/lowercase
          */
-        .caps{
+        .caps {
             text-transform: uppercase !important;
         }
-        .lowercase{
+        .lowercase {
             text-transform: lowercase !important;
         }
-        .firstcap{
+        .firstcap {
             text-transform: capitalize !important;
         }
 
@@ -140,7 +140,7 @@
          * Add a help cursor to any element that gives the user extra information on
          * `:hover`.
          */
-        .informative{
+        .informative {
             cursor: help !important;
         }
 
@@ -148,7 +148,7 @@
         /**
          * Align items to the right where they imply progression/movement forward.
          */
-        .proceed{
+        .proceed {
             text-align:right!important;
         }
 
@@ -156,7 +156,7 @@
         /**
          * Add a right-angled quote to links that imply movement, e.g.:
          */
-        .go:after{
+        .go:after {
             content:"\00A0»"!important;
         }
 
@@ -164,7 +164,7 @@
         /**
          * Image replacement
          */
-        .ir{
+        .ir {
             display: block;
             border: 0;
             text-indent: -999em;
@@ -175,7 +175,7 @@
             direction: ltr;
             *line-height: 0;
 
-            br{
+            br {
                 display: none;
             }
         }
@@ -184,7 +184,7 @@
         /**
          * Hide from screanreaders & browsers
          */
-        .hidden{
+        .hidden {
             display: none !important;
             visibility: hidden;
         }
@@ -193,7 +193,7 @@
         /**
          * Hide visually and from screenreaders, but maintain layout
          */
-        .invisible{
+        .invisible {
             visibility: hidden;
         }
 
@@ -202,7 +202,7 @@
          * Hide only visually, but have it available for screenreaders
          * as per: h5bp.com/v
          */
-        @mixin visuallyhidden{
+        @mixin visuallyhidden {
             border: 0;
             clip: rect(0 0 0 0);
             height: 1px;
@@ -213,7 +213,7 @@
             width: 1px;
         }
 
-        .visuallyhidden{
+        .visuallyhidden {
             @include visuallyhidden;
         }
 
@@ -229,9 +229,9 @@
         /**
          * Visuallyhidden based on breakpoint
          */
-        @each $state in $breakpoint-has-visuallyhidden{
-            @include media-query(#{$state}){
-                .visuallyhidden--#{$state}{
+        @each $state in $breakpoint-has-visuallyhidden {
+            @include media-query(#{$state}) {
+                .visuallyhidden--#{$state} {
                     @include visuallyhidden;
                 }
             }
@@ -242,14 +242,14 @@
          * Text modifyers based on breakpoint
          */
         @each $state in $breakpoint-has-text-mods {
-            @include media-query(#{$state}){
-                .text--left--#{$state}{
+            @include media-query(#{$state}) {
+                .text--left--#{$state} {
                     text-align: left !important;
                 }
-                .text--center--#{$state}{
+                .text--center--#{$state} {
                     text-align: center !important;
                 }
-                .text--right--#{$state}{
+                .text--right--#{$state} {
                     text-align: right !important;
                 }
             }

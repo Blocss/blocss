@@ -28,13 +28,13 @@
          * Prefixer
          * Example: @include prefixer(border-radius, 5px 10px, webkit moz o ms spec);
          */
-        @mixin prefixer ($property, $value, $prefixes){
+        @mixin prefixer ($property, $value, $prefixes) {
 
-            @each $prefix in $prefixes{
-                @if $prefix != spec{
+            @each $prefix in $prefixes {
+                @if $prefix != spec {
                     -#{$prefix}-#{$property}: $value;
                 }
-                @else if $prefix == spec{
+                @else if $prefix == spec {
                     #{$property}: $value;
                 }
             }
@@ -176,7 +176,7 @@
                 $multiplier: $line-height;
             }
 
-            @if $use-line-height == true{
+            @if $use-line-height == true {
                 @if $use-vertical-rhythm == true {
                     line-height: (ceil($fs / $base-line-height) * ($base-line-height / $fs)) * $multiplier;
                 } @else {
@@ -196,7 +196,7 @@
            }
          *
          */
-        @mixin headings($from: 1, $to: 6){
+        @mixin headings($from: 1, $to: 6) {
             %base-heading#{$from - $to} {
                 @content
             }

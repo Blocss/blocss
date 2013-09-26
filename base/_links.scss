@@ -21,12 +21,10 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    a{
-        /* Set colors etc in your theme stylesheet */
-
+    a {
         &:hover,
         &:active,
-        &:focus{
+        &:focus {
             text-decoration: underline;
         }
     }

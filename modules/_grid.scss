@@ -58,14 +58,14 @@
     $gutter: ($space*$grid-gutter-multiplier);
 
     .grid {
-        @if $grid-style-floating == true{
+        @if $grid-style-floating == true {
             @extend .cf; /* 6 */
         }
-        display: block;
-        list-style: none; /* 5 */
-        padding: 0;
         @include rem(margin-left, -.5 * $gutter); /* 1 */
         @include rem(margin-right, -.5 * $gutter); /* 1 */
+        display: block;
+        padding: 0;
+        list-style: none; /* 5 */
         text-align: $grid-direction; /* 2 */
         @if $use-markup-fix == false {
             font-family: sans-serif;
@@ -108,14 +108,14 @@
          * 6. Float left if you choose for floating-grids
          */
         .grid__cell {
-            width: 100%;
+            @include rem(padding-left, .5 * $gutter);
+            @include rem(padding-right, .5 * $gutter);
             display: inline-block; /* 1 */
-            @if $grid-style-floating == true{
+            width: 100%;
+            @if $grid-style-floating == true {
                 float: $grid-direction; /* 6 */
             }
             margin: 0;
-            @include rem(padding-left, .5 * $gutter);
-            @include rem(padding-right, .5 * $gutter);
             vertical-align: top; /* 3 */
             text-align: $grid-direction; /* 4 */
             @if $use-markup-fix == false {
@@ -132,19 +132,19 @@
      * Columns float right instead of left
      * Applies only on floated grids
      */
-    .grid--rev{
-        @if $grid-direction == left{
+    .grid--rev {
+        @if $grid-direction == left {
             direction: rtl;
             text-align: left;
 
-            > .grid__cell{
+            > .grid__cell {
                 direction: ltr;
             }
-        } @else {
+        } @else  {
             direction: ltr;
             text-align: left;
 
-            > .grid__cell{
+            > .grid__cell {
                 direction: rtl;
             }
         }
@@ -156,10 +156,10 @@
      * Allows for automatic unit centering irrespective of the number of
      * units in the grid.
      */
-    .grid--center{
+    .grid--center {
         text-align: center;
 
-        > .grid__cell{
+        > .grid__cell {
             text-align: left;
         }
     }
@@ -168,13 +168,13 @@
     /**
      * Modifier: align grid cells vertically
      */
-    .grid--middle{
-        > .grid__cell{
+    .grid--middle {
+        > .grid__cell {
             vertical-align: middle;
         }
     }
-    .grid--bottom{
-        > .grid__cell{
+    .grid--bottom {
+        > .grid__cell {
             vertical-align: bottom;
         }
     }
@@ -185,7 +185,7 @@
      * Set a specific unit to be horizontally centered. Doesn't affect
      * any other units. Can still contain a child `grid` object.
      */
-    .grid__cell--center{
+    .grid__cell--center {
         display: block;
         margin: 0 auto;
     }
@@ -194,11 +194,11 @@
     /**
      * Create grids with narrower gutters. Extends `.grid`.
      */
-    .grid--narrow{
+    .grid--narrow {
         @include rem(margin-left, -.5 * ($gutter / 2));
         @include rem(margin-right, -.5 * ($gutter / 2));
 
-        > .grid__cell{
+        > .grid__cell {
             @include rem(padding-left, .5 * ($gutter / 2));
             @include rem(padding-right, .5 * ($gutter / 2));
         }
@@ -208,11 +208,11 @@
     /**
      * Create grids with wider gutters. Extends `.grid`.
      */
-    .grid--wide{
+    .grid--wide {
         @include rem(margin-left, -.5 * ($gutter * 2));
         @include rem(margin-right, -.5 * ($gutter * 2));
 
-        > .grid__cell{
+        > .grid__cell {
             @include rem(padding-left, .5 * ($gutter * 2));
             @include rem(padding-right, .5 * ($gutter * 2));
         }
@@ -222,10 +222,10 @@
     /**
      * Modifier: Remove gutters between columns
      */
-    .grid--gutterless{
+    .grid--gutterless {
         margin: 0;
 
-        > .grid__cell{
+        > .grid__cell {
             padding: 0;
         }
     }
