@@ -24,8 +24,10 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /*
-     * Sample code:
+    /**
+     * Modifyer: Stacked nav
+     * `.nav--pagination` extends `.nav`
+     * Sample markup:
        <ol class="nav nav--pagination">
            <li class="nav--pagination_first">First</li>
            <li><a href="">1</a></li>
@@ -34,22 +36,22 @@
            <li class="nav--pagination_last"><a href="">Last</a></li>
        </ol>
      */
-    .nav--pagination{
+    .nav--pagination {
         text-align: center;
 
-        > li{
+        > li {
             @include rem(padding, $space-half);
 
-            > a{
+            > a {
                 @include rem(padding, $space-half);
                 @include rem(margin, -$space-half);
             }
         }
     }
-        .nav--pagination__first a:before{
+        .nav--pagination__first a:before {
             content: "« ";
         }
-        .nav--pagination__last a:after{
+        .nav--pagination__last a:after {
             content: " »";
         }
 

@@ -36,7 +36,7 @@
      * Type
      */
     $base-font-size:                    16px!default;
-    $base-line-height:                  $base-font-size*1.5!default;
+    $base-line-height:                  24px!default;
 
 
     /**
@@ -65,19 +65,24 @@
 \*----------------------------------------------------------------------------*/
 
     /**
+     * Enable vertical rhythm?
+     *
+     * Enabling this will ensure all margins, paddings, lineheights etc. will
+     * follow the default line height.
+     *
+     * Disabling this will render all line-heights according
+     * to the `$line-height-ratio` variable
+     */
+    $use-vertical-rhythm:               true!default;
+    $line-height-ratio:                 $base-line-height / $base-font-size!default;
+
+
+    /**
      * Assign our `$base-line-height` to a new spacing var for
      * more transparency
      */
     $space:                             $base-line-height!default;
     $space-half:                        $space/2!default;
-
-
-    /**
-     * Deprecated spacing unit classes
-     * Will be removed from v4
-     */
-    $base-spacing-unit:                 $space!default;
-    $half-spacing-unit:                 $space-half!default;
 
 
 
@@ -143,9 +148,12 @@
      * you to only compile as much CSS as you need. All are turned on by
      * default, but you can add and remove breakpoints at will.
      */
-    $breakpoint-has-widths: ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
-    $breakpoint-has-push:   ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
-    $breakpoint-has-visuallyhidden:   ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-widths:             ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-push:               ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-visuallyhidden:     ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-collapsed-arrange:  ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-collapsed-media:    ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-text-mods:          ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
 
 
 
@@ -224,8 +232,6 @@
     $use-modules-media:                true!default;
     $use-modules-flexembed:            true!default;
     $use-modules-island:               true!default;
-    $use-modules-link-complex:         true!default;
-    $use-modules-split:                true!default;
     $use-modules-sprite:               true!default;
     $use-modules-buttons:              true!default;
     $use-modules-rules:                true!default;
@@ -248,10 +254,9 @@
 \*----------------------------------------------------------------------------*/
 
     /**
-     * Global border-box ALL the things, as per:
-     * paulirish.com/2012/box-sizing-border-box-ftw
+     * Legacy support
      */
-    $global-border-box:                 true!default;
+    $legacy-support-for-ie8:            true!default;
 
 
     /**

@@ -1,4 +1,4 @@
-@if $use-modules-island == true{
+@if $use-modules-island == true {
 /*----------------------------------------------------------------------------*\
     $ISLAND
     As per csswizardry.com/2011/10/the-island-object
@@ -23,35 +23,39 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /*  Simple, boxed off content eg.:
-        <div class="island">
-            I am boxed off.
-        </div>
-    */
+    /**
+     * Simple, boxed off content
+     *
+     * Extends `.sign` in `generic/_shared.scss`
+     * Extends `%module` in `generic/_shared.scss`
+     * Extends `.cf` in `generic/_clearfix.scss`
+     *
+     * Sample usage:
+       <div class="island">
+           I am boxed off.
+       </div>
+     *
+     */
     .continent,
     .island,
-    .islet{
-        display: block;
+    .islet {
+        @extend .sign;
+        @extend %module;
         @extend .cf;
+        display: block;
     }
 
-    .continent{
+    .continent {
         @include rem(padding, $space*2);
     }
 
-    .island{
+    .island {
         @include rem(padding, $space);
     }
 
     /* Just like `.island`, only smaller. */
-    .islet{
+    .islet {
         @include rem(padding, $space/2);
-    }
-
-    .continent > :last-child,
-    .island > :last-child,
-    .islet > :last-child{
-        margin-bottom: 0;
     }
 
 

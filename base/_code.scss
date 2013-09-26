@@ -1,4 +1,4 @@
-@if $use-base-code == true{
+@if $use-base-code == true {
 /*----------------------------------------------------------------------------*\
     $CODE
 \*----------------------------------------------------------------------------*/
@@ -22,13 +22,13 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    pre{
+    pre {
         overflow: auto;
     }
-        pre mark{
-            background: none;
+        pre mark {
             border-bottom: 1px solid;
             color: inherit;
+            background: none;
         }
 
 

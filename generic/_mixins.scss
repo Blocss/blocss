@@ -21,13 +21,119 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
+    /* CSS3
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Prefixer
+         * Example: @include prefixer(border-radius, 5px 10px, webkit moz o ms spec);
+         */
+        @mixin prefixer ($property, $value, $prefixes) {
+
+            @each $prefix in $prefixes {
+                @if $prefix != spec {
+                    -#{$prefix}-#{$property}: $value;
+                }
+                @else if $prefix == spec {
+                    #{$property}: $value;
+                }
+            }
+
+        }
+
+
+        /**
+         * Rem converter
+         *
+         * 1. Provide pixel fallback for ie8
+         * 2. Loop over values
+         * 3. Run trough prefixer
+         *
+         * Sample: @include rem(margin, 0 auto 300px, webkit moz spec, !important);
+         */
+        @mixin rem($property, $value, $prefixer: false, $append: "") {
+
+            /* 1 */
+            @if $legacy-support-for-ie8 == true {
+                /* 3 */
+                @if $prefixer {
+                    @include prefixer(#{$property}, $value #{$append}, $prefixer);
+                } @else {
+                    #{$property}: $value #{$append};
+                }
+            }
+
+            /* 2 */
+            @if type-of($value) == list {
+                $all: ();
+                @for $i from 1 through length($value) {
+                    @if type-of(nth($value, $i)) == string or unitless(nth($value, $i)) == true or unit(nth($value, $i)) == "em" or unit(nth($value, $i)) == "%" {
+                        $all: append($all, nth($value, $i));
+                    } @else {
+                        $all: append($all, nth($value, $i)/$base-font-size*1rem);
+                    }
+                }
+                /* 3 */
+                @if $prefixer {
+                    @include prefixer(#{$property}, $all #{$append}, $prefixer);
+                } @else {
+                    #{$property}: $all #{$append};
+                }
+            } @else {
+                /* 3 */
+                @if $prefixer {
+                    @include prefixer(#{$property}, $value/$base-font-size*1rem #{$append}, $prefixer);
+                } @else {
+                    #{$property}: $value/$base-font-size*1rem #{$append};
+                }
+            }
+        }
+
+
+        /**
+         * Multi rem converter
+         * Remmify multiple properties in one swoop
+         *
+         * Beware: if only one set is provided, the mixin will fail.
+         * In that case use the normal rem mixin instead
+         *
+         * Sample:
+           @include multi-rem(
+               (padding, $space 1em)
+               (margin, $space auto, true)
+               (border-radius, 50%)
+           );
+         */
+        @mixin multi-rem($set) {
+            @if type-of($set) == list {
+                @for $i from 1 through length($set) {
+                    $property: nth(nth($set, $i), 1);
+                    $value: nth(nth($set, $i), 2);
+
+                    $prefixer: false;
+                    @if length(nth($set, $i)) > 2 {
+                        $prefixer: nth(nth($set, $i), 3);
+                    }
+
+                    $append: "";
+                    @if length(nth($set, $i)) == 4 {
+                        $append: nth(nth($set, $i), 4);
+                    }
+
+                    @include rem($property, $value, $prefixer, $append);
+                }
+            }
+        }
+
+
+
     /* Typography & vertical rhythm
     \*------------------------------------------------------------------------*/
 
         /**
          * Font face shorthand
          */
-        @mixin fontface($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ){
+        @mixin fontface($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false ) {
             @font-face {
                 font-family: $font-family;
                 font-weight: $weight;
@@ -49,31 +155,6 @@
 
 
         /**
-         * Adds Margin bottom based on magic number
-         * With an optional flag to enable '!important'
-         */
-        @mixin m-margin-bottom($multiplier: 1, $important: false){
-            $append: null!default;
-            @if $important{
-                $append: !important;
-            }
-            margin-bottom: $multiplier * $space $append;
-            /* rem unit for modern browsers */
-            margin-bottom: $multiplier * $space / $base-font-size*1rem $append;
-        }
-
-
-        /**
-         * Calculates height based on magic number
-         * If you want to use 'min-' or 'max-' height, use the prefix param
-         */
-        @mixin m-height($multiplier: 1, $prefix:""){
-            #{$prefix}height: $multiplier * $base-line-height;
-            #{$prefix}height: ($multiplier * ($base-line-height / $base-font-size))*1rem;
-        }
-
-
-        /**
          * Calculates font, rem font size & line height
          * $multiplier: multiplies line height by the given value
          * $line-height: include line height or not
@@ -81,23 +162,26 @@
          *
          * Sample usage @include font-size(18px, 2);
          */
-        @mixin font-size($fs, $line-height: true, $multiplier: 1){
-            font-size: $fs;
-            font-size: ($fs / $base-font-size)*1rem;
+        @mixin font-size($fs, $line-height: true, $multiplier: 1) {
+            @include rem(font-size, $fs);
 
             $use-line-height: false;
 
-            @if type-of($line-height) == bool{
+            @if type-of($line-height) == bool {
                 @if $line-height == true{
                     $use-line-height: true;
                 }
-            } @else if type-of($line-height) == number{
+            } @else if type-of($line-height) == number {
                 $use-line-height: true;
                 $multiplier: $line-height;
             }
 
-            @if $use-line-height == true{
-                line-height: (ceil($fs / $base-line-height) * ($base-line-height / $fs)) * $multiplier;
+            @if $use-line-height == true {
+                @if $use-vertical-rhythm == true {
+                    line-height: (ceil($fs / $base-line-height) * ($base-line-height / $fs)) * $multiplier;
+                } @else {
+                    line-height: $line-height-ratio * $multiplier;
+                }
             }
         }
 
@@ -112,14 +196,14 @@
            }
          *
          */
-        @mixin headings($from: 1, $to: 6){
+        @mixin headings($from: 1, $to: 6) {
             %base-heading#{$from - $to} {
                 @content
             }
 
             @if $from >= 1 and $to <= 6{
-                @for $i from $from through $to{
-                    h#{$i}{
+                @for $i from $from through $to {
+                    h#{$i} {
                         @extend %base-heading#{$from - $to};
                     }
                 }
@@ -131,271 +215,11 @@
          * Truncate overly long strings
          * sample value truncate(100%)
          */
-        @mixin truncate($truncation-boundary){
+        @mixin truncate($truncation-boundary) {
             max-width: $truncation-boundary;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-        }
-
-
-        /**
-         * Display inline block
-         */
-        @mixin inline-block{
-            display: inline-block;
-            vertical-align: baseline;
-            zoom: 1;
-            *display: inline;
-            *vertical-align: auto;
-        }
-
-
-
-    /* CSS3
-    \*------------------------------------------------------------------------*/
-
-        /**
-         * Timing functions
-         * the same as demo`ed here:
-         * http://jqueryui.com/demos/effect/easing.html
-         */
-        /* EASE IN */
-        $ease-in-quad:      cubic-bezier(0.550,  0.085, 0.680, 0.530);
-        $ease-in-cubic:     cubic-bezier(0.550,  0.055, 0.675, 0.190);
-        $ease-in-quart:     cubic-bezier(0.895,  0.030, 0.685, 0.220);
-        $ease-in-quint:     cubic-bezier(0.755,  0.050, 0.855, 0.060);
-        $ease-in-sine:      cubic-bezier(0.470,  0.000, 0.745, 0.715);
-        $ease-in-expo:      cubic-bezier(0.950,  0.050, 0.795, 0.035);
-        $ease-in-circ:      cubic-bezier(0.600,  0.040, 0.980, 0.335);
-        $ease-in-back:      cubic-bezier(0.600, -0.280, 0.735, 0.045);
-
-        /* EASE OUT */
-        $ease-out-quad:     cubic-bezier(0.250,  0.460, 0.450, 0.940);
-        $ease-out-cubic:    cubic-bezier(0.215,  0.610, 0.355, 1.000);
-        $ease-out-quart:    cubic-bezier(0.165,  0.840, 0.440, 1.000);
-        $ease-out-quint:    cubic-bezier(0.230,  1.000, 0.320, 1.000);
-        $ease-out-sine:     cubic-bezier(0.390,  0.575, 0.565, 1.000);
-        $ease-out-expo:     cubic-bezier(0.190,  1.000, 0.220, 1.000);
-        $ease-out-circ:     cubic-bezier(0.075,  0.820, 0.165, 1.000);
-        $ease-out-back:     cubic-bezier(0.175,  0.885, 0.320, 1.275);
-
-        /* EASE IN OUT */
-        $ease-in-out-quad:  cubic-bezier(0.455,  0.030, 0.515, 0.955);
-        $ease-in-out-cubic: cubic-bezier(0.645,  0.045, 0.355, 1.000);
-        $ease-in-out-quart: cubic-bezier(0.770,  0.000, 0.175, 1.000);
-        $ease-in-out-quint: cubic-bezier(0.860,  0.000, 0.070, 1.000);
-        $ease-in-out-sine:  cubic-bezier(0.445,  0.050, 0.550, 0.950);
-        $ease-in-out-expo:  cubic-bezier(1.000,  0.000, 0.000, 1.000);
-        $ease-in-out-circ:  cubic-bezier(0.785,  0.135, 0.150, 0.860);
-        $ease-in-out-back:  cubic-bezier(0.680, -0.550, 0.265, 1.550);
-
-
-        /**
-         * Prefixer
-         * Example: @include prefixer(border-radius, 5px 10px, webkit moz o ms spec);
-         */
-        @mixin prefixer ($property, $value, $prefixes){
-
-            @each $prefix in $prefixes{
-                @if $prefix != spec{
-                    -#{$prefix}-#{$property}: $value;
-                }
-                @else if $prefix == spec{
-                    #{$property}: $value;
-                }
-            }
-
-        }
-
-
-        /**
-         * Position shorthand mixin
-         */
-
-        @mixin returnPositionValue($property,$value, $use-rem){
-            @if type-of($value) != string{
-                @if unitless($value) == false{
-                    @if $use-rem == true{
-                        @include rem($property, $value);
-                    } @else {
-                        #{$property}: $value;
-                    }
-                }@else{
-                    #{$property}: $value;
-                }
-            }@else{
-                #{$property}: $value;
-            }
-        }
-
-        @mixin position ($position: relative, $coordinates: 0 0 0 0, $use-rem: true){
-            @if type-of($position) == list{
-                $coordinates: $position;
-                $position: relative;
-            }
-
-            $top: false!default;
-            $right: false!default;
-            $bottom: false!default;
-            $left: false!default;
-
-            @for $i from 1 through length($coordinates){
-                @if $i == 1{
-                    $top: nth($coordinates, $i);
-                }
-                @else if $i == 2{
-                    $right: nth($coordinates, $i);
-                }
-                @else if $i == 3{
-                    $bottom: nth($coordinates, $i);
-                }
-                @else if $i == 4{
-                    $left: nth($coordinates, $i);
-                }
-            }
-
-            position: $position;
-
-            @if $top {
-                @include returnPositionValue(top, $top, $use-rem);
-
-                @if $right == false{
-                    @include returnPositionValue(right, $top, $use-rem);
-                }
-                @if $bottom == false{
-                    @include returnPositionValue(bottom, $top, $use-rem);
-                }
-                @if $right == false{
-                    @if $left == false{
-                        @include returnPositionValue(left, $top, $use-rem);
-                    }
-                }
-            }
-
-            @if $right {
-                @include returnPositionValue(right, $right, $use-rem);
-
-                @if $left == false{
-                    @include returnPositionValue(left, $right, $use-rem);
-                }
-            }
-
-            @if $bottom {
-                @include returnPositionValue(bottom, $bottom, $use-rem);
-            }
-
-            @if $left {
-                @include returnPositionValue(left, $left, $use-rem);
-            }
-
-        }
-
-
-        /**
-         * Rem converter
-         *
-         * Sample usage:
-           .foo{
-               @include rem(margin, 0 auto 300px);
-           }
-         */
-        @mixin rem($property, $value, $include-fallback: true){
-            @if $include-fallback == true{
-                #{$property}: $value;
-            }
-            @if type-of($value) == list{
-                $all: ();
-                @for $i from 1 through length($value){
-                    @if type-of(nth($value, $i)) == string{
-                        $all: append($all, nth($value, $i));
-                    }@else if unitless(nth($value, $i)) == true{
-                        $all: append($all, nth($value, $i));
-                    }@else{
-                        $all: append($all, nth($value, $i)/$base-font-size*1rem);
-                    }
-                }
-                #{$property}: $all;
-            }
-            @else{
-                #{$property}: $value/$base-font-size*1rem;
-            }
-        }
-
-
-        /**
-         * Keyframes mixin
-         */
-        @mixin keyframes($name){
-            @-webkit-keyframes #{$name} {
-                @content;
-            }
-            @-moz-keyframes #{$name} {
-                @content;
-            }
-            @-ms-keyframes #{$name} {
-                @content;
-            }
-            @keyframes #{$name} {
-                @content;
-            }
-        }
-
-
-        /**
-         * Animations
-         * Each of these mixins support comma separated lists of values,
-         * which allows different transitions for individual properties to be
-         * described in a single style rule. Each value in the list corresponds
-         * to the value at that same position in the other properties.
-         */
-
-        /**
-         * Official animation shorthand property.
-         * e.g.: @include animation(name duration timing-function delay iteration-count direction);
-         */
-        @mixin animation ($animations...) {
-            @include prefixer(animation, $animations, webkit moz spec);
-        }
-
-        /**
-         * Individual Animation Properties
-         */
-        @mixin animation-name ($names...) {
-            @include prefixer(animation-name, $names, webkit moz spec);
-        }
-
-        @mixin animation-duration ($times...) {
-            @include prefixer(animation-duration, $times, webkit moz spec);
-        }
-
-        @mixin animation-timing-function ($motions...) {
-            /* ease | linear | ease-in | ease-out | ease-in-out */
-            @include prefixer(animation-timing-function, $motions, webkit moz spec);
-        }
-
-        @mixin animation-iteration-count ($values...) {
-            /* infinite | <number> */
-            @include prefixer(animation-iteration-count, $values, webkit moz spec);
-        }
-
-        @mixin animation-direction ($directions...) {
-            /* normal | alternate */
-            @include prefixer(animation-direction, $directions, webkit moz spec);
-        }
-
-        @mixin animation-play-state ($states...) {
-            /* running | paused */
-            @include prefixer(animation-play-state, $states, webkit moz spec);
-        }
-
-        @mixin animation-delay ($times...) {
-            @include prefixer(animation-delay, $times, webkit moz spec);
-        }
-
-        @mixin animation-fill-mode ($modes...) {
-            /* none | forwards | backwards | both */
-            @include prefixer(animation-fill-mode, $modes, webkit moz spec);
         }
 
 
@@ -406,23 +230,23 @@
         /**
          * Enclose a block of code with a media query as named in `$breakpoints`.
          */
-        @mixin media-query($media-query){
+        @mixin media-query($media-query) {
             $breakpoint-found: false;
 
-            @each $breakpoint in $breakpoints{
+            @each $breakpoint in $breakpoints {
                 $name: nth($breakpoint, 1);
                 $declaration: nth($breakpoint, 2);
 
-                @if $media-query == $name and $declaration{
+                @if $media-query == $name and $declaration {
                     $breakpoint-found: true;
 
-                    @media only screen and #{$declaration}{
+                    @media only screen and #{$declaration} {
                         @content;
                     }
                 }
             }
 
-            @if $breakpoint-found == false{
+            @if $breakpoint-found == false {
                 @warn "Breakpoint ‘#{$media-query}’ does not exist"
             }
         }

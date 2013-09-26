@@ -24,14 +24,14 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    .greybox{
+    .greybox {
         @include font-size(12px);
         font-family: sans-serif;
         text-align: center;
         background-color: rgba(0,0,0,0.2);
         color: #fff;
     }
-        .greybox a{
+        .greybox a {
             color: #fff;
             text-decoration: underline;
         }
@@ -40,19 +40,19 @@
      * All greyboxes will occupy 100% of their parent’s width, but
      * to alter their heights we apply incrementally larger line-heights:
      */
-    .greybox--small{
+    .greybox--small {
         line-height: 2 * $base-line-height;
     }
-    .greybox--medium{
+    .greybox--medium {
         line-height: 4 * $base-line-height;
     }
-    .greybox--large{
+    .greybox--large {
         line-height: 8 * $base-line-height;
     }
-    .greybox--huge{
+    .greybox--huge {
         line-height: 16 * $base-line-height;
     }
-    .greybox--gigantic{
+    .greybox--gigantic {
         line-height: 32 * $base-line-height;
     }
 

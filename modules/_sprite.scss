@@ -22,22 +22,98 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /* add background-image in theme to apply sprite */
-    .sprite{
-        position: relative;
+    /**
+     * Giving an element a class of `.sprite` will throw it into ‘sprite’ mode
+     * and apply a background image e.g.:
+       <a class="sprite  sprite--question-mark">More info&hellip;</a>
+     *
+     * or:
+       <a href="#""><i class="sprite  sprite--question-mark"></i> Help and FAQ</a>
+     *
+     * Giving an element a class of `.icon` will throw it into ‘icon’ mode and
+     * will not add a background, but should be used for icon fonts and is
+     * populated through a `data-icon` attribute and the `:after` pseudo-element
+     * Sample:
+       <a href="#""><i class="icon" data-icon="&#xF000;"></i> View your favourites</a>
+     *
+     * Where ‘&#xF000;’ might map to a star in your particular icon font.
+     *
+     * These all require extension in your theme stylesheet,
+     * e.g. in your own CSS:
+       .sprite {
+           background-image:url(path/to/your/sprite.png);
+       }
+       .sprite--link {
+           background-position: 0 0;
+       }
+       .sprite--star {
+           background-position: 0 -16px;
+       }
+     *
+     * 1. So using `.icon` on certain elements doesn’t make a visual difference.
+     * 2. So icons added using `.icon` sit in the centre of the element.
+     */
+    .sprite,
+    .icon {
         display: inline-block;
-        overflow: hidden;
-        /* The typical size of most icons. Override in your theme stylesheet */
-        width: 16px;
-        height: 16px;
-        zoom: 1;
-        font-style: normal;
-        text-align: center;
+        line-height: 1;
+        position: relative;
         vertical-align: middle;
+        zoom: 1;
+        font-style: normal; /* 1 */
+        font-weight: normal; /* 1 */
+        text-align: center; /* 2 */
+    }
+
+
+    /**
+     * 1. The typical size of most icons. Override in your theme stylesheet.
+     * 2. H5BP method image replacement:
+     *    github.com/h5bp/html5-boilerplate/commit/adecc5da035d6d76b77e3fa95c6abde841073da2
+     */
+    .sprite {
+        width: 16px; /* 1 */
+        height: 16px; /* 1 */
         top: -1px;
-        /* Image replacement, hides text out of element */
-        text-indent: 100%;
-        white-space: nowrap;
+        overflow: hidden; /* 2 */
+        *text-indent: -9999px; /* 2 */
+
+        &:before {
+            content: " ";
+            display: block;
+            width: 0;
+            height: 100%;
+        }
+    }
+
+
+    /**
+     * Set up icon font
+     *
+     * 1. Place the icon in a box the exact same dimensions as the icon itself.
+     */
+    .icon {
+        @include font-size(16px, false);
+        width: 1em; /* 1 */
+        height: 1em; /* 1 */
+
+        &:before {
+            content: attr(data-icon);
+        }
+    }
+
+
+    /**
+     * Icon size modifiers.
+     */
+    .icon--large {
+        @include font-size(32px, false);
+    }
+    .icon--huge {
+        @include font-size(64px, false);
+    }
+    .icon--natural {
+        font-size: inherit;
     }
 
 

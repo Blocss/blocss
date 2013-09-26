@@ -27,54 +27,55 @@
     \*-------------------------------------------------------------------------*/
 
         h1,
-        .alpha{
+        .alpha {
             @include font-size($h1-size);
         }
 
         h2,
-        .beta{
+        .beta {
             @include font-size($h2-size);
         }
 
         h3,
-        .gamma{
+        .gamma {
             @include font-size($h3-size);
         }
 
         h4,
-        .delta{
+        .delta {
             @include font-size($h4-size);
         }
 
         h5,
-        .epsilon{
+        .epsilon {
             @include font-size($h5-size);
         }
 
         h6,
-        .zeta{
+        .zeta {
             @include font-size($h6-size);
         }
 
 
         /**
-          * Normal font size
-          */
-        .normalis{
+         * Normal font-size
+         */
+        .normalis {
             @include font-size($base-font-size);
         }
 
 
-        /* Heading groups and generic any-heading class.
-            To target any heading of any level simply apply a class of `.hN`
-            Sample markup
-            <hgroup>
-                <h1 class="hN"></h1>
-                <h2 class="hN"></h2>
-            </hgroup>
-        */
-        .hN{}
-        hgroup .hN{
+        /**
+         * Heading groups and generic any-heading class.
+         * To target any heading of any level simply apply a class of `.hN`
+         * Sample markup:
+           <div class="hgroup">
+               <h1 class="hN"></h1>
+               <h2 class="hN"></h2>
+           </hgroup>
+         */
+        .hN {}
+        .hgroup .hN {
             margin-bottom: 0;
         }
 
@@ -84,15 +85,15 @@
         Classes for larger text than headings
     \*-------------------------------------------------------------------------*/
 
-        .giga{
+        .giga {
             @include font-size($giga-size);
         }
 
-        .mega{
+        .mega {
             @include font-size($mega-size);
         }
 
-        .kilo{
+        .kilo {
             @include font-size($kilo-size);
         }
 
