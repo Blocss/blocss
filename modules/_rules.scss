@@ -1,4 +1,4 @@
-@if $use-modules-rules{
+@if $use-modules-rules {
 /*----------------------------------------------------------------------------*\
     $RULES
 \*----------------------------------------------------------------------------*/
@@ -22,44 +22,59 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /* Horizontal rules, extend `hr`. */
-    .rule{
-        color: #ccc; /* Sets border color, extend in your theme stylesheet. */
+    /**
+     * Horizontal rule component
+     *
+     * 1. Sets border color, extend in your theme stylesheet.
+     */
+    .rule {
+        @include rem(margin-bottom, $space - 1);
         border: none;
         border-bottom-width: 1px;
         border-bottom-style: solid;
-        @include rem(margin-bottom, $space - 1);
+        color: #ccc; /* 1 */
     }
 
-    /* Dotted rules */
-    .rule--dotted{
+
+    /**
+     * Modifyer: Dotted rule
+     */
+    .rule--dotted {
         border-bottom-style: dotted;
     }
 
-    /* Dashed rules */
-    .rule--dashed{
+
+    /**
+     * Modifyer: Dashed rule
+     */
+    .rule--dashed {
         border-bottom-style: dashed;
     }
 
-    /* Ornamental rules. Places a § over the rule. */
-    .rule--ornament{
+
+    /**
+     * Modifyer: Ornamental rule
+     * Places a § over the rule.
+     */
+    .rule--ornament {
         position: relative;
 
-        &:after{
-            content: "§";
+        &:after {
             position: absolute;
             top:     0;
             right: 0;
             left:    0;
+            content: "§";
             line-height: 0;
             text-align: center;
         }
+
 
         /**
          * Pass in an arbitrary ornament though a data attribute, e.g.:
          * <hr class="rule rule-ornament" data-ornament="!">
          */
-        &[data-ornament]:after{
+        &[data-ornament]:after {
             content: attr(data-ornament);
         }
     }

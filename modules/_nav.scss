@@ -22,55 +22,59 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /*  When used on an `ol` or `ul`, this class throws the list
-        into horizontal mode eg.:
-        <ul class="nav">
-            <li><a>Home</a></li>
-        </ul>
-    */
+    /**
+     * When used on an `ol` or `ul`, this class throws the list
+     * into horizontal mode
+     * Sample markup:
+       <ul class="nav">
+           <li><a>Home</a></li>
+       </ul>
+     */
     .nav,
-    .navigation{
+    .navigation {
+        @extend .cf;
         padding: 0;
         margin: 0;
         list-style: none;
-        @extend .cf;
 
-        > li{
+        > li {
 
             &,
-            > a{
+            > a {
                 display:inline-block;
-               *display:inline;
-                zoom:1;
             }
         }
     }
 
 
-    /*  Stacked nav
-        `.nav--stacked` extends `.nav` and renders the list into vertical mode eg.:
-        <ul class="nav nav--stacked">
-            <li><a>Home</a></li>
-        </ul>
-    */
-    .nav--stacked{
-        > li{
+    /**
+     * Modifyer: Stacked nav
+     * `.nav--stacked` extends `.nav` and renders the list into vertical mode
+     * Sample markup:
+       <ul class="nav  nav--stacked">
+           <li><a>Home</a></li>
+       </ul>
+     */
+    .nav--stacked {
+        > li {
             display: list-item;
 
-            > a{
+            > a {
                 display: block;
             }
         }
     }
 
 
-    /* Banner nav
-        `.nav--banner` extends `.nav` and centers the list eg.:
-        <ul class="nav nav--banner">
-            <li><a>Home</a></li>
-        </ul>
-    */
-    .nav--banner{
+    /**
+     * Modifyer: Banner nav
+     * `.nav--banner` extends `.nav` and centers the list
+     * Sample markup:
+       <ul class="nav  nav--banner">
+           <li><a>Home</a></li>
+       </ul>
+     */
+    .nav--banner {
         text-align: center;
     }
 

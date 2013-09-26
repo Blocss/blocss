@@ -1,4 +1,3 @@
-@if $use-modules-arrange == true{
 /*----------------------------------------------------------------------------*\
     ARRANGE
     Arrange cells
@@ -10,6 +9,7 @@
 
     /*
     CONTENTS................You're reading it, LOL
+    MIXINS..................Module specific mixins
     MODULE..................Includes base module & submodules
     STATE...................States the module can be in
     THEME...................Theming of the module
@@ -19,6 +19,39 @@
 
 
 
+/*----------------------------------------------------------------------------*\
+    $MIXINS
+\*----------------------------------------------------------------------------*/
+
+    /**
+     * Mixin: Reset arranged modules
+     *
+     * 1. Reset display property
+     * 2. 100% width
+     * 3. Reset padding in case of `.arrange--gutter`
+     * 4. Re-initiate fluid images
+     */
+    @mixin arrange-collapse () {
+        display: block; /* 1 */
+
+        > .arrange__size-fill,
+        > .arrange__size-fit {
+            display: block; /* 1 */
+            width: 100%; /* 2 */
+            padding-left: 0; /* 3 */
+
+            img {
+                max-width: 100%; /* 4 */
+                height: auto; /* 4 */
+            }
+        }
+    }
+
+
+
+
+
+@if $use-modules-arrange == true{
 /*----------------------------------------------------------------------------*\
     $MODULE
 \*----------------------------------------------------------------------------*/
@@ -58,9 +91,7 @@
      * 3. Reset the table-layout algorithm in case a component is nested.
      * 4. Make sure the component fills the full width of its parent.
      */
-    .arrange,
-    // Deprecated `.flex` class, will be removed in v4.0.0
-    .flex{
+    .arrange {
         display: table; /* 1 */
         margin: 0; /* 2 */
         padding: 0; /* 2 */
@@ -69,62 +100,66 @@
     }
 
 
-    /**
-     * There are two possible types of child.
-     * `size-fill` will expand to fill all of the remaining space not filled by
-     * `size-fit` elements.
-     *
-     * 1. Zero out any default spacing that might be on an element (e.g., `li`);
-     *    Margin has no effect when coupled with `display: table-cell`.
-     * 2. All cells are top-aligned by default
-     */
-    .arrange__size-fill,
-    .arrange__size-fit,
-    // Deprecated `.flex__item` class, will be removed in v4.0.0
-    .flex__item{
-        display: table-cell;
-        padding: 0; /* 1 */
-        vertical-align: top; /* 2 */
-    }
+        /**
+         * There are two possible types of child.
+         * `size-fill` will expand to fill all of the remaining space not filled by
+         * `size-fit` elements.
+         *
+         * 1. Zero out any default spacing that might be on an element (e.g., `li`);
+         *    Margin has no effect when coupled with `display: table-cell`.
+         * 2. All cells are top-aligned by default
+         */
+        .arrange__size-fill,
+        .arrange__size-fit {
+            display: table-cell;
+            padding: 0; /* 1 */
+            vertical-align: top; /* 2 */
+        }
 
 
-    /**
-     * Make sure the main content block expands to fill the remaining space.
-     */
-    .arrange__size-fill{
-        width: 100%;
-    }
+        /**
+         * Make sure the main content block expands to fill the remaining space.
+         */
+        .arrange__size-fill {
+            width: 100%;
+        }
 
 
-    /**
-     * Defend against a side-effect of this layout pattern: images in
-     * 'arrange__size-fit' cannot be fluid, otherwise they lose their ability to
-     * provide size to a cell.
-     */
-    .arrange__size-fit img,
-    // Deprecated `.flex__item` class, will be removed in v4.0.0
-    .flex__item img{
-        max-width: none !important;
-        width: auto !important;
-    }
+            /**
+             * Defend against a side-effect of this layout pattern: images in
+             * 'arrange__size-fit' cannot be fluid, otherwise they lose their ability to
+             * provide size to a cell.
+             */
+            .arrange__size-fit img {
+                max-width: none;
+                width: auto;
+            }
 
 
 
     /* Vertical alignment modifiers
     \*------------------------------------------------------------------------*/
 
-        .arrange--middle{
+        .arrange--top {
 
-            .arrange__size-fill,
-            .arrange__size-fit{
+            > .arrange__size-fill,
+            > .arrange__size-fit {
+                vertical-align: top;
+            }
+        }
+
+        .arrange--middle {
+
+            > .arrange__size-fill,
+            > .arrange__size-fit {
                 vertical-align: middle;
             }
         }
 
-        .arrange--bottom{
+        .arrange--bottom {
 
-            .arrange__size-fill,
-            .arrange__size-fit{
+            > .arrange__size-fill,
+            > .arrange__size-fit {
                 vertical-align: bottom;
             }
         }
@@ -138,7 +173,7 @@
          * This layout algorithm will create equal-width table cells, irrespective of
          * the width of their content.
          */
-        .arrange--equal{
+        .arrange--equal {
             table-layout: fixed;
 
             /**
@@ -147,7 +182,7 @@
              * Their inner images will automatically be responsive.
              */
             > .arrange__size-fill,
-            > .arrange__size-fit{
+            > .arrange__size-fit {
                 width: auto;
             }
         }
@@ -157,16 +192,25 @@
     /* Gutter-separating modifier
     \*------------------------------------------------------------------------*/
 
-        .arrange--gutter{
+        .arrange--gutter {
 
             > .arrange__size-fill,
-            > .arrange__size-fit{
+            > .arrange__size-fit {
                 @include rem(padding-left, $space);
 
-                &:first-child{
+                &:first-child {
                     padding-left: 0;
                 }
             }
+        }
+
+
+
+    /* Arrange collapse
+    \*------------------------------------------------------------------------*/
+
+        .arrange--collapse {
+            @include arrange-collapse;
         }
 
 
@@ -176,6 +220,19 @@
 /*----------------------------------------------------------------------------*\
     $STATE
 \*----------------------------------------------------------------------------*/
+
+    @if $responsive == true {
+        /* Collapsed arrange based on breakpoint */
+        @each $state in $breakpoint-has-collapsed-arrange {
+            @include media-query(#{$state}) {
+                .arrange--collapse--#{$state} {
+                    @include arrange-collapse;
+                }
+            }
+        }
+    }
+
+
 
 
 

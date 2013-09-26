@@ -21,11 +21,11 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    .milli{
+    .milli {
         @include font-size($milli-size);
     }
 
-    .micro{
+    .micro {
         @include font-size($micro-size);
     }
 

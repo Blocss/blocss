@@ -23,15 +23,15 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    .cf{
+    .cf {
         zoom: 1;
 
         &:before,
-        &:after{
-            content: " ";
+        &:after {
             display: table;
+            content: " ";
         }
-        &:after{
+        &:after {
             clear: both;
         }
     }

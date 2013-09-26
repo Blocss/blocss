@@ -24,9 +24,9 @@
     /**
      * undo margin bottom on nested lists
      */
-    li{
+    li {
         > ul,
-        > ol{
+        > ol {
             margin-bottom:0;
         }
     }
@@ -35,18 +35,18 @@
     /**
      * Just a blocky-list
      */
-    /* ul,ol */.list--clean{
-        list-style: none;
-        list-style-image: none;
+    /* ul,ol */.list--clean {
         margin-left: 0;
         padding: 0;
+        list-style: none;
+        list-style-image: none;
     }
 
 
     /**
      * Have a numbered 'ul' without the semantics implied by using an 'ol'.
      */
-    /* ul,ol */.list--numbered{
+    /* ul,ol */.list--numbered {
         list-style-type: decimal;
     }
 

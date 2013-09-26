@@ -1,5 +1,5 @@
 @if $use-modules-nav == true {
-@if $use-modules-breadcrumb == true{
+@if $use-modules-breadcrumb == true {
 /*----------------------------------------------------------------------------*\
     $BREADCRUMB
     Breadcrumb styling applied to (ordered) lists, extends `.nav`
@@ -29,12 +29,12 @@
             <li><a href="#">Home</a></li>
         </ol>
      */
-    .nav--breadcrumb > li + li:before{
+    .nav--breadcrumb > li + li:before {
         content: "» ";
     }
 
     /* breadcrumb path */
-    .nav--breadcrumb--path > li + li:before{
+    .nav--breadcrumb--path > li + li:before {
         content: "/ ";
     }
 
@@ -44,7 +44,7 @@
             <li data-breadcrumb="|"><a href="#">About</a></li>
         </ol>
      */
-    .nav--breadcrumb > li + li[data-breadcrumb]:before{
+    .nav--breadcrumb > li + li[data-breadcrumb]:before {
         content: attr(data-breadcrumb)" ";
     }
 

@@ -25,179 +25,197 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /**
-     * Add/remove floats
-     */
-    .float--right{
-        float: right !important;
-    }
-    .float--left{
-        float: left !important;
-    }
-    .float--none{
-        float: none !important;
-    }
+    /* Structural
+    \*------------------------------------------------------------------------*/
 
-
-    /**
-     * Text alignment
-     */
-    .text--left{
-        text-align: left !important;
-    }
-    .text--center{
-        text-align: center !important;
-    }
-    .text--right{
-        text-align: right !important;
-    }
-
-
-    /**
-     * Font weight
-     */
-    .weight--light{
-        font-weight: 300 !important;
-    }
-    .weight--normal{
-        font-weight: 400 !important;
-    }
-    .weight--semibold{
-        font-weight: 600 !important;
-    }
-
-
-    /**
-     * Capitals/lowercase
-     */
-    .caps{
-        text-transform: uppercase !important;
-    }
-    .lowercase{
-        text-transform: lowercase !important;
-    }
-    .firstcap{
-        text-transform: capitalize !important;
-    }
-
-
-    /**
-     * Add a help cursor to any element that gives the user extra information on
-     * `:hover`.
-     */
-    .informative{
-        cursor: help !important;
-    }
-
-
-    /**
-     * Align items to the right where they imply progression/movement forward.
-     */
-    .proceed{
-        text-align:right!important;
-    }
-
-
-    /**
-     * Add a right-angled quote to links that imply movement, e.g.:
-     */
-    .go:after{
-        content:"\00A0»"!important;
-    }
-
-
-
-    /**
-     * Full bleed
-     */
-    .full-bleed{
-        @include rem(margin-left, -$space);
-        @include rem(margin-right, -$space);
-
-        .islet &{
-            @include rem(margin-left, -$space-half);
-            @include rem(margin-right, -$space-half);
+        /**
+         * Add/remove floats
+         */
+        .float--right {
+            float: right !important;
+        }
+        .float--left {
+            float: left !important;
+        }
+        .float--none {
+            float: none !important;
         }
 
-        .continent &{
-            @include rem(margin-left, -$space*2);
-            @include rem(margin-right, -$space*2);
-        }
-    }
 
+        /**
+         * Full bleed
+         */
+        .full-bleed {
+            @include rem(margin-left, -$space);
+            @include rem(margin-right, -$space);
 
-    /**
-     * Remove margin bottom
-     */
-    .flatten{
-        margin-bottom: 0 !important;
-    }
+            .islet & {
+                @include rem(margin-left, -$space-half);
+                @include rem(margin-right, -$space-half);
+            }
 
-
-    /**
-     * Image replacement
-     */
-    .ir{
-        display: block;
-        border: 0;
-        text-indent: -999em;
-        overflow: hidden;
-        background-color: transparent;
-        background-repeat: no-repeat;
-        text-align: left;
-        direction: ltr;
-        *line-height: 0;
-
-        br{
-            display: none;
-        }
-    }
-
-
-    /**
-     * Hide from screanreaders & browsers
-     */
-    .hidden{
-        display: none !important;
-        visibility: hidden;
-    }
-
-
-    /**
-     * Hide only visually, but have it available for screenreaders
-     * as per: h5bp.com/v
-     */
-    @mixin visuallyhidden{
-        border: 0;
-        clip: rect(0 0 0 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-    }
-
-    .visuallyhidden{
-        @include visuallyhidden;
-    }
-
-    /* Visuallyhidden based on breakpoint */
-    @each $state in $breakpoint-has-visuallyhidden{
-        @include media-query(#{$state}){
-            .visuallyhidden--#{$state}{
-                @include visuallyhidden;
+            .continent & {
+                @include rem(margin-left, -$space*2);
+                @include rem(margin-right, -$space*2);
             }
         }
-    }
 
 
-    /**
-     * Hide visually and from screenreaders, but maintain layout
-     */
-    .invisible{
-        visibility: hidden;
-    }
+        /**
+         * Remove margin bottom
+         */
+        .flatten {
+            margin-bottom: 0 !important;
+        }
+
+
+
+    /* Textual
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Text alignment
+         */
+        .text--left {
+            text-align: left !important;
+        }
+        .text--center {
+            text-align: center !important;
+        }
+        .text--right {
+            text-align: right !important;
+        }
+
+
+        /**
+         * Font weight
+         */
+        .weight--light {
+            font-weight: 300 !important;
+        }
+        .weight--normal {
+            font-weight: 400 !important;
+        }
+        .weight--semibold {
+            font-weight: 600 !important;
+        }
+
+
+        /**
+         * Capitals/lowercase
+         */
+        .caps {
+            text-transform: uppercase !important;
+        }
+        .lowercase {
+            text-transform: lowercase !important;
+        }
+        .firstcap {
+            text-transform: capitalize !important;
+        }
+
+
+        /**
+         * Line height helpers
+         */
+        .line--flat {
+            line-height: 1;
+        }
+        .line--small {
+            line-height: $line-height-ratio/1.2;
+        }
+        .line--normalis {
+            line-height: $line-height-ratio;
+        }
+        .line--large {
+            line-height: $line-height-ratio*1.16666667;
+        }
+
+
+
+    /* Misc
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Add a help cursor to any element that gives the user extra information on
+         * `:hover`.
+         */
+        .informative {
+            cursor: help !important;
+        }
+
+
+        /**
+         * Align items to the right where they imply progression/movement forward.
+         */
+        .proceed {
+            text-align:right!important;
+        }
+
+
+        /**
+         * Add a right-angled quote to links that imply movement, e.g.:
+         */
+        .go:after {
+            content:"\00A0»"!important;
+        }
+
+
+        /**
+         * Image replacement
+         */
+        .ir {
+            display: block;
+            border: 0;
+            text-indent: -999em;
+            overflow: hidden;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            text-align: left;
+            direction: ltr;
+            *line-height: 0;
+
+            br {
+                display: none;
+            }
+        }
+
+
+        /**
+         * Hide from screanreaders & browsers
+         */
+        .hidden {
+            display: none !important;
+            visibility: hidden;
+        }
+
+
+        /**
+         * Hide visually and from screenreaders, but maintain layout
+         */
+        .invisible {
+            visibility: hidden;
+        }
+
+
+        /**
+         * Hide only visually, but have it available for screenreaders
+         * as per: h5bp.com/v
+         */
+        @mixin visuallyhidden {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+
+        .visuallyhidden {
+            @include visuallyhidden;
+        }
 
 
 
@@ -206,6 +224,37 @@
 /*----------------------------------------------------------------------------*\
     $STATE
 \*----------------------------------------------------------------------------*/
+
+    @if $responsive == true {
+        /**
+         * Visuallyhidden based on breakpoint
+         */
+        @each $state in $breakpoint-has-visuallyhidden {
+            @include media-query(#{$state}) {
+                .visuallyhidden--#{$state} {
+                    @include visuallyhidden;
+                }
+            }
+        }
+
+
+        /**
+         * Text modifyers based on breakpoint
+         */
+        @each $state in $breakpoint-has-text-mods {
+            @include media-query(#{$state}) {
+                .text--left--#{$state} {
+                    text-align: left !important;
+                }
+                .text--center--#{$state} {
+                    text-align: center !important;
+                }
+                .text--right--#{$state} {
+                    text-align: right !important;
+                }
+            }
+        }
+    }
 
 
 
