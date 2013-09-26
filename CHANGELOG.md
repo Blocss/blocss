@@ -1,5 +1,23 @@
 == HEAD
 
+== 4.0.0 (Sep 26, 2013)
+
+* Add core stylesheet
+* Comply with formatting guideline
+* Border-box is standard
+* Added module spacing classes
+* Added line height helpers
+* Fixed some problems with the arrange module
+* Modified margin bottom classes
+* Removed deprecated classnames
+* Removed link complex & split module
+* Removed position mixin in favor of multi-rem mixin
+* Removed m-height & m-margin-bottom mixin
+* Modified rem mixin & added multi-rem mixin
+* Added legacy ie8 variable
+* Removed obsolete inline-block mixin
+* Removed Animation & Timing functions
+
 == 3.3.0 (Jun 12, 2013)
 
 * Fixed inline-block grid
