@@ -1,5 +1,9 @@
 == HEAD
 
+== 4.0.1 (Sep 26, 2013)
+
+* Quick fix for the grid system in safari7
+
 == 4.0.0 (Sep 26, 2013)
 
 * Add core stylesheet
