@@ -69,7 +69,7 @@
         text-align: $grid-direction; /* 2 */
         @if $use-markup-fix == false {
             font-family: sans-serif;
-            letter-spacing: -0.31em; /* 3 */
+            letter-spacing: -0.312em; /* 3 */
         }
         text-rendering: optimizespeed; /* 4 */
     }
