@@ -1,5 +1,9 @@
 == HEAD
 
+== 4.0.3 (Sep 26, 2013)
+
+* Definitive cross browser grid fix
+
 == 4.0.2 (Sep 26, 2013)
 
 * Quick fix for the grid system in safari7
