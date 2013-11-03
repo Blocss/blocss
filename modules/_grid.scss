@@ -44,34 +44,43 @@
      * Grid container
      * Must only contain `.grid` or `.grid__cell` components as children.
      *
-     * 1. Adjustment for child element margins.
-     * 2. Ensure consistent default alignment/
-     * 3. Remove inter-unit whitespace that appears between `inline-block` child
-     *    elements. Work for all non-monospace font-families.  If you're using a
-     *    monospace base font, you will need to set the `grid` font-family to
-     *   `sans-serif` and then redeclare the monospace font on the `grid__cell`
-     *    objects.
-     * 4. Protect against WebKit bug with optimizelegibility.
+     * 1. Remove inter-unit whitespace that appears between `inline-block` child
+     *    elements.
+     * 2. Sets the font stack to fonts known to work properly with the above
+     *    letter and word spacings.
+     * 3. Use flexbox when possible to avoid `letter-spacing` side-effects.
+     *    NOTE: Firefox (as of 25) does not currently support flex-wrap, so the
+     *    `-moz-` prefix version is omitted.
+     * 4. Adjustment for child element margins.
      * 5. Use lists as grid
-     * 6. Clearfix if u use floating grids
+     * 6. Ensure consistent default alignment/
+     * 7. Clearfix if u use floating grids
      */
     $gutter: ($space*$grid-gutter-multiplier);
 
     .grid {
-        @if $grid-style-floating == true {
-            @extend .cf; /* 6 */
+        @if $use-markup-fix == false {
+            letter-spacing: -0.31em; /* 1 */
+            *letter-spacing: normal; /* 1 */
+            *word-spacing: -0.43em; /* 1 */
+            text-rendering: optimizespeed; /* 1 */
+            font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
         }
-        @include rem(margin-left, -.5 * $gutter); /* 1 */
-        @include rem(margin-right, -.5 * $gutter); /* 1 */
-        display: block;
+
+        @if $grid-style-floating == true {
+            @extend .cf; /* 7 */
+        } @else {
+                      display: block; // Fallback
+                      display: -webkit-flex; /* 3 */
+            -webkit-flex-flow: row wrap; /* 3 */
+                      display: -ms-flexbox; /* 3 */
+                -ms-flex-flow: row wrap; /* 3 */
+        }
+
+        @include rem(margin-left, -($gutter)); /* 4 */
         padding: 0;
         list-style: none; /* 5 */
-        text-align: $grid-direction; /* 2 */
-        @if $use-markup-fix == false {
-            font-family: sans-serif;
-            letter-spacing: -0.312em; /* 3 */
-        }
-        text-rendering: optimizespeed; /* 4 */
+        text-align: $grid-direction; /* 6 */
     }
 
     @if $use-markup-fix == false {
@@ -108,8 +117,7 @@
          * 6. Float left if you choose for floating-grids
          */
         .grid__cell {
-            @include rem(padding-left, .5 * $gutter);
-            @include rem(padding-right, .5 * $gutter);
+            @include rem(padding-left, $gutter);
             display: inline-block; /* 1 */
             width: 100%;
             @if $grid-style-floating == true {
@@ -195,12 +203,10 @@
      * Create grids with narrower gutters. Extends `.grid`.
      */
     .grid--narrow {
-        @include rem(margin-left, -.5 * ($gutter / 2));
-        @include rem(margin-right, -.5 * ($gutter / 2));
+        @include rem(margin-left, -($gutter / 2));
 
         > .grid__cell {
-            @include rem(padding-left, .5 * ($gutter / 2));
-            @include rem(padding-right, .5 * ($gutter / 2));
+            @include rem(padding-left, ($gutter / 2));
         }
     }
 
@@ -209,12 +215,10 @@
      * Create grids with wider gutters. Extends `.grid`.
      */
     .grid--wide {
-        @include rem(margin-left, -.5 * ($gutter * 2));
-        @include rem(margin-right, -.5 * ($gutter * 2));
+        @include rem(margin-left, -($gutter * 2));
 
         > .grid__cell {
-            @include rem(padding-left, .5 * ($gutter * 2));
-            @include rem(padding-right, .5 * ($gutter * 2));
+            @include rem(padding-left, ($gutter * 2));
         }
     }
 
