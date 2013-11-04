@@ -1,10 +1,14 @@
 == HEAD
 
-== 4.0.3 (Sep 26, 2013)
+== 4.0.4 (Nov 04, 2013)
+
+* Added subselector to flexembed
+
+== 4.0.3 (Nov 03, 2013)
 
 * Definitive cross browser grid fix
 
-== 4.0.2 (Sep 26, 2013)
+== 4.0.2 (Okt 30, 2013)
 
 * Quick fix for the grid system in safari7
 
