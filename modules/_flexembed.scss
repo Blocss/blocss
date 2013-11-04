@@ -31,6 +31,9 @@
            <div class="flexembed flexembed--16by9">
                [iframe|object|embed]
            </div>
+           <div class="flexembed flexembed--16by9">
+               <img src="" class="flexembed__item" />
+           </div>
        </div>
      *
      */
@@ -42,6 +45,7 @@
         padding: 0;
     }
 
+    .flexembed__item,
     .flexembed iframe,
     .flexembed embed,
     .flexembed object {
