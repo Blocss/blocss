@@ -1,4 +1,4 @@
-# Blocss – v4.0.3
+# Blocss – v4.0.4
 
 Blocss is a small but powerfull css framework designed specially for _serious_ developers.
 

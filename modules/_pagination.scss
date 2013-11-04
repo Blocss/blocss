@@ -28,12 +28,13 @@
      * Modifyer: Stacked nav
      * `.nav--pagination` extends `.nav`
      * Sample markup:
-       <ol class="nav nav--pagination">
-           <li class="nav--pagination_first">First</li>
+     *
+       <ol class="nav  nav--pagination">
+           <li class="nav--pagination__first">First</li>
            <li><a href="">1</a></li>
            <li><a href="">2</a></li>
            <li class="active"><a href="">3</a></li>
-           <li class="nav--pagination_last"><a href="">Last</a></li>
+           <li class="nav--pagination__last"><a href="">Last</a></li>
        </ol>
      */
     .nav--pagination {

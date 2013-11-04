@@ -24,10 +24,12 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
-    /*  eg.:
-        <ol class="nav nav--breadcrumb">
-            <li><a href="#">Home</a></li>
-        </ol>
+    /**
+     * Example HTML:
+     *
+       <ol class="nav  nav--breadcrumb">
+           <li><a href="#">Home</a></li>
+       </ol>
      */
     .nav--breadcrumb > li + li:before {
         content: "» ";
@@ -38,11 +40,14 @@
         content: "/ ";
     }
 
-    /*  Assign a delimiter on the fly through a data attribute, e.g.:
-        <ol class="nav nav--breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li data-breadcrumb="|"><a href="#">About</a></li>
-        </ol>
+
+    /**
+     * Assign a delimiter on the fly through a data attribute, e.g.:
+     *
+       <ol class="nav  nav--breadcrumb">
+           <li><a href="#">Home</a></li>
+           <li data-breadcrumb="|"><a href="#">About</a></li>
+       </ol>
      */
     .nav--breadcrumb > li + li[data-breadcrumb]:before {
         content: attr(data-breadcrumb)" ";
