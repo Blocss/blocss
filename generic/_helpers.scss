@@ -29,6 +29,20 @@
     \*------------------------------------------------------------------------*/
 
         /**
+         * Display helpers
+         */
+        .display--block {
+            display: block !important;
+        }
+        .display--inline-block {
+            display: inline-block !important;
+        }
+        .display--inline {
+            display: inline !important;
+        }
+
+
+        /**
          * Add/remove floats
          */
         .float--right {
