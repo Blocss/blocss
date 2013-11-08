@@ -33,6 +33,7 @@
     fieldset,
     pre,
     hr,
+    .hgroup,
     .sign {
         @include rem(margin-bottom, $space);
     }
