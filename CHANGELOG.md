@@ -1,5 +1,14 @@
 == HEAD
 
+== 4.1.0 (Nov 08, 2013)
+
+* Simpler, more foolproof way of the grid system
+* Added `.img--full` for full width images
+* Added display property helper classes
+* Added `.hgroup` to vertical rhythm
+* Moved `.sign` classes to helpers
+* Added fieldset styling + `.is-valid` classes to form fields
+
 == 4.0.4 (Nov 04, 2013)
 
 * Added subselector to flexembed
