@@ -1,6 +1,6 @@
-# Blocss – v4.1.0
+# Blocss – v4.1.1
 
-Blocss is a small but powerfull css framework designed specially for _serious_ developers. [http://blocss.github.io/blocss][Blocss]
+Blocss is a small but powerfull css framework designed specially for _serious_ developers. [Blocss](http://blocss.github.io/blocss)
 
 Based on Sass it's very modular and designed by the OOCSS filosophy. Blocss provides little to no design wich means no undoing other peoples design decisions.
 
