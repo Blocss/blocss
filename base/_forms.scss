@@ -54,14 +54,24 @@
 
 
     /**
-     * Error states
+     * Error/valid states
      */
-    .text-input.is-error,
-    .textarea.is-error,
-    .text-input.is-error:focus,
-    .textarea.is-error:focus {
-        border: 1px solid #f00;
-        color: #f00;
+    .text-input,
+    .textarea {
+        &.is-valid {
+            &,
+            &:focus {
+                border: 1px solid #0f0;
+                color: #0f0;
+            }
+        }
+        &.is-error {
+            &,
+            &:focus {
+                border: 1px solid #f00;
+                color: #f00;
+            }
+        }
     }
 
 
@@ -71,6 +81,14 @@
     label,
     .label {
         display:block;
+    }
+
+
+    /**
+     * Fieldsets
+     */
+    fieldset {
+        @include rem(padding, $space);
     }
 
 

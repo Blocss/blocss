@@ -33,33 +33,9 @@
     fieldset,
     pre,
     hr,
-    .sign {
+    .hgroup {
         @include rem(margin-bottom, $space);
     }
-        /* half margin-bottom */
-        .sign--half {
-            @include rem(margin-bottom, $space*.5);
-        }
-        /* doubled up margin-bottom */
-        .sign--double {
-            @include rem(margin-bottom, $space*2);
-        }
-        /* tripled margin-bottom */
-        .sign--triple {
-            @include rem(margin-bottom, $space*3);
-        }
-        /* quadrupled margin-bottom */
-        .sign--quadruple {
-            @include rem(margin-bottom, $space*4);
-        }
-        /* quintupled margin-bottom */
-        .sign--quintuple {
-            @include rem(margin-bottom, $space*5);
-        }
-        /* sextupled margin-bottom */
-        .sign--sextuple {
-            @include rem(margin-bottom, $space*6);
-        }
 
 
     /**
