@@ -46,51 +46,23 @@
      *
      * 1. Remove inter-unit whitespace that appears between `inline-block` child
      *    elements.
-     * 2. Sets the font stack to fonts known to work properly with the above
-     *    letter and word spacings.
-     * 3. Use flexbox when possible to avoid `letter-spacing` side-effects.
-     *    NOTE: Firefox (as of 25) does not currently support flex-wrap, so the
-     *    `-moz-` prefix version is omitted.
-     * 4. Adjustment for child element margins.
-     * 5. Use lists as grid
-     * 6. Ensure consistent default alignment/
-     * 7. Clearfix if u use floating grids
+     * 2. Adjustment for child element margins.
+     * 3. Use lists as grid
+     * 4. Ensure consistent default alignment/
+     * 5. Clearfix if u use floating grids
      */
     $gutter: ($space*$grid-gutter-multiplier);
 
     .grid {
-        @if $use-markup-fix == false {
-            letter-spacing: -0.31em; /* 1 */
-            *letter-spacing: normal; /* 1 */
-            *word-spacing: -0.43em; /* 1 */
-            text-rendering: optimizespeed; /* 1 */
-            font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
-        }
-
+        text-rendering: optimizespeed; /* 1 */
+        font-size: 0; /* 1 */
         @if $grid-style-floating == true {
-            @extend .cf; /* 7 */
-        } @else {
-                      display: block; // Fallback
-                      display: -webkit-flex; /* 3 */
-            -webkit-flex-flow: row wrap; /* 3 */
-                      display: -ms-flexbox; /* 3 */
-                -ms-flex-flow: row wrap; /* 3 */
+            @extend .cf; /* 5 */
         }
-
-        @include rem(margin-left, -($gutter)); /* 4 */
+        @include rem(margin-left, -($gutter)); /* 2 */
         padding: 0;
-        list-style: none; /* 5 */
-        text-align: $grid-direction; /* 6 */
-    }
-
-    @if $use-markup-fix == false {
-        /**
-         * Opera hack
-         */
-        .opera:-o-prefocus,
-        .grid {
-            word-spacing: -0.43em;
-        }
+        list-style: none; /* 3 */
+        text-align: $grid-direction; /* 4 */
     }
 
 
@@ -126,12 +98,7 @@
             margin: 0;
             vertical-align: top; /* 3 */
             text-align: $grid-direction; /* 4 */
-            @if $use-markup-fix == false {
-                font-family: $base-font-family;
-                letter-spacing: normal; /* 5 */
-                word-spacing: normal; /* 5 */
-                text-rendering: auto; /* 5 */
-            }
+            @include font-size($base-font-size); /* 5 */
         }
 
 
