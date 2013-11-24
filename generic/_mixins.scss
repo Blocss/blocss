@@ -21,6 +21,26 @@
     $MODULE
 \*----------------------------------------------------------------------------*/
 
+    /* Functions
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Value to rem
+         */
+        @function valueToRem($value) {
+            @return ($value/$base-font-size*1rem);
+        }
+
+
+        /**
+         * Value to em
+         */
+        @function valueToEm($value) {
+            @return ($value/$base-font-size*1em);
+        }
+
+
+
     /* CSS3
     \*------------------------------------------------------------------------*/
 
@@ -70,7 +90,7 @@
                     @if type-of(nth($value, $i)) == string or unitless(nth($value, $i)) == true or unit(nth($value, $i)) == "em" or unit(nth($value, $i)) == "%" {
                         $all: append($all, nth($value, $i));
                     } @else {
-                        $all: append($all, nth($value, $i)/$base-font-size*1rem);
+                        $all: append($all, valueToRem(nth($value, $i)));
                     }
                 }
                 /* 3 */
@@ -82,9 +102,9 @@
             } @else {
                 /* 3 */
                 @if $prefixer {
-                    @include prefixer(#{$property}, $value/$base-font-size*1rem #{$append}, $prefixer);
+                    @include prefixer(#{$property}, valueToRem($value) #{$append}, $prefixer);
                 } @else {
-                    #{$property}: $value/$base-font-size*1rem #{$append};
+                    #{$property}: valueToRem($value) #{$append};
                 }
             }
         }
