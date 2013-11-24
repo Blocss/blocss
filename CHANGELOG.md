@@ -1,5 +1,11 @@
 == HEAD
 
+== 4.2.0 (Nov 24, 2013)
+
+* Added CSS module 3 columns
+* Added Rem & Em functions
+
+
 == 4.1.0 (Nov 08, 2013)
 
 * Simpler, more foolproof way of the grid system
