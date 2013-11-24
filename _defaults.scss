@@ -127,7 +127,7 @@
 
 
     /**
-     * Define your breakpoints. The first value is the prefix that shall be used
+     * Define your breakpoints. The first value is the appendix that shall be used
      * for your classes (e.g. `.unit-6-12--palm`), the second value is the media
      * query that the breakpoint fires at.
      */
@@ -150,8 +150,9 @@
      */
     $breakpoint-has-widths:             ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
     $breakpoint-has-push:               ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
-    $breakpoint-has-visuallyhidden:     ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
     $breakpoint-has-collapsed-arrange:  ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-columns:            ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-visuallyhidden:     ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
     $breakpoint-has-collapsed-media:    ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
     $breakpoint-has-text-mods:          ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
 
@@ -226,6 +227,7 @@
      */
     $use-modules-grid:                 true!default;
     $use-modules-arrange:              true!default;
+    $use-modules-columns:              true!default;
     $use-modules-nav:                  true!default;
         $use-modules-breadcrumb:       true!default;
         $use-modules-pagination:       true!default;
