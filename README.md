@@ -1,18 +1,20 @@
-# Blocss – v4.1.1
+# Blocss – v4.2.0
 
-Blocss is a small but powerfull css framework designed specially for _serious_ developers. [Blocss](http://blocss.github.io/blocss)
+[Blocss](http://blocss.github.io/blocss) is a small but powerfull css framework designed specially for _serious_ developers.
 
-Based on Sass it's very modular and designed by the OOCSS filosophy. Blocss provides little to no design wich means no undoing other peoples design decisions.
+It started initially as a fork of [Inuit css](https://github.com/csswizardry/inuit.css). Although it shares the same modular & OOCSS approach, Blocss has evolved into a framework of its own. Blocss provides little to no design wich means no undoing other peoples design decisions. I’m constantly updating en revising the code to be more lean, more future proof, and most of all: A great base to start your front-end project with.
 
 **Use Blocss if:**
 
 * You need a powerful library of modules & objects.
-* You appreciate the value of Object Orented code and the need for scalability
+* You appreciate the value of Object Oriented code and the need for scalability
   and reuse.
-* You are a developer comfortable with OOCSS and Sass.
+* You need a framework that is robust and evolves constantly.
+
+A list of components & defaults can be found on the [Blocss project site](http://blocss.github.io/blocss).
 
 ## Browser support
-Blocss is a modern framework, with support for **IE8** and above only.
+Blocss supports ALL major browsers from **IE8** and up, but it’s configurable to be future proof. Let’s say that if you don’t need IE8, you only have to swith the `$legacy-support-for-ie8` setting to false for letting the framework know to ditch all IE8 fallbacks. This will make your code much cleaner, more robust & future proof.
 
 ## Installation
 
@@ -21,22 +23,27 @@ Blocss is a modern framework, with support for **IE8** and above only.
 As of version v2.0+ the core library is intended to be used as a git submodule or as a bower component.
 This means you can always update blocss to the latest version without ever touching a single line of library code.
 
-The simplest way to get started is to install [Blocsstrap](https://github.com/Blocss/blocsstrap). Blocsstrap is a boilerplate wrapper wich contains a lot of handy tools to start off your project.
-Within the `public/css/` directory you'll find your theme specific variables and stylesheets that extend Blocss, aswell as housing blocss as an updatable submoldule.
+The simplest way to get started is to use [generator-blocss](https://github.com/Blocss/generator-blocss) or install [Blocsstrap](https://github.com/Blocss/blocsstrap). Generator-blocss aswel as Blocsstrap is a boilerplate wrapper wich contains a lot of handy tools to start off your project.
+Within the `src/css/` directory you'll find your theme specific variables and stylesheets that extend Blocss, aswell as housing blocss as an updatable submodule.
 
-### Install via command line
+Instructions to install either of the boilerplates can be found on their respective github repositories:
 
-The command line install of Blocss is _super_ simple:
-
-    $ git clone --recursive git@github.com:Blocss/blocsstrap.git your-project-folder
-    $ cd your-project-folder
-    $ ./go
-
-What happens here is cloning an instance of Blocsstrap and its submodules(`--recursive`) into a directory wich you specify. Next we `cd` into that directory and run the `go` batch file. This script simply removes the web template’s Git instance and replaces it with a fresh one for your project, whilst also maintaining you Blocss submodule. After that the script tries to run `bower install` to install dependencies.
+* [generator-blocss](https://github.com/Blocss/generator-blocss)
+* [Blocsstrap](https://github.com/Blocss/blocsstrap)
 
 ### Install via bower
 
-You can install Blocss via twitter’s bower by including the framework in your `component.json`.
+Alternatively you can install Blocss via twitter’s bower by including the framework in your `bower.json`:
+
+    {
+        "name": "your-app",
+        "version": "x.x.x",
+        "dependencies": {
+            "blocss-framework": "~4"
+        },
+        "devDependencies": {}
+    }
+
 Or alternatively you can simply run `$ bower install blocss-framework`.
 
 ## Getting started
@@ -45,7 +52,7 @@ Once you have your project set up, you should be looking at a directory
 structure a little like this:
 
     your-project-folder/
-        public/
+        src/
             css/
                 blocss/
                 theme/
@@ -60,8 +67,6 @@ structure a little like this:
 
 Your CSS directory holds everything you need to get building:
 
-* Everything in `public/css/blocss/` is library code wich should not be modified.
-  If you want to update Blocss simply `cd` into here and run `$ git checkout master` to get your submodule on the most up to date & stable version of Blocss. After that if you want to upgrade simpy run `$ git pull` on the master branch.
 * `_vars.scss` contains theme variables you need, as well as any overrides you wish to make to the Blocss library. It also houses switches to enable/disable Blocss’s modules.
 * `theme.scss` is you master stylesheet wich will concatenate all other stylesheets from Blocss and your extensions when it’s compiled.
 

@@ -6,7 +6,7 @@
 
 /*!*
  *
- * Powered by Blocss v4.1.1
+ * Powered by Blocss v4.2.0
  * by @bramsmulders (Bram Smulders)
  *
  */
@@ -38,6 +38,7 @@
 
     GRID................Fluid, nestable grid
     ARRANGE.............Arrange cells
+    COLUMNS.............CSS3 columns
     NAV.................A simple abstraction to put a list in horizontal nav mode
     BREADCRUMB..........Simple breadcrumb trail
     PAGINATION..........Basic pagination object
@@ -90,6 +91,7 @@
 
     @import "modules/grid";
     @import "modules/arrange";
+    @import "modules/columns";
     @import "modules/nav";
     @import "modules/breadcrumb";
     @import "modules/pagination";
