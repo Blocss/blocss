@@ -163,6 +163,41 @@
     $STATE
 \*----------------------------------------------------------------------------*/
 
+    /* Media query helper
+       Displays the current active media query in the bottom right corner
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Append media query label on body:after
+         */
+        body:after {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: 9999;
+            @include rem(padding, $space-half $space);
+            font-family: monospace;
+            @include font-size($base-font-size*1.125, false);
+            line-height: 1;
+            color: #fff;
+            background: rgba(0,0,0,.8);
+            content: "origin: (min-width: 0px)";
+        }
+
+
+        /**
+         * Displays current media query per breakpoint
+         */
+        @each $breakpoint in $breakpoints {
+            $name: nth($breakpoint, 1);
+            $declaration: nth($breakpoint, 2);
+            @media only screen and #{$declaration} {
+                body:after {
+                    content: "#{$name}: #{$declaration}";
+                }
+            }
+        }
+
 
 
 
