@@ -133,11 +133,8 @@
      */
     $breakpoints: (
         'palm' '(max-width: 480px)',
-        'gt-palm' '(min-width: 481px)',
-        'lap' '(min-width: 481px) and (max-width: 1023px)',
-        'lt-desk' '(max-width: 1023px)',
-        'desk' '(min-width: 1024px)',
-        'gt-desk' '(min-width: 1200px)'
+        'lap' '(min-width: 481px) and (max-width: 960px)',
+        'desk' '(min-width: 961px)'
     )!default;
 
 
@@ -148,13 +145,13 @@
      * you to only compile as much CSS as you need. All are turned on by
      * default, but you can add and remove breakpoints at will.
      */
-    $breakpoint-has-widths:             ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
-    $breakpoint-has-push:               ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
-    $breakpoint-has-collapsed-arrange:  ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
-    $breakpoint-has-columns:            ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
-    $breakpoint-has-visuallyhidden:     ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
-    $breakpoint-has-collapsed-media:    ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
-    $breakpoint-has-text-mods:          ('palm', 'gt-palm', 'lap', 'lt-desk', 'desk', 'gt-desk')!default;
+    $breakpoint-has-widths:             ('palm', 'lap', 'desk')!default;
+    $breakpoint-has-push:               ('palm', 'lap', 'desk')!default;
+    $breakpoint-has-collapsed-arrange:  ('palm', 'lap', 'desk')!default;
+    $breakpoint-has-columns:            ('palm', 'lap', 'desk')!default;
+    $breakpoint-has-visuallyhidden:     ('palm', 'lap', 'desk')!default;
+    $breakpoint-has-collapsed-media:    ('palm', 'lap', 'desk')!default;
+    $breakpoint-has-text-mods:          ('palm', 'lap', 'desk')!default;
 
 
 
@@ -216,36 +213,36 @@
     /**
      * Base
      */
-    $use-base-quotes:                  true!default;
-    $use-base-code:                    true!default;
-    $use-base-tables:                  true!default;
-    $use-base-forms:                   true!default;
+    $use-base-quotes:                  false!default;
+    $use-base-code:                    false!default;
+    $use-base-tables:                  false!default;
+    $use-base-forms:                   false!default;
 
 
     /**
      * Modules
      */
-    $use-modules-grid:                 true!default;
-    $use-modules-arrange:              true!default;
-    $use-modules-columns:              true!default;
-    $use-modules-nav:                  true!default;
-        $use-modules-breadcrumb:       true!default;
-        $use-modules-pagination:       true!default;
-    $use-modules-media:                true!default;
-    $use-modules-flexembed:            true!default;
-    $use-modules-island:               true!default;
-    $use-modules-sprite:               true!default;
-    $use-modules-buttons:              true!default;
-    $use-modules-rules:                true!default;
-    $use-modules-greybox:              true!default;
-    $use-modules-notice:               true!default;
+    $use-modules-grid:                 false!default;
+    $use-modules-arrange:              false!default;
+    $use-modules-columns:              false!default;
+    $use-modules-nav:                  false!default;
+        $use-modules-breadcrumb:       false!default;
+        $use-modules-pagination:       false!default;
+    $use-modules-media:                false!default;
+    $use-modules-flexembed:            false!default;
+    $use-modules-island:               false!default;
+    $use-modules-sprite:               false!default;
+    $use-modules-buttons:              false!default;
+    $use-modules-rules:                false!default;
+    $use-modules-greybox:              false!default;
+    $use-modules-notice:               false!default;
 
 
     /**
      * Generic
      */
-    $use-generic-widths:               true!default;
-    $use-generic-push:                 true!default;
+    $use-generic-widths:               false!default;
+    $use-generic-push:                 false!default;
 
 
 
