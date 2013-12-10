@@ -145,13 +145,13 @@
      * you to only compile as much CSS as you need. All are turned on by
      * default, but you can add and remove breakpoints at will.
      */
-    $breakpoint-has-widths:             ('lap', 'desk', 'desk-wide')!default;
-    $breakpoint-has-push:               ('lap', 'desk', 'desk-wide')!default;
-    $breakpoint-has-collapsed-arrange:  ('lap', 'desk', 'desk-wide')!default;
-    $breakpoint-has-columns:            ('lap', 'desk', 'desk-wide')!default;
-    $breakpoint-has-visuallyhidden:     ('lap', 'desk', 'desk-wide')!default;
-    $breakpoint-has-collapsed-media:    ('lap', 'desk', 'desk-wide')!default;
-    $breakpoint-has-text-mods:          ('lap', 'desk', 'desk-wide')!default;
+    $breakpoint-has-widths:             ('palm', 'lap', 'desk')!default;
+    $breakpoint-has-push:               ('palm', 'lap', 'desk')!default;
+    $breakpoint-has-collapsed-arrange:  ('palm', 'lap', 'desk')!default;
+    $breakpoint-has-columns:            ('palm', 'lap', 'desk')!default;
+    $breakpoint-has-visuallyhidden:     ('palm', 'lap', 'desk')!default;
+    $breakpoint-has-collapsed-media:    ('palm', 'lap', 'desk')!default;
+    $breakpoint-has-text-mods:          ('palm', 'lap', 'desk')!default;
 
 
 
