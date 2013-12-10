@@ -132,10 +132,9 @@
      * query that the breakpoint fires at.
      */
     $breakpoints: (
-        'alpha' '(min-width: 480px)',
-        'beta' '(min-width: 768px)',
-        'gamma' '(min-width: 1024px)',
-        'delta' '(min-width: 1160px)'
+        'palm' '(max-width: 480px)',
+        'lap' '(min-width: 481px) and (max-width: 960px)',
+        'desk' '(min-width: 961px)'
     )!default;
 
 
@@ -146,13 +145,13 @@
      * you to only compile as much CSS as you need. All are turned on by
      * default, but you can add and remove breakpoints at will.
      */
-    $breakpoint-has-widths:             ('alpha', 'beta', 'gamma', 'delta')!default;
-    $breakpoint-has-push:               ('alpha', 'beta', 'gamma', 'delta')!default;
-    $breakpoint-has-collapsed-arrange:  ('alpha', 'beta', 'gamma', 'delta')!default;
-    $breakpoint-has-columns:            ('alpha', 'beta', 'gamma', 'delta')!default;
-    $breakpoint-has-visuallyhidden:     ('alpha', 'beta', 'gamma', 'delta')!default;
-    $breakpoint-has-collapsed-media:    ('alpha', 'beta', 'gamma', 'delta')!default;
-    $breakpoint-has-text-mods:          ('alpha', 'beta', 'gamma', 'delta')!default;
+    $breakpoint-has-widths:             ('lap', 'desk', 'desk-wide')!default;
+    $breakpoint-has-push:               ('lap', 'desk', 'desk-wide')!default;
+    $breakpoint-has-collapsed-arrange:  ('lap', 'desk', 'desk-wide')!default;
+    $breakpoint-has-columns:            ('lap', 'desk', 'desk-wide')!default;
+    $breakpoint-has-visuallyhidden:     ('lap', 'desk', 'desk-wide')!default;
+    $breakpoint-has-collapsed-media:    ('lap', 'desk', 'desk-wide')!default;
+    $breakpoint-has-text-mods:          ('lap', 'desk', 'desk-wide')!default;
 
 
 
