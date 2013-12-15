@@ -1,32 +1,13 @@
-/*----------------------------------------------------------------------------*\
-    BLOCSS.scss
-    Blocss acts as a base stylesheet which you should extend with
-    your own theme stylesheet.
-\*----------------------------------------------------------------------------*/
-
 /*!*
  * Powered by Blocss v5.0.0 | MIT License | blocss.github.io/blocss
  * by @bramsmulders (Bram Smulders)
- *
  */
 
-/*----------------------------------------------------------------------------*\
-        CONTENTS
-\*----------------------------------------------------------------------------*/
-
-    /*
-    */
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $IMPORTS
-    Include all framework modules
-\*----------------------------------------------------------------------------*/
-
-    @import "defaults";
-    @import "generic/mixins";
-    @import "generic/normalize";
-    @import "base/base";
+@import "defaults";
+@import "generic/mixins";
+@import "generic/normalize";
+@import "base/base";
+@import "base/shared";
+@import "base/typography";
+@import "base/module";
+@import "generic/debug";

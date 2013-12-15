@@ -5,83 +5,78 @@
     appropriate elements.
 \*----------------------------------------------------------------------------*/
 
-    /**
-     * Toplevel HTML element
-     * Assign our `$base-font-size` & predefine some defaults
-     *
-     * 1. Apply the `$base-font-size`, `$line-height-ratio` & `$face-base`
-     * 2. Always add the horizontal scrollbar to prevent layout shifting
-     */
-    html {
-        font: #{($base-font-size/16px)*1em}/#{$line-height-ratio} $face-base; /* 1 */
-        overflow-y: scroll; /* 2 */
-        min-height: 100%;
+/**
+ * Toplevel HTML element
+ * Assign our `$base-font-size` & predefine some defaults
+ *
+ * 1. Apply the `$base-font-size`, `$line-height-ratio` & `$face-base`
+ * 2. Always add the horizontal scrollbar to prevent layout shifting
+ */
+html {
+    font: #{($base-font-size/16px)*1em}/#{$line-height-ratio} $face-base; /* 1 */
+    overflow-y: scroll; /* 2 */
+    min-height: 100%;
+}
+
+
+/**
+ * Border box ALL the things
+ * As Per: http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ */
+* {
+    &,
+    &:before,
+    &:after{
+        @include prefixer(box-sizing, border-box, webkit moz spec);
     }
+}
 
 
-    /**
-     * Border box ALL the things
-     * As Per: http://www.paulirish.com/2012/box-sizing-border-box-ftw/
-     */
-    * {
-        &,
-        &:before,
-        &:after{
-            @include prefixer(box-sizing, border-box, webkit moz spec);
-        }
-    }
+/**
+ * The usual resetting of margins, paddings, borders etc.
+ */
+blockquote,
+dl,
+dd,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+fieldset {
+    margin: 0;
+}
+
+fieldset,
+ol,
+ul {
+    padding: 0;
+}
+
+iframe,
+fieldset {
+    border: 0;
+}
 
 
-    /**
-     * The usual resetting of margins, paddings, borders etc.
-     */
-    blockquote,
-    dl,
-    dd,
-    ol,
-    ul,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    pre,
-    fieldset {
-        margin: 0;
-    }
-
-    fieldset,
-    ol,
-    ul {
-        padding: 0;
-    }
-
-    iframe,
-    fieldset {
-        border: 0;
-    }
-
-    ol,
-    ul {
-        list-style: none;
-    }
+/**
+ * Suppress the focus outline on links that cannot be accessed via keyboard.
+ * This prevents an unwanted focus outline from appearing around elements that
+ * might still respond to pointer events.
+ */
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
 
 
-    /**
-     * Suppress the focus outline on links that cannot be accessed via keyboard.
-     * This prevents an unwanted focus outline from appearing around elements that
-     * might still respond to pointer events.
-     */
-    [tabindex="-1"]:focus {
-      outline: none !important;
-    }
-
-
-    /**
-     * Render `alt` visually offset when images don’t load
-     */
-    img {
-        font-style: italic;
-    }
+/**
+ * Render `alt` visually offset when images don’t load
+ */
+img {
+    font-style: italic;
+}

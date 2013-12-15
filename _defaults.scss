@@ -8,9 +8,12 @@
     $CONTENTS
 \*----------------------------------------------------------------------------*/
 
-    /**
-     * CONTENTS                         Defines the typographic baseline
-     */
+/**
+ * TYPOGRAPHY                   Defines the typographic baseline
+ * SPACING                      Spacing units to properly size your UI
+ * RESPONSIVE                   Define your breakpoints
+ * MISC
+ */
 
 
 
@@ -20,38 +23,104 @@
     $TYPOGRAPHY
     Defines the typographic baseline.
     We define every size in pixels, the underlying system converts the
-    respective units to the more responsive REM value.
+    respective units to the responsive REM value.
 \*----------------------------------------------------------------------------*/
 
-    /**
-     * Base font size & line height
-     * We predefine a nice big font size, wich reads very nice on a big screen.
-     * As per: http://uxdesign.smashingmagazine.com/2011/11/29/the-perfect-paragraph/
-     */
-    $base-font-size:                16px                                !default;
-    $base-line-height:              24px                                !default;
-    $line-height-ratio:             $base-line-height/$base-font-size   !default;
+/**
+ * Base font size & line height
+ * We predefine a nice big font size, wich reads very nice on a big screen.
+ * As per: http://uxdesign.smashingmagazine.com/2011/11/29/the-perfect-paragraph/
+ */
+$base-font-size:                16px                                !default;
+$base-line-height:              24px                                !default;
+$line-height-ratio:             $base-line-height/$base-font-size   !default;
 
 
-    /**
-     * Sizes (in pixels)
-     */
-    $giga:                          96px                                !default;
-    $mega:                          72px                                !default;
-    $kilo:                          48px                                !default;
+/**
+ * Sizes (in pixels)
+ */
+$giga:                          96px                                !default;
+$mega:                          72px                                !default;
+$kilo:                          48px                                !default;
 
-    $alpha:                         36px                                !default;
-    $beta:                          30px                                !default;
-    $gamma:                         24px                                !default;
-    $delta:                         20px                                !default;
-    $epsilon:                       16px                                !default;
-    $zeta:                          14px                                !default;
+$alpha:                         36px                                !default;
+$beta:                          32px                                !default;
+$gamma:                         28px                                !default;
+$delta:                         24px                                !default;
+$epsilon:                       20px                                !default;
+$zeta:                          18px                                !default;
 
-    $milli:                         12px                                !default;
-    $micro:                         10px                                !default;
+$milli:                         14px                                !default;
+$micro:                         12px                                !default;
 
 
-    /**
-     * Base font family
-     */
-    $face-base:                     sans-serif                          !default;
+/**
+ * Base font family
+ */
+$face-base:                     sans-serif                          !default;
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $SPACING
+    Spacing units to properly size your UI
+    As per: http://csswizardry.com/2011/12/measuring-and-sizing-uis-2011-style
+\*----------------------------------------------------------------------------*/
+
+/**
+ * Enable vertical rhythm?
+ *
+ * Enabling this will ensure all margins, paddings, lineheights etc. will
+ * follow the default line height.
+ *
+ * Disabling this will render all line-heights according
+ * to the `$line-height-ratio` variable
+ */
+$use-vertical-rhythm:           true                                !default;
+
+
+/**
+ * Assign our `$base-line-height` to a new spacing var for
+ * more transparency
+ */
+$space:                         $base-line-height                   !default;
+$space-half:                    $space/2                            !default;
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $RESPONSIVE
+    Define your breakpoints. The first value is the appendix that shall be used
+    for your classes (e.g. `.unit-6-12--palm`), the second value is the media
+    query that the breakpoint fires at.
+\*----------------------------------------------------------------------------*/
+
+$breakpoints: (
+    'palm'      '(max-width: 480px)',
+    'lap'       '(min-width: 481px) and (max-width: 960px)',
+    'desk'      '(min-width: 961px)'
+)                                                                   !default;
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $MISC
+\*----------------------------------------------------------------------------*/
+
+/**
+ * Legacy support
+ */
+$legacy-support-for-ie8:        true                                !default;
+
+
+/**
+ * Enable debug mode to highlight possible markup/accessibility
+ * quirks in your code
+ */
+$debug-mode:                    false                               !default;
