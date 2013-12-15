@@ -8,15 +8,12 @@
     $CONTENTS
 \*----------------------------------------------------------------------------*/
 
-    /*
-    TYPOGRAPHY
-    BRAND
-    SPACING
-    RESPONSIVE
-    GRID
-    MODULES
-    MISC
-    */
+/**
+ * TYPOGRAPHY                   Defines the typographic baseline
+ * SPACING                      Spacing units to properly size your UI
+ * RESPONSIVE                   Define your breakpoints
+ * MISC
+ */
 
 
 
@@ -24,37 +21,43 @@
 
 /*----------------------------------------------------------------------------*\
     $TYPOGRAPHY
+    Defines the typographic baseline.
+    We define every size in pixels, the underlying system converts the
+    respective units to the responsive REM value.
 \*----------------------------------------------------------------------------*/
 
-    /**
-     * Font
-     */
-    $base-font-family:                  "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, "Lucida Grande", sans-serif!default;
+/**
+ * Base font size & line height
+ * We predefine a nice big font size, wich reads very nice on a big screen.
+ * As per: http://uxdesign.smashingmagazine.com/2011/11/29/the-perfect-paragraph/
+ */
+$base-font-size:                16px                                !default;
+$base-line-height:              24px                                !default;
+$line-height-ratio:             $base-line-height/$base-font-size   !default;
 
 
-    /**
-     * Type
-     */
-    $base-font-size:                    16px!default;
-    $base-line-height:                  24px!default;
+/**
+ * Sizes (in pixels)
+ */
+$giga:                          96px                                !default;
+$mega:                          72px                                !default;
+$kilo:                          48px                                !default;
+
+$alpha:                         36px                                !default;
+$beta:                          32px                                !default;
+$gamma:                         28px                                !default;
+$delta:                         24px                                !default;
+$epsilon:                       20px                                !default;
+$zeta:                          18px                                !default;
+
+$milli:                         14px                                !default;
+$micro:                         12px                                !default;
 
 
-    /**
-     * Headings (in pixels)
-     */
-    $giga-size:                         96px!default; // .giga
-    $mega-size:                         72px!default; // .mega
-    $kilo-size:                         48px!default; // .kilo
-
-    $h1-size:                           36px!default; // .alpha
-    $h2-size:                           30px!default; // .beta
-    $h3-size:                           24px!default; // .gamma
-    $h4-size:                           20px!default; // .delta
-    $h5-size:                           16px!default; // .epsilon
-    $h6-size:                           14px!default; // .zeta
-
-    $milli-size:                        12px!default; // .milli
-    $micro-size:                        10px!default; // .micro
+/**
+ * Base font family
+ */
+$face-base:                     sans-serif                          !default;
 
 
 
@@ -62,55 +65,28 @@
 
 /*----------------------------------------------------------------------------*\
     $SPACING
+    Spacing units to properly size your UI
+    As per: http://csswizardry.com/2011/12/measuring-and-sizing-uis-2011-style
 \*----------------------------------------------------------------------------*/
 
-    /**
-     * Enable vertical rhythm?
-     *
-     * Enabling this will ensure all margins, paddings, lineheights etc. will
-     * follow the default line height.
-     *
-     * Disabling this will render all line-heights according
-     * to the `$line-height-ratio` variable
-     */
-    $use-vertical-rhythm:               true!default;
-    $line-height-ratio:                 $base-line-height / $base-font-size!default;
+/**
+ * Enable vertical rhythm?
+ *
+ * Enabling this will ensure all margins, paddings, lineheights etc. will
+ * follow the default line height.
+ *
+ * Disabling this will render all line-heights according
+ * to the `$line-height-ratio` variable
+ */
+$use-vertical-rhythm:           true                                !default;
 
 
-    /**
-     * Assign our `$base-line-height` to a new spacing var for
-     * more transparency
-     */
-    $space:                             $base-line-height!default;
-    $space-half:                        $space/2!default;
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $BRAND
-\*----------------------------------------------------------------------------*/
-
-    $base-color:                        #222!default;
-    $brand-face:                        $base-font-family!default;
-    $brand:                             #369!default;
-
-
-    /**
-     * Colors of notices
-     */
-    $notice-face-color:                 inherit!default;
-    $notice-base:                       #BDE5F8!default;
-    $notice-success:                    #DFF2BF!default;
-    $notice-warning:                    #FEEFB3!default;
-    $notice-error:                      #FFBABA!default;
-
-
-    /**
-     * How big would you like round corners to be by default?
-     */
-    $brand-round:                       $space-half!default;
+/**
+ * Assign our `$base-line-height` to a new spacing var for
+ * more transparency
+ */
+$space:                         $base-line-height                   !default;
+$space-half:                    $space/2                            !default;
 
 
 
@@ -118,131 +94,16 @@
 
 /*----------------------------------------------------------------------------*\
     $RESPONSIVE
+    Define your breakpoints. The first value is the appendix that shall be used
+    for your classes (e.g. `.unit-6-12--palm`), the second value is the media
+    query that the breakpoint fires at.
 \*----------------------------------------------------------------------------*/
 
-    /**
-     * responsive?
-     */
-    $responsive:                        true!default;
-
-
-    /**
-     * Define your breakpoints. The first value is the appendix that shall be used
-     * for your classes (e.g. `.unit-6-12--palm`), the second value is the media
-     * query that the breakpoint fires at.
-     */
-    $breakpoints: (
-        'palm' '(max-width: 480px)',
-        'lap' '(min-width: 481px) and (max-width: 960px)',
-        'desk' '(min-width: 961px)'
-    )!default;
-
-
-    /**
-     * Define which namespaced breakpoints you would like to generate for each
-     * of widths & push. This is handy if you only need push on, say,
-     * desk, or you only need a new width breakpoint at mobile sizes. It allows
-     * you to only compile as much CSS as you need. All are turned on by
-     * default, but you can add and remove breakpoints at will.
-     */
-    $breakpoint-has-widths:             ('palm', 'lap', 'desk')!default;
-    $breakpoint-has-push:               ('palm', 'lap', 'desk')!default;
-    $breakpoint-has-collapsed-arrange:  ('palm', 'lap', 'desk')!default;
-    $breakpoint-has-columns:            ('palm', 'lap', 'desk')!default;
-    $breakpoint-has-visuallyhidden:     ('palm', 'lap', 'desk')!default;
-    $breakpoint-has-collapsed-media:    ('palm', 'lap', 'desk')!default;
-    $breakpoint-has-text-mods:          ('palm', 'lap', 'desk')!default;
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $GRID
-\*----------------------------------------------------------------------------*/
-
-    /**
-     * Grid style, inline-block or floating?
-     */
-    $grid-style-floating:               false!default;
-
-
-    /**
-     * Using `inline-block` means that the grid items need their whitespace
-     * removing in order for them to work correctly.
-     *
-     * Setting this to false invokes a hack which works in all current browsers.
-     *
-     * Set the following to true if you are going to achieve this by manually
-     * removing/commenting out any whitespace in your HTML yourself.
-     */
-    $use-markup-fix:                    false!default;
-
-
-    /**
-     * Defines the gutter between grid items, multiplies by $space
-     */
-    $grid-gutter-multiplier:            1!default;
-
-
-    /**
-     * Grid direction, switch to 'right' for rtl
-     */
-    $grid-direction:                    left!default;
-
-
-    /**
-     * Width divisions, makes it easy to create several proportional
-     * grids (e.g., both a 2-part and a 12-part grid).
-     *
-     * For example, `2 3 6 12` will let you use the unit-1-2, unit-2-4,
-     * unit-3-6, and unit-6-12 classes to specify that an element should
-     * take up 50% of its container.
-     */
-    $width-divisions:                   12!default;
-
-
-
-
-
-/*----------------------------------------------------------------------------*\
-    $MODULES
-    Wich baked-in modules you'd like to use?
-\*----------------------------------------------------------------------------*/
-
-    /**
-     * Base
-     */
-    $use-base-quotes:                  false!default;
-    $use-base-code:                    false!default;
-    $use-base-tables:                  false!default;
-    $use-base-forms:                   false!default;
-
-
-    /**
-     * Modules
-     */
-    $use-modules-grid:                 false!default;
-    $use-modules-arrange:              false!default;
-    $use-modules-columns:              false!default;
-    $use-modules-nav:                  false!default;
-        $use-modules-breadcrumb:       false!default;
-        $use-modules-pagination:       false!default;
-    $use-modules-media:                false!default;
-    $use-modules-flexembed:            false!default;
-    $use-modules-island:               false!default;
-    $use-modules-sprite:               false!default;
-    $use-modules-buttons:              false!default;
-    $use-modules-rules:                false!default;
-    $use-modules-greybox:              false!default;
-    $use-modules-notice:               false!default;
-
-
-    /**
-     * Generic
-     */
-    $use-generic-widths:               false!default;
-    $use-generic-push:                 false!default;
+$breakpoints: (
+    'palm'      '(max-width: 480px)',
+    'lap'       '(min-width: 481px) and (max-width: 960px)',
+    'desk'      '(min-width: 961px)'
+)                                                                   !default;
 
 
 
@@ -252,14 +113,14 @@
     $MISC
 \*----------------------------------------------------------------------------*/
 
-    /**
-     * Legacy support
-     */
-    $legacy-support-for-ie8:            true!default;
+/**
+ * Legacy support
+ */
+$legacy-support-for-ie8:        true                                !default;
 
 
-    /**
-     * Enable debug mode to highlight possible markup/accessibility
-     * quirks in your code
-     */
-    $debug-mode:                        false!default;
+/**
+ * Enable debug mode to highlight possible markup/accessibility
+ * quirks in your code
+ */
+$debug-mode:                    false                               !default;
