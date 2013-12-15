@@ -1,0 +1,52 @@
+/*----------------------------------------------------------------------------*\
+    $SHARED
+    Shared behaviour
+\*----------------------------------------------------------------------------*/
+
+/**
+ * Applies vertical rhythm to designated elements
+ * As per: http://csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+hgroup,
+.hgroup,
+ul,
+ol,
+dl,
+blockquote,
+p,
+address,
+table,
+fieldset,
+pre,
+hr {
+    @include rem(margin-bottom, $space);
+}
+
+
+/**
+ * Default indentation value for lists
+ */
+ul,
+ol,
+dd {
+    @include rem(margin-left, $base-line-height);
+}
+
+
+/**
+ * Micro clearfix
+ * As per: nicolasgallagher.com/micro-clearfix-hack
+ */
+.cf,
+%cf {
+    zoom: 1;
+
+    &:before,
+    &:after {
+        display: table;
+        content: " ";
+    }
+    &:after {
+        clear: both;
+    }
+}

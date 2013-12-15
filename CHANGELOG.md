@@ -1,5 +1,9 @@
 == HEAD
 
+== 5.0.0 (Dec 15, 2013)
+
+* Rebuild from ground up, only contains ground-zero core styles
+
 == 4.2.0 (Nov 24, 2013)
 
 * Added CSS module 3 columns

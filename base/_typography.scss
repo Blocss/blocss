@@ -1,0 +1,120 @@
+/*----------------------------------------------------------------------------*\
+    $TYPOGRAPHY
+    Pragmatic & practical font sizing
+    As per: http://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
+\*----------------------------------------------------------------------------*/
+
+/*  Sizes
+    Apply various font sizes by class
+\*----------------------------------------------------------------------------*/
+
+.giga {
+    @include font-size($giga);
+}
+.mega {
+    @include font-size($mega);
+}
+.kilo {
+    @include font-size($kilo);
+}
+.alpha {
+    @include font-size($alpha);
+}
+.beta {
+    @include font-size($beta);
+}
+.gamma {
+    @include font-size($gamma);
+}
+.delta {
+    @include font-size($delta);
+}
+.epsilon {
+    @include font-size($epsilon);
+}
+.zeta {
+    @include font-size($zeta);
+}
+.normalis {
+    @include font-size($base-font-size);
+}
+.milli {
+    @include font-size($milli);
+}
+.micro {
+    @include font-size($micro);
+}
+
+
+
+/*  Headings
+\*----------------------------------------------------------------------------*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+}
+
+
+h1 {
+    @extend .alpha;
+}
+h2 {
+    @extend .beta;
+}
+h3 {
+    @extend .gamma;
+}
+h4 {
+    @extend .delta;
+}
+h5 {
+    @extend .epsilon;
+}
+h6 {
+    @extend .zeta;
+}
+
+
+/**
+ * Double stranded heading hierarchy
+ */
+.h1 {
+    @extend h1;
+}
+.h2 {
+    @extend h2;
+}
+.h3 {
+    @extend h3;
+}
+.h4 {
+    @extend h4;
+}
+.h5 {
+    @extend h5;
+}
+.h6 {
+    @extend h6;
+}
+
+
+/**
+ * Heading groups and generic any-heading class.
+ * To target any heading of any level simply apply a class of `.hN`
+ * Sample markup:
+<div class="hgroup">
+    <h1 class="hN"></h1>
+    <h2 class="hN"></h2>
+</hgroup>
+ */
+hgroup,
+.hgroup {
+    .hN {
+        margin-bottom: 0;
+    }
+}
