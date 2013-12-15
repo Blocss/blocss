@@ -1,0 +1,222 @@
+/*----------------------------------------------------------------------------*\
+    $MIXINS
+    A set of usefull Sass mixins, wich can be used troughout you project
+\*----------------------------------------------------------------------------*/
+
+    /* Functions
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Value to rem
+         */
+        @function valueToRem($value) {
+            @return ($value/$base-font-size*1rem);
+        }
+
+
+        /**
+         * Value to em
+         */
+        @function valueToEm($value) {
+            @return ($value/$base-font-size*1em);
+        }
+
+
+
+    /* CSS3
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Prefixer
+         * Example: @include prefixer(border-radius, 5px 10px, webkit moz o ms spec);
+         */
+        @mixin prefixer ($property, $value, $prefixes) {
+
+            @each $prefix in $prefixes {
+                @if $prefix != spec {
+                    -#{$prefix}-#{$property}: $value;
+                }
+                @else if $prefix == spec {
+                    #{$property}: $value;
+                }
+            }
+
+        }
+
+
+        /**
+         * Rem converter
+         *
+         * 1. Provide pixel fallback for ie8
+         * 2. Loop over values
+         * 3. Run trough prefixer
+         *
+         * Sample: @include rem(margin, 0 auto 300px, webkit moz spec, !important);
+         */
+        @mixin rem ($property, $value, $prefixer: false, $append: "") {
+
+            /* 1 */
+            @if $legacy-support-for-ie8 == true {
+                /* 3 */
+                @if $prefixer {
+                    @include prefixer(#{$property}, $value #{$append}, $prefixer);
+                } @else {
+                    #{$property}: $value #{$append};
+                }
+            }
+
+            /* 2 */
+            @if type-of($value) == list {
+                $all: ();
+                @for $i from 1 through length($value) {
+                    @if type-of(nth($value, $i)) == string or unitless(nth($value, $i)) == true or unit(nth($value, $i)) == "em" or unit(nth($value, $i)) == "%" {
+                        $all: append($all, nth($value, $i));
+                    } @else {
+                        $all: append($all, valueToRem(nth($value, $i)));
+                    }
+                }
+                /* 3 */
+                @if $prefixer {
+                    @include prefixer(#{$property}, $all #{$append}, $prefixer);
+                } @else {
+                    #{$property}: $all #{$append};
+                }
+            } @else {
+                /* 3 */
+                @if $prefixer {
+                    @include prefixer(#{$property}, valueToRem($value) #{$append}, $prefixer);
+                } @else {
+                    #{$property}: valueToRem($value) #{$append};
+                }
+            }
+        }
+
+
+        /**
+         * Multi rem converter
+         * Remmify multiple properties in one swoop
+         *
+         * Beware: if only one set is provided, the mixin will fail.
+         * In that case use the normal rem mixin instead
+         *
+         * Sample:
+           @include multi-rem(
+               (padding, $space 1em)
+               (margin, $space auto, true)
+               (border-radius, 50%)
+           );
+         */
+        @mixin multi-rem($set) {
+            @if type-of($set) == list {
+                @for $i from 1 through length($set) {
+                    $property: nth(nth($set, $i), 1);
+                    $value: nth(nth($set, $i), 2);
+
+                    $prefixer: false;
+                    @if length(nth($set, $i)) > 2 {
+                        $prefixer: nth(nth($set, $i), 3);
+                    }
+
+                    $append: "";
+                    @if length(nth($set, $i)) == 4 {
+                        $append: nth(nth($set, $i), 4);
+                    }
+
+                    @include rem($property, $value, $prefixer, $append);
+                }
+            }
+        }
+
+
+
+    /* Typography & vertical rhythm
+    \*------------------------------------------------------------------------*/
+
+        /**
+         * Font face shorthand
+         */
+        @mixin fontface($font-family, $file-path, $weight: normal, $style: normal ) {
+            @font-face {
+                font-family: $font-family;
+                font-weight: $weight;
+                font-style: $style;
+
+                src: url('#{$file-path}.eot');
+                src: url('#{$file-path}.eot?#iefix')               format('embedded-opentype'),
+                     url('#{$file-path}.woff')                     format('woff'),
+                     url('#{$file-path}.ttf')                      format('truetype');
+            }
+        }
+
+
+        /**
+         * Calculates font, rem font size & line height
+         * $multiplier: multiplies line height by the given value
+         * $line-height: include line height or not
+         * The line height parameter can also be used as the multiplier
+         *
+         * Sample usage @include font-size(18px, 2);
+         */
+        @mixin font-size($fs, $line-height: true, $multiplier: 1) {
+            @include rem(font-size, $fs);
+
+            $use-line-height: false;
+
+            @if type-of($line-height) == bool {
+                @if $line-height == true{
+                    $use-line-height: true;
+                }
+            } @else if type-of($line-height) == number {
+                $use-line-height: true;
+                $multiplier: $line-height;
+            }
+
+            @if $use-line-height == true {
+                @if $use-vertical-rhythm == true {
+                    line-height: (ceil($fs / $base-line-height) * ($base-line-height / $fs)) * $multiplier;
+                } @else {
+                    line-height: $line-height-ratio * $multiplier;
+                }
+            }
+        }
+
+
+        /**
+         * Truncate overly long strings
+         * sample value truncate(100%)
+         */
+        @mixin truncate($truncation-boundary) {
+            max-width: $truncation-boundary;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+
+
+    /* Media Queries
+    \*-------------------------------------------------------------------------*/
+
+        /**
+         * Enclose a block of code with a media query as named in `$breakpoints`.
+         */
+        @mixin media-query($media-query) {
+            $breakpoint-found: false;
+
+            @each $breakpoint in $breakpoints {
+                $name: nth($breakpoint, 1);
+                $declaration: nth($breakpoint, 2);
+
+                @if $media-query == $name and $declaration {
+                    $breakpoint-found: true;
+
+                    @media only screen and #{$declaration} {
+                        @content;
+                    }
+                }
+            }
+
+            @if $breakpoint-found == false {
+                @warn "Breakpoint ‘#{$media-query}’ does not exist"
+            }
+        }
