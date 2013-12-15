@@ -8,5 +8,50 @@
     $CONTENTS
 \*----------------------------------------------------------------------------*/
 
-    /*
-    */
+    /**
+     * CONTENTS                         Defines the typographic baseline
+     */
+
+
+
+
+
+/*----------------------------------------------------------------------------*\
+    $TYPOGRAPHY
+    Defines the typographic baseline.
+    We define every size in pixels, the underlying system converts the
+    respective units to the more responsive REM value.
+\*----------------------------------------------------------------------------*/
+
+    /**
+     * Base font size & line height
+     * We predefine a nice big font size, wich reads very nice on a big screen.
+     * As per: http://uxdesign.smashingmagazine.com/2011/11/29/the-perfect-paragraph/
+     */
+    $base-font-size:                16px                                !default;
+    $base-line-height:              24px                                !default;
+    $line-height-ratio:             $base-line-height/$base-font-size   !default;
+
+
+    /**
+     * Sizes (in pixels)
+     */
+    $giga:                          96px                                !default;
+    $mega:                          72px                                !default;
+    $kilo:                          48px                                !default;
+
+    $alpha:                         36px                                !default;
+    $beta:                          30px                                !default;
+    $gamma:                         24px                                !default;
+    $delta:                         20px                                !default;
+    $epsilon:                       16px                                !default;
+    $zeta:                          14px                                !default;
+
+    $milli:                         12px                                !default;
+    $micro:                         10px                                !default;
+
+
+    /**
+     * Base font family
+     */
+    $face-base:                     sans-serif                          !default;

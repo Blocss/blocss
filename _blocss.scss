@@ -5,8 +5,7 @@
 \*----------------------------------------------------------------------------*/
 
 /*!*
- *
- * Powered by Blocss v4.2.0
+ * Powered by Blocss v5.0.0 | MIT License | blocss.github.io/blocss
  * by @bramsmulders (Bram Smulders)
  *
  */
@@ -28,3 +27,6 @@
 \*----------------------------------------------------------------------------*/
 
     @import "defaults";
+    @import "generic/mixins";
+    @import "generic/normalize";
+    @import "base/base";
