@@ -75,8 +75,21 @@ fieldset {
 
 
 /**
- * Render `alt` visually offset when images don’t load
+ * Image
+ *
+ * 1. By default all images are fluid
+ * 2. Render `alt` visually offset when images don’t load
  */
 img {
-    font-style: italic;
+    max-width: 100%; /* 1 */
+    font-style: italic; /* 2 */
+}
+
+
+/**
+ * Non-fluid images if you specify `width` and/or `height` attributes.
+ */
+img[width],
+img[height] {
+    max-width: none;
 }
