@@ -43,7 +43,7 @@ Alternatively you can install Blocss via twitter’s bower by including the fram
     "devDependencies": {}
 }
 ```
-Or alternatively you can simply run `$ bower install blocss`.
+Or alternatively you can simply run `$ bower install --save blocss`.
 
 ## Getting started
 Blocss is a layered framework, wich means you can easily add your own theme on top of it.
