@@ -1,8 +1,12 @@
 == HEAD
 
+== 5.0.1 (Dec 28, 2013)
+
+* Updated readme
+
 == 5.0.0 (Dec 15, 2013)
 
-* Rebuild from ground up, only contains ground-zero core styles
+* Rebuild from ground up, only contains ground-zero core styles & mixins
 
 == 4.2.0 (Nov 24, 2013)
 
