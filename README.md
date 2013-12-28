@@ -14,7 +14,7 @@ It started initially as a fork of [Inuit css](https://github.com/csswizardry/inu
 A list of components & defaults can be found on the [Blocss project site](http://blocss.github.io/blocss).
 
 ## Browser support
-Blocss supports ALL major browsers from **IE8** and up, but it’s configurable to be future proof. Let’s say that if you don’t need to support IE8, you only have to swith the `$legacy-support-for-ie8` setting to false for letting the framework know to ditch all IE8 fallbacks. This will make your code much cleaner, more robust & future proof.
+Blocss supports ALL major browsers from **IE8** and up, but it’s configurable to be future proof. Let’s say that if you don’t need to support IE8, you only have to swith the `$legacy-support-for-ie8` setting to false to let the framework ditch all IE8 fallbacks. This will make your code much cleaner, more robust & future proof.
 
 ## Installation
 
@@ -23,7 +23,7 @@ Blocss supports ALL major browsers from **IE8** and up, but it’s configurable 
 As of version v2.0+ the core library is intended to be used as a git submodule or as a bower component.
 This means you can always update blocss to the latest version without ever touching a single line of library code.
 
-But as of version v5.0+ all modules & abstractions are living in their own respective repositories, and this repository is only a ground-zero typographical based core.
+And as of version v5.0+ all modules & abstractions are living in their own respective repositories, and this repository is only a ground-zero typographical based core. Installation of specific blocss modules can be found in their respective [repositories](https://github.com/Blocss)
 
 ### Install via Generator blocss
 The simplest way to get started is to use [generator-blocss](https://github.com/Blocss/generator-blocss). Generator-blocss is a boilerplate wrapper wich contains a lot of handy tools to scaffold out your project.
