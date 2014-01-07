@@ -1,5 +1,22 @@
 {
     "name": "blocss",
-    "version": "5.0.1",
-    "main": "_blocss.scss"
+    "version": "5.0.2",
+    "author": "Bram Smulders",
+    "main": "_blocss.scss",
+    "dependencies": {
+        "blocss-buttons": "~1.0",
+        "blocss-navigation": "~1.0",
+        "blocss-grid": "~1.0",
+        "blocss-arrange": "~1.0",
+        "blocss-media": "~1.0",
+        "blocss-island": "~1.0",
+        "blocss-flexembed": "~1.0",
+        "blocss-dimensions": "~1.0",
+        "blocss-helpers": "~1.0"
+    },
+    "ignore": [
+        ".*",
+        "CHANGELOG.md",
+        "CONTRIBUTING.md"
+    ]
 }
