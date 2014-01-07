@@ -1,5 +1,11 @@
 == HEAD
 
+== 5.0.2 (Jan 07, 2014)
+
+* added default list & monospace resets
+* Show baseline setting for vertical rhythm testing
+* Smaller clearfix
+
 == 5.0.1 (Dec 28, 2013)
 
 * Updated readme
