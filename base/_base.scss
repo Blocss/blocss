@@ -16,6 +16,11 @@ html {
     font: #{($base-font-size/16px)*1em}/#{$line-height-ratio} $face-base; /* 1 */
     overflow-y: scroll; /* 2 */
     min-height: 100%;
+
+    @if $show-baseline == true {
+        $baseline-size: strip-units($space);
+        background-image: url(http://basehold.it/i/#{$baseline-size}); /* [3] */
+    }
 }
 
 
@@ -62,6 +67,30 @@ iframe,
 fieldset {
     border: 0;
 }
+
+
+/**
+ * Remove extra vertical spacing when nesting lists.
+ */
+li {
+    > ul,
+    > ol {
+        margin-bottom: 0;
+    }
+}
+
+
+/**
+ * 1. Fix an odd quirk whereby, without this, code blocks are rendered at a
+ *    font-size smaller than 1em.
+ */
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace; /* 1 */
+}
+
 
 
 /**

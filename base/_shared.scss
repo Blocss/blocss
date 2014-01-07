@@ -39,14 +39,9 @@ dd {
  */
 .cf,
 %cf {
-    zoom: 1;
-
-    &:before,
     &:after {
+        content: "";
         display: table;
-        content: " ";
-    }
-    &:after {
         clear: both;
     }
 }
