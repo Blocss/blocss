@@ -81,6 +81,19 @@ li {
 
 
 /**
+ * 1. Fix an odd quirk whereby, without this, code blocks are rendered at a
+ *    font-size smaller than 1em.
+ */
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace; /* 1 */
+}
+
+
+
+/**
  * Suppress the focus outline on links that cannot be accessed via keyboard.
  * This prevents an unwanted focus outline from appearing around elements that
  * might still respond to pointer events.
