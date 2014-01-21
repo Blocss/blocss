@@ -7,6 +7,5 @@
 * [Helpers](helpers.md)
 * [Components](components.md)
 * [API](api.md)
-* [Misc](misc.md)
 
 [Code style](code-style.md)
