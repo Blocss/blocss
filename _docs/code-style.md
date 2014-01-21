@@ -186,11 +186,12 @@ Example:
 ```css
 /*----------------------------------------------------------------------------*\
     Section comment block
-    Optional description
+    Optional description, sections are always separated by 5 carriage returns
 \*----------------------------------------------------------------------------*/
 
 /*  Sub-section comment block
-    Optional description
+    Optional description, sub sections are always separated by 3
+    carriage returns
 \*----------------------------------------------------------------------------*/
 
 /**
