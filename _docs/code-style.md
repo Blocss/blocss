@@ -11,7 +11,6 @@
 4. [CSS](#css)
   * [Comments](#css-comments)
   * [Format](#css-format)
-  * [Practical example](#css-example)
 
 
 <a name="general-principles"></a>
