@@ -28,6 +28,9 @@ the CSS.
 Make sure to read the documentation within the CSS files of helpers. It will
 contain information about each helper class and the implementation.
 
+In general helpers need to be imported last in your codebase since they need to
+override everything that is defined before.
+
 Blocss helpers are grouped by type. The names of helpers with similar
 concerns usually start with a common string, e.g., `text--center`,
 `text--left`; `float--left`, `float--none`.
@@ -37,7 +40,7 @@ concerns usually start with a common string, e.g., `text--center`,
     <a class="float--left" href="{url}">
         <img class="display--block" src="{src}" alt="">
     </a>
-    <p class="weight--light">
+    <p class="text--light">
         …
     </p>
 </div>
