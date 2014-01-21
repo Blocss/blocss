@@ -77,4 +77,4 @@ Modifications to helpers cascade throughout the application and should be
 made with extreme care.
 
 If a helper class needs to be replaced or removed, mark it as deprecated -
-`^tag deprecated` - and initiate a phase out.
+`^deprecated` - and initiate a phase out.
