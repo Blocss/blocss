@@ -1,6 +1,6 @@
 {
     "name": "blocss",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "author": "Bram Smulders",
     "main": "_blocss.scss",
     "dependencies": {

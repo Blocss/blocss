@@ -114,6 +114,11 @@ $breakpoints: (
 \*----------------------------------------------------------------------------*/
 
 /**
+ * Would you like to show a baseline grid? This is handy during development.
+ */
+$show-baseline:                 false                               !default;
+
+/**
  * Legacy support
  */
 $legacy-support-for-ie8:        true                                !default;
