@@ -1,4 +1,4 @@
-# SUIT HTML/CSS code style
+# Blocss HTML/CSS code style
 
 ## Table of contents
 
