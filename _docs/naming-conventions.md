@@ -53,7 +53,7 @@ The class should be included in the HTML _in addition_ to the base component cla
 ```
 
 ```html
-<button class="button button--default" type="button">…</button>
+<button class="button  button--default" type="button">…</button>
 ```
 
 <a name="component-name__descendant-name"></a>
@@ -94,7 +94,7 @@ the state (as they are scoped to the component).
 ```
 
 ```html
-<article class="tweet is-expanded">
+<article class="tweet  is-expanded">
     …
 </article>
 ```
