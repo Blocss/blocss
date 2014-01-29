@@ -1,5 +1,9 @@
 == HEAD
 
+== 5.0.3 (Jan 29, 2014)
+
+* Updated normalize to v3.0.0
+
 == 5.0.2 (Jan 07, 2014)
 
 * added default list & monospace resets
