@@ -256,13 +256,13 @@ in useful diffs and blames.
 .selector-1,
 .selector-2,
 .selector-3[type="text"] {
+    display: block;
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
     background: #fff;
     background: linear-gradient(#fff, rgba(0, 0, 0, 0.8));
-    box-sizing: border-box;
     color: #333;
-    display: block;
     font-family: helvetica, arial, sans-serif;
 }
 
