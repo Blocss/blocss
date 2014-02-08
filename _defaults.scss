@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*\
     DEFAULTS
-    Blocss’ default variables. Redefine and override them in your `_vars.scss`
-    file, found in blocsstrap.
+    Blocss’ default variables. Redefine and override them in your
+    application-level `_vars.scss` file.
 \*----------------------------------------------------------------------------*/
 
 /*----------------------------------------------------------------------------*\
@@ -122,7 +122,7 @@ $show-baseline:                 false                               !default;
 /**
  * Would you like to show media queries? This is handy during development.
  */
-$show-mq:                       true                               !default;
+$show-mq:                       false                               !default;
 
 
 /**
