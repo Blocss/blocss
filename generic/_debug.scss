@@ -137,7 +137,11 @@ input[type=submit][value] {
 }
 
 
+} // debug-mode
 
+
+
+@if $debug-mode == true or $show-mq == true {
 /*  Media query helper
     Displays the current active media query in the bottom right corner
 \*------------------------------------------------------------------------*/
@@ -172,7 +176,5 @@ body:after {
         }
     }
 }
-
-
 
 } // debug-mode
