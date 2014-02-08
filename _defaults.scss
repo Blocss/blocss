@@ -118,6 +118,13 @@ $breakpoints: (
  */
 $show-baseline:                 false                               !default;
 
+
+/**
+ * Would you like to show media queries? This is handy during development.
+ */
+$show-mq:                       true                               !default;
+
+
 /**
  * Legacy support
  */

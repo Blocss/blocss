@@ -1,4 +1,4 @@
-# Blocss – v5.0.3
+# Blocss – v5.0.4
 
 [Blocss](http://blocss.github.io/blocss) is a small but powerfull css framework designed specially for _serious_ developers.
 
@@ -12,6 +12,9 @@ It started initially as a fork of [Inuit css](https://github.com/csswizardry/inu
 * You need a framework that is robust and evolves constantly.
 
 A list of components & defaults can be found on the [Blocss project site](http://blocss.github.io/blocss).
+
+## Documentation
+Blocss is heavily documented, which means that every component has its own readme and the code is commented very well. For naming conventions, style guides & api please read the **[documentation](doc/README.md)**.
 
 ## Browser support
 Blocss supports ALL major browsers from **IE8** and up, but it’s configurable to be future proof. Let’s say that if you don’t need to support IE8, you only have to swith the `$legacy-support-for-ie8` setting to false to let the framework ditch all IE8 fallbacks. This will make your code much cleaner, more robust & future proof.
