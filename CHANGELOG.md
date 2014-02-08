@@ -1,5 +1,11 @@
 == HEAD
 
+== 5.0.4 (Feb 08, 2014)
+
+* Added docs
+* Separate mq debugger
+* added `<hr>` to reset
+
 == 5.0.3 (Jan 29, 2014)
 
 * Updated normalize to v3.0.0
