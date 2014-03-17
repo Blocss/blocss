@@ -11,6 +11,7 @@
         "blocss-media": "~1.0",
         "blocss-island": "~1.0",
         "blocss-flexembed": "~1.0",
+        "blocss-column": "~1.0",
         "blocss-dimensions": "~1.0",
         "blocss-helpers": "~1.0"
     },

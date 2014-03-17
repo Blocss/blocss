@@ -100,9 +100,8 @@ $space-half:                    $space/2                            !default;
 \*----------------------------------------------------------------------------*/
 
 $breakpoints: (
-    'palm'      '(max-width: 480px)',
-    'lap'       '(min-width: 481px) and (max-width: 960px)',
-    'desk'      '(min-width: 961px)'
+    'lap'       '(min-width: 480px)',
+    'desk'      '(min-width: 960px)'
 )                                                                   !default;
 
 
