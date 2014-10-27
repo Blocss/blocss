@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*----------------------------------------------------------------------------*\
     $BASE
     A thin layer on top of normalize.css that provides a starting point more
@@ -108,7 +109,7 @@ samp {
  * Image
  *
  * 1. By default all images are fluid
- * 2. Render `alt` visually offset when images don’t load
+ * 2. Render `alt` visually offset when images don't load
  */
 img {
     max-width: 100%; /* 1 */
