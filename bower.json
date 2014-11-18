@@ -1,8 +1,18 @@
 {
     "name": "blocss",
-    "version": "5.0.6",
+    "version": "5.0.7",
     "author": "Bram Smulders",
-    "main": "_blocss.scss",
+    "main": [
+        "_blocss.scss",
+        "_defaults.scss",
+        "base/_base.scss",
+        "base/_module.scss",
+        "base/_shared.scss",
+        "base/_typography.scss",
+        "generic/_debug.scss",
+        "generic/_mixins.scss",
+        "generic/_normalise.scss"
+    ],
     "dependencies": {
         "blocss-buttons": "~1.0",
         "blocss-navigation": "~1.0",
