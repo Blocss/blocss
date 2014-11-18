@@ -1,6 +1,6 @@
 == HEAD
 
-== 5.0.7 (Nov 18, 2014)
+== 5.0.8 (Nov 18, 2014)
 
 * Listed all files in main
 

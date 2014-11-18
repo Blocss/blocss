@@ -1,6 +1,6 @@
 {
     "name": "blocss",
-    "version": "5.0.7",
+    "version": "5.0.8",
     "author": "Bram Smulders",
     "main": [
         "_blocss.scss",
@@ -11,7 +11,7 @@
         "base/_typography.scss",
         "generic/_debug.scss",
         "generic/_mixins.scss",
-        "generic/_normalise.scss"
+        "generic/_normalize.scss"
     ],
     "dependencies": {
         "blocss-buttons": "~1.0",
