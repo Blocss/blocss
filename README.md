@@ -1,4 +1,4 @@
-# Blocss – v5.0.6
+# Blocss – v5.0.7
 
 [Blocss](http://blocss.github.io/blocss) is a small but powerfull css framework designed specially for _serious_ developers.
 

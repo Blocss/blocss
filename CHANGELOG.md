@@ -1,5 +1,9 @@
 == HEAD
 
+== 5.0.7 (Nov 18, 2014)
+
+* Listed all files in main
+
 == 5.0.4 (Feb 08, 2014)
 
 * Added docs
