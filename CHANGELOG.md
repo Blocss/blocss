@@ -1,5 +1,10 @@
 == HEAD
 
+== 6.0.0 (Nov 25, 2015)
+
+* Updated blocss with all separate components
+* Added starterkit for easy startup
+
 == 5.0.8 (Nov 18, 2014)
 
 * Listed all files in main
