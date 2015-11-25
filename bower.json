@@ -1,5 +1,6 @@
 {
     "name": "blocss",
+    "version": "6.0.0",
     "homepage": "https://github.com/Blocss/blocss",
     "authors": [
         "Bram Smulders <bram@bramsmulders.com>"
