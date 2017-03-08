@@ -1,7 +1,7 @@
 # The usual
 .DS_Store
 .sass-cache/
-config.codekit
+node_modules
 
 # Don't bundle any compiled css & test files
 test.scss
