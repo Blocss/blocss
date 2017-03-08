@@ -6,7 +6,7 @@
         "Bram Smulders <bram@bramsmulders.com>"
     ],
     "description": "Blocss is a small but powerfull css framework designed specially for serious developers.",
-    "main": "lib/_starterkit.scss",
+    "main": "blocss.scss",
     "keywords": [
         "blocss",
         "css",
