@@ -2,9 +2,13 @@
   "name": "blocss",
   "version": "7.0.0-alpha",
   "description": "Blocss is a small but powerfull css framework designed specially for serious developers.",
-  "main": "_starterkit.scss",
+  "main": "blocss.scss",
   "directories": {
     "doc": "doc"
+  },
+  "scripts": {
+    "test": "npm run lint",
+    "lint": "./node_modules/.bin/stylelint \"**/*.scss\" --syntax scss"
   },
   "repository": {
     "type": "git",
@@ -23,5 +27,10 @@
   "bugs": {
     "url": "https://github.com/Blocss/blocss/issues"
   },
-  "homepage": "https://github.com/Blocss/blocss#readme"
+  "homepage": "https://github.com/Blocss/blocss#readme",
+  "devDependencies": {
+    "glob": "^7.1.1",
+    "stylelint": "^7.9.0",
+    "stylelint-scss": "^1.4.3"
+  }
 }
