@@ -8,3 +8,33 @@
 $blocss-base-font-size: 16px !default;
 $blocss-base-line-height: 24px !default;
 $blocss-line-height-ratio: $blocss-base-line-height/$blocss-base-font-size !default;
+
+
+
+/*  Spacing
+    Assign our `$blocss-base-line-height` to a new spacing variable for
+    more transparency
+    ========================================================================= */
+
+$blocss-space: $blocss-base-line-height !default;
+$blocss-space-tiny: $blocss-space/4 !default;
+$blocss-space-small: $blocss-space/2 !default;
+$blocss-space-large: $blocss-space*2 !default;
+$blocss-space-huge: $blocss-space*4 !default;
+
+
+
+/*  Namespace
+    Would you like blocss classes to be used with a different namespace?
+    ========================================================================= */
+
+$blocss-namespace: null !default;
+$blocss-responsive-modifier: unquote("\\@") !default;
+
+
+
+/*  Flexbox
+    Would you like blocss to enable flexbox in its subcomponents?
+    ========================================================================= */
+
+$blocss-use-flexbox: false !default;
