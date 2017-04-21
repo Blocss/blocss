@@ -2,7 +2,7 @@
   "name": "blocss",
   "version": "7.0.0-alpha",
   "description": "Blocss is a small but powerfull css framework designed specially for serious developers.",
-  "main": "blocss.scss",
+  "main": "lib/blocss.scss",
   "directories": {
     "doc": "doc"
   },
@@ -29,7 +29,7 @@
   "homepage": "https://github.com/Blocss/blocss#readme",
   "devDependencies": {
     "glob": "^7.1.1",
-    "stylelint": "^7.9.0",
+    "stylelint": "^7.10.1",
     "stylelint-scss": "^1.4.3"
   }
 }

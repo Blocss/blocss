@@ -6,7 +6,7 @@
         "Bram Smulders <bram@bramsmulders.com>"
     ],
     "description": "Blocss is a small but powerfull css framework designed specially for serious developers.",
-    "main": "blocss.scss",
+    "main": "lib/blocss.scss",
     "keywords": [
         "blocss",
         "css",
@@ -14,14 +14,6 @@
         "atomic design",
         "BEM"
     ],
-    "dependencies": {
-        "blocss-defaults": "~1.0.0",
-        "blocss-normalize": "~3.0.3",
-        "blocss-mixins": "~1.0.0",
-        "blocss-extends": "~1.0.0",
-        "blocss-reset": "~1.0.0",
-        "blocss-shared": "~1.0.1"
-    },
     "ignore": [
         ".*",
         "CHANGELOG.md",
