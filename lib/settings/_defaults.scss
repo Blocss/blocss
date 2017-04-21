@@ -1,3 +1,10 @@
 /*  =========================================================================
     defaults
     ========================================================================= */
+
+/*  Typography
+    ========================================================================= */
+
+$blocss-base-font-size: 16px !default;
+$blocss-base-line-height: 24px !default;
+$blocss-line-height-ratio: $blocss-base-line-height/$blocss-base-font-size !default;
