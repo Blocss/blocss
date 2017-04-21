@@ -2,6 +2,7 @@
 .DS_Store
 .sass-cache/
 node_modules
+test/**.*
 
 # Don't bundle any compiled css & test files
 test.scss

@@ -7,8 +7,9 @@
     "doc": "doc"
   },
   "scripts": {
-    "test": "npm run lint",
-    "lint": "./node_modules/.bin/stylelint \"**/*.scss\" --syntax scss"
+    "test": "npm run lint && npm run scss",
+    "lint": "./node_modules/.bin/stylelint \"**/*.scss\" --syntax scss",
+    "scss": "node-sass lib/blocss.scss test/test.css"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "glob": "^7.1.1",
     "stylelint": "^7.10.1",
-    "stylelint-scss": "^1.4.3"
+    "stylelint-scss": "^1.4.3",
+    "node-sass": "^4.5.2"
   }
 }
