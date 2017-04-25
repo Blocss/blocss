@@ -1,0 +1,143 @@
+/*  =========================================================================
+    utilities.dimensions
+    Sizes in human readable format. These are used in conjunction with other
+    objects and abstractions found in blocss, most commonly the grid system
+    and the arrange module.
+    ========================================================================= */
+
+/*  Variables
+    Variables used in this module
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$blocss-dimensions-namespace: $blocss-namespace !default;
+$blocss-dimensions-combined-namespace: #{$blocss-dimensions-namespace}#{$blocss-namespace-utility} !default;
+$blocss-dimensions-responsive-modifier: $blocss-responsive-modifier !default;
+
+
+/**
+ * Flags to enable or disable dimension traits
+ */
+$blocss-dimensions-use-flexbox: $blocss-use-flexbox !default;
+
+/**
+ * Divisions, makes it easy to create several proportional
+ * dimensions (e.g., both a 2-part and a 12-part grid).
+ *
+ * For example, `2 4 6 12` will let you use the u-unit-1-2, u-unit-2-4,
+ * unit-3-6, and unit-6-12 classes to specify that an element should
+ * take up 50% of its container.
+ */
+$blocss-dimensions-divisions: 12 !default;
+
+/**
+ * Define which namespaced breakpoints you would like to generate for each
+ * of the dimensions. This is handy if you only need push on, say,
+ * desk, or you only need a new unit breakpoint at mobile sizes. It allows
+ * you to only compile as much CSS as you need. All are empty by
+ * default, but you can add breakpoints at will.
+ *
+ * $blocss-breakpoint-has-x:       ('palm', 'desk');
+ *
+ * Note: the name of the breakpoint must exist in the list of `$breakpoints`
+ *       in the Blocss base repository
+ */
+$blocss-dimensions-breakpoint-has-units: () !default;
+
+/**
+ * You can rename the dimension prefixes to your liking
+ */
+$blocss-dimensions-name-units: unit !default;
+
+
+
+/*  Functions/Mixins
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+/**
+ * Fluid units
+ * USAGE: provide a space-separated list of integers, each of which
+ * represents the number of parts that make up a unit component.
+ * Optionally provide a modifier suffix that can be used to adjust
+ * grids in different contexts (e.g. viewport dimensions).
+ */
+
+/* stylelint-disable max-nesting-depth */
+@mixin blocss-dimensions-build ($units, $modifier: "") {
+
+  /**
+   * Proportional units
+   * Specify the proportional width of an object.
+   * Primarily for, but not limited to, use with `.grid__cell` components.
+   * Intentional redundancy build into each set of unit classes.
+   */
+  @each $n in $units {
+
+    /* Avoid creating rules like '.unit-12-12 {}'' */
+    $x: $n - 1;
+
+    @for $i from 1 through $x {
+
+      /**
+       * Create units based on fractions
+       */
+      .#{$blocss-dimensions-combined-namespace}#{$blocss-dimensions-name-units}-#{$i}-#{$n}#{$modifier} {
+
+        /**
+         * If this unit can be reduced then extend the previous rule
+         * 1. Use `flex-basis: auto` with a width to avoid box-sizing bug in IE10/11
+         */
+
+        @if $blocss-use-flexbox == true {
+          flex-basis: auto !important; /* [1] */
+        }
+        width: percentage($i / $n) !important;
+      }
+
+    }
+  }
+
+
+  /**
+   * Reset dimensions
+   * 1. Use `flex-basis: auto` with a width to avoid box-sizing bug in IE10/11
+   */
+  .#{$blocss-dimensions-combined-namespace}#{$blocss-dimensions-name-units}-1-1#{$modifier} {
+    @if $blocss-use-flexbox == true {
+      flex-basis: auto !important; /* [1] */
+    }
+    width: 100% !important;
+  }
+  .#{$blocss-dimensions-combined-namespace}#{$blocss-dimensions-name-units}-auto#{$modifier} {
+    @if $blocss-use-flexbox == true {
+      flex-basis: auto !important; /* [1] */
+    }
+    width: auto !important;
+  }
+}
+
+/* stylelint-enable max-nesting-depth */
+
+
+
+/*  Dimensions core
+    ========================================================================= */
+
+/**
+ * Setup generic widths
+ */
+@include blocss-dimensions-build($blocss-dimensions-divisions);
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@each $name in $blocss-dimensions-breakpoint-has-units {
+  @include blocss-media-query($name) {
+    @include blocss-dimensions-build($blocss-dimensions-divisions, "#{$blocss-dimensions-responsive-modifier}#{$name}");
+  }
+}

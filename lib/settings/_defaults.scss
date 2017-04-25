@@ -32,6 +32,8 @@ $blocss-space-huge: $blocss-space*4 !default;
 
 $blocss-namespace: null !default;
 $blocss-namespace-object: "o-" !default;
+$blocss-namespace-component: "c-" !default;
+$blocss-namespace-utility: "u-" !default;
 $blocss-responsive-modifier: unquote("\\@") !default;
 
 
@@ -40,7 +42,7 @@ $blocss-responsive-modifier: unquote("\\@") !default;
     Would you like blocss to enable flexbox in its subcomponents?
     ========================================================================= */
 
-$blocss-use-flexbox: false !default;
+$blocss-use-flexbox: true !default;
 
 
 
