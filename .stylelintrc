@@ -3,8 +3,8 @@
     "stylelint-scss"
   ],
   "ignoreFiles": [
-    "./generic/_generic.normalize.scss",
-    "./test/*.scss"
+    "./lib/generic/_normalize.scss",
+    "./test/*.css"
   ],
   "rules": {
     "scss/at-extend-no-missing-placeholder": true,
