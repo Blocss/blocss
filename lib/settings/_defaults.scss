@@ -41,3 +41,16 @@ $blocss-responsive-modifier: unquote("\\@") !default;
     ========================================================================= */
 
 $blocss-use-flexbox: false !default;
+
+
+
+/*  Responsive
+    Define your breakpoints. The first value is the appendix that shall be used
+    for your classes (e.g. `.classname@lap`), the second value is the media
+    query that the breakpoint fires at.
+    ========================================================================= */
+
+$blocss-breakpoints: (
+  "lap": "(min-width: 480px)",
+  "desk": "(min-width: 960px)"
+) !default;

@@ -1,0 +1,28 @@
+/*  =========================================================================
+    mixins.media-query
+    Enclose a block of code with a media query as named in `$blocss-breakpoints`.
+    ========================================================================= */
+
+@mixin blocss-media-query($media-query) {
+  $breakpoint-found: false;
+
+  @each $breakpoint in $blocss-breakpoints {
+    @if type-of($breakpoint) == "list" {
+      $name: nth($breakpoint, 1);
+      $declaration: nth($breakpoint, 2);
+
+      @if $media-query == $name and $declaration {
+        $breakpoint-found: true;
+
+        @media only screen and #{$declaration} {
+          @content;
+        }
+      }
+    } @else {
+      @error "Breakpoint doesn’t match the `'key': '(value)'` format";
+    }
+  }
+  @if $breakpoint-found == false {
+    @warn "Breakpoint ‘#{$media-query}’ does not exist";
+  }
+}
