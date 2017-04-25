@@ -34,17 +34,15 @@ $blocss-dimensions-divisions: 12 !default;
 
 /**
  * Define which namespaced breakpoints you would like to generate for each
- * of the dimensions. This is handy if you only need push on, say,
- * desk, or you only need a new unit breakpoint at mobile sizes. It allows
- * you to only compile as much CSS as you need. All are empty by
- * default, but you can add breakpoints at will.
+ * of the dimensions. It allows you to only compile as much CSS as you need.
+ * All are empty by default, but you can add breakpoints at will.
  *
- * $blocss-breakpoint-has-dimensions-x:       ('palm', 'desk');
+ * $blocss-breakpoint-has-dimensions-units: ('palm', 'desk');
  *
  * Note: the name of the breakpoint must exist in the list of `$breakpoints`
  *       in the Blocss base repository
  */
-$blocss-breakpoint-has-dimensions-unit: () !default;
+$blocss-breakpoint-has-dimensions-units: () !default;
 
 /**
  * You can rename the dimension prefixes to your liking
