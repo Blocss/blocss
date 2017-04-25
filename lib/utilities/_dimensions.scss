@@ -39,12 +39,12 @@ $blocss-dimensions-divisions: 12 !default;
  * you to only compile as much CSS as you need. All are empty by
  * default, but you can add breakpoints at will.
  *
- * $blocss-breakpoint-has-x:       ('palm', 'desk');
+ * $blocss-breakpoint-has-dimensions-x:       ('palm', 'desk');
  *
  * Note: the name of the breakpoint must exist in the list of `$breakpoints`
  *       in the Blocss base repository
  */
-$blocss-dimensions-breakpoint-has-units: () !default;
+$blocss-breakpoint-has-dimensions-unit: () !default;
 
 /**
  * You can rename the dimension prefixes to your liking
@@ -136,7 +136,7 @@ $blocss-dimensions-name-units: unit !default;
 /*  Responsive
     ========================================================================= */
 
-@each $name in $blocss-dimensions-breakpoint-has-units {
+@each $name in $blocss-breakpoint-has-dimensions-units {
   @include blocss-media-query($name) {
     @include blocss-dimensions-build($blocss-dimensions-divisions, "#{$blocss-dimensions-responsive-modifier}#{$name}");
   }

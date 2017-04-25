@@ -29,13 +29,13 @@ $blocss-layout-gutter-huge: $blocss-space-huge !default;
  * at mobile sizes. It allows you to only compile as much CSS as you need.
  * All are empty by default, but you can add breakpoints at will.
  *
- * $blocss-layout-breakpoint-has-x:       ('palm', 'desk');
+ * $blocss-breakpoint-has-layout-x:       ('lap', 'desk');
  *
  * Note: the name of the breakpoint must exist in the list of `$blocss-breakpoints`
  *       in the Blocss base repository
  */
-$blocss-layout-breakpoint-has-fit: () !default;
-$blocss-layout-breakpoint-has-fill: () !default;
+$blocss-breakpoint-has-layout-fit: () !default;
+$blocss-breakpoint-has-layout-fill: () !default;
 
 
 
@@ -253,7 +253,7 @@ $blocss-layout-breakpoint-has-fill: () !default;
 /*  Responsive
     ========================================================================= */
 
-@each $name in $blocss-layout-breakpoint-has-fit {
+@each $name in $blocss-breakpoint-has-layout-fit {
   @include blocss-media-query($name) {
     .#{$blocss-layout-combined-namespace}layout__cell--fit#{$blocss-layout-responsive-modifier}#{$name} {
       @include blocss-layout-fit;
@@ -261,7 +261,7 @@ $blocss-layout-breakpoint-has-fill: () !default;
   }
 }
 
-@each $name in $blocss-layout-breakpoint-has-fill {
+@each $name in $blocss-breakpoint-has-layout-fill {
   @include blocss-media-query($name) {
     .#{$blocss-layout-combined-namespace}layout__cell--fill#{$blocss-layout-responsive-modifier}#{$name} {
       @include blocss-layout-fill;
