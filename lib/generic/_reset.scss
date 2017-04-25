@@ -6,20 +6,25 @@
     ========================================================================= */
 
 /**
- * Set the global `box-sizing` state to `border-box`.
- *
- * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
- * paulirish.com/2012/box-sizing-border-box-ftw
+ * 1. Set the global `box-sizing` state to `border-box`. As per:
+ *    paulirish.com/2012/box-sizing-border-box-ftw
+ * 2. Always add the horizontal scrollbar to prevent layout shifting
+ * 3. Fonts on OSX will look more consistent with other systems that do not
+ *    render text using sub-pixel anti-aliasing.
  */
 html {
-  box-sizing: border-box;
+  box-sizing: border-box; /* [1] */
+  overflow-y: scroll; /* [2] */
+  min-height: 100%;
+  -moz-osx-font-smoothing: grayscale; /* [3] */
+  -webkit-font-smoothing: antialiased; /* [3] */
 }
 
 * {
   &,
   &:before,
   &:after {
-    box-sizing: inherit;
+    box-sizing: inherit; /* [1] */
   }
 }
 
@@ -85,6 +90,6 @@ li {
  * 2. Render `alt` visually offset when images don't load
  */
 img {
-  max-width: 100%; /* 1 */
-  font-style: italic; /* 2 */
+  max-width: 100%; /* [1] */
+  font-style: italic; /* [2] */
 }
