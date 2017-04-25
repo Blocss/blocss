@@ -10,9 +10,8 @@
 /**
  * Namespacing
  */
-$blocss-layout-namespace-object: $blocss-namespace-object !default;
 $blocss-layout-namespace: $blocss-namespace !default;
-$blocss-layout-combined-namespace: #{$blocss-layout-namespace}#{$blocss-layout-namespace-object} !default;
+$blocss-layout-combined-namespace: #{$blocss-layout-namespace}#{$blocss-namespace-object} !default;
 $blocss-layout-responsive-modifier: $blocss-responsive-modifier !default;
 
 /**
