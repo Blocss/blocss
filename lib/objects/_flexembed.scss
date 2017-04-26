@@ -1,0 +1,75 @@
+/*  =========================================================================
+    objects.flexembed
+    For use with multi-media embeds, such as videos or slideshows, that need to
+    retain a specific aspect ratio but adapt to elements of variable widths.
+    ========================================================================= */
+
+/*  Variables
+    Variables used in this module
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$blocss-flexembed-namespace: $blocss-namespace !default;
+$blocss-flexembed-combined-namespace: #{$blocss-flexembed-namespace}#{$blocss-namespace-object} !default;
+
+
+/**
+ * Ratio's
+ */
+$blocss-flexembed-ratios: (
+  (2:1),
+  (4:3),
+  (16:9),
+) !default;
+
+
+
+/*  Module
+    Core module
+    ========================================================================= */
+
+/**
+ * 1. Default cropping is a perfect square
+ */
+.#{$blocss-flexembed-combined-namespace}flexembed {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  padding-bottom: 100%; /* [1] */
+}
+
+
+/**
+ * The actual embed/item
+ */
+.#{$blocss-flexembed-combined-namespace}flexembed__item,
+.#{$blocss-flexembed-combined-namespace}flexembed > iframe,
+.#{$blocss-flexembed-combined-namespace}flexembed > embed,
+.#{$blocss-flexembed-combined-namespace}flexembed > object {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+
+/*  Generate ratios
+    ========================================================================= */
+
+@each $ratio in $blocss-flexembed-ratios {
+  @each $a, $b in $ratio {
+    @if (type-of($a) != number or type-of($b) != number) {
+      @error "`#{$a}` and `#{$b}` need to be numbers.";
+    }
+
+    .#{$blocss-flexembed-combined-namespace}flexembed--#{$a}by#{$b} {
+      padding-bottom: ($b/$a) * 100%;
+    }
+  }
+}
