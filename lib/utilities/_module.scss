@@ -1,0 +1,52 @@
+/*  =========================================================================
+    utilities.module
+    Removes the `margin-bottom` of a modules last-childs.
+    As per: http://css-tricks.com/spacing-the-bottom-of-modules/
+    ========================================================================= */
+
+/*  Variables
+    Variables used in this module
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$blocss-module-namespace: $blocss-namespace !default;
+$blocss-module-combined-namespace: #{$blocss-module-namespace}#{$blocss-namespace-utility} !default;
+
+/**
+ * Depth
+ */
+$blocss-module-depth: 4 !default;
+
+
+
+/*  Functions/Mixins
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+@mixin blocss-render-module {
+  $selector-all: "";
+  @for $step from 1 through $blocss-module-depth {
+    $selector: "";
+    @for $i from 1 through $step {
+      $selector: $selector + " > *:last-child";
+    }
+    $selector-all: $selector-all + $selector + ",";
+  }
+
+  #{$selector-all} {
+    margin-bottom: 0 !important;
+  }
+}
+
+
+
+/*  Module
+    Core module
+    ========================================================================= */
+
+.#{$blocss-visually-hidden-combined-namespace}module {
+  @include blocss-render-module();
+}
+
