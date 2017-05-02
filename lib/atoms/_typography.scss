@@ -1,0 +1,73 @@
+/*  =========================================================================
+    atoms.typography
+    Defines typography on a vertical baseline grid
+    ========================================================================= */
+
+/*  Variables
+    Variables used in this module
+    ========================================================================= */
+
+$blocss-typography-font-size-min: $blocss-base-font-size !default;
+$blocss-typography-font-size-max: 24px !default;
+$blocss-typography-vw-min: 320px !default;
+$blocss-typography-vw-max: 960px !default;
+
+
+
+/*  Functions/Mixins
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+@mixin blocss-fluid-type($min-vw: $blocss-typography-vw-min, $max-vw: $blocss-typography-vw-max, $min-value: $blocss-typography-font-size-min, $max-value: $blocss-typography-font-size-max) {
+  & {
+    $unit: unit($min-value);
+    @if ($unit != unit($max-value) or $unit != unit($min-vw) or $unit != unit($max-vw)) {
+      @error "All units provided in blocss-fluid-type need to be of the same type";
+    }
+
+    @include blocss-rem(font-size, $min-value);
+
+    @if ($min-value != $max-value) {
+      @media screen and (min-width: blocss-value-to-rem($min-vw)) {
+        font-size: calc(#{blocss-value-to-rem($min-value)} + #{blocss-strip-units(blocss-value-to-rem($max-value) - blocss-value-to-rem($min-value))} * (100vw - #{$min-vw}) / #{blocss-strip-units(blocss-value-to-rem($max-vw) - blocss-value-to-rem($min-vw))});
+      }
+
+      @media screen and (min-width: blocss-value-to-rem($max-vw)) {
+        @include blocss-rem(font-size, $max-value);
+      }
+    }
+  }
+}
+
+
+/*  Module
+    Core module
+    ========================================================================= */
+
+html {
+  @include blocss-fluid-type();
+}
+
+h1 {
+  @include blocss-font-size(45px);
+}
+
+h2 {
+  @include blocss-font-size(40px);
+}
+
+h3 {
+  @include blocss-font-size(30px);
+}
+
+h4 {
+  @include blocss-font-size(25px);
+}
+
+h5 {
+  @include blocss-font-size(20px);
+}
+
+h6 {
+  @include blocss-font-size(18px);
+}
