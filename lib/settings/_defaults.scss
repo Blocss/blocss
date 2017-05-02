@@ -38,14 +38,6 @@ $blocss-responsive-modifier: unquote("\\@") !default;
 
 
 
-/*  Flexbox
-    Would you like blocss to enable flexbox in its subcomponents?
-    ========================================================================= */
-
-$blocss-use-flexbox: true !default;
-
-
-
 /*  Responsive
     Define your breakpoints. The first value is the appendix that shall be used
     for your classes (e.g. `.classname@lap`), the second value is the media
