@@ -115,6 +115,14 @@ $blocss-breakpoint-has-layout-fill: () !default;
 
 
 /**
+ * Modifier: reverse all cells
+ */
+.#{$blocss-layout-combined-namespace}layout--reverse {
+  flex-direction: row-reverse;
+}
+
+
+/**
  * Modifier: allow cells to equal distribute width
  *
  * 1. Provide all values to avoid IE10 bug with shorthand flex
