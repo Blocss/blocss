@@ -29,7 +29,7 @@ $blocss-typography-vw-max: 960px !default;
 
     @if ($min-value != $max-value) {
       @media screen and (min-width: blocss-value-to-rem($min-vw)) {
-        font-size: calc(#{blocss-value-to-rem($min-value)} + #{blocss-strip-units(blocss-value-to-rem($max-value) - blocss-value-to-rem($min-value))} * (100vw - #{$min-vw}) / #{blocss-strip-units(blocss-value-to-rem($max-vw) - blocss-value-to-rem($min-vw))});
+        font-size: calc(#{blocss-value-to-rem($min-value)} + #{blocss-strip-units(blocss-value-to-rem($max-value) - blocss-value-to-rem($min-value))} * (100vw - #{blocss-value-to-rem($min-vw)}) / #{blocss-strip-units(blocss-value-to-rem($max-vw) - blocss-value-to-rem($min-vw))});
       }
 
       @media screen and (min-width: blocss-value-to-rem($max-vw)) {
