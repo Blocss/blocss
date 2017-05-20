@@ -45,9 +45,9 @@ Blocss supports ALL major browsers from **IE8** and up, but it’s configurable 
 
 **Requires Sass 3.2+**
 
-yarn: `yarn add blocss --dev`
-npm: `npm install blocss --save-dev`
-Bower: `bower install --save blocss`
+* yarn: `yarn add blocss --dev`
+* npm: `npm install blocss --save-dev`
+* Bower: `bower install --save blocss`
 
 ## Getting started
 Blocss is a layered framework, wich means you can easily add your own theme and components on top of it. All blocss submodules are created based on Brad Frost’s
