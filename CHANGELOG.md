@@ -1,5 +1,15 @@
 == HEAD
 
+== 7.0.0-alpha (May 20, 2017)
+
+* Moved all most used subcomponents back into the core
+* Introduced `o-`, `c-` & `u-` namespaces
+* Changed responsive modifier to `\\@`, so you can use `@` in your components
+* Prefixed all variables, mixins & functions with `blocss-`
+* Added blocss to the `npm` registry making it available for `npm` & `yarn`
+* Added stylelint rules
+* Added .editorconfig
+
 == 6.0.0 (Nov 25, 2015)
 
 * Updated blocss with all separate components
