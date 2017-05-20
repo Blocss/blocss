@@ -2,6 +2,8 @@
 
 **Note:**
 Blocss 7 is in early alpha stage, so there might be dragons ahead. If you find a problem, please file an issue in the [issue tracker](https://github.com/Blocss/blocss/issues).
+The documentation is not entirely up to date, please bare with me.
+
 The following subcomponents are ported back into the core:
 
 * settings.defaults, moved to `/lib/settings/_defaults.scss`
@@ -43,59 +45,13 @@ Blocss supports ALL major browsers from **IE8** and up, but it’s configurable 
 
 **Requires Sass 3.2+**
 
-As of version v6.0+ all modules & abstractions are living in their own respective repositories, and this repository contains only a starter kit. Installation of specific blocss modules can be found in their respective [repositories](https://github.com/Blocss)
-
-### Install via bower
-You can install Blocss via twitter’s bower by including the framework in your `bower.json`:
-
-```json
-{
-    "name": "your-app",
-    "version": "x.x.x",
-    "dependencies": {
-        "blocss": "~6"
-    },
-    "devDependencies": {}
-}
-```
-Or alternatively you can simply run `$ bower install --save blocss`.
+yarn: `yarn add blocss --dev`
+npm: `npm install blocss --save-dev`
+Bower: `bower install --save blocss`
 
 ## Getting started
 Blocss is a layered framework, wich means you can easily add your own theme and components on top of it. All blocss submodules are created based on Brad Frost’s
 [atomic design](http://bradfrost.com/blog/post/atomic-web-design/) principles.
-The Blocss starterkit consists of the following subcomponents:
-
-### [Defaults](https://github.com/Blocss/settings.defaults)
-
-The defaults module contains a few variables and settings that are _required_ for using any of the rest of the framework.
-
-All the Sass variables required for the library to compile without failing are stored in this file. These variables are preset because Blocss will error without them, but they are not set in stone, and you are encouraged to override and experiment with them.
-
-To maintain updatability of the Blocss framework you must not directly edit anything within the framework files.
-When you need to override the variables set in `_settings.defaults.scss` please do so in your own variable file.
-
-### [Normalize](https://github.com/Blocss/atoms.normalize)
-
-The `normalize.css` module is an exact clone of normalize.css at version v3.0.3.
-normalize.css <q>makes browsers render all elements more consistently and in
-line with modern standards</q>. It is developed and maintained by [Nicolas
-Gallagher](https://twitter.com/necolas).
-
-### [Mixins](https://github.com/Blocss/tools.mixins)
-
-The mixins module contains a few framework mixins that are required for using any of the rest of blocss.
-
-### [Extends](https://github.com/Blocss/tools.extends)
-
-A couple of default extendable classes like `.module` and `.cf`
-
-### [Reset](https://github.com/Blocss/atoms.reset)
-
-The reset module is a thin layer on top of normalize.css that provides a starting point more suitable for web applications. Removes the default spacing and border for appropriate elements.
-
-### [Shared](https://github.com/Blocss/atoms.shared)
-
-The shared module contains several high-level rulesets which apply a consistent, shared declaration (typically margins & line-heights) across a number of elements.
 
 
 ## Extending Blocss
