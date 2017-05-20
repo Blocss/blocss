@@ -1,0 +1,40 @@
+/*  =========================================================================
+    functions
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+$blocss-browser-context: $blocss-base-font-size !default;
+
+
+
+/*  Functions
+    ========================================================================= */
+
+/**
+ * Value to rem
+ */
+@function blocss-value-to-rem ($value) {
+  @if type-of($value) == string or unitless($value) == true or unit($value) == "em" or unit($value) == "%" {
+    @return $value;
+  } @else {
+    @return ($value/$blocss-browser-context*1rem);
+  }
+}
+
+
+/**
+ * Value to em
+ */
+@function blocss-value-to-em ($value, $context: $blocss-browser-context) {
+  @return ($value/$context*1em);
+}
+
+
+/**
+ * A small, internally-used function to remove the units from a given value.
+ */
+@function blocss-strip-units ($number) {
+  @return $number / ($number * 0 + 1);
+}

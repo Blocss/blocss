@@ -1,0 +1,68 @@
+/*  =========================================================================
+    utilities.visually-hidden
+    Hide only visually, but have it available for screenreaders
+    ========================================================================= */
+
+/*  Variables
+    Variables used in this module
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$blocss-visually-hidden-namespace: $blocss-namespace !default;
+$blocss-visually-hidden-combined-namespace: #{$blocss-visually-hidden-namespace}#{$blocss-namespace-utility} !default;
+$blocss-visually-hidden-responsive-modifier: $blocss-responsive-modifier !default;
+
+
+/**
+ * Define which namespaced breakpoints you would like to generate.
+ * It allows you to only compile as much CSS as you need. All are empty by
+ * default, but you can add breakpoints at will.
+ *
+ * $blocss-breakpoint-has-visually-hidden:       ('lap', 'desk');
+ *
+ * Note: the name of the breakpoint must exist in the list of `$breakpoints`
+ *       in the Blocss defaults
+ */
+$blocss-breakpoint-has-visually-hidden: () !default;
+
+
+
+/*  Functions/Mixins
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+@mixin blocss-visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+
+
+/*  Module
+    Core module
+    ========================================================================= */
+
+.#{$blocss-visually-hidden-combined-namespace}visually-hidden {
+  @include blocss-visuallyhidden;
+}
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@each $state in $blocss-breakpoint-has-visually-hidden {
+  @include blocss-media-query(#{$state}) {
+    .#{$blocss-visually-hidden-combined-namespace}visually-hidden#{$blocss-visually-hidden-responsive-modifier}#{$state} {
+      @include blocss-visuallyhidden;
+    }
+  }
+}

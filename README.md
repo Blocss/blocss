@@ -1,4 +1,24 @@
-# Blocss – v6.0.0
+# Blocss – v7.0.0-alpha
+
+**Note:**
+Blocss 7 is in early alpha stage, so there might be dragons ahead. If you find a problem, please file an issue in the [issue tracker](https://github.com/Blocss/blocss/issues).
+The following subcomponents are ported back into the core:
+
+* settings.defaults, moved to `/lib/settings/_defaults.scss`
+* tools.mixins, splitted up into smaller pieces, moved to: `/lib/tools/`
+* atoms.normalize, updated to the latest version, moved to: `/lib/generic/_normalize.scss`
+* atoms.reset, moved to: `/lib/generic/_reset.scss`
+* atoms.shared, moved to: `/lib/generic/_vertical-rhythm.scss`
+* molecules.layout, moved to: `/lib/objects/_layout.scss`
+* flexembed, moved to: `/lib/objects/_flexembed.scss`
+* atoms.dimensions, moved to: `/lib/utilities/_fractions.scss`
+* tools.extends, moved to: `/lib/utilities/_module.scss` & `/lib/utilities/_float.scss`
+
+Keep in mind that the API of some components has changed drastically, please check the modules for specific implementation details.
+Due to this change there is a legacy wrapper available in `/lib/tools/_legacy.scss`. This file contains some "old" mixin and function names which are wrapped to their new ones.
+
+Blocss 7 is fully compliant with the old modules, given you use the `legacy` mixin file.
+`blocss.scss` is added as a reference file on how you could implement the smaller components.
 
 [Blocss](http://blocss.github.io/blocss) is a small but powerfull css framework designed specially for _serious_ developers.
 

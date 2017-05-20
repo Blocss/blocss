@@ -1,0 +1,43 @@
+/*  =========================================================================
+    vertical-rhythm
+    Contains several high-level rulesets which apply a consistent, shared
+    declaration (typically margins) across a number of elements.
+    ========================================================================= */
+
+/**
+ * Toplevel HTML element
+ * 1. Apply the `$blocss-base-font-size`, `$blocss-line-height-ratio`
+ */
+html {
+  font-size: #{($blocss-base-font-size/16px)*1em}; /* [1] */
+  line-height: #{$blocss-line-height-ratio}; /* [1] */
+}
+
+
+/**
+ * Applies vertical rhythm to designated elements
+ * As per: http://csswizardry.com/2012/06/single-direction-margin-declarations
+ */
+hgroup,
+ul,
+ol,
+dl,
+blockquote,
+p,
+address,
+table,
+fieldset,
+pre,
+hr {
+  @include blocss-rem(margin-bottom, $blocss-space);
+}
+
+
+/**
+ * Default indentation value for lists
+ */
+ul,
+ol,
+dd {
+  @include blocss-rem(margin-left, $blocss-space);
+}

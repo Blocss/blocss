@@ -1,0 +1,21 @@
+/*  =========================================================================
+    mixins.rem
+    Rem converter, converts `px` values to `rem` values
+    ========================================================================= */
+
+/**
+ * Sample: @include blocss-rem(margin, 0 auto 300px, !important);
+ */
+@mixin blocss-rem ($property, $value, $append: "") {
+
+  /* Loop over values */
+  @if type-of($value) == list {
+    $all: ();
+    @for $i from 1 through length($value) {
+      $all: append($all, blocss-value-to-rem(nth($value, $i)));
+    }
+    #{$property}: $all #{$append};
+  } @else {
+    #{$property}: blocss-value-to-rem($value) #{$append};
+  }
+}

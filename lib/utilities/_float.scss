@@ -1,0 +1,56 @@
+/*  =========================================================================
+    utilities.float
+    Makes working with floats a lot more easy.
+    ========================================================================= */
+
+/*  Variables
+    Variables used in this module
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$blocss-float-namespace: $blocss-namespace !default;
+$blocss-float-combined-namespace: #{$blocss-float-namespace}#{$blocss-namespace-utility} !default;
+
+
+
+/*  Module
+    Core module
+    ========================================================================= */
+
+/**
+ * Make an element expand to contain floated children.
+ * Uses pseudo-elements (micro clearfix).
+ *
+ * 1. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ * 2. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of the
+ *    element.
+ */
+.#{$blocss-float-combined-namespace}cf {
+  &:before,
+  &:after {
+    display: table; /* [1] */
+    content: " "; /* [2] */
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+
+
+/**
+ * Floats
+ */
+.#{$blocss-float-combined-namespace}float--left {
+  float: left !important;
+}
+
+.#{$blocss-float-combined-namespace}float--right {
+  float: right !important;
+}

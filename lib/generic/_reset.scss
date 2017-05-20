@@ -1,0 +1,95 @@
+/*  =========================================================================
+    reset
+    A thin layer on top of normalize.css that provides a starting point more
+    suitable for web applications. Removes the default spacing and border for
+    appropriate elements.
+    ========================================================================= */
+
+/**
+ * 1. Set the global `box-sizing` state to `border-box`. As per:
+ *    paulirish.com/2012/box-sizing-border-box-ftw
+ * 2. Always add the horizontal scrollbar to prevent layout shifting
+ * 3. Fonts on OSX will look more consistent with other systems that do not
+ *    render text using sub-pixel anti-aliasing.
+ */
+html {
+  box-sizing: border-box; /* [1] */
+  overflow-y: scroll; /* [2] */
+  min-height: 100%;
+  -moz-osx-font-smoothing: grayscale; /* [3] */
+  -webkit-font-smoothing: antialiased; /* [3] */
+}
+
+* {
+  &,
+  &:before,
+  &:after {
+    box-sizing: inherit; /* [1] */
+  }
+}
+
+
+/**
+ * The usual resetting of margins, paddings, borders etc.
+ */
+blockquote,
+dl,
+dd,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+fieldset,
+hr {
+  margin: 0;
+}
+
+fieldset,
+ol,
+ul {
+  padding: 0;
+}
+
+iframe,
+fieldset {
+  border: 0;
+}
+
+
+/**
+ * Remove extra vertical spacing when nesting lists.
+ */
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+
+/**
+ * Suppress the focus outline on links that cannot be accessed via keyboard.
+ * This prevents an unwanted focus outline from appearing around elements that
+ * might still respond to pointer events.
+ */
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+
+/**
+ * Image
+ *
+ * 1. By default all images are fluid
+ * 2. Render `alt` visually offset when images don't load
+ */
+img {
+  max-width: 100%; /* [1] */
+  font-style: italic; /* [2] */
+}

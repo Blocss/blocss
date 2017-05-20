@@ -1,0 +1,50 @@
+/*  =========================================================================
+    defaults
+    Blocss default variables. Redefine and override them in your
+    application-level `_vars.scss` file.
+    ========================================================================= */
+
+/*  Typography
+    ========================================================================= */
+
+$blocss-base-font-size: 16px !default;
+$blocss-base-line-height: 24px !default;
+$blocss-line-height-ratio: $blocss-base-line-height/$blocss-base-font-size !default;
+
+
+
+/*  Spacing
+    Assign our `$blocss-base-line-height` to a new spacing variable for
+    more transparency
+    ========================================================================= */
+
+$blocss-space: $blocss-base-line-height !default;
+$blocss-space-tiny: $blocss-space/4 !default;
+$blocss-space-small: $blocss-space/2 !default;
+$blocss-space-large: $blocss-space*2 !default;
+$blocss-space-huge: $blocss-space*4 !default;
+
+
+
+/*  Namespace
+    Would you like blocss classes to be used with a different namespace?
+    ========================================================================= */
+
+$blocss-namespace: null !default;
+$blocss-namespace-object: "o-" !default;
+$blocss-namespace-component: "c-" !default;
+$blocss-namespace-utility: "u-" !default;
+$blocss-responsive-modifier: unquote("\\@") !default;
+
+
+
+/*  Responsive
+    Define your breakpoints. The first value is the appendix that shall be used
+    for your classes (e.g. `.classname@lap`), the second value is the media
+    query that the breakpoint fires at.
+    ========================================================================= */
+
+$blocss-breakpoints: (
+  "lap": "(min-width: 480px)",
+  "desk": "(min-width: 960px)"
+) !default;

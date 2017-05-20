@@ -1,0 +1,117 @@
+/*  =========================================================================
+    utilities.fractions
+    Sizes in human readable format. These are used in conjunction with other
+    objects and abstractions found in blocss, most commonly the layout system
+    and tables
+    ========================================================================= */
+
+/*  Variables
+    Variables used in this module
+    ========================================================================= */
+
+/**
+ * Namespacing
+ */
+$blocss-fractions-namespace: $blocss-namespace !default;
+$blocss-fractions-combined-namespace: #{$blocss-fractions-namespace}#{$blocss-namespace-utility} !default;
+$blocss-fractions-responsive-modifier: $blocss-responsive-modifier !default;
+
+/**
+ * Fractions, makes it easy to create several proportional
+ * dimensions (e.g., both a 2-part and a 12-part grid).
+ *
+ * For example, `2 4 6 12` will let you use the u-fraction-1-2, u-fraction-2-4,
+ * fraction-3-6, and fraction-6-12 classes to specify that an element should
+ * take up 50% of its container.
+ */
+$blocss-fractions: 12 !default;
+
+/**
+ * Define which namespaced breakpoints you would like to generate for each
+ * of the dimensions. It allows you to only compile as much CSS as you need.
+ * All are empty by default, but you can add breakpoints at will.
+ *
+ * $blocss-breakpoint-has-fractions: ('palm', 'desk');
+ *
+ * Note: the name of the breakpoint must exist in the list of `$breakpoints`
+ *       in the Blocss base repository
+ */
+$blocss-breakpoint-has-fractions: () !default;
+
+/**
+ * You can rename the fraction name & delimiter to your liking
+ */
+$blocss-fractions-name-fraction: fraction !default;
+$blocss-fractions-delimiter: "-" !default;
+
+
+
+/*  Functions/Mixins
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+/**
+ * Fluid units
+ * USAGE: provide a space-separated list of integers, each of which
+ * represents the number of fractions that make up a unit component.
+ * Optionally provide a modifier suffix that can be used to adjust
+ * grids in different contexts (e.g. viewport dimensions).
+ */
+
+/* stylelint-disable max-nesting-depth */
+@mixin blocss-fractions-build ($units, $modifier: "") {
+
+  /**
+   * Proportional fractions
+   * Specify the proportional width of an object.
+   * Primarily for, but not limited to, use with `.grid__cell` components.
+   * Intentional redundancy build into each set of unit classes.
+   */
+  @each $denominator in $units {
+
+    @for $numerator from 1 through $denominator {
+
+      /**
+       * Create units based on fractions
+       * 1. Use `flex-basis: auto` with a width to avoid box-sizing bug in IE10/11
+       */
+      .#{$blocss-fractions-combined-namespace}#{$blocss-fractions-name-fraction}-#{$numerator}#{$blocss-fractions-delimiter}#{$denominator}#{$modifier} {
+        flex-basis: auto !important; /* [1] */
+        width: percentage($numerator / $denominator) !important;
+      }
+    }
+  }
+
+
+  /**
+   * Auto modifier, shrinks to the available content
+   * 1. Use `flex-basis: auto` with a width to avoid box-sizing bug in IE10/11
+   */
+  .#{$blocss-fractions-combined-namespace}#{$blocss-fractions-name-fraction}-auto#{$modifier} {
+    flex-basis: auto !important; /* [1] */
+    width: auto !important;
+  }
+}
+
+/* stylelint-enable max-nesting-depth */
+
+
+
+/*  Dimensions core
+    ========================================================================= */
+
+/**
+ * Setup generic widths
+ */
+@include blocss-fractions-build($blocss-fractions);
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@each $name in $blocss-breakpoint-has-fractions {
+  @include blocss-media-query($name) {
+    @include blocss-fractions-build($blocss-fractions, "#{$blocss-fractions-responsive-modifier}#{$name}");
+  }
+}

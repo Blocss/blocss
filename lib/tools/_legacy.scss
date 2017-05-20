@@ -1,0 +1,60 @@
+/*  =========================================================================
+    tools.functions.legacy
+    Legacy function/mixin wrappers to support “old” blocss modules
+    ========================================================================= */
+
+/* stylelint-disable scss/at-function-pattern, scss/at-mixin-pattern */
+
+/*  Functions
+    ========================================================================= */
+
+/**
+ * Maps to `blocss-value-to-rem` in `/lib/tools/_functions.scss`
+ */
+@function valueToRem ($args...) {
+  @return blocss-value-to-rem($args...);
+}
+
+/**
+ * Maps to `blocss-value-to-em` in `/lib/tools/_functions.scss`
+ */
+@function valueToEm ($args...) {
+  @return blocss-value-to-em($args...);
+}
+
+/**
+ * Maps to `blocss-strip-units` in `/lib/tools/_functions.scss`
+ */
+@function strip-units ($args...) {
+  @return blocss-strip-units($args...);
+}
+
+
+
+/*  Mixins
+    ========================================================================= */
+
+/**
+ * Maps to `blocss-rem` in `/lib/tools/_mixins.rem.scss`
+ */
+@mixin rem ($args...) {
+  @include blocss-rem($args...);
+}
+
+/**
+ * Maps to `blocss-font-size` in `/lib/tools/_mixins.font-size.scss`
+ */
+@mixin font-size ($args...) {
+  @include blocss-font-size($args...);
+}
+
+/**
+ * Maps to `blocss-media-query` in `/lib/tools/_mixins.media-query.scss`
+ */
+@mixin media-query ($args...) {
+  @include blocss-media-query($args...) {
+    @content;
+  }
+}
+
+/* stylelint-enable scss/at-function-pattern, scss/at-mixin-pattern */

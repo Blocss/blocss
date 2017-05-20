@@ -1,0 +1,31 @@
+/*  =========================================================================
+    objects.list-clean
+    Strip appearance from lists by removing their bullets and indents
+    ========================================================================= */
+
+/*  Variables
+    Variables used in this module
+    ========================================================================= */
+
+$blocss-list-clean-namespace: $blocss-namespace !default;
+$blocss-list-clean-combined-namespace: #{$blocss-list-clean-namespace}#{$blocss-namespace-object} !default;
+
+
+
+/*  Module
+    Core module
+    ========================================================================= */
+
+.#{$blocss-list-clean-combined-namespace}list-clean {
+  list-style: none;
+  margin-left: 0;
+}
+
+
+/**
+ * Item specific class
+ * declaring this might only be necessary on `dd` childs for instance
+ */
+.#{$blocss-list-clean-combined-namespace}list-clean__item {
+  margin-left: 0;
+}

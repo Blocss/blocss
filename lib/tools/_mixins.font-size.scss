@@ -1,0 +1,30 @@
+/*  =========================================================================
+    mixins.font-size
+    ========================================================================= */
+
+/**
+ * Calculates font, rem font size & line height
+ * $multiplier: multiplies line height by the given value
+ * $line-height: include line height or not
+ * The line height parameter can also be used as the multiplier
+ *
+ * Sample usage @include font-size(18px, 2);
+ */
+@mixin blocss-font-size ($fs, $line-height: true, $multiplier: 1) {
+  @include blocss-rem(font-size, $fs);
+
+  $use-line-height: false;
+
+  @if type-of($line-height) == bool {
+    @if $line-height == true {
+      $use-line-height: true;
+    }
+  } @else if type-of($line-height) == number {
+    $use-line-height: true;
+    $multiplier: $line-height;
+  }
+
+  @if $use-line-height == true {
+    line-height: (ceil($fs / $blocss-base-line-height) * ($blocss-base-line-height / $fs)) * $multiplier;
+  }
+}
