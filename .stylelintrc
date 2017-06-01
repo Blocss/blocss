@@ -1,5 +1,8 @@
 {
   "extends": "stylelint-config-blocss",
+  "plugins": [
+    "stylelint-scss"
+  ],
   "ignoreFiles": [
     "./lib/generic/_normalize.scss",
     "./test/*.css"
@@ -7,5 +10,9 @@
   "rules": {
     "scss/at-function-pattern": "blocss-.+",
     "scss/at-mixin-pattern": "blocss-.+",
+    "scss/at-extend-no-missing-placeholder": true,
+    "scss/dollar-variable-colon-space-before": "never",
+    "scss/partial-no-import": true,
+    "scss/selector-no-redundant-nesting-selector": true,
   }
 }

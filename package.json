@@ -31,7 +31,8 @@
   "devDependencies": {
     "glob": "^7.1.1",
     "stylelint": "^7.10.1",
-    "stylelint-config-blocss": "^1.0.1",
+    "stylelint-scss": "^1.4.3",
+    "stylelint-config-blocss": "^1.0.3",
     "node-sass": "^4.5.2"
   }
 }
