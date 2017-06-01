@@ -3,11 +3,11 @@
 **Note:**
 Blocss 7 is in early alpha stage, so there might be dragons ahead. If you find a problem, please file an issue in the [issue tracker](https://github.com/Blocss/blocss/issues).
 
-Keep in mind that the API of some components has changed drastically, please check the modules for specific implementation details.
-Due to this change there is a legacy wrapper available in `/lib/tools/_legacy.scss`. This file contains some "old" mixin and function names which are wrapped to their new ones.
+Keep in mind that the API of some functions, mixins and modules has changed drastically, please check the modules for specific implementation details.
 
-Blocss 7 is fully compliant with the old modules, given you use the `legacy` mixin file.
-`blocss.scss` is added as a reference file on how you could implement the smaller components.
+Due to this change there is a legacy wrapper available in [/lib/tools/_legacy.scss](/lib/tools/_legacy.scss). This file contains some "old" mixin and function names which are wrapped to their new ones.
+
+Blocss 7 is fully compliant with the old, seperate modules which you find in the repository, given you use the `legacy` mixin file.
 
 
 **Why use Blocss:**
@@ -35,74 +35,127 @@ Blocss supports ALL major browsers from **IE10** and up, but it’s configurable
 * npm: `npm install blocss --save-dev`
 * Bower(deprecated): `bower install --save blocss`
 
-## Getting started
-Blocss is a very design-free framework. This means that the style and design
-of your site is left entirely up to you.
-Because Blocss gives you lots of customisable foundations, you need to add
-the final layer: UI.
+## Available modules
 
-All blocss submodules are created based on the ITCSS principle:
+All blocss submodules are created based on the ITCSS principle.
+
+ITCSS stands for Inverted Triangle CSS and it helps you to organize your project CSS files in such way that you can better deal with CSS specifics like global namespace, cascade and selectors specificity.
 
 ### Settings
+This layer is the first layer and holds any global settings for your project. It should only house settings that need to be accessed from anywhere.
 
-**[_defaults.scss](https://github.com/Blocss/blocss/blob/master/lib/settings/_defaults.scss)**
-This is the configuration layer and needs to be included before any other subcomponent. All the variables which are living in this file can be overwritten from your own application settings.
+**NOTE**: Any variable that does not need accessing globally should belong in the partial to which it relates.
+
+* [_defaults.scss](lib/settings/_defaults.scss)
 
 ### Tools
+The tools layer houses your globally available tooling, mixins and functions.
 
-**[_functions.scss](https://github.com/Blocss/blocss/blob/master/lib/tools/_functions.scss)**
-This file contains all Sass functions which are used in the framework, feel free to also use this functions in your application. This file needs to be included before any other subcomponent & mixins.
+**NOTE**: Any mixin or function that does not need accessing globally should belong in the partial to which it relates.
 
-**[_mixins.rem.scss](https://github.com/Blocss/blocss/blob/master/lib/tools/_mixins.rem.scss)**
-This is a mixin which can convert a property's value directly to a `rem` value.
-Sample usage:
-```scss
-@include blocss-rem(margin, 0 auto 300px, !important);
-```
-Which, with a `$blocss-base-font-size` of `16px`, will compile to:
-```scss
-margin: 0 auto 18.75rem !important;
-```
+* [_functions.scss](lib/tools/_functions.scss)
+* [_mixins.rem.scss](lib/tools/_mixins.rem.scss)
+* [_mixins.font-size.scss](lib/tools/_mixins.font-size.scss)
+* [_mixins.media-query.scss](lib/tools/_mixins.media-query.scss)
+* [_legacy.scss](lib/tools/_legacy.scss)
 
-**[_mixins.font-size.scss](https://github.com/Blocss/blocss/blob/master/lib/tools/_mixins.font-size.scss)**
-This mixin converts a pixel value to a rem based font-size, while maintaining a vertical rhythm in the font size
-Sample usage:
-```scss
-@include blocss-font-size (14px);
-```
-Which, with a `$blocss-base-font-size` of `16px` and a `$blocss-base-line-height` of `24px`, will compile to:
-```scss
-font-size: 0.875rem; // 14px
-line-height: 1.71428571; // 24px
-```
+### Generic
+It contains ground-zero styles like [Normalize.css](http://necolas.github.io/normalize.css/), global box-sizing rules, CSS resets and so on.
 
-**[_mixins.media-query.scss](https://github.com/Blocss/blocss/blob/master/lib/tools/_mixins.media-query.scss)**
-Enclose a block of code with a media query as named in `$blocss-breakpoints`.
-Sample usage:
-```scss
-// in your project's variables
-$blocss-breakpoints: (
-  "lap": "(min-width: 480px)",
-  "desk": "(min-width: 960px)"
-);
+* [_normalize.scss](lib/generic/_normalize.scss)
+* [_reset.scss](lib/generic/_reset.scss)
+* [_vertical-rhythm.scss](lib/generic/_vertical-rhythm.scss)
 
-// In your component
-@include blocss-media-query(lap) {
-  outline: 1px solid red;
-}
-```
-Compiles to:
+### Elements
+
+These are bare, unclassed HTML elements. The Elements layer binds onto HTML element (or 'type') selectors only.
+
+Elements are most likely the last layer in which we'd find element-based selectors, and is very rarely added to or changed after initial setup. Once we have defined element-level styles, all additions and deviations should be implemented using classes.
+
+**NOTE**: Because Blocss is a design-free framework this layer is completely empty.
+
+### Objects
+This layer is concerned with styling non-cosmetic design patterns, or 'objects'. This can range from something as a `.o-wrapper` element to  `.o-layout` systems.
+
+* [_layout.scss](lib/objects/_layout.scss)
+* [_list-clean.scss](lib/objects/_list-clean.scss)
+* [_flexembed.scss](lib/objects/_flexembed.scss)
+
+All Objects are prefixed with `o-` by default but are configurable with the `$blocss-namespace-object`  setting.
+
+### Components
+This layer contains our recognisable components, chunks of UI.
+
+All Components should be prefixed with `c-` by default but are configurable with the `$blocss-namespace-component`  setting.
+
+**NOTE**: Because Blocss is a design-free framework this layer is completely empty. You can add your own components to your project.
+
+### Utilities
+this layer contains some handy helpers & overrides. This is the most specific layer of the application which trumps everything defined before.
+
+* [_fractions.scss](lib/utilities/_fractions.scss)
+* [_visually-hidden.scss](lib/utilities/_visually-hidden.scss)
+* [_module.scss](lib/utilities/_module.scss)
+* [_float.scss](lib/utilities/_float.scss)
+
+All Utilities should be prefixed with `u-` by default but are configurable with the `$blocss-namespace-utility`  setting.
+
+## Getting started
+Blocss is a very design-free framework. This means that the style and design of your site is left entirely up to you.
+Because Blocss gives you lots of customisable foundations, you need to add the final layer: **UI**.
+
+It is advised that you will use Blocss code throughout your own, a sample `styles.scss` file would look like this:
+
 ```scss
-@media (min-width: 480px) {
-  outline: 1px solid red;
-}
+/* Settings */
+@import "settings/config";
+@import "node_modules/blocss/lib/settings/defaults";
+@import "settings/colors";
+
+/* Tools */
+@import "node_modules/blocss/lib/tools/functions";
+@import "node_modules/blocss/lib/tools/mixins.rem";
+@import "node_modules/blocss/lib/tools/mixins.font-size";
+@import "node_modules/blocss/lib/tools/mixins.media-query";
+@import "node_modules/blocss/lib/tools/legacy";
+@import "tools/functions";
+
+/* Generic */
+@import "node_modules/blocss/lib/generic/normalize";
+@import "node_modules/blocss/lib/generic/reset";
+@import "node_modules/blocss/lib/generic/vertical-rhythm";
+
+/* Elements */
+@import "elements/headings";
+@import "elements/links";
+
+/* Objects */
+@import "node_modules/blocss/lib/objects/layout";
+@import "node_modules/blocss/lib/objects/list-clean";
+@import "node_modules/blocss/lib/objects/flexembed";
+@import "objects/box";
+@import "objects/media";
+
+/* Components */
+@import "components/buttons";
+@import "components/masthead";
+@import "components/navigation.main";
+
+/* Utilities */
+@import "node_modules/blocss/lib/utilities/fractions";
+@import "node_modules/blocss/lib/utilities/visually-hidden";
+@import "node_modules/blocss/lib/utilities/module";
+@import "node_modules/blocss/lib/utilities/float";
+@import "utilities/visibility";
+@import "utilities/text";
 ```
+The file [/lib/blocss.scss](/lib/blocss.scss) is added as a reference file on how you could implement the smaller modules.
 
 ## Credits
 
-Blocss, maintained by 2 developers, but is derived by the ideas of many other developers:
+Blocss, maintained by 2 developers, is derived by the ideas of many other developers:
 
-* [Harry Roberts](https://twitter.com/csswizardry) for his awesome ideas & inuit.css framework wich is derived off the same philosophy as Blocss
+* [Harry Roberts](https://twitter.com/csswizardry) for his awesome ideas with ITCSS and numerous other CSS stuff
 * [Nicole Sullivan](https://twitter.com/stubbornella) for her work on OOCSS
 * [Jonathan Snook](https://twitter.com/snookca) for his work on SMACSS
 * [Nicolas Gallagher](https://twitter.com/necolas) for his work on numerous CSS things
