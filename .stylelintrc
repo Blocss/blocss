@@ -3,5 +3,9 @@
   "ignoreFiles": [
     "./lib/generic/_normalize.scss",
     "./test/*.css"
-  ]
+  ],
+  "rules": {
+    "scss/at-function-pattern": "blocss-.+",
+    "scss/at-mixin-pattern": "blocss-.+",
+  }
 }
