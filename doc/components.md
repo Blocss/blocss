@@ -21,7 +21,7 @@ components.
 
 ### Component scope
 
-The component's core class name (e.g., `component-name`) reserves a namespace
+The component's core class name (e.g., `c-component-name`) reserves a namespace
 that can only be used by that component.
 
 Avoid tight coupling between components, even if that means the code is not as
@@ -33,25 +33,23 @@ DRY as you think it should be.
 too much.
 
 **Each component should have a dedicated SCSS file** with a name that
-corresponds HTML class. For example, the SCSS for `button-group` should be in a
-file called `_button-group.scss`. If you need additional files to help with
-organization, use a `.`-separated suffix, e.g., `_button-group.plugin.scss`.
+corresponds HTML class. For example, the SCSS for `c-button-group` should be in a file called `_components.button-group.scss`. If you need additional files to help with organization, use a `.`-separated suffix, e.g., `_components.button-group.plugin.scss`.
 
 **All selectors in a component file must start with the component's
 namespace**. For example, a component called `grid` could have CSS like this,
-where every selector starts with the string `grid`.
+where every selector starts with the string `c-grid`.
 
 ```css
-.grid {}
-.grid__cell {}
-.grid--gutterless > .grid__cell {}
+.c-grid {}
+.c-grid__cell {}
+.c-grid--gutterless > .c-grid__cell {}
 ```
 
 ### Component classes
 
 Component names should be as short as possible but as long as necessary.
 
-Components must use the `component-name__descendent-name` class name pattern to
+Components must use the `c-component-name__descendent-name` class name pattern to
 clearly and directly style any descendant elements that the component requires
 to realise itself. This helps to limit the specificity of the component
 selectors.
@@ -59,11 +57,11 @@ selectors.
 For example, this component template…
 
 ```html
-<article class="component  cf">
-    <h1 class="component__title">...</h1>
-    <img class="component__image" src="{{src}}" alt="">
-    <p class="component__text">
-      <span class="component__time">...</span>
+<article class="c-component  u-cf">
+    <h1 class="c-component__title">...</h1>
+    <img class="c-component__image" src="{{src}}" alt="">
+    <p class="c-component__text">
+      <span class="c-component__time">...</span>
       ...
     </p>
 </div>
@@ -72,15 +70,15 @@ For example, this component template…
 …is styled by this component CSS.
 
 ```css
-.component {}
-.component__title {}
-.component__image {}
-.component__text {}
-.component__time {}
+.c-component {}
+.c-component__title {}
+.c-component__image {}
+.c-component__text {}
+.c-component__time {}
 ```
 
 Each component uses selectors that limit the unintentional pollution – that
-selectors like `component p` or `component > p` can introduce – of other contexts.
+selectors like `c-component p` or `c-component > p` can introduce – of other contexts.
 
 ### Documenting HTML and implementation details
 
@@ -101,7 +99,7 @@ authoring a component to be full-width or inline, it can better adapt to the
 dimensions of an ancestral context.
 
 ```css
-.button {
+.c-button {
     border: 1px solid black;
     box-sizing: border-box;
     /* .. etc .. */
@@ -120,21 +118,21 @@ applied to this wrapper.
 
 ```css
 /* component */
-.component {
+.c-component {
     /* ... */
 }
 
 /* Wraps nested `button` component */
-.component__wrap-button {
+.c-component__wrap-button {
     display: inline-block;
     margin-top: 20px;
 }
 ```
 
 ```html
-<article class="component  cf">
-    <div class="component__wrap-button">
-        <button class="button  button--default" type="button">...</button>
+<article class="c-component  u-cf">
+    <div class="c-component__wrap-button">
+        <button class="c-button  c-button--default" type="button">...</button>
     </div>
 </article>
 ```
@@ -149,11 +147,11 @@ below. It scopes the changes to affect only `icon` components within the
 
 ```css
 /* in component file for `component` */
-.component__wrap-button .icon {
+.c-component__wrap-button .icon {
     display: none;
 }
 
-.component__wrap-button:hover .icon {
+.c-component__wrap-button:hover .icon {
     display: block;
 }
 ```

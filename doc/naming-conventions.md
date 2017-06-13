@@ -80,7 +80,7 @@ two underscores.
 <a name="is-state"></a>
 ### component-name.is-state
 
-Use `is-stateName` for state-based modifications of components. The state name
+Use `is-state-name` for state-based modifications of components. The state name
 must be lowercase & hyphen delimited. **Never style these classes directly;
 they should always beused as an adjoining class.**
 
@@ -113,22 +113,3 @@ components by prefixing all your components with a namespace.
 
 This makes it clear, when reading the HTML, which components are part of your
 library.
-
-
-## Other
-
-<a name="js--some-name"></a>
-### js--some-name
-
-**CSS must not use `js--*` classes in selectors.**
-
-Use the `id` attribute and `js--*` class names are reserved for JavaScript-only
-use. Application-specific data or content can be stored in `data-*`
-attributes.
-
-The example below includes a dedicated JavaScript utility class to which
-behaviour is bound. It is independent of any specific UI component.
-
-```html
-<a class="js--show-profile" data-username="John Doe" href="{url}">...</a>
-```

@@ -1,7 +1,6 @@
 # Blocss design principles
 
-Blocss aims to loosely couple document semantics, presentation, and behaviour so
-as to be able to modify any one of them with minimal impact on the others.
+Blocss aims to loosely couple document semantics, presentation, and behaviour so as to be able to modify any one of them with minimal impact on the others.
 
 Blocss conventions and approach are an attempt to meet the following design goals:
 
@@ -13,8 +12,7 @@ Blocss conventions and approach are an attempt to meet the following design goal
 6. [Documentation](#documentation)
 
 The implementation is supported by the use of contemporary web development
-tools: templating engines, build tools, and the [Bower](http://bower.io/)
-package manager.
+tools: templating engines, build tools, and NPM.
 
 
 <a name="single-responsibility-principle"></a>
@@ -91,4 +89,5 @@ implementation. Do not assume that CSS is self-documenting.
 
 ## Related reading
 
-* [SOLID CSS](http://blog.millermedeiros.com/solid-css/)
+* http://nicolasgallagher.com/about-html-semantics-front-end-architecture/
+* http://blog.millermedeiros.com/solid-css/
