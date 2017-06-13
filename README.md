@@ -5,9 +5,7 @@ Blocss 7 is in early alpha stage, so there might be dragons ahead. If you find a
 
 Keep in mind that the API of some functions, mixins and modules has changed drastically, please check the modules for specific implementation details.
 
-Due to this change there is a legacy wrapper available in [/lib/tools/_legacy.scss](/lib/tools/_legacy.scss). This file contains some "old" mixin and function names which are wrapped to their new ones.
-
-Blocss 7 is fully compliant with the old, seperate modules which you find in the repository, given you use the `legacy` mixin file.
+Due to this change there is a legacy wrapper available in [/lib/tools/_legacy.scss](/lib/tools/_legacy.scss). This file contains some "old" mixin and function names which are wrapped to their new ones. In that way Blocss 7 is fully compliant with the old seperate modules which you find in the repository, given you use the `legacy` mixin file.
 
 
 **Why use Blocss:**
@@ -22,7 +20,7 @@ Use blocss if:
 * You need a framework that is robust and evolves constantly.
 
 ## Documentation
-Blocss is heavily documented, which means that every component is commented very well. For naming conventions, style guides & api please read the **[documentation](doc/README.md)**.
+Blocss is heavily documented, which means that every module is commented very well. For specific implementation details please refer to the [available modules](#available-modules). For naming conventions, style guides & design principles please read the **[documentation](doc/README.md)**.
 
 ## Browser support
 Blocss supports ALL major browsers from **IE10** and up, but it’s configurable to be future proof.
@@ -44,14 +42,14 @@ ITCSS stands for Inverted Triangle CSS and it helps you to organize your project
 ### Settings
 This layer is the first layer and holds any global settings for your project. It should only house settings that need to be accessed from anywhere.
 
-**NOTE**: Any variable that does not need accessing globally should belong in the partial to which it relates.
+**NOTE**: Any variable that does not need to be accessed globally should belong in the partial to which it relates.
 
 * [_defaults.scss](lib/settings/_defaults.scss)
 
 ### Tools
 The tools layer houses your globally available tooling, mixins and functions.
 
-**NOTE**: Any mixin or function that does not need accessing globally should belong in the partial to which it relates.
+**NOTE**: Any mixin or function that does not need to be accessed globally should belong in the partial to which it relates.
 
 * [_functions.scss](lib/tools/_functions.scss)
 * [_mixins.rem.scss](lib/tools/_mixins.rem.scss)
