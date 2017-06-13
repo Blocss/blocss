@@ -75,7 +75,7 @@ Elements are most likely the last layer in which we'd find element-based selecto
 ### Objects
 This layer is concerned with styling non-cosmetic design patterns, or 'objects'. This can range from something as a `.o-wrapper` element to  `.o-layout` systems.
 
-* [_layout.scss](lib/objects/_layout.scss)
+* [_layout.scss](lib/objects/_layout.md)
 * [_list-clean.scss](lib/objects/_list-clean.scss)
 * [_flexembed.scss](lib/objects/_flexembed.scss)
 
