@@ -1,12 +1,4 @@
-# Blocss – v7.0.0-alpha
-
-**Note:**
-Blocss 7 is in early alpha stage, so there might be dragons ahead. If you find a problem, please file an issue in the [issue tracker](https://github.com/Blocss/blocss/issues).
-
-Keep in mind that the API of some functions, mixins and modules has changed drastically, please check the modules for specific implementation details.
-
-Due to this change there is a legacy wrapper available in [/lib/tools/_legacy.scss](/lib/tools/_legacy.scss). This file contains some "old" mixin and function names which are wrapped to their new ones. In that way Blocss 7 is fully compliant with the old seperate modules which you find in the repository, given you use the `legacy` mixin file.
-
+# Blocss – v7.0.0
 
 **Why use Blocss:**
 [Blocss](http://blocss.github.io/blocss) is a small but powerfull css framework designed specially for _serious_ developers.
@@ -20,7 +12,13 @@ Use blocss if:
 * You need a framework that is robust and evolves constantly.
 
 ## Documentation
-Blocss is heavily documented, which means that every module is commented very well. For specific implementation details please refer to the [available modules](#available-modules). For naming conventions, style guides & design principles please read the **[documentation](doc/README.md)**.
+Blocss is heavily documented, which means that every module is commented very well. For specific implementation details please refer to the [available modules](#available-modules). 
+
+For naming conventions, style guides & design principles please read the **[global documentation](doc/README.md)**.
+
+Keep in mind that the API of some functions, mixins and modules has changed drastically as per v7.0.0, please check the modules for specific implementation details.
+
+Due to this change there is a legacy wrapper available in [/lib/tools/_legacy.scss](/lib/tools/_legacy.scss). This file contains some "old" mixin and function names which are wrapped to their new ones. In that way Blocss 7 is fully compliant with the old seperate modules which you find in the repository, given you use the `legacy` mixin file.
 
 ## Browser support
 Blocss supports ALL major browsers from **IE10** and up, but it’s configurable to be future proof.
@@ -151,7 +149,7 @@ The file [/lib/blocss.scss](/lib/blocss.scss) is added as a reference file on ho
 
 ## Credits
 
-Blocss, maintained by 2 developers, is derived by the ideas of many other developers:
+Blocss is derived by the ideas of many other developers:
 
 * [Harry Roberts](https://twitter.com/csswizardry) for his awesome ideas with ITCSS and numerous other CSS stuff
 * [Nicole Sullivan](https://twitter.com/stubbornella) for her work on OOCSS

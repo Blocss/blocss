@@ -1,5 +1,12 @@
 == HEAD
 
+== 7.0.0 (June 20, 2017)
+
+* Documented the core functionalities
+* Changed the `fractions` API to use more readable classnames
+* Updated general principles & code style documentation
+* Moved stylelint config to https://github.com/Blocss/stylelint-config-blocss
+
 == 7.0.0-alpha (May 20, 2017)
 
 * Moved all most used subcomponents back into the core

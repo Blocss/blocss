@@ -1,6 +1,6 @@
 {
   "name": "blocss",
-  "version": "7.0.0-alpha",
+  "version": "7.0.0",
   "description": "Blocss is a small but powerfull css framework designed specially for serious developers.",
   "main": "lib/blocss.scss",
   "directories": {
