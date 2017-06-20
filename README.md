@@ -93,7 +93,7 @@ this layer contains some handy helpers & overrides. This is the most specific la
 
 * [_fractions.scss](lib/utilities/_fractions.md)
 * [_visually-hidden.scss](lib/utilities/_visually-hidden.scss)
-* [_module.scss](lib/utilities/_module.scss)
+* [_module.scss](lib/utilities/_module.md)
 * [_float.scss](lib/utilities/_float.scss)
 
 All Utilities should be prefixed with `u-` by default but are configurable with the `$blocss-namespace-utility`  setting.

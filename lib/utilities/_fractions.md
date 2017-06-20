@@ -1,4 +1,4 @@
-# Fractions
+# Utilities: Fractions
 
 A collection of utility classes for low-level CSS fractions. These can and should be used on the blocss [layout](../objects/_layout.md) system to provide the cells with some flexible widths.
 
