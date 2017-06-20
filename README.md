@@ -91,7 +91,7 @@ All Components should be prefixed with `c-` by default but are configurable with
 ### Utilities
 this layer contains some handy helpers & overrides. This is the most specific layer of the application which trumps everything defined before.
 
-* [_fractions.scss](lib/utilities/_fractions.scss)
+* [_fractions.scss](lib/utilities/_fractions.md)
 * [_visually-hidden.scss](lib/utilities/_visually-hidden.scss)
 * [_module.scss](lib/utilities/_module.scss)
 * [_float.scss](lib/utilities/_float.scss)
