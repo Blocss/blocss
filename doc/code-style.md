@@ -30,8 +30,8 @@
 ## 2. Whitespace
 
 * Use whitespace to improve readability.
-* Use 4 spaces for indentation.
-* Strip all end-of-line and end-of-file whitespace.
+* Use 2 spaces for indentation.
+* Strip all end-of-line whitespace.
 
 
 <a name="html"></a>
@@ -56,7 +56,7 @@
 Example:
 
 ```html
-<div class="component">
+<div class="c-component">
     <a href="{url}">
         <img src="{avatar}" alt="">
     </a>
@@ -73,10 +73,12 @@ lines in an effort to improve readability and produce more useful diffs.
 Example:
 
 ```html
-<a class="{class}"
- data-action="{action}"
- data-id="{id}"
- href="{url}">
+<a 
+  class="{class}"
+  data-action="{action}"
+  data-id="{id}"
+  href="{url}"
+>
     <span>...</span>
 </a>
 ```
@@ -87,7 +89,7 @@ clarity & readability.
 Example:
 
 ```html
-<a class="component  component--modifyer  cf">
+<a class="c-component  c-component--modifier  u-cf">
     <span>...</span>
 </a>
 ```
@@ -145,15 +147,15 @@ Example with "bad" names:
 Example with better names:
 
 ```html
-<div class="column  is-scrollable"></div>
+<div class="o-column  is-scrollable"></div>
 ```
 
 ```css
-.column {
+.o-column {
     background: #000;
 }
 
-.column.is-scrollable {
+.o-column.is-scrollable {
     overflow: auto;
 }
 ```
@@ -184,15 +186,15 @@ comment patterns.
 Example:
 
 ```css
-/*----------------------------------------------------------------------------*\
+/*  =========================================================================
     Section comment block
     Optional description, sections are always separated by 5 carriage returns
-\*----------------------------------------------------------------------------*/
+    ========================================================================= */
 
 /*  Sub-section comment block
     Optional description, sub sections are always separated by 3
     carriage returns
-\*----------------------------------------------------------------------------*/
+    ========================================================================= */
 
 /**
  * Short description using Doxygen-style comment format
@@ -239,7 +241,7 @@ in useful diffs and blames.
 * Include one declaration per line in a declaration block.
 * Use one level of indentation for each declaration.
 * Include a single space after the colon of a declaration.
-* Use lowercase and shorthand hex values, e.g., `#aaa`.
+* Use lowercase and longhand hex values, e.g., `#ff0000`.
 * Use single or double quotes consistently. Preference is for double quotes,
   e.g., `content: ""`.
 * Quote attribute values in selectors, e.g., `input[type="checkbox"]`.

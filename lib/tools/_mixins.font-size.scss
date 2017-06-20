@@ -8,7 +8,7 @@
  * $line-height: include line height or not
  * The line height parameter can also be used as the multiplier
  *
- * Sample usage @include font-size(18px, 2);
+ * Sample usage @include blocss-font-size(18px, 2);
  */
 @mixin blocss-font-size ($fs, $line-height: true, $multiplier: 1) {
   @include blocss-rem(font-size, $fs);

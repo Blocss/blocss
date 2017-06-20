@@ -46,7 +46,7 @@ $blocss-module-depth: 4 !default;
     Core module
     ========================================================================= */
 
-.#{$blocss-visually-hidden-combined-namespace}module {
+.#{$blocss-module-combined-namespace}module {
   @include blocss-render-module();
 }
 

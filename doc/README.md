@@ -4,8 +4,9 @@
 
 * [Design principles](design-principles.md)
 * [Naming conventions](naming-conventions.md)
-* [Helpers](helpers.md)
+* [Code style](code-style.md)
+* [Objects](objects.md)
 * [Components](components.md)
-* [API](api.md)
+* [Utilities](utilities.md)
 
-[Code style](code-style.md)
+

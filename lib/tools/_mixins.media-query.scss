@@ -3,7 +3,7 @@
     Enclose a block of code with a media query as named in `$blocss-breakpoints`.
     ========================================================================= */
 
-@mixin blocss-media-query($media-query) {
+@mixin blocss-media-query ($media-query) {
   $breakpoint-found: false;
 
   @each $breakpoint in $blocss-breakpoints {
