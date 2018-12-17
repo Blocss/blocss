@@ -1,15 +1,16 @@
-/*! blocss v7.0.0 | MIT License | github.com/Blocss/blocss */
-
 /*  =========================================================================
     Blocss
-    Blocss is a small but powerfull css framework designed specially for
-    serious developers
+    This is an example Blocss manifest file. DO NOT MODIFY THIS FILE DIRECTLY.
+    Instead, copy and paste it into your own CSS directory and make additions,
+    extensions, and modifications there.
     ========================================================================= */
 
 /*  Settings
     ========================================================================= */
 
-@import "settings/defaults";
+@import "settings/settings.config";
+@import "settings/settings.core";
+@import "settings/example.settings.global";
 
 
 
@@ -35,16 +36,16 @@
 /*  Objects
     ========================================================================= */
 
-@import "objects/layout";
-@import "objects/list-clean";
-@import "objects/flexembed";
+//@import "objects/layout";
+//@import "objects/list-clean";
+//@import "objects/flexembed";
 
 
 
 /*  Utilities
     ========================================================================= */
 
-@import "utilities/fractions";
-@import "utilities/visually-hidden";
-@import "utilities/module";
-@import "utilities/float";
+//@import "utilities/fractions";
+//@import "utilities/visually-hidden";
+//@import "utilities/module";
+//@import "utilities/float";

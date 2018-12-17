@@ -1,7 +1,7 @@
 {
   "name": "blocss",
-  "version": "7.0.0",
-  "description": "Blocss is a small but powerfull css framework designed specially for serious developers.",
+  "version": "8.0.0",
+  "description": "Blocss is a small but powerful css framework designed specially for serious developers.",
   "main": "lib/blocss.scss",
   "directories": {
     "doc": "doc"
@@ -22,7 +22,7 @@
     "atomic design",
     "bem"
   ],
-  "author": "Bram Smulders <bram@bramsmulders.com>",
+  "author": "Joris Hulsbosch <joris@portfolioris.nl>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Blocss/blocss/issues"
@@ -30,9 +30,9 @@
   "homepage": "https://github.com/Blocss/blocss#readme",
   "devDependencies": {
     "glob": "^7.1.1",
-    "stylelint": "^7.10.1",
-    "stylelint-scss": "^1.4.3",
-    "stylelint-config-blocss": "^1.0.3",
-    "node-sass": "^4.5.2"
+    "node-sass": "^4.5.2",
+    "stylelint": "^9.9.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-scss": "^3.4.1"
   }
 }

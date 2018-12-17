@@ -1,10 +1,10 @@
-# Blocss – v7.0.0
+# Blocss – v8.0.0
 
 **Why use Blocss:**
-[Blocss](http://blocss.github.io/blocss) is a small but powerfull css framework designed specially for _serious_ developers.
-Blocss provides little to no design wich means no undoing other peoples design decisions. I’m constantly updating en revising the code to be more lean, more future proof, and most of all: A great base to start your front-end project with.
+[Blocss](http://blocss.github.io/blocss) is a small but powerful css framework designed specially for _serious_ developers.
+Blocss provides little to no design wich means no undoing other peoples design decisions. We’re constantly updating en revising the code to be more lean, more future proof, and most of all: A great base to start your front-end project with.
 
-Use blocss if:
+Use Blocss if:
 
 * You need a powerful library of modules & objects.
 * You appreciate the value of Object Oriented code and the need for scalability
@@ -15,10 +15,6 @@ Use blocss if:
 Blocss is heavily documented, which means that every module is commented very well. For specific implementation details please refer to the [available modules](#available-modules). 
 
 For naming conventions, style guides & design principles please read the **[global documentation](doc/README.md)**.
-
-Keep in mind that the API of some functions, mixins and modules has changed drastically as per v7.0.0, please check the modules for specific implementation details.
-
-Due to this change there is a legacy wrapper available in [/lib/tools/_legacy.scss](/lib/tools/_legacy.scss). This file contains some "old" mixin and function names which are wrapped to their new ones. In that way Blocss 7 is fully compliant with the old seperate modules which you find in the repository, given you use the `legacy` mixin file.
 
 ## Browser support
 Blocss supports ALL major browsers from **IE10** and up, but it’s configurable to be future proof.
@@ -53,7 +49,6 @@ The tools layer houses your globally available tooling, mixins and functions.
 * [_mixins.rem.scss](lib/tools/_mixins.rem.scss)
 * [_mixins.font-size.scss](lib/tools/_mixins.font-size.scss)
 * [_mixins.media-query.scss](lib/tools/_mixins.media-query.scss)
-* [_legacy.scss](lib/tools/_legacy.scss)
 
 ### Generic
 It contains ground-zero styles like [Normalize.css](http://necolas.github.io/normalize.css/), global box-sizing rules, CSS resets and so on.

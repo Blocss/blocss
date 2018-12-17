@@ -1,30 +1,70 @@
-/*  =========================================================================
-    mixins.font-size
-    ========================================================================= */
+///* ========================================================================
+//   #FONT-SIZE
+//   ======================================================================== */
 
-/**
- * Calculates font, rem font size & line height
- * $multiplier: multiplies line height by the given value
- * $line-height: include line height or not
- * The line height parameter can also be used as the multiplier
- *
- * Sample usage @include blocss-font-size(18px, 2);
- */
-@mixin blocss-font-size ($fs, $line-height: true, $multiplier: 1) {
-  @include blocss-rem(font-size, $fs);
+// Generates a rem font-size (with pixel fallback) and a baseline-compatible
+// unitless line-height from a pixel font-size value. Basic usage is simply:
+//
+//   @include blocss-font-size(18px);
+//
+// You can force a specific line-height by passing it as the second argument:
+//
+//   @include blocss-font-size(16px, 1);
+//
+// You can also modify the line-height by increments, while staying in the
+// baseline grid, by setting the `$modifier` parameter. It takes a positive
+// or negative integer, and it will add or remove "lines" to the  generated
+// line-height. This is the recomended way to do it, unless you really need
+// an absolute value. i.e.:
+//
+//   // add 2 lines:
+//   @include blocss-font-size(24px, $modifier: +2);
+//
+//   // subtract 1 line:
+//   @include blocss-font-size(24px, $modifier: -1);
 
-  $use-line-height: false;
+@mixin blocss-font-size($font-size, $line-height: auto, $modifier: 0, $important: false) {
 
-  @if type-of($line-height) == bool {
-    @if $line-height == true {
-      $use-line-height: true;
+  @if (type-of($font-size) == number) {
+    @if (unit($font-size) != "px") {
+      @error "`#{$font-size}` needs to be a pixel value.";
     }
-  } @else if type-of($line-height) == number {
-    $use-line-height: true;
-    $multiplier: $line-height;
+  } @else {
+    @error "`#{$font-size}` needs to be a number.";
   }
 
-  @if $use-line-height == true {
-    line-height: (ceil($fs / $blocss-base-line-height) * ($blocss-base-line-height / $fs)) * $multiplier;
+  @if ($important == true) {
+    $important: !important;
+  } @else if ($important == false) {
+    $important: null;
+  } @else {
+    @error "`#{$important}` needs to be `true` or `false`.";
   }
+
+  font-size: ($font-size / $blocss-global-font-size) * 1rem $important;
+
+  @if ($line-height == "auto") {
+
+    // Define how many grid lines each text line should span.
+    // By default, we set it to the minimum number of lines necessary
+    // in order to contain the defined font-size, +1 for some breathing room.
+    // This can be modified with the `$modifier` parameter.
+    $lines: ceil($font-size / $blocss-global-baseline) + $modifier + 1;
+    $line-height: $lines * $blocss-global-baseline;
+
+    line-height: ($line-height / $font-size) $important;
+  }
+
+  @else {
+
+    @if (type-of($line-height) == number or $line-height == "inherit" or $line-height == "normal") {
+      line-height: $line-height $important;
+    }
+
+    @else if ($line-height != 'none' and $line-height != false) {
+      @error "D’oh! `#{$line-height}` is not a valid value for `$line-height`."
+    }
+
+  }
+
 }

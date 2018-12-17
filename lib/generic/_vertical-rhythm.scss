@@ -9,8 +9,8 @@
  * 1. Apply the `$blocss-base-font-size`, `$blocss-line-height-ratio`
  */
 html {
-  font-size: #{($blocss-base-font-size/16px)*1em}; /* [1] */
-  line-height: #{$blocss-line-height-ratio}; /* [1] */
+  font-size: #{($blocss-global-font-size/16px)*1em}; /* [1] */
+  line-height: #{$blocss-global-line-height-ratio}; /* [1] */
 }
 
 

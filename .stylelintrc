@@ -1,5 +1,5 @@
 {
-  "extends": "stylelint-config-blocss",
+  "extends": "stylelint-config-standard",
   "plugins": [
     "stylelint-scss"
   ],
@@ -8,11 +8,15 @@
     "./test/*.css"
   ],
   "rules": {
+    "max-empty-lines": 3,
+    "block-closing-brace-newline-after": ["always", {
+      "ignoreAtRules": ["if", "else"]
+    }],
     "scss/at-function-pattern": "blocss-.+",
     "scss/at-mixin-pattern": "blocss-.+",
     "scss/at-extend-no-missing-placeholder": true,
     "scss/dollar-variable-colon-space-before": "never",
     "scss/partial-no-import": true,
-    "scss/selector-no-redundant-nesting-selector": true,
+    "scss/selector-no-redundant-nesting-selector": true
   }
 }
