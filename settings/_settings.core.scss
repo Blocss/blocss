@@ -58,18 +58,6 @@ $blocss-line-height-ratio: $blocss-line-height/$blocss-font-size !default;
 
 
 
-/*  Namespace
-    Would you like blocss classes to be used with a different namespace?
-    ========================================================================= */
-
-$blocss-namespace: null !default;
-$blocss-namespace-object: 'o-' !default;
-$blocss-namespace-component: 'c-' !default;
-$blocss-namespace-utility: 'u-' !default;
-$blocss-responsive-modifier: unquote('\\@') !default;
-
-
-
 /*  Misc
     ========================================================================= */
 

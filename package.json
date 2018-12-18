@@ -2,7 +2,7 @@
   "name": "blocss",
   "version": "8.0.0",
   "description": "Blocss is a small but powerful css framework designed specially for serious developers.",
-  "main": "lib/blocss.scss",
+  "main": "blocss.scss",
   "directories": {
     "doc": "doc"
   },

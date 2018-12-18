@@ -1,0 +1,113 @@
+/*  =========================================================================
+    utilities.spacing
+    Utility classes to put specific spacing values onto elements.
+    ========================================================================= */
+
+/*  Variables
+    ========================================================================= */
+
+/**
+ * The properties that you want to generate spacings for
+ * `key` is the classname, `value` is the property name
+ */
+$blocss-spacing-properties: (
+  'padding': 'padding',
+  'margin': 'margin',
+) !default;
+
+
+/**
+ * In which directions you want your spacings to be generated?
+ * `key` is the classname, `value` is the property name
+ */
+$blocss-spacing-directions: (
+  null: null,
+  '-top': '-top',
+  '-right': '-right',
+  '-bottom': '-bottom',
+  '-left': '-left',
+) !default;
+
+
+/**
+ * And which sizes you want to generate?
+ * `key` is the classname, `value` is the value (duh!)
+ */
+$blocss-spacing-sizes: (
+  null: $blocss-space,
+  '-tiny': $blocss-space-tiny,
+  '-small': $blocss-space-small,
+  '-large': $blocss-space-large,
+  '-huge': $blocss-space-huge,
+  '-none': 0
+) !default;
+
+
+/**
+ * Define which namespaced breakpoints you would like to generate for
+ * your spacings.
+ * All are empty by default, but you can add breakpoints at will.
+ *
+ * $blocss-breakpoint-has-spacing: (lap, desk);
+ *
+ * Or
+ *
+ * $blocss-breakpoint-has-spacing: (from: lap, until: desk);
+ *
+ * Note: the name of the breakpoint must exist in the list of `$mq-breakpoints`
+ *       in `settings/responsive`
+ */
+
+/* todo: only this works for now */
+//$blocss-breakpoint-has-spacing: (lap, desk) !default;
+// empty by default
+$blocss-breakpoint-has-spacing: () !default;
+
+
+
+/*  Functions/Mixins
+    ========================================================================= */
+
+@mixin blocss-render-spacings($modifier: '') {
+  @each $property-namespace, $property in $blocss-spacing-properties {
+    @each $direction-namespace, $direction-rules in $blocss-spacing-directions {
+      @each $size-namespace, $size in $blocss-spacing-sizes {
+        .u-#{$property-namespace}#{$direction-namespace}#{$size-namespace}#{$modifier} {
+          @each $direction in $direction-rules {
+            @include blocss-rem(#{$property}#{$direction}, $size, !important);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/*  Module
+    ========================================================================= */
+
+@include blocss-render-spacings();
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+//@if (mixin-exists(blocss-mq)) {
+  @each $breakpoint in $blocss-breakpoint-has-spacing {
+    @if ((nth($breakpoint, 1) == 'from' or nth($breakpoint, 1) == 'until') and nth($breakpoint, 2)) {
+      //@include blocss-mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
+      //@include mq(nth($breakpoint, 2), nth($breakpoint, 1)) {
+      //  @include blocss-render-spacings('#{$blocss-responsive-modifier}#{nth($breakpoint, 1)}-#{nth($breakpoint, 2)}');
+      //}
+    } @else {
+      //@include blocss-mq($breakpoint) {
+      @include mq($from: $breakpoint) {
+        @include blocss-render-spacings('\\@#{$breakpoint}');
+      }
+    }
+  }
+//} @else {
+//  @error 'The spacing utility relies on the `blocss-mq` mixin. Did you include blocss’s mixin file?';
+//}
