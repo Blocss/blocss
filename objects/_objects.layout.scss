@@ -116,7 +116,7 @@
   margin: 0; /* [1] */
   padding: 0; /* [1] */
   list-style: none; /* [2] */
-  margin-left: -$blocss-space; /* [3] */
+  @include blocss-rem(margin-left, -$blocss-space); /* [3] */
 
 
   /**
@@ -128,7 +128,7 @@
 
   > * {
     box-sizing: border-box; /* [1] */
-    padding-left: $blocss-space; /* [3] */
+    @include blocss-rem(padding-left, $blocss-space); /* [3] */
     width: 100%; /* [2] */
   }
 }
@@ -148,37 +148,37 @@
 
 
 .o-layout--tiny {
-  margin-left: -$blocss-space-tiny;
+  @include blocss-rem(margin-left, -$blocss-space-tiny);
 
   > * {
-    padding-left: $blocss-space-tiny;
+    @include blocss-rem(padding-left, $blocss-space-tiny);
   }
 }
 
 
 .o-layout--small {
-  margin-left: -$blocss-space-small;
+  @include blocss-rem(margin-left, -$blocss-space-small);
 
   > * {
-    padding-left: $blocss-space-small;
+    @include blocss-rem(padding-left, $blocss-space-small);
   }
 }
 
 
 .o-layout--large {
-  margin-left: -$blocss-space-large;
+  @include blocss-rem(margin-left, -$blocss-space-large);
 
   > * {
-    padding-left: $blocss-space-large;
+    @include blocss-rem(padding-left, $blocss-space-large);
   }
 }
 
 
 .o-layout--huge {
-  margin-left: -$blocss-space-huge;
+  @include blocss-rem(margin-left, -$blocss-space-huge);
 
   > * {
-    padding-left: $blocss-space-huge;
+    @include blocss-rem(padding-left, $blocss-space-huge);
   }
 }
 

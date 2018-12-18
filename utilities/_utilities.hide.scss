@@ -1,0 +1,43 @@
+/*  =========================================================================
+    utilities.hidden
+    Hide content, or hide visually
+    ========================================================================= */
+
+.u-hidden {
+  display: none !important;
+}
+
+.u-visually-hidden {
+  @include blocss-visually-hidden();
+}
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@if (variable-exists(mq-breakpoints)) {
+  @each $blocss-bp-name, $blocss-bp-value in $mq-breakpoints {
+    @include mq($from: $blocss-bp-name) {
+      .u-hidden\@#{$blocss-bp-name} {
+        display: none !important;
+      }
+
+      .u-visually-hidden\@#{$blocss-bp-name} {
+        @include blocss-visually-hidden();
+      }
+    }
+
+    @include mq($until: $blocss-bp-name) {
+      // todo: fix this. BP is not correct
+      .u-hidden\@max-#{$blocss-bp-name} {
+        display: none !important;
+      }
+
+      // todo: fix this. BP is not correct
+      .u-visually-hidden\@max-#{$blocss-bp-name} {
+        @include blocss-visually-hidden();
+      }
+    }
+  }
+}

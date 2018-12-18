@@ -1,0 +1,44 @@
+/*  =========================================================================
+    Atoms.Objects.Retain
+    Page-level constraining and wrapping elements. A little opinionated,
+    copy this file to your project and adjust to your liking.
+    ========================================================================= */
+
+/*  Module
+    ========================================================================= */
+
+.o-retain {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1920px;
+  padding-left: $blocss-space-small;
+  padding-right: $blocss-space-small;
+}
+
+.o-retain--narrow {
+  max-width: 48em;
+}
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+@include mq($from: lap) {
+  .o-retain {
+    padding-left: $blocss-space;
+    padding-right: $blocss-space;
+  }
+}
+
+@include mq($from: desk) {
+  .o-retain {
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+}
+
+.o-retain--full {
+  padding-left: 0;
+  padding-right: 0;
+}

@@ -1,45 +1,44 @@
-/* ==========================================================================
-   #HEADINGS
-   ========================================================================== */
+/*  =========================================================================
+    elements.headings
+    Simple default styles for headings 1 through 6.
+    As per: https://csswizardry.com/2012/02/pragmatic-practical-font-sizing-in-css/
+    ========================================================================= */
 
-/**
- * Simple default styles for headings 1 through 6. Anything more opinionated
- * than simple font-size changes should likely be applied via classes (see:
- * http://csswizardry.com/2016/02/managing-typography-on-large-apps/).
- */
+/*  Variables
+    ========================================================================= */
 
-// We have all of our heading font sizes defined here. Passing these pixel
-// values into our `blocss-font-size()` mixin will generate a rem-based
-// `font-size` with a pixel fallback, as well as generating a `line-height` that
-// will sit on our baseline grid.
+$blocss-font-alpha:  36px !default;
+$blocss-font-beta:  28px !default;
+$blocss-font-gamma:  24px !default;
+$blocss-font-delta:  20px !default;
+$blocss-font-epsilon:  18px !default;
+$blocss-font-zeta:  16px !default;
 
-$blocss-font-size-h1:  36px !default;
-$blocss-font-size-h2:  28px !default;
-$blocss-font-size-h3:  24px !default;
-$blocss-font-size-h4:  20px !default;
-$blocss-font-size-h5:  18px !default;
-$blocss-font-size-h6:  16px !default;
+
+
+/*  Module
+    ========================================================================= */
 
 h1 {
-  @include blocss-font-size($blocss-font-size-h1);
+  @include blocss-font-size($blocss-font-alpha);
 }
 
 h2 {
-  @include blocss-font-size($blocss-font-size-h2);
+  @include blocss-font-size($blocss-font-beta);
 }
 
 h3 {
-  @include blocss-font-size($blocss-font-size-h3);
+  @include blocss-font-size($blocss-font-gamma);
 }
 
 h4 {
-  @include blocss-font-size($blocss-font-size-h4);
+  @include blocss-font-size($blocss-font-delta);
 }
 
 h5 {
-  @include blocss-font-size($blocss-font-size-h5);
+  @include blocss-font-size($blocss-font-epsilon);
 }
 
 h6 {
-  @include blocss-font-size($blocss-font-size-h6);
+  @include blocss-font-size($blocss-font-zeta);
 }

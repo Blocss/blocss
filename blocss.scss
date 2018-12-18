@@ -52,13 +52,13 @@
 @import "objects/objects.layout";
 @import "objects/objects.list-clean";
 @import "objects/objects.flexembed";
+@import "objects/objects.retain";
 
 
 
 /*  Utilities
     ========================================================================= */
 
-//@import "utilities/fractions";
-//@import "utilities/visually-hidden";
-//@import "utilities/module";
+@import "utilities/utilities.hide";
+@import "utilities/module";
 //@import "utilities/float";

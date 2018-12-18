@@ -9,12 +9,6 @@
     ========================================================================= */
 
 /**
- * Namespacing
- */
-$blocss-module-namespace: $blocss-namespace !default;
-$blocss-module-combined-namespace: #{$blocss-module-namespace}#{$blocss-namespace-utility} !default;
-
-/**
  * Depth
  */
 $blocss-module-depth: 4 !default;
@@ -46,7 +40,7 @@ $blocss-module-depth: 4 !default;
     Core module
     ========================================================================= */
 
-.#{$blocss-module-combined-namespace}module {
+.u-module {
   @include blocss-render-module();
 }
 
