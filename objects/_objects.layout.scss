@@ -1,0 +1,326 @@
+/* ==========================================================================
+   #LAYOUT
+   ========================================================================== */
+
+/**
+ * Grid-like layout system.
+ *
+ * The layout object provides us with a column-style layout system. This file
+ * contains the basic structural elements, but classes should be complemented
+ * with width utilities, for example:
+ *
+ *   <div class="o-layout">
+ *     <div class="u-1/2">
+ *     </div>
+ *     <div class="u-1/2">
+ *     </div>
+ *   </div>
+ *
+ * The above will create a two-column structure in which each column will
+ * fluidly fill half of the width of the parent. We can have more complex
+ * systems:
+ *
+ *   <div class="o-layout">
+ *     <div class="u-1/1  u-1/3@medium">
+ *     </div>
+ *     <div class="u-1/2  u-1/3@medium">
+ *     </div>
+ *     <div class="u-1/2  u-1/3@medium">
+ *     </div>
+ *   </div>
+ *
+ * The above will create a system in which the first item will be 100% width
+ * until we enter our medium breakpoint, when it will become 33.333% width. The
+ * second and third items will be 50% of their parent, until they also become
+ * 33.333% width at the medium breakpoint.
+ *
+ * You can also make any horizontal layout using the following structure:
+ *
+ *   <div class="o-layout">
+ *     <div class="o-layout__fit">
+ *     </div>
+ *     <div class="o-layout__fit">
+ *     </div>
+ *     <div class="o-layout__fit">
+ *     </div>
+ *   </div>
+ *
+ * The above will make the cells shrink-wrap their contents
+ *
+ * You can also make a 'justified' layout, with one or more cells left, and a cell pushed
+ * all the way to the right:
+ *
+ *   <div class="o-layout">
+ *     <div class="o-layout__fill">
+ *     </div>
+ *     <div class="o-layout__fit">
+ *     </div>
+ *   </div>
+ *
+ * We can also manipulate entire layout systems by adding a series of modifiers
+ * to the `.o-layout` block. For example:
+ *
+ *   <div class="o-layout  o-layout--reverse">
+ *
+ * This will reverse the displayed order of the system so that it runs in the
+ * opposite order to our source, effectively flipping the system over.
+ *
+ *   <div class="o-layout  o-layout--[right|center]">
+ *
+ * This will cause the system to fill up from either the centre or the right
+ * hand side. Default behaviour is to fill up the layout system from the left.
+ *
+ * There are plenty more options available to us: explore them below.
+ */
+
+
+
+/*  Functions/Mixins
+    Functions and/or mixins used in this module
+    ========================================================================= */
+
+/**
+ * Modifier: Make a unit shrink wrap its content.
+ */
+@mixin blocss-layout-fit () {
+  width: auto;
+  flex-basis: auto;
+}
+
+/**
+ * Modifier: Make a cell fill the remaining space.
+ *
+ * 1. Be explicit to work around IE10 bug with shorthand flex
+ * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
+ */
+@mixin blocss-layout-fill () {
+  flex: 1 1 0%; /* [1] */
+  flex-basis: 0%; /* [2] */
+}
+
+
+
+/* Default/mandatory classes
+   ========================================================================== */
+
+/**
+ * 1. Defensively reset browser default of element.
+ * 2. Allows us to use the layout object on list element.
+ * 3. Use the negative margin trick for multi-row grids:
+ *    http://csswizardry.com/2011/08/building-better-grid-systems/
+ */
+
+.o-layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0; /* [1] */
+  padding: 0; /* [1] */
+  list-style: none; /* [2] */
+  margin-left: -$blocss-space; /* [3] */
+
+
+  /**
+   * 1. Required in order to combine fluid widths with fixed gutters.
+   * 2. By default, all layout items are full-width (mobile first).
+   * 3. Gutters provided by left padding:
+   *    http://csswizardry.com/2011/08/building-better-grid-systems/
+   */
+
+  > * {
+    box-sizing: border-box; /* [1] */
+    padding-left: $blocss-space; /* [3] */
+    width: 100%; /* [2] */
+  }
+}
+
+
+
+/* Gutter size modifiers
+   ========================================================================== */
+
+.o-layout--flush {
+  margin-left: 0;
+
+  > * {
+    padding-left: 0;
+  }
+}
+
+
+.o-layout--tiny {
+  margin-left: -$blocss-space-tiny;
+
+  > * {
+    padding-left: $blocss-space-tiny;
+  }
+}
+
+
+.o-layout--small {
+  margin-left: -$blocss-space-small;
+
+  > * {
+    padding-left: $blocss-space-small;
+  }
+}
+
+
+.o-layout--large {
+  margin-left: -$blocss-space-large;
+
+  > * {
+    padding-left: $blocss-space-large;
+  }
+}
+
+
+.o-layout--huge {
+  margin-left: -$blocss-space-huge;
+
+  > * {
+    padding-left: $blocss-space-huge;
+  }
+}
+
+
+
+/* Vertical alignment modifiers
+   ========================================================================== */
+
+/**
+ * Align all grid items to the middles of each other.
+ */
+
+.o-layout--middle {
+  align-items: center;
+}
+
+
+/**
+ * Align all grid items to the bottoms of each other.
+ */
+
+.o-layout--bottom {
+  align-items: flex-end;
+}
+
+
+
+/* Fill order modifiers
+   ========================================================================== */
+
+/**
+ * Fill up the layout system from the centre.
+ */
+
+.o-layout--center {
+  justify-content: center;
+}
+
+
+/**
+ * Fill up the layout system from the right-hand side.
+ */
+
+.o-layout--right {
+  justify-content: flex-end;
+}
+
+
+/**
+ * Fill up the layout system from the left-hand side. This will likely only be
+ * needed when using in conjunction with `.o-layout--reverse`.
+ */
+
+.o-layout--left {
+  justify-content: flex-start;
+}
+
+
+
+/* Reverse modifier
+   ========================================================================== */
+
+/**
+ * Reverse the rendered order of the grid system.
+ */
+
+.o-layout--reverse {
+  flex-direction: row-reverse;
+
+  &.o-layout--right {
+    justify-content: flex-start;
+  }
+
+  &.o-layout--left {
+    justify-content: flex-end;
+  }
+}
+
+
+
+/* Auto-widths modifier
+   ========================================================================== */
+
+/**
+ * Cause layout items to take up a non-explicit amount of width.
+ */
+
+.o-layout--auto {
+  > * {
+    width: auto;
+  }
+}
+
+
+
+/*  Cells
+    ========================================================================= */
+
+/**
+ * Modifier: Make a cell shrink wrap its content.
+ */
+.o-layout__fit {
+  @include blocss-layout-fit;
+}
+
+/**
+ * Modifier: Make a cell fill the remaining space.
+ */
+.o-layout__fill {
+  @include blocss-layout-fill;
+}
+
+/**
+ * Modifier: Make a cell center the remaining space
+ */
+.o-layout__center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+/*  Responsive
+    ========================================================================= */
+
+/**
+ * If we’re using Sass-MQ, automatically generate fit/fill classes for each of our
+ * defined breakpoints, and give them a Responsive Suffix, e.g.:
+ *
+ * <div class="o-layout__fit@palm">
+ */
+
+@if (variable-exists(mq-breakpoints)) {
+  @each $blocss-bp-name, $blocss-bp-value in $mq-breakpoints {
+    @include mq($from: $blocss-bp-name) {
+      .o-layout__fit\@#{$blocss-bp-name} {
+        @include blocss-layout-fit;
+      }
+
+      .o-layout__fill\@#{$blocss-bp-name} {
+        @include blocss-layout-fill;
+      }
+    }
+  }
+}

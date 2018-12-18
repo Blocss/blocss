@@ -1,0 +1,33 @@
+/*  CSS-lock
+    Perfect smooth scaling between any 2 values over any viewport range.
+    The property will start scaling and stop scaling exactly where you want.
+    Basic usage:
+      @include blocss-css-lock(font-size, 18px, 24px);
+    This will scale the property perfectly and smooth from 18px
+    on `lap` breakpoint to 24px on `desk` breakpoint.
+    You can also redefine the min- and max breakpoints like this:
+      @include blocss-css-lock(padding, 18px, 24px, desk, wall);
+    As per: https://blog.typekit.com/2016/08/17/flexible-typography-with-css-locks/
+    ========================================================================= */
+
+@mixin blocss-css-lock($property: font-size, $size-min: 16px, $size-max: 20px, $min-bp: lap, $max-bp: desk) {
+  @if (unit($size-min) == 'px' and unit($size-max) == 'px' and unit(map-get($mq-breakpoints, $min-bp)) == 'px' and unit(map-get($mq-breakpoints, $max-bp)) == 'px') {
+    $size-min-rem: blocss-value-to-rem($size-min);
+    $size-max-rem: blocss-value-to-rem($size-max);
+    #{$property}: $size-min-rem;
+
+    @if ($size-min != $size-max) {
+      @include mq($from: $min-bp) {
+        #{$property}: calc(#{$size-min-rem} + #{blocss-strip-units($size-max-rem - $size-min-rem)} * ((100vw - #{(blocss-value-to-rem(map-get($mq-breakpoints, $min-bp)))}) / #{blocss-strip-units(blocss-value-to-rem(map-get($mq-breakpoints, $max-bp) - map-get($mq-breakpoints, $min-bp)))})); // stylelint-disable-line max-line-length
+      }
+
+      @include mq($from: $max-bp) {
+        #{$property}: $size-max-rem;
+      }
+    } @else {
+      @warn '$size-min and $size-max are the same, skipping breakpoints';
+    }
+  } @else {
+    @error '$size-min, $size-max, $min-bp and $max-bp should be defined in px.';
+  }
+}

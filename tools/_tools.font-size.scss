@@ -41,7 +41,7 @@
     @error "`#{$important}` needs to be `true` or `false`.";
   }
 
-  font-size: ($font-size / $blocss-global-font-size) * 1rem $important;
+  font-size: ($font-size / $blocss-font-size) * 1rem $important;
 
   @if ($line-height == "auto") {
 
@@ -49,8 +49,8 @@
     // By default, we set it to the minimum number of lines necessary
     // in order to contain the defined font-size, +1 for some breathing room.
     // This can be modified with the `$modifier` parameter.
-    $lines: ceil($font-size / $blocss-global-baseline) + $modifier + 1;
-    $line-height: $lines * $blocss-global-baseline;
+    $lines: ceil($font-size / $blocss-baseline) + $modifier + 1;
+    $line-height: $lines * $blocss-baseline;
 
     line-height: ($line-height / $font-size) $important;
   }

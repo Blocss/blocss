@@ -1,0 +1,126 @@
+/*  =========================================================================
+settings.defaults
+blocss default variables. Redefine and override them with your
+application-level variables.
+========================================================================= */
+
+/*  Baseline
+    As per:
+    https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632
+    https://medium.freecodecamp.org/8-point-grid-typography-on-the-web-be5dc97db6bc
+    ========================================================================= */
+
+$blocss-baseline: 8px !default;
+
+
+
+/*  Spacing
+    Multiply our `$blocss-baseline` to new spacing variables for
+    more transparency & consistency.
+    ========================================================================= */
+
+/**
+ * How many lines should our spacing units span?
+ * Each value should be an unitless integer.
+ */
+$blocss-space-factor: 3 !default; // 24px
+$blocss-space-factor-tiny: 1 !default; // 8px
+$blocss-space-factor-small: 2 !default; // 16px
+$blocss-space-factor-large: 6 !default; // 48px
+$blocss-space-factor-huge: 12 !default; // 96px
+
+
+/**
+ * Spacing values are determined based on your project’s global baseline grid.
+ * It is not recommended that you modify these following variables because it
+ * can break your vertical rhythm. But if you want, you can :).
+ */
+$blocss-space: $blocss-baseline * $blocss-space-factor !default;
+$blocss-space-tiny: $blocss-baseline * $blocss-space-factor-tiny !default;
+$blocss-space-small: $blocss-baseline * $blocss-space-factor-small !default;
+$blocss-space-large: $blocss-baseline * $blocss-space-factor-large !default;
+$blocss-space-huge: $blocss-baseline * $blocss-space-factor-huge !default;
+
+
+/**
+ * Static breakpoint variable for use in retainers & breakpoints
+ */
+$blocss-static-breakpoint: 1280px !default;
+
+
+
+/*  Typography
+    ========================================================================= */
+
+$blocss-font-size: 16px !default;
+$blocss-line-height: $blocss-space !default;
+$blocss-line-height-ratio: $blocss-line-height/$blocss-font-size !default;
+
+
+
+/*  Namespace
+    Would you like blocss classes to be used with a different namespace?
+    ========================================================================= */
+
+$blocss-namespace: null !default;
+$blocss-namespace-object: 'o-' !default;
+$blocss-namespace-component: 'c-' !default;
+$blocss-namespace-utility: 'u-' !default;
+$blocss-responsive-modifier: unquote('\\@') !default;
+
+
+
+/*  Misc
+    ========================================================================= */
+
+/**
+ * When enabled this setting ensures fallbacks in our rem mixins
+ */
+$blocss-rem-fallback: false !default;
+
+
+
+/*  Internal
+    A couple of settings which are used internally in blocss
+    ========================================================================= */
+
+/**
+ * Shared warnings
+ */
+$blocss-responsive-warning: 'You haven’t included `Sass MQ` and `settings/responsive` in your manifest file. Please add them or add your own responsive classes yourself' !default;
+
+
+
+/*  Checks
+    A couple of checks for correct formatting of variables in this file
+    ========================================================================= */
+
+/**
+ * Check that the chosen font rules are pixel numbers.
+ */
+@each $_blocss-font-globals in $blocss-font-size $blocss-line-height {
+  @if (type-of($_blocss-font-globals) == number) {
+    @if (unit($_blocss-font-globals) != 'px') {
+      @error '`#{$_blocss-font-globals}` needs to be a pixel value.';
+    }
+  } @else {
+    @error '`#{$_blocss-font-globals}` needs to be a number.';
+  }
+}
+
+
+/**
+ * Check that the chosen size factors are unitless, integer numbers.
+ */
+@each $_blocss-spacing-unit in $blocss-space-factor $blocss-space-factor-tiny $blocss-space-factor-small $blocss-space-factor-large $blocss-space-factor-huge {
+  @if (type-of($_blocss-spacing-unit) == number) {
+    @if (unitless($_blocss-spacing-unit) == false) {
+      @error '`#{$_blocss-spacing-unit}` needs to be unitless.';
+    }
+    @if ($_blocss-spacing-unit != ceil($_blocss-spacing-unit)) {
+      @error '`#{$_blocss-spacing-unit}` needs to be an integer.';
+    }
+  } @else {
+    @error '`#{$_blocss-spacing-unit}` needs to be a number.';
+  }
+}
