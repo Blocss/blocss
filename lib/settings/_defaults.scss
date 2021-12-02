@@ -7,9 +7,11 @@
 /*  Typography
     ========================================================================= */
 
+@use "sass:math";
+
 $blocss-base-font-size: 16px !default;
 $blocss-base-line-height: 24px !default;
-$blocss-line-height-ratio: $blocss-base-line-height/$blocss-base-font-size !default;
+$blocss-line-height-ratio: math.div($blocss-base-line-height, $blocss-base-font-size) !default;
 
 
 
@@ -19,8 +21,8 @@ $blocss-line-height-ratio: $blocss-base-line-height/$blocss-base-font-size !defa
     ========================================================================= */
 
 $blocss-space: $blocss-base-line-height !default;
-$blocss-space-tiny: $blocss-space/4 !default;
-$blocss-space-small: $blocss-space/2 !default;
+$blocss-space-tiny: $blocss-space*0.25 !default;
+$blocss-space-small: $blocss-space*0.5 !default;
 $blocss-space-large: $blocss-space*2 !default;
 $blocss-space-huge: $blocss-space*4 !default;
 
