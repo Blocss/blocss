@@ -11,10 +11,9 @@
 @use "sass:math";
 
 html {
-  font-size: #{math.div($blocss-base-font-size, 16px)*1em}; /* [1] */
+  font-size: #{math.div($blocss-base-font-size, 16px) * 1em}; /* [1] */
   line-height: #{$blocss-line-height-ratio}; /* [1] */
 }
-
 
 /**
  * Applies vertical rhythm to designated elements
@@ -33,7 +32,6 @@ pre,
 hr {
   @include blocss-rem(margin-bottom, $blocss-space);
 }
-
 
 /**
  * Default indentation value for lists
