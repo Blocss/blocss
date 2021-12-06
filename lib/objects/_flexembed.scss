@@ -11,6 +11,8 @@
 /**
  * Namespacing
  */
+@use "sass:math";
+
 $blocss-flexembed-namespace: $blocss-namespace !default;
 $blocss-flexembed-combined-namespace: #{$blocss-flexembed-namespace}#{$blocss-namespace-object} !default;
 
@@ -69,7 +71,7 @@ $blocss-flexembed-ratios: (
     }
 
     .#{$blocss-flexembed-combined-namespace}flexembed--#{$a}by#{$b} {
-      padding-bottom: ($b/$a) * 100%;
+      padding-bottom: math.div($b, $a) * 100%;
     }
   }
 }

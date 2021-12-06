@@ -12,6 +12,8 @@
 /**
  * Namespacing
  */
+@use "sass:math";
+
 $blocss-fractions-namespace: $blocss-namespace !default;
 $blocss-fractions-combined-namespace: #{$blocss-fractions-namespace}#{$blocss-namespace-utility} !default;
 $blocss-fractions-responsive-modifier: $blocss-responsive-modifier !default;
@@ -77,7 +79,7 @@ $blocss-fractions-delimiter: "of" !default;
        */
       .#{$blocss-fractions-combined-namespace}#{$blocss-fractions-name-fraction}--#{$numerator}#{$blocss-fractions-delimiter}#{$denominator}#{$modifier} {
         flex-basis: auto !important; /* [1] */
-        width: percentage($numerator / $denominator) !important;
+        width: percentage(math.div($numerator, $denominator)) !important;
       }
     }
   }
