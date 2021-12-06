@@ -10,6 +10,8 @@
  *
  * Sample usage @include blocss-font-size(18px, 2);
  */
+@use "sass:math";
+
 @mixin blocss-font-size ($fs, $line-height: true, $multiplier: 1) {
   @include blocss-rem(font-size, $fs);
 
@@ -25,6 +27,6 @@
   }
 
   @if $use-line-height == true {
-    line-height: (ceil($fs / $blocss-base-line-height) * ($blocss-base-line-height / $fs)) * $multiplier;
+    line-height: (ceil(math.div($fs, $blocss-base-line-height)) * math.div($blocss-base-line-height, $fs)) * $multiplier;
   }
 }

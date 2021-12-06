@@ -1,6 +1,6 @@
 {
   "name": "blocss",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "Blocss is a small but powerfull css framework designed specially for serious developers.",
   "main": "lib/blocss.scss",
   "directories": {
@@ -9,7 +9,7 @@
   "scripts": {
     "test": "npm run lint && npm run scss",
     "lint": "./node_modules/.bin/stylelint \"**/*.scss\" --syntax scss",
-    "scss": "node-sass lib/blocss.scss test/test.css"
+    "scss": "sass lib/blocss.scss test/test.css"
   },
   "repository": {
     "type": "git",
@@ -33,6 +33,6 @@
     "stylelint": "^7.10.1",
     "stylelint-scss": "^1.4.3",
     "stylelint-config-blocss": "^1.0.3",
-    "node-sass": "^4.5.2"
+    "sass": "^1.44.0"
   }
 }
